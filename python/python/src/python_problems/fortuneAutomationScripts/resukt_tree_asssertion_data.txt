@@ -1,0 +1,21 @@
+
+When page error happens:
+
+<title>Page not found &laquo;  Fortune Online</title>
+
+body class="error404
+
+When success happens
+
+<title> Fortune Online</title>
+
+body class="home page page-id-198 page-template page-template-splash-php"
+
+
+If login is unsuccessful
+
+<div class="box_content clearfix">
+                                <ul id="Login_Errors">
+                           <li>Login incorrect</li>
+                        </ul>
+

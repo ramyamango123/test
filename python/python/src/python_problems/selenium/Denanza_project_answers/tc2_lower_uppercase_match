@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.deanza.edu/" />
+<title>tc2_lower_uppercase_match</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tc2_lower_uppercase_match</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>pass &quot;no pass&quot;</td>
+	<td>search_string</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${search_string}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['search_string'].toUpperCase()</td>
+	<td>Upper_case_string</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${Upper_case_string}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['search_string'].toUpperCase()}</td>
+	<td>upper_case_new</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${upper_case_new}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>q</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>btnG</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/of about [0-9]{4}\./)</td>
+	<td>hits</td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>q</td>
+	<td>${Upper_case_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>btnG</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/of about [0-9]+\./)</td>
+	<td>uc_hits</td>
+</tr>
+<tr>
+	<td>verifyExpression</td>
+	<td>${hits}</td>
+	<td>${uc_hits}</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${hits}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${uc_hits}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

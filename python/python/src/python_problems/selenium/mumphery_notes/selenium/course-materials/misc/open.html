@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Opening a Page</h3>
+<p>
+<font size=+2>
+<ol type="I">
+<li>Opening a Page: <b>Base URL</b>
+  <p>
+  <ul type="A">
+  <li>Saved as part of test as of 1.0 Beta; was saved in user's cookie in 0.8.
+  <p>
+  <li>1.0 Beta tests that rely on it are harder to read (because URL to page
+being tested is spread across two locations within test program).
+  <p>
+  <li>Buggy!  For example, changing the <b>Base URL</b> within the <b>Source</b> tab doesn't have any effect on the <b>Base URL</b> displayed at the top of the SIDE GUI.  So one can have two different values on display for <b>Base URL</b> at the same time for the same test!
+  </ul>
+<p>
+<li>Opening a Page: First argument to <b>open</b> command
+  <p>
+  <ul type="A">
+  <li>Can be <b>absolute</b> (complete) URL, e.g.,<br>
+  <b>http://www.deanza.edu/directory/dir-az.html</b>
+  <p>
+  <li>Can be <b>relative</b> (in relation to <b>Base URL</b>), e.g., <br>
+  <b>/directory/dir-az.html</b> OR...<br>
+  <b>directory/dir-az.html</b>
+  </ul>
+<p>
+<li>Opening a Page:  Issue with Slashes (/)
+<p>In 0.8, using a <b>Base URL</b> without a trailing slash, e.g., <br>
+<b>http://www.deanza.edu</b><br>
+ while also using a <b>relative URL</b> without a leading slash, e.g., 
+<b>directory/dir-az.html</b><br>
+would result in SIDE not being able to open the page.  
+<p>This issue has
+been fixed in 1.0 Beta.
+<p>
+<li>Opening a Page: <b>Options</b>=&gt;<b>Options...</b>=&gt;<b>Record absolute URL</b> checkbox
+<p>Affects only what will be put into first argument of <b>open</b> command during recording of a test
+<p>
+<li>Recommendations:
+  <p>
+  <ul>
+  <li>Avoid <b>Base URL</b> until such time as you want to help the OpenQA
+team get this feature right OR until you have a compelling reason for using it.
+  <p>
+  <li>Turn <b>Record absolute URL</b> on and leave it on (until you have a
+compelling reason for doing otherwise).
+  <p>
+  <li>Always provide an <b>absolute URL</b> argument to <b>open</b> (unless
+you have a compelling reason for doing otherwise).
+</ol>
+<p><b>LAB EXERCISE OPEN-1</b>
+<p>Turn on <b>Record absolute URL</b>.  Try recording a simple test to verify
+that an <b>absolute URL</b> is being recorded as the first argument to
+the <b>open</b> command.
+</body>
+</html>

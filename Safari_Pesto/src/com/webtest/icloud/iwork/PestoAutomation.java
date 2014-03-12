@@ -1,0 +1,6732 @@
+
+/*
+ * @Project: Selenium Test Suite for icloud.com
+ * @Developers: Aravind Palakkurishi, Sreejith Sreekantan, Uttam Chauhan
+ * @Reviewed By: Arjun Sadanandan, Jojo John
+ * @Re-written and extended By: Sadia Rauf, Deepak Srikanth, and Pedro Beltran
+ */
+package com.webtest.icloud.iwork;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import org.apache.commons.io.FileUtils;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+import java.util.StringTokenizer;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.ScreenshotException;
+import org.openqa.selenium.safari.SafariDriver;
+
+import au.com.bytecode.opencsv.CSVReader;
+import com.thoughtworks.selenium.Selenium;
+
+public class PestoAutomation
+{
+	private static final String SCREENSHOT_FOLDER = "ScreenshotsForPesto/";	
+	private static final String SCREENSHOT_FORMAT = ".png";
+	private WebDriver driver = null;
+	private PropertyReader  propertyReader = null;
+	private ChromeDriverService service = null;
+	private static Logger testResultsLogger = Logger.getLogger("PestoTestResultsLogger");
+	private static Logger debugLogger = Logger.getLogger("PestoDebugStatementsLogger");
+	private Selenium selenium = null;
+	private Dimension screenDimension = null;
+	private String operatingSystem,browserType;
+	private BrowserCoordinates browserCoordinates = null;
+	private GeneralUtility generalUtility = null;
+	private String mainParentHandle = null;
+    private static boolean passOrFail = true;
+    private String basePath = "/Users/pedro/Safari_Pesto/logs/";
+    private String iworksType = "Pesto";
+	private static final String buildDetails = "Build Details: Newcastle1P40, NewcastleWeb1P39, Bight1A46, Gilligan1A46\n";
+	//private int deleteDoc_X = 1200;
+	//private int deleteDoc_Y = 245;//210
+	//private int createDoc_X = 1200;
+	//private int createDoc_Y = 150;//120
+	private int firstDoc_X = 500;
+	private int firstDoc_Y = 300;
+	private int textBox_X = 600;
+	private int textBox_Y = 300;
+	private int uploadDoc_X = 1200;
+	private int uploadDoc_Y = 135;//210
+	
+
+	
+	@Before
+	public void setUp()
+	{
+		propertyReader = PropertyReader.getInstance();
+		//propertyReader = new PropertyReader();
+		generalUtility = new GeneralUtility();
+		//iCloudConstants = new iCloudConstants();
+		
+		try
+		{
+			testResultsLogger.info("Pesto Automation Test Suite started on: " 
+					+new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()));
+			operatingSystem = System.getProperty("os.name");
+			browserType = System.getProperty("browser.type");
+			//loading generic selenium properties
+			propertyReader.loadSeleniumPropertiesFile();
+			//loading xpath properties based on the browser type
+			propertyReader.loadXpathProperties(browserType);
+			browserCoordinates = new BrowserCoordinates();
+			if ((iCloudConstants.safari).equalsIgnoreCase(browserType))
+			{
+				String chromedriverPath = operatingSystem.equalsIgnoreCase(com.webtest.icloud.iwork.iCloudConstants.MacOsX) ? 
+											System.getProperty("chromedriver.path.mac") : System.getProperty("chromedriver.path.windows");
+				
+				browserType = iCloudConstants.safari;
+				
+				screenDimension = generalUtility.getScreenResolution();
+				String screenResolution = screenDimension.getWidth()+"*"+screenDimension.getHeight();
+				//debugLogger.debug("The screen resolution is "+screenResolution);
+				browserCoordinates.parseXmlToSelectCoordinates(screenResolution,System.getProperty("parse.browser.coordinates.file"),operatingSystem);
+				//exiting if the parsing was unsuccessful
+				//debugLogger.debug("The coordinatesExistsForResolution for chrome browser is "+BrowserCoordinates.coordinatesExistsForResolution);
+				if (!(BrowserCoordinates.coordinatesExistsForResolution))
+				{
+					debugLogger.info("The Test suite for chrome is not applicable for this resolution.Hence quitting");
+					System.exit(0);
+				}
+//				service = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File(chromedriverPath))
+//		        .usingAnyFreePort().build();
+//				service.start();
+//				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//			    driver = new RemoteWebDriver(service.getUrl(),capabilities);
+				driver = new SafariDriver(); 
+			}
+			
+			//getting the browser details from user-agent. 
+			String browserVersion = null; 
+			String userAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent",""); 
+			StringTokenizer st = new StringTokenizer(userAgent); 
+			System.out.println("user Agent = "+userAgent); 
+			while(st.hasMoreElements()){ 
+				String tempStr = (String) st.nextElement(); 
+				if(tempStr.startsWith("Chrome")){ 
+					browserVersion = tempStr; break; 
+				} 
+			} 
+			testResultsLogger.info("OS: " +operatingSystem+" Browser: " +browserVersion + "\n");
+			
+			  selenium = new WebDriverBackedSelenium(driver, propertyReader.getUrl());
+			  selenium.windowMaximize();
+			  driver.get(propertyReader.getUrl());
+			  Thread.sleep(2000);
+			  String applicationType = "pages";
+			  boolean isLoginSuccessful = login(applicationType);
+			  if (!isLoginSuccessful)
+					testResultsLogger.info("GILLIGAN LOGIN :, FAILED");
+				  else
+				    testResultsLogger.info("Gilligan login :, PASSED");
+			  
+		}
+		catch (Exception e)
+		{
+			debugLogger.error(e.getMessage());
+		}
+	}
+
+	@After
+	public void tearDown() 
+	{
+		  boolean isLogoutSuccessful = logout();
+		  if (!isLogoutSuccessful)
+				testResultsLogger.info("GILLIGAN LOGOUT :, FAILED");
+			  else
+			    testResultsLogger.info("Gilligan logout :, PASSED");
+		  if (service !=null )
+		  {
+				service.stop();
+		  }
+		  
+		  try {
+			//converts the test report csv file into json format
+			  convertCsvToJson();
+			  Thread.sleep(2000);
+			  //sends both test reports in .csv and .json formats
+			  execute("PestoTestResults.csv", "PestoTestResults.json");
+		} catch (IOException e) {e.printStackTrace();
+		} catch (JSONException e) {e.printStackTrace();
+		} catch (InterruptedException e) {e.printStackTrace();
+		} catch (Exception e) {e.printStackTrace();
+		}
+		  
+		  //close the browser
+		  driver.quit();
+	}
+
+	public boolean renameDoc()
+	{
+		
+		Actions aObject = new Actions(driver);
+		boolean renameDocSuccessful = false;
+		
+		try {
+			
+			Thread.sleep(3000);
+			if(isElementPresent(By.xpath(iCloudConstants.docSelection)))
+			{			
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					createDocGearMenu();
+					renameDoc();
+				}else{
+					String selectFirstDoc_alt = "//div[@class='img-container']";				
+					//find the name of the document
+					
+					if(isElementPresent(By.xpath(selectFirstDoc_alt)))
+					{
+						driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					} else {
+						debugLogger.info("Unable to select first document");
+						captureScreenshot(renameDocSuccessful, "UnableToSelect");
+					}
+					if(isElementPresent(By.xpath(iCloudConstants.docToRename)))
+					{
+						Thread.sleep(2000);
+						//driver.findElement(By.xpath(iCloudConstants.docToRename)).isSelected();
+						driver.findElement(By.xpath(iCloudConstants.docToRename)).click();
+						Thread.sleep(2000);
+						// enter the new file name
+						aObject.sendKeys("Test_00.pages").perform();
+						aObject.sendKeys(Keys.RETURN).build().perform();
+						Thread.sleep(3000);
+					} else {
+						debugLogger.info("Dcoument with same name already exists");
+						captureScreenshot(renameDocSuccessful, "SameNameExists");
+					}
+				}
+				renameDocSuccessful = true;
+			}else{
+				debugLogger.info("Unable to find document to rename");
+				captureScreenshot(renameDocSuccessful, "SameNameExists");
+			}
+		} catch (Exception e) {
+			debugLogger.info("Rename failed");
+			captureScreenshot(renameDocSuccessful, "RenameFailed");
+		}
+		return renameDocSuccessful;
+	}
+
+	public boolean downloadInPDFContextMenu(String docPath)
+	{
+		boolean downloadSuccessful = false;
+		
+		try {
+			Actions action= new Actions(driver);
+			driver.switchTo().frame("pages");		// uncommented this line for error scenario.
+			
+			if(isElementPresent(By.xpath(docPath)))
+			{
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					//createDoc();
+					downloadInPDFContextMenu(docPath);
+				}else{
+					String selectFirstDoc_alt = "//div[@class='img-container']";
+					//find the name of the document
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(3000);
+					
+					//send keys (ctrl + enter)
+					//action.contextClick().sendKeys(Keys.LEFT_ALT).sendKeys(Keys.RETURN);				
+					action.build().perform();
+					Thread.sleep(3000);
+					String downloadContextMenu = "/html/body/div[5]/div[2]/div/div/div[1]/a";
+					
+					if(isElementPresent(By.xpath(downloadContextMenu)))
+					{
+						driver.findElement(By.xpath(downloadContextMenu)).isEnabled();
+						driver.findElement(By.xpath(downloadContextMenu)).isSelected();
+						driver.findElement(By.xpath(downloadContextMenu)).click();
+							
+						Thread.sleep(3000);
+					
+						String downloadPages = "//div[contains(@class,'type-choice type-choice-1')]";
+						
+						if(isElementPresent(By.xpath(downloadPages)))
+						{
+							driver.findElement(By.xpath(downloadPages)).click();
+							
+							Thread.sleep(6000);
+							
+						} else {
+							downloadSuccessful = false;
+							captureScreenshot(downloadSuccessful, "DownloadPDFIconNotClickable");
+							action.release();
+						}
+					} else {
+							downloadSuccessful = false;
+							captureScreenshot(downloadSuccessful, "DownloadOptionNotSeen");
+							action.release();
+					}
+					downloadSuccessful = true;
+				}
+			}
+		} catch (Exception e) {
+			captureScreenshot(downloadSuccessful, "UnableToLocateFrame");
+			debugLogger.info("Unable to locate the frame.");
+			captureScreenshot(downloadSuccessful, "DownloadPDFViaContextMenuFailed");
+			debugLogger.info("Download PDF Via Context Menu failed.");
+		}
+		//selenium.focus("link=Selenium Overview - Wiki - Liferay.com");
+		//action.release();
+		return downloadSuccessful;
+}
+	//deepak*** commented the if & calling createdoc if no doc found.
+	public boolean deleteInPagesGearMenu(String docPath)
+	{
+		boolean deleteSuccessful = false;
+		
+		try {
+			/*if(isElementPresent(By.xpath(docPath)))
+			{*/	
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					createDocGearMenu();
+					deleteInPagesGearMenu(docPath);
+				}else{
+					
+					String selectFirstDoc_alt = "//div[@class='img-container']";
+					
+					//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(2000);
+					
+					driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+					
+					Thread.sleep(3000);
+					
+					//String downloadOptionGear = "//*[@class='atv3 sc-view sc-menu-item focus']";
+					String deleteOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[6]/a";
+					if(isElementPresent(By.xpath(deleteOptionGear)))
+					{
+						Thread.sleep(3000);
+						driver.findElement(By.xpath(deleteOptionGear)).click();
+						Thread.sleep(6000);
+						String deleteButtonConfirmation = "//label[text()='Delete']";
+						if(isElementPresent(By.xpath(deleteButtonConfirmation))){
+							driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+						}else {
+							//deepak							deleteSuccessful = false;
+							captureScreenshot(deleteSuccessful, "DeleteButtonUnclickable");
+							debugLogger.info("Delete Confirmation Button not clickable");	//deepak
+							}
+					
+						Thread.sleep(3000);
+					}
+					else{
+						captureScreenshot(deleteSuccessful, "DeleteGearOptionNotSeen");
+						debugLogger.info("Delete Gear Option Not Seen");	//deepak
+					}
+				}
+				deleteSuccessful = true;
+		} catch (Exception e) {
+			captureScreenshot(deleteSuccessful, "DeleteViaGearUnsuccessful");
+			debugLogger.info("Delete Via Gear Unsuccessful");
+		}
+		return deleteSuccessful;
+	}
+
+	public boolean deleteContextMenu(String docPath)
+	{
+		boolean deleteSuccessful = false;
+		Actions action= new Actions(driver);
+		
+		try {
+			int docCount = driver.findElements(By.xpath(com.webtest.icloud.iwork.iCloudConstants.docCount)).size();
+			if (docCount <= 1){
+				//no document found, please create a new document 
+				if(createDocGearMenu())
+					debugLogger.info("Delete via context menu: Unable to create a new doc");
+				else
+					debugLogger.info("Delete via context menu: No document found, created a new doc");
+			}
+			else
+			{
+				if(isElementPresent(By.xpath(docPath)))
+				{
+						String selectFirstDoc_alt = "//div[@class='img-container']";
+						//find the name of the document					
+						driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+						Thread.sleep(2000);
+						
+						//send keys (ctrl + enter)
+						WebElement firstDoc = driver.findElement(By.xpath(selectFirstDoc_alt));
+						action.contextClick(firstDoc).sendKeys(Keys.LEFT_CONTROL).sendKeys(Keys.RETURN).perform();
+						Thread.sleep(3000);
+						//action.build().perform();
+						action.release().sendKeys(Keys.NULL).perform();
+						Thread.sleep(3000);
+						
+						String deleteContextMenu = "/html/body/div[5]/div[2]/div/div/div[3]/a";
+						
+						if(isElementPresent(By.xpath(deleteContextMenu)))
+						{					
+							driver.findElement(By.xpath(deleteContextMenu)).click();
+								
+							Thread.sleep(3000);
+							
+							String deleteButtonConfirmation = "//label[text()='Delete']";
+							if(isElementPresent(By.xpath(deleteButtonConfirmation))){
+								driver.findElement(By.xpath(deleteButtonConfirmation)).isSelected();
+								driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+								Thread.sleep(7000);
+								
+							}
+							else {
+								captureScreenshot(deleteSuccessful, "UnabelToConfirmDelete");
+								debugLogger.info("Unable to Click on confirm delete");
+							}
+							
+						} 
+						else {
+							captureScreenshot(deleteSuccessful, "UnableToLocateDeleteOptionViaContext");
+							debugLogger.info("Unable to locate delete option via context.");
+						}				
+				}//doc path
+			}//else of doc > 1
+			deleteSuccessful = true;
+		} 
+		catch (Exception e) {
+			captureScreenshot(deleteSuccessful, "UnableToDeleteViaContext");
+			debugLogger.info("Unable to delete via context.");
+		}
+		return deleteSuccessful;
+	}
+//deepak **** commented the if-else condition on entry and added create doc method before download if nothing present.
+	public boolean downloadInPagesGearMenu(String docPath)
+	{
+		boolean downloadSuccessful = false;
+		
+		try {
+			
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					createDocGearMenu();
+					downloadInPagesGearMenu(docPath);
+				}else{
+
+					String selectFirstDoc_alt = "//div[@class='img-container']";
+
+					//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(2000);
+					
+					driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+					
+					Thread.sleep(3000);
+					
+					//String downloadOptionGear = "//*[@class='atv3 sc-view sc-menu-item focus']";
+					String downloadOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[4]/a";
+					if(isElementPresent(By.xpath(downloadOptionGear)))
+					{
+						Thread.sleep(3000);
+						driver.findElement(By.xpath(downloadOptionGear)).click();
+						Thread.sleep(4000);
+						//String downloadPages = "//img[contains(@src,'export-pages')]";
+						String downloadPages = "//div[contains(@class,'type-choice type-choice-0')]";
+						
+						if(isElementPresent(By.xpath(downloadPages)))
+						{
+							driver.findElement(By.xpath(downloadPages)).click();
+							//selenium.click(downloadPages);
+							Thread.sleep(7000);
+						}
+					}
+					else
+					{
+						captureScreenshot(downloadSuccessful, "DownloadOptionNotPresent");
+						debugLogger.info("Download Option Not present.");
+					}
+				}
+				downloadSuccessful = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return downloadSuccessful;
+	}
+
+	public boolean duplicateContextMenu(String docPath)
+	{
+		boolean duplicateSuccessful = false;
+		//driver.switchTo().frame("pages");
+		
+		try {
+			Actions action= new Actions(driver);
+			generalUtility.bringTheFocusToCentreOfScreen();
+			
+			if(isElementPresent(By.xpath(docPath)))
+			{
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					createDocGearMenu();
+					duplicateContextMenu(docPath);
+				}else{
+					String selectFirstDoc_alt = "//div[@class='img-container']";
+								
+					//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(2000);
+					
+					//send keys (ctrl + enter)
+					//action.contextClick().sendKeys(Keys.CONTROL).sendKeys(Keys.ENTER);
+					action.build().perform();
+					Thread.sleep(3000);
+					String duplicateContextMenu = "/html/body/div[5]/div[2]/div/div/div[2]/a";
+					
+					if(isElementPresent(By.xpath(duplicateContextMenu)))
+					{
+						Thread.sleep(3000);
+						driver.findElement(By.xpath(duplicateContextMenu)).isEnabled();
+						driver.findElement(By.xpath(duplicateContextMenu)).isSelected();
+						driver.findElement(By.xpath(duplicateContextMenu)).click();
+						Thread.sleep(3000);
+					} 
+					else {
+						captureScreenshot(duplicateSuccessful, "DuplicateContextNotClickable");
+						debugLogger.info("Duplicate Option not clickable.");
+						action.release();
+					}
+					Thread.sleep(3000);
+					action.sendKeys(Keys.CONTROL).build().perform();
+				}
+				duplicateSuccessful = true;
+			}
+		} catch (Exception e) {
+			debugLogger.info("Duplicate Via Context failed");
+			captureScreenshot(duplicateSuccessful, "DuplicateContextFail");
+		}
+		return duplicateSuccessful;
+	}
+	
+	public boolean duplicateInPagesGearMenu(String docPath)
+	{
+		
+		boolean duplicateSuccessful = false;
+		
+		try {
+			if(isElementPresent(By.xpath(docPath)))
+			{
+				
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					//createDoc();
+					duplicateInPagesGearMenu(docPath);
+				}else{
+					
+				
+					String selectFirstDoc_alt = "//div[@class='img-container']";				
+
+					//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(2000);
+					
+					driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+					
+					Thread.sleep(3000);
+					
+					
+					//String downloadOptionGear = "//*[@class='atv3 sc-view sc-menu-item focus']";
+					String duplicateOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[5]/a";
+					if(isElementPresent(By.xpath(duplicateOptionGear)))
+					{
+						Thread.sleep(5000);
+						driver.findElement(By.xpath(duplicateOptionGear)).click();
+						Thread.sleep(6000);
+					}
+					else{
+						duplicateSuccessful = false;
+						captureScreenshot(duplicateSuccessful, "DuplicateOptionUnavailable");
+					}
+				}
+				duplicateSuccessful = true;
+			} else {
+				duplicateSuccessful = false;
+				captureScreenshot(duplicateSuccessful, "DuplicateGearMenuNotSeen");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			captureScreenshot(duplicateSuccessful, "DuplicateUnSucessfull");
+		}
+		return duplicateSuccessful;
+	}
+
+	public boolean editBlankDocFontAndStyle(String docPath){
+		
+		boolean isEditBlankSucessfull = false;
+		Actions actionObject = new Actions(driver);
+		
+		try {Thread.sleep(3000);} catch (InterruptedException e1) {e1.printStackTrace();}
+		
+		//Get current windows		
+		final Set<String> beforeHandles = driver.getWindowHandles();
+		//String beforeHandle = driver.getWindowHandle();
+		mainParentHandle = driver.getWindowHandle();
+		
+		String openFirstDoc = "xpath=//*[@class='preview clickable preview-img select-border']";
+		String fontTypeDropDown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view iw-font-family-select-view button sc-regular-size icon']/label";
+		String fontFutura = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view']/div[23]";
+		String sizeChange = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+		String allignmentChange = "//*[@class='sc-button-label sc-regular-size ellipsis icon']";
+
+		try{
+			if(isElementPresent(By.xpath(docPath)))
+			{
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					createDocGearMenu();
+					editBlankDocFontAndStyle(docPath);
+				}
+				else{
+					try {
+						//below code is for opening the blank document
+						selenium.focus(openFirstDoc);
+						Thread.sleep(2000);
+						selenium.doubleClick(openFirstDoc);
+					} catch (Exception e) {
+						captureScreenshot(isEditBlankSucessfull, "OpeningFirstDocFailed");
+						debugLogger.info("Opening of first blank document failed while editing.");
+					}
+				
+				//below code written for handling the pop up********************
+				
+				try {
+					Thread.sleep(1000);
+					
+					//Get current window handles
+					Set<String> cHandle = driver.getWindowHandles();
+					
+					//remove all before handles from after.  Leaves you with new window handle
+					cHandle.removeAll(beforeHandles);		
+					//Switch to the new window
+					String newWindowHandle = cHandle.iterator().next();
+
+					driver.switchTo().window(newWindowHandle);
+					waitForEditStartToComplete();
+					
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "HandlingAlertFailed");
+					debugLogger.info("Clicking on OK Alert option failed.");
+				}
+				
+				// pop up alert handled ends here...
+				
+				// the first paragraph starts
+
+				try {
+					Thread.sleep(13000);
+					actionObject.sendKeys("A published report says Apple may introduce a cheaper iPhone in an effort to reclaim some of the sales that the company has been losing to less expensive handsets running on Google's Android software." +
+							"Wednesday's story in the Wall Street Journal speculates that Apple could lower the iPhone's price by equipping the device with an exterior that costs less than aluminum housing on current models").perform();
+					actionObject.build().perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "WritingFirstParaFailed");
+					debugLogger.info("Writing the first paragraph failed.");
+				}
+				// enter the first paragraph ends
+				
+				// selecting all starts
+				try {
+					actionObject.sendKeys("\uE03D").sendKeys("a").perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "SelectAllFirstParaFailed");
+					debugLogger.info("Select all of first paragraph failed.");
+				}
+				// selecting all ends
+				
+				// selecting the font type starts
+				
+				try {
+					Thread.sleep(3000);
+					selenium.click(fontTypeDropDown);
+					Thread.sleep(3000);
+					selenium.click(fontFutura);
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "ChooseFontTypeFailed");
+					debugLogger.info("Choosing FUTURA font style failed.");
+				}
+				// selecting the font type ends
+				
+				// selecting the font size starts
+				try {
+						Thread.sleep(3000);
+						
+						List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+					    
+						for(int i=0;i<=myFields.size();i++){
+							if(i==0){
+					    	    String optionId = myFields.get(i).getAttribute("id");
+					    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+					    	    Thread.sleep(2000);
+					    	   
+					    	    selenium.doubleClick(upId);
+					    	   
+								Thread.sleep(4000);
+							}
+						}
+					} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "SelectFontSizeFailed");
+					debugLogger.info("Selecting the font size failed.");
+				}
+				// selecting the font size ends
+				
+				// increasing the para spacing before starts
+				try {
+					Thread.sleep(3000);
+					List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==2){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    //selenium.doubleClick(upId);
+				    	    selenium.doubleClick(upId);
+				    	   
+							Thread.sleep(4000);
+						}
+					}
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "IncreaseSpaceBeforeParaFailed");
+					debugLogger.info("Increasing para space 'before' failed.");
+				}
+				// increasing the para spacing before ends
+				
+				// increasing the para spacing after starts
+				try {
+					Thread.sleep(3000);
+					List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==3){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.doubleClick(upId);
+				    	   
+							Thread.sleep(4000);
+						}
+					}
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "IncreaseSpaceAfterParaFailed");
+					debugLogger.info("Increasing para space 'after' failed.");
+				}
+				// increasing the para spacing after ends
+				
+				// changing the alignment starts
+				try {
+					List<WebElement> myFields = driver.findElements(By.xpath(allignmentChange));
+					
+					for(int i=0; i<myFields.size();i++){
+						if(i>3 && i<8){
+							String optionId = myFields.get(i).getAttribute("id");
+							String allignId = "//*[@id='"+optionId+"']";
+							Thread.sleep(3000);
+							selenium.click(allignId);
+						}
+					}
+					
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "AlignmentFailed");
+					debugLogger.info("Alignment failed.");
+				}
+				// changing the alignment ends
+				
+				// changing line spacing starts
+				try {
+					Thread.sleep(3000);
+					List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==1){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.doubleClick(upId);
+				    	   
+							Thread.sleep(4000);
+						}
+					}
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "LineSpacingFailed");
+					debugLogger.info("Line spacing failed");
+				}
+				// changing line spacing ends
+				
+				// indentation starts
+				try {
+					List<WebElement> myFields = driver.findElements(By.xpath(allignmentChange));
+					
+					for(int i=0; i<myFields.size();i++){
+						if(i>10 && i<13){
+							String optionId = myFields.get(i).getAttribute("id");
+							String allignId = "//*[@id='"+optionId+"']";
+							Thread.sleep(3000);
+							selenium.click(allignId);
+						}
+					}
+					
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "IndentationFailed");
+					debugLogger.info("Indenting failed.");
+				}
+				// indentation ends
+				
+				// changing color start
+				try {
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//*[@class='iw-color-label-view']")).click();
+					
+					Thread.sleep(1000);
+					List<WebElement> myFields = driver.findElements(By.xpath("//*[@class='item first-row']"));
+					
+					for(int i=0; i<myFields.size();i++){
+						if(i==1){
+							String optionId = myFields.get(i).getAttribute("id");
+							String colorId = "//*[@id='"+optionId+"']";
+							Thread.sleep(3000);
+							selenium.click(colorId);
+						}
+					}
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "ColorChangeFailed");
+					debugLogger.info("Changing color failed.");
+				}
+				// changing color ends
+				
+				// deselecting starts
+				try {
+					Thread.sleep(3000);
+					actionObject.sendKeys("\uE03D").sendKeys(Keys.UP).perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "DeselectingFailed");
+					debugLogger.info("Deselecting failed.");
+				}
+				// deselecting ends
+				
+				// entring the heading starts
+				try {
+					actionObject.sendKeys("Apple may build less expensive iPhone: report\n\n").perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "EntringHeadingFailed");
+					debugLogger.info("Entring a header failed.");
+				}
+				// entring the heading ends
+				
+				// going to the end and typing a new para starts
+				
+				try {
+					Thread.sleep(2000);
+					actionObject.sendKeys("\uE03D").sendKeys(Keys.DOWN).perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "TraversingToEndFailed");
+					debugLogger.info("Traversing to end of the paragraph failed.");
+				}
+				// going to the end and typing a new para starts
+				
+				// enter a new para at the end starts
+				try {
+					actionObject.sendKeys("\uE03D").perform();
+					actionObject.sendKeys("\n\nThe cheaper iPhone could come out as early as this year, or the idea could be scrapped, as has "+
+					"previously happened. The Journal cites unnamed people briefed on the matter. \nApple, which is based on Cupertino, California, declined "+
+							"to comment.\nPrices for the latest iPhones without a wireless contract currently start at $649. " +
+					"Apple, though, already sells older models at discounts. \nCopyright 2013 The Associated Press. All rights reserved. This material may " +
+							"not be published, broadcast, rewritten or redistributed.").perform();
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "EntringSecondParaFailed");
+					debugLogger.info("Enting second paragraph failed.");
+				}
+				// enter a new para at the end ends
+
+				Thread.sleep(4000);
+				EditBlankDocAddTextBox();
+				Thread.sleep(4000);
+				EditDocFormat();
+				Thread.sleep(4000);
+				viewMenu();
+				Thread.sleep(4000);
+				find();
+				Thread.sleep(4000);
+				helpMenu();
+				
+				Thread.sleep(4000);
+				driver.close();
+				Thread.sleep(3000);
+				driver.switchTo().window(mainParentHandle);
+				
+				Thread.sleep(10000);
+				driver.switchTo().frame("pages");
+			}
+			isEditBlankSucessfull = true;
+		}
+		else{
+			isEditBlankSucessfull = false;
+			debugLogger.debug("Unable to locate the document to open");
+			captureScreenshot(isEditBlankSucessfull, "LocatingDocToOpenFailed");
+		}
+		
+	}
+	catch(Exception e){
+		isEditBlankSucessfull = false;
+		captureScreenshot(isEditBlankSucessfull, "EditBlank");
+		debugLogger.debug("Creating document from gear option was unsuccessful"+e);
+		e.printStackTrace();
+	}
+	return isEditBlankSucessfull;
+}	
+	
+	public boolean uploadInvalidFormat(String docLocation){
+		
+		boolean invlidFormatUpload = false;
+		try {
+				
+				Thread.sleep(2000);
+				if(isElementPresent(By.xpath(iCloudConstants.actionMenu)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.actionMenu)).isSelected();
+					driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+					Thread.sleep(3000);
+			
+					//select from enabled choices
+					List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']"));
+					int index = 0;
+					for (WebElement option : inputs) {
+						if(index==0 || index==1 ){
+							index++;
+						}
+						
+						//upload document option
+						if(index==2){
+							Thread.sleep(3000);
+							option.isSelected();					
+							option.click();
+							Thread.sleep(3000);
+							break;
+						}	
+					}			
+						
+					Thread.sleep(3000);
+
+					if(iCloudConstants.googleChromeBrowser.equalsIgnoreCase(browserType)&& operatingSystem.equalsIgnoreCase(iCloudConstants.MacOsX))
+					{
+						try{
+						
+							try {
+								//clicking on the view icon to view as columns
+								generalUtility.robotMousePress(BrowserCoordinates.xCoordianteForViewIconInDocumentUploadWindow,
+													BrowserCoordinates.yCoordianteForViewIconInDocumentUploadWindow);
+								Thread.sleep(1000);
+							} catch (Exception e) {
+								e.printStackTrace();
+								invlidFormatUpload = false;
+								captureScreenshot(invlidFormatUpload, "UnableToClickOnViewIcon");
+							}
+							try {
+								//clicking on the search box
+								generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInDocumentUploadWindow,
+													BrowserCoordinates.yCoordinateOfSearchInDocumentUploadWindow);
+								Thread.sleep(1000);
+							} catch (Exception e) {
+								e.printStackTrace();
+								invlidFormatUpload = false;
+								captureScreenshot(invlidFormatUpload, "UnableToClickOnSearchBox");
+							}
+							String uploadFileName = generalUtility.getFileNameFromFileLocation(docLocation);
+							debugLogger.debug("The file name obtained after processing file location is "+ uploadFileName);
+							//typing the file name in search box
+							generalUtility.setClipboardData(uploadFileName);
+							
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							//clicking for to search the file in the entire mac
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInEntireMacForDocumentUpload,
+											BrowserCoordinates.yCoordinateOfSearchInEntireMacForDocumentUpload);
+							Thread.sleep(5000);
+							//choosing the first search result document
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchResultInDocumentUploadWindow,
+												BrowserCoordinates.yCoordinateOfSearchResultInDocumentUploadWindow);
+							//clicking the enter to upload the doc
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(3000);						
+							//upload ok button
+							String uploadFileOKButton = "//label[text()='OK']";
+							if(isElementPresent(By.xpath(uploadFileOKButton)))
+							{
+								driver.findElement(By.xpath(uploadFileOKButton)).isSelected();
+								driver.findElement(By.xpath(uploadFileOKButton)).click();
+							}
+							Thread.sleep(2000);
+							//if file to upload already exits, replace it
+							String uploadFileReplaceButton = "//label[text()='Replace']";
+							if(isElementPresent(By.xpath(uploadFileReplaceButton)))
+							{
+								driver.findElement(By.xpath(uploadFileReplaceButton)).isSelected();
+								driver.findElement(By.xpath(uploadFileReplaceButton)).click();							
+							} 
+				
+				
+						} catch (Exception ioe) {
+							debugLogger.info("File couldn't be uploaded" + ioe);
+							invlidFormatUpload = false;
+							captureScreenshot(invlidFormatUpload, "FileCantBeUploaded");
+							logout();
+						}
+					
+					}else {
+						debugLogger.info("Gear menu missing or upload menu is missing...file couldn't be uploaded");
+						invlidFormatUpload = false;
+						captureScreenshot(invlidFormatUpload, "GearMenuMissing");
+					}
+					invlidFormatUpload = true;
+				}//action menu check
+				else
+				{
+					debugLogger.info("Action menu missing or not reachable");
+					invlidFormatUpload = false;
+					captureScreenshot(invlidFormatUpload, "GearMenuNotReachable");
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+			captureScreenshot(invlidFormatUpload, "InvalidFormatUploadUnsuccessful");
+		}
+			
+		//}//tab visible
+	return invlidFormatUpload;
+}
+	
+	private void checkVisibility(String element,String description) throws InterruptedException
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 120 seconds of waiting for visibility of element "
+								+ description);
+			}
+			debugLogger.debug("Searching for visibility of element : "+ description);
+			Boolean blnIsElementVisible = driver.findElement(By.xpath(element)).isDisplayed();
+			if (blnIsElementVisible) 
+			{
+				debugLogger.debug("Visibility of element found : "+ description);
+				break;
+			} 
+			else
+			{
+				Thread.sleep(1000);
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForElementPresent(By by, String description) throws InterruptedException
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				InterruptedException e = new InterruptedException("Timed out after 120 seconds of waiting for element "+ description);
+				throw e;
+			}
+			debugLogger.debug("Searching for element : "+ description);
+			if (isElementPresent(by))
+			{
+				debugLogger.debug("Element found : "+ description);
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}	
+	
+	private boolean isElementPresent(By by)
+    {
+        try 
+        {
+        	driver.findElement(by);
+            return true;
+        }
+        catch(Exception e)
+        {
+        	debugLogger.error(e.getMessage());
+            return false;
+        }
+    }
+	
+	private void waitForSpinningImageDisappear(String spinningImage)throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for login");
+			}
+		
+			if (!isElementPresent(By.xpath(iCloudConstants.spinningImage)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}	
+	
+	private void waitForElementDisappear(String spinningImage)throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for login");
+			}
+		
+			if (!isElementPresent(By.xpath(spinningImage)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForDownloadToComplete()throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for download to complete");
+			}
+		
+			if (!isElementPresent(By.xpath(iCloudConstants.downloadCancel)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForUploadToComplete()throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for upload to complete");
+			}
+		
+			if (!isElementPresent(By.xpath(iCloudConstants.uploadBoxComplete)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForEditCloseComplete()throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for upload to complete");
+			}
+		
+			if (!isElementPresent(By.xpath(iCloudConstants.docEditCloseSpinner)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForEditStartToCompleteA() throws InterruptedException
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds of waiting for element ");
+			}
+			if (isElementPresent(By.xpath(iCloudConstants.editPagesLoad)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	private void waitForEditStartToCompleteB()throws InterruptedException 
+	{
+		for (int second = 0;; second++) 
+		{
+			if (second >= 60)
+			{
+				throw new InterruptedException("Timed out after 60 seconds for waiting for download to complete");
+			}
+		
+			if (!isElementPresent(By.xpath(iCloudConstants.editPagesLoad)))
+			{
+				break;
+			}
+			Thread.sleep(1000);
+		}
+	}
+	
+	public void waitForEditStartToComplete() throws InterruptedException{
+		waitForEditStartToCompleteA();
+		waitForEditStartToCompleteB();
+	}
+	
+	
+	@SuppressWarnings("unused")
+	
+	private void initWebElementsXpathInPagesTab() 
+	{
+		iCloudConstants.deleteOptionClickInPagesTab = propertyReader.getDeleteOptionClickInPagesTab();
+		iCloudConstants.downloadToPagesFormatInPagesTab = propertyReader.getDownloadToPagesFormatInPagesTab();
+		iCloudConstants.downloadToPDFFormatInPagesTab = propertyReader.getDownloadToPDFFormatInPagesTab();
+		iCloudConstants.downloadToWordFormatInPagesTab = propertyReader.getDownloadToWordFormatInPagesTab();
+		iCloudConstants.deleteOptionClickToDeleteDocumentsInDeleteFolderInPagesTab = 
+												propertyReader.getDeleteOptionClickToDeleteDocumentsInDeleteFolderInPagesTab();
+		iCloudConstants.savingTypingRenameTextInFolderInPagesTab = propertyReader.getSavingTypingRenameTextInFolderInPagesTab();
+	}
+	
+	public boolean login()
+	{
+		boolean isLoginSuccessful = false;
+		
+		try{
+   
+			// Clicking the button if present to enter the Sign In page
+			boolean icDevSignInButtonPresent = selenium.isElementPresent(iCloudConstants.icDevSignIn);
+			driver.findElement(By.xpath(iCloudConstants.icDevSignIn)).click();
+			
+		    icDevSignInButtonPresent = selenium.isElementPresent(iCloudConstants.icDevSignIn);
+		    if (icDevSignInButtonPresent)
+		    {
+		    		debugLogger.debug("icDevSignInButton is present");
+		    		checkVisibility(iCloudConstants.icDevSignIn,iCloudConstants.icDevSignInDescription);
+		    		driver.findElement(By.xpath(iCloudConstants.icDevSignIn)).click();
+		    		
+		    		// authorizing with the credentials
+				    //for(int index=0;index<5;index++)
+				    //{
+		    		WebElement user = driver.findElement(By.xpath(iCloudConstants.icUserNameTextbox));
+		    		WebElement password = driver.findElement(By.xpath(iCloudConstants.icPasswordTextbox));
+			    	if(isElementPresent(By.xpath(iCloudConstants.icUserNameTextbox))){					    	
+					    	user.sendKeys(propertyReader.getUserId());
+					}
+					    
+					if(isElementPresent(By.xpath(iCloudConstants.icPasswordTextbox))){					    	
+					    	password.sendKeys(propertyReader.getPwd());
+					}
+					Thread.sleep(3000);	
+					
+					if(isElementPresent(By.xpath(iCloudConstants.icLoginButton))){
+						driver.findElement(By.xpath(iCloudConstants.icLoginButton)).click();
+					}
+					
+					Thread.sleep(3000);	
+				
+					//logic to re-enter username and password
+					if ((user.equals("")) && (password.equals(""))){
+						
+						debugLogger.debug("Please enter correct username or password");
+						Thread.sleep(3000);	
+						user.clear();
+						user.sendKeys(propertyReader.getUserId());
+						Thread.sleep(3000);	
+						password.clear();
+						password.sendKeys(propertyReader.getPwd());
+						Thread.sleep(3000);	
+						driver.findElement(By.xpath(iCloudConstants.icLoginButton)).click();
+						
+						// wait for the spinning image to disappear
+						waitForSpinningImageDisappear(iCloudConstants.spinningImage);
+					}
+						
+				    //}
+		    }else{
+		    		debugLogger.debug("SignInButton is not present");
+		    		debugLogger.info("SignInButton is not present");
+		    		isLoginSuccessful = false;
+		    		Thread.sleep(1000);
+		    }
+		    isLoginSuccessful = true;
+		    
+		}catch (InterruptedException ie)
+		{
+			isLoginSuccessful = false;
+			debugLogger.debug("Login unsuccessful");
+			debugLogger.info("Login unsuccessful");
+	    	ie.printStackTrace();
+	    	driver.close();
+		}
+		
+        return isLoginSuccessful;
+	}
+	
+	public boolean login(String tabname)
+	{
+		boolean isLoginSuccessful = false;
+		String cancelIcon = "//*[@class='atv3 square sc-view sc-button-view sc-static-layout button sc-custom-size cancel']/label";
+
+		
+		try{
+			// Clicking the button if present to enter the Sign In page
+			boolean icDevSignInButtonPresent = selenium.isElementPresent(iCloudConstants.icDevSignIn);
+			driver.findElement(By.xpath(iCloudConstants.icDevSignIn)).click();
+			
+		    icDevSignInButtonPresent = selenium.isElementPresent(iCloudConstants.icDevSignIn);
+		    if (icDevSignInButtonPresent)
+		    {
+	    		debugLogger.debug("icDevSignInButton is present");
+	    		checkVisibility(iCloudConstants.icDevSignIn,iCloudConstants.icDevSignInDescription);
+	    		driver.findElement(By.xpath(iCloudConstants.icDevSignIn)).click();
+	    		
+	    		// authorizing with the credentials
+			    //for(int index=0;index<5;index++)
+			    //{
+	    		WebElement user = driver.findElement(By.xpath(iCloudConstants.icUserNameTextbox));
+	    		WebElement password = driver.findElement(By.xpath(iCloudConstants.icPasswordTextbox));
+		    	if(isElementPresent(By.xpath(iCloudConstants.icUserNameTextbox))){					    	
+				    	user.sendKeys(propertyReader.getUserId());
+				}
+				    
+				if(isElementPresent(By.xpath(iCloudConstants.icPasswordTextbox))){					    	
+				    	password.sendKeys(propertyReader.getPwd());
+				}
+				Thread.sleep(3000);	
+				
+				if(isElementPresent(By.xpath(iCloudConstants.icLoginButton))){
+					driver.findElement(By.xpath(iCloudConstants.icLoginButton)).click();
+				}
+				
+				Thread.sleep(3000);	
+				//logic to re-enter username and password
+				if ((user.equals("")) && (password.equals(""))){
+					debugLogger.debug("Please enter correct username or password");
+					Thread.sleep(3000);	
+					user.clear();
+					user.sendKeys(propertyReader.getUserId());
+					Thread.sleep(3000);	
+					password.clear();
+					password.sendKeys(propertyReader.getPwd());
+					Thread.sleep(3000);	
+					driver.findElement(By.xpath(iCloudConstants.icLoginButton)).click();
+					// wait for the spinning image to disappear
+					waitForSpinningImageDisappear(iCloudConstants.spinningImage);
+				}
+				Thread.sleep(3000);
+				
+				if(isElementPresent(By.xpath("//img[contains(@src,'pages')]")) && tabname=="pages")
+				{
+					try {
+						String getStartedPages = "//label[text()='Get started with Pages']";
+						driver.findElement(By.xpath("//img[contains(@src,'pages')]")).click();
+						waitForSpinningImageDisappear(iCloudConstants.spinningImage);
+						Thread.sleep(3000);	
+						driver.switchTo().frame("pages");
+						Thread.sleep(6000);
+						
+						/** open another browser window and non-supported browser pop-up shows up, close that one. OK Alert
+						if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+						{
+							driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+						}
+						Thread.sleep(2000);*/
+						
+					    //splash screen pop-up shows up, close that one
+						try {
+							//waitForElementPresent(By.xpath(getStartedPages), "Wait Get Started with Pages");
+							if(isElementPresent(By.xpath(getStartedPages)))
+							{
+								driver.findElement(By.xpath(getStartedPages)).click();
+								Thread.sleep(3000);											
+							}
+							
+							isLoginSuccessful = true;
+						} catch (Exception e) {
+							debugLogger.info("Pages icon not found");
+							isLoginSuccessful = false;
+							
+							captureScreenshot(isLoginSuccessful, "Login_PagesIcon");
+						}
+						
+						//unsupported browser pop-up (started showing up on: Feb 20, 2013)
+						//waitForElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup), "Wait for unsupported browser pop-up");
+						if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+						{
+							driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+							Thread.sleep(3000);
+						}
+						
+						
+						//cancel Icon
+						if(isElementPresent(By.xpath(cancelIcon)))
+						{
+							driver.findElement(By.xpath(cancelIcon)).click();
+							Thread.sleep(3000);
+						}
+						
+						isLoginSuccessful = true;
+					} catch (Exception e) {
+						e.printStackTrace();
+						debugLogger.info("Pages icon not found");
+						isLoginSuccessful = false;
+						
+						captureScreenshot(isLoginSuccessful, "Login_PagesIcon");
+					}
+					
+					try {
+						if(isElementPresent(By.xpath("//*[@class='atv3 sc-view toolbar']")))
+						{
+							driver.findElement(By.xpath("//label[text()='Cancel']")).click();
+						}
+						else{}
+					} catch (Exception e) {
+						e.printStackTrace();
+						captureScreenshot(isLoginSuccessful, "TemplateCancelFailed");
+					}
+					
+				} else if(isElementPresent(By.xpath("//img[contains(@src,'keynote')]")) && tabname=="keynote")
+				{
+					try {
+						driver.findElement(By.xpath("//img[contains(@src,'keynote')]")).click();
+						waitForSpinningImageDisappear(iCloudConstants.spinningImage);
+						Thread.sleep(3000);	
+						driver.switchTo().frame("keynote");
+						Thread.sleep(4000);
+						//splash screen pop-up shows up, close that one
+						if(isElementPresent(By.xpath("//label[text()='Get started with Keynote']")))
+						{
+							driver.findElement(By.xpath("//label[text()='Get started with Keynote']")).click();
+							Thread.sleep(4000);
+						}
+						
+						isLoginSuccessful = true;
+					} catch (Exception e) {
+						e.printStackTrace();
+						debugLogger.info("Keynote icon not found");
+						isLoginSuccessful = false;
+						
+						captureScreenshot(isLoginSuccessful, "Login_KeynoteIcon");
+					}
+				} else if (isElementPresent(By.xpath("//img[contains(@src,'numbers')]")) && tabname=="numbers")
+				{
+					driver.findElement(By.xpath("//img[contains(@src,'numbers')]")).click();
+					waitForSpinningImageDisappear(iCloudConstants.spinningImage);
+					Thread.sleep(3000);	
+					driver.switchTo().frame("numbers");
+				    Thread.sleep(4000);
+				    //splash screen pop-up shows up, close that one
+					try {
+						if(isElementPresent(By.xpath("//label[text()='Get started with Numbers']")))
+						{
+							driver.findElement(By.xpath("//label[text()='Get started with Numbers']")).click();
+							Thread.sleep(4000);
+						}
+						
+						isLoginSuccessful = true;
+					} catch (Exception e) {
+						e.printStackTrace();
+						debugLogger.info("Number icon not found");
+						isLoginSuccessful = false;
+						
+						captureScreenshot(isLoginSuccessful, "Login_NumberIcon");
+					}
+				} else {
+					debugLogger.info("Pages or Number or Keynote icon not found");
+					isLoginSuccessful = false;
+					
+					captureScreenshot(isLoginSuccessful, "Login_IconNotFound");
+				}
+				
+		    }else{
+		    		debugLogger.debug("SignInButton is not present");
+		    		isLoginSuccessful = false;
+		    		Thread.sleep(1000);
+		    		captureScreenshot(isLoginSuccessful, "Login_SignInButton");
+		    }
+		    
+		}catch (InterruptedException ie)
+		{
+			isLoginSuccessful = false;
+			captureScreenshot(isLoginSuccessful, "Login_Unsuccessful");
+			debugLogger.debug("Login unsuccessful");
+	    	ie.printStackTrace();
+	    	driver.close();
+		}
+
+        return isLoginSuccessful;
+	}
+	
+	
+	public boolean logout()
+	{
+		boolean isLogooutSuccessful = false;
+		//try {Thread.sleep(3000);} catch (InterruptedException e1) {e1.printStackTrace();}
+		//driver.switchTo().frame("pages");
+		try {Thread.sleep(3000);} catch (InterruptedException e1) {e1.printStackTrace();}
+		
+		boolean tabFrameVisible = true;
+		//boolean tabFrameVisible = isElementPresent(By.xpath(iCloudConstants.tabFrame));
+		
+		try 
+		{
+			Thread.sleep(4000);
+			if (tabFrameVisible)
+			{
+				String icloudLink = "//*[@class='img app-switcher']";
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(icloudLink))){
+					
+					//driver.findElement(By.xpath(icloudLink)).isSelected();
+					driver.findElement(By.xpath(icloudLink)).click();	
+					
+					Thread.sleep(5000);
+					boolean mainTabFrameVisible = isElementPresent(By.xpath("//div[@class='atv3 sc-view']"));
+					
+					String signOutLink = "//div[text()='Sign Out']";
+					
+					if(mainTabFrameVisible){
+						driver.switchTo().defaultContent();
+						try {
+							if(isElementPresent(By.xpath(signOutLink))){
+								driver.findElement(By.xpath(signOutLink)).click();
+								//driver.findElement(By.linkText("Sign Out")).click();
+								Thread.sleep(3000);
+							}
+							else {
+								driver.close();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+							debugLogger.info("Not able to locate Sign out link...exiting");
+							isLogooutSuccessful = false;
+							captureScreenshot(isLogooutSuccessful, "SignOutLinkUnreachable");
+						}
+						
+					}//main tab visible
+
+				}else {
+					debugLogger.info("Not able to locate iCloud link...exiting");
+					isLogooutSuccessful = false;
+					
+					driver.close();
+				}			
+			}//end tab frame
+			isLogooutSuccessful = true;	
+		} catch (InterruptedException e) {
+			
+			isLogooutSuccessful = false;
+			captureScreenshot(isLogooutSuccessful, "Logout");
+			debugLogger.info("Gilligan log out : FAILED");
+
+		}
+	return isLogooutSuccessful;
+		
+	}
+
+	public boolean uploadPages(String docLocation)
+	{
+		boolean uploadSuccessful = false;
+		driver.switchTo().frame("pages");
+		
+		try {
+			Thread.sleep(5000);
+			if(isElementPresent(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)))
+			{
+				driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).isSelected();
+				driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).click();
+				Thread.sleep(4000);
+		
+				//select from enabled choices
+				List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']"));
+				int index = 0;
+				for (WebElement option : inputs) {
+					if(index==0 || index==1 ){
+						index++;
+					}
+					
+					//upload document option
+					if(index==2){
+						Thread.sleep(3000);
+						option.isSelected();					
+						option.click();
+						Thread.sleep(3000);
+						break;
+					}	
+				}			
+
+				Thread.sleep(4000);
+
+				if(com.webtest.icloud.iwork.iCloudConstants.googleChromeBrowser.equalsIgnoreCase(browserType)&& operatingSystem.equalsIgnoreCase(com.webtest.icloud.iwork.iCloudConstants.MacOsX))
+				{
+					Thread.sleep(2000);
+					generalUtility.bringTheFocusToCentreOfScreen();
+					
+					try{								
+							//clicking on the view icon to view as columns
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordianteForViewIconInDocumentUploadWindow,
+												BrowserCoordinates.yCoordianteForViewIconInDocumentUploadWindow);
+							Thread.sleep(2000);
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to locate view icon\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+					}
+					try{
+							//clicking on the search box
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInDocumentUploadWindow,
+												BrowserCoordinates.yCoordinateOfSearchInDocumentUploadWindow);
+							Thread.sleep(2000);
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to search box icon\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+						
+					}		
+					try{
+						String uploadFileName = generalUtility.getFileNameFromFileLocation(docLocation);
+							//debugLogger.debug("The file name obtained after processing file location is "+ uploadFileName);
+							//typing the file name in search box
+							generalUtility.setClipboardData(uploadFileName);
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to type file name\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+					}		
+					try{
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							//clicking for to search the file in the entire mac
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInEntireMacForDocumentUpload,
+											BrowserCoordinates.yCoordinateOfSearchInEntireMacForDocumentUpload);
+							Thread.sleep(5000);
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to locate file\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+					}
+					try{
+							//choosing the first search result document
+							generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchResultInDocumentUploadWindow,
+												BrowserCoordinates.yCoordinateOfSearchResultInDocumentUploadWindow);
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to click on first found file\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+					}
+					try{
+							//clicking the enter to upload the doc
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(4000);
+							uploadSuccessful = true;
+					} catch (Exception ioe) {
+						debugLogger.info("File upload: unable to click enter\n" + ioe);
+						uploadSuccessful = false;
+						captureScreenshot(uploadSuccessful, "FileUploadFailed");
+						generalUtility.robotEscKeyPress();
+					}
+
+					//upload OK button
+					String uploadFileOKButton = "//label[text()='OK']";
+					if(isElementPresent(By.xpath(uploadFileOKButton)))
+					{
+						driver.findElement(By.xpath(uploadFileOKButton)).isSelected();
+						driver.findElement(By.xpath(uploadFileOKButton)).click();
+						uploadSuccessful = true;
+					}
+					try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+				}//browser check
+				//if file to upload already exits, replace it
+				String uploadFileReplaceButton = "//label[text()='Replace']";
+				if(isElementPresent(By.xpath(uploadFileReplaceButton)))
+				{
+					driver.findElement(By.xpath(uploadFileReplaceButton)).isSelected();
+					driver.findElement(By.xpath(uploadFileReplaceButton)).click();
+					uploadSuccessful = true;
+				}
+				Thread.sleep(2000);				
+			}else {
+				debugLogger.info("Gear menu missing or upload menu is missing...file couldn't be uploaded");
+				uploadSuccessful = false;
+				captureScreenshot(uploadSuccessful, "GearMenuMissing");
+			}
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			//e.printStackTrace();
+			uploadSuccessful = false;
+			captureScreenshot(uploadSuccessful, "UploadUnsucessfull");
+		}
+		return uploadSuccessful;
+	}
+
+	public boolean createDocGearMenu()
+	{
+		boolean createDocGearMenuSuccessful = false;
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+		String parentWindowHandle1 = driver.getWindowHandle();
+		String actionMenu = "//*[@class='img action-menu']";
+
+		try {
+			if(isElementPresent(By.xpath(actionMenu))){
+				driver.findElement(By.xpath(actionMenu)).isSelected();
+				driver.findElement(By.xpath(actionMenu)).click();
+				Thread.sleep(3000);
+				List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']/a/span"));
+				int index =0;
+				for (WebElement option : inputs) {
+					if(index==0){
+						Thread.sleep(3000);
+						option.isSelected();
+						option.click();
+					}
+					index++;
+					break;
+				}
+				
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+					
+				}else{
+					debugLogger.info("Template choose window didn't open...going back to canvas manager");
+					driver.switchTo().frame("pages");
+				}
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(parentWindowHandle);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+				driver.switchTo().window(newWindowHandle);
+		
+				Thread.sleep(5000);
+				//open another browser window and non-supported browser pop-up shows up, close that one
+				if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+				}
+				Thread.sleep(3000);
+				//driver.switchTo().window(newWindowHandle);
+				driver.close();
+				Thread.sleep(3000);
+				//generalUtility.bringTheFocusToCentreOfScreen();
+				driver.switchTo().window(parentWindowHandle1);				
+				driver.switchTo().frame("pages");
+				createDocGearMenuSuccessful = true;
+				Thread.sleep(5000);
+			} else {
+				debugLogger.info("Create doc: Unable to find gear menu");
+				captureScreenshot(createDocGearMenuSuccessful, "GearMenuNotFound");
+			}
+		} catch (Exception e) {
+			debugLogger.info("Creating doc via gear menu failed.");
+			captureScreenshot(createDocGearMenuSuccessful, "createDocGearMenuUnSuccessful");
+		}	
+		return createDocGearMenuSuccessful;
+	}
+
+	public boolean chooseBlankThemeGearMenu()
+	{
+		boolean chooseBlankThemeGearMenuSuccessful = false;
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+
+		try {Thread.sleep(3000l);} catch (InterruptedException e) {e.printStackTrace();}
+
+		String actionMenu = "//*[@class='img action-menu']";
+
+		if(isElementPresent(By.xpath(actionMenu))){
+			driver.findElement(By.xpath(actionMenu)).isSelected();
+			driver.findElement(By.xpath(actionMenu)).click();
+			try {Thread.sleep(3000l);} catch (InterruptedException e) {e.printStackTrace();}
+			List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']/a/span"));
+			int index =0;
+			for (WebElement option : inputs) {
+				if(index==0){
+					try {Thread.sleep(3000l);} catch (InterruptedException e) {e.printStackTrace();}
+					option.isSelected();
+					option.click();
+				}
+				index++;
+				break;
+			}
+			try {Thread.sleep(4000);} catch (InterruptedException e) {e.printStackTrace();}
+			
+	        WebElement blankTheme = driver.findElement(By.xpath("//img[contains(@src,'Blank')]"));           
+	        Actions myMouse = new Actions(driver); 
+	        myMouse.moveToElement(blankTheme).build().perform();
+
+			//look for Blank Theme 
+			String blankThemePath = "//img[contains(@src,'Blank')]";
+			try {Thread.sleep(4000);} catch (InterruptedException e) {e.printStackTrace();}
+			if(isElementPresent(By.xpath(blankThemePath))){
+				
+				driver.findElement(By.xpath(blankThemePath)).isSelected();
+				driver.findElement(By.xpath(blankThemePath)).click();
+			
+				//create "Blank" doc
+				try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+				if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+				} else {
+					debugLogger.info("Template choose button not found/not clickable");
+				}
+				
+				try {Thread.sleep(4000);} catch (InterruptedException e) {e.printStackTrace();}
+
+			}else{
+				debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Blank Theme not found...exiting");
+				chooseBlankThemeGearMenuSuccessful = false;
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(parentWindowHandle);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+				driver.switchTo().window(newWindowHandle);
+				//save and close
+				driver.switchTo().window(newWindowHandle).close();
+			}
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(parentWindowHandle);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+				driver.switchTo().window(newWindowHandle);
+				
+				try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+				//try to close the alert window 
+				//Alert alert = driver.switchTo().alert();
+				//alert.dismiss();
+				
+				//open another browser window and non-supported browser pop-up shows up, close that one
+				if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+				}
+				
+				driver.switchTo().window(newWindowHandle);
+				driver.close();
+				try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+				chooseBlankThemeGearMenuSuccessful = true;
+			
+		} else {
+			debugLogger.info("Create doc: Unable to find gear menu");
+		}	
+		return chooseBlankThemeGearMenuSuccessful;		
+	}
+	
+		public boolean chooseProjectProposalTheme(){
+		
+		boolean isProjectProposalThemeSelected = false;
+		try {
+			mainParentHandle = driver.getWindowHandle();
+			Thread.sleep(3000);
+			driver.switchTo().frame("pages");
+			//driver.switchTo().window(mainParentHandle);
+			
+			//create a new doc via + icon
+			int divcount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			//Get current windows		
+			final Set<String> parentWindowHandle = driver.getWindowHandles();
+			try {
+				driver.findElement(By.xpath(iCloudConstants.docCount+"["+divcount+iCloudConstants.docCount_end)).click();			
+			}catch(Exception e){
+				debugLogger.error(e.getMessage());
+			}
+			
+		    WebElement projectProposalTheme = driver.findElement(By.xpath("//img[contains(@src,'ProjectProposal')]"));          
+		    Actions myMouse = new Actions(driver); 
+		    myMouse.moveToElement(projectProposalTheme).build().perform();
+		    
+
+			//look for Project Proposal theme 
+			String projectProposalThemePath = "//img[contains(@src,'ProjectProposal')]";
+			//String partyInviteThemePath = "//img[contains(@src,'PartyInvite')]";
+			
+			if(isElementPresent(By.xpath(projectProposalThemePath)))
+			{
+				driver.findElement(By.xpath(projectProposalThemePath)).isSelected();
+				driver.findElement(By.xpath(projectProposalThemePath)).click();
+			
+				//create "Project Proposal" doc
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+				}
+				Thread.sleep(4000);
+
+				debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Project Proposal Theme selected : PASSED");
+			}else
+			{
+				debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PROJECT PROPOSAL THEME NOT SELECTED : *********FAILED********");
+				
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(parentWindowHandle);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+				driver.switchTo().window(newWindowHandle);
+				//save and close
+				driver.switchTo().window(newWindowHandle).close();
+			}
+			
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			
+			//open another browser window and non-supported browser pop-up shows up, close that one
+			if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+			}
+			driver.switchTo().window(newWindowHandle);
+
+			Thread.sleep(7000);
+			//Image manipulation
+			imageAddAndEdit();			
+			Thread.sleep(7000);
+			
+			driver.close();
+			driver.switchTo().window(mainParentHandle);
+			
+			Thread.sleep(9000);
+			isProjectProposalThemeSelected = true;
+			
+		} catch (Exception e) {
+			captureScreenshot(isProjectProposalThemeSelected, "ProjectProposalThemeNotSelected");
+			debugLogger.info("Project Proposal Theme Not Selected.");
+		}
+		return isProjectProposalThemeSelected;
+	}
+
+public boolean saveDocument(Set<String> currentWindowHandle){
+		
+		boolean isSaveSuccessful = false;
+		String childHandle = driver.getWindowHandle();
+		
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		
+		try {
+			
+			driver.close();
+			Thread.sleep(3000);
+			driver.switchTo().window(childHandle);
+			isSaveSuccessful = true;
+		}catch(Exception e){
+			
+			debugLogger.info("Not able to close the current window");
+			captureScreenshot(isSaveSuccessful, "CloseCurrentWindowFailed");
+		}
+
+		return isSaveSuccessful;
+	}
+
+	private void viewMenu(){
+		
+		boolean isViewMenuWorking = false;
+		try{
+			Thread.sleep(4000);
+			selenium.click("xpath=//div[text()='Tools']");
+		}
+		catch(Exception e1){
+			captureScreenshot(isViewMenuWorking, "ToolsNotClickable");
+			//ImageAddEdit();
+			selenium.close();
+			debugLogger.info("Tools Not Clickable.");
+		}
+		try{
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Guides']");
+		}catch(Exception e){
+			captureScreenshot(isViewMenuWorking, "GuideNotClickable");
+			debugLogger.info("Guide not clickable");
+		}
+			
+		try {
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Center Guides']");
+			selenium.click("xpath=//span[text()='Center Guides']");
+		} catch (InterruptedException e) {
+			captureScreenshot(isViewMenuWorking, "CenterGuidesNotClickable");
+			debugLogger.info("Center Guid not clickable");
+		}
+			//enable guides
+			try {Thread.sleep(4000);} catch (InterruptedException e1) {e1.printStackTrace();}
+			selenium.click("xpath=//div[text()='Tools']");
+			
+			try {Thread.sleep(2000);} catch (InterruptedException e1) {e1.printStackTrace();}
+			selenium.click("xpath=//span[text()='Guides']");
+			
+		try {
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Edge Guides']");
+			selenium.click("xpath=//span[text()='Edge Guides']");
+		} catch (InterruptedException e) {
+			captureScreenshot(isViewMenuWorking, "EdgeGuidesNotClickable");
+			debugLogger.info("Edge Guide not clickable.");
+		}
+			
+			try {Thread.sleep(4000);} catch (InterruptedException e1) {e1.printStackTrace();}
+			selenium.click("xpath=//div[text()='Tools']");
+			
+			try {Thread.sleep(2000);} catch (InterruptedException e1) {e1.printStackTrace();}
+			selenium.click("xpath=//span[text()='Guides']");
+			
+			try {
+				Thread.sleep(2000);
+				selenium.click("xpath=//span[text()='Spacing Guides']");
+				selenium.click("xpath=//span[text()='Spacing Guides']");
+			} catch (InterruptedException e) {
+				captureScreenshot(isViewMenuWorking, "SpacingGuidesNotClickable");
+				debugLogger.info("Spacing Guides not clickable.");
+			}
+			
+			// changing zoom
+			try {
+					String zoomIcon = "//*[@class='sc-button-label sc-regular-size ellipsis icon']";
+					List<WebElement> myFields = driver.findElements(By.xpath(zoomIcon));
+							
+					for(int i=0; i<myFields.size();i++){
+						if(i==1){   
+							String optionId = myFields.get(i).getAttribute("id");
+							String allignId = "//*[@id='"+optionId+"']";
+							Thread.sleep(3000);
+							selenium.click(allignId);
+						}
+					}
+							
+			} catch (Exception e) {
+					captureScreenshot(isViewMenuWorking, "ZoomClickFailed");
+					debugLogger.info("Zoom Click failed.");
+			}
+			
+			try {
+				Thread.sleep(2000);
+				selenium.click("xpath=//*[@class='value ellipsis' and text()='200%']");
+				selenium.click("xpath=//*[@class='value ellipsis' and text()='200%']");
+			} catch (Exception e) {
+				captureScreenshot(isViewMenuWorking, "UnableToZoom200");
+				debugLogger.info("Unable to zoom 200%");
+			}
+	}
+
+	public boolean downloadInWordContextMenu(String docPath)
+	{
+		
+		boolean downloadSuccessful = false;
+		
+		try {
+			Actions action= new Actions(driver);
+			
+			if(isElementPresent(By.xpath(docPath)))
+			{
+				int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+				if (docCount < 1){
+					//no document found, please create a new document 
+					downloadInWordContextMenu(docPath);
+				}
+				else{
+					String selectFirstDoc_alt = "//div[@class='img-container']";		
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					
+					Thread.sleep(2000);
+					
+					//send keys (ctrl + enter)
+					//action.contextClick().sendKeys(Keys.LEFT_ALT).sendKeys(Keys.RETURN);
+					action.build().perform();
+					Thread.sleep(3000);
+					String downloadContextMenu = "/html/body/div[5]/div[2]/div/div/div[1]/a";
+					Thread.sleep(3000);
+					action.sendKeys(Keys.LEFT_ALT).build().perform();
+					if(isElementPresent(By.xpath(downloadContextMenu)))
+					{
+						driver.findElement(By.xpath(downloadContextMenu)).isEnabled();
+						driver.findElement(By.xpath(downloadContextMenu)).isSelected();
+						driver.findElement(By.xpath(downloadContextMenu)).click();
+							
+						Thread.sleep(3000);
+					
+						String downloadPages = "//div[contains(@class,'type-choice type-choice-2')]";
+						
+						if(isElementPresent(By.xpath(downloadPages)))
+						{
+							driver.findElement(By.xpath(downloadPages)).click();
+							Thread.sleep(6000);
+							
+						} else {
+							captureScreenshot(downloadSuccessful, "DownloadWordIcon");
+							debugLogger.info("Download Word Icon not clickable");
+						}
+					} 
+					else {
+							captureScreenshot(downloadSuccessful, "DownloadWordViaContext");
+							debugLogger.info("Download Word Icon not present");
+					}
+				}
+				downloadSuccessful = true;
+			}
+		} 
+		catch (Exception e) {
+			captureScreenshot(downloadSuccessful, "DownloadViaContext");
+			debugLogger.info("Download Word Via Context Failed");
+		}
+		return downloadSuccessful;
+}
+	
+	public boolean choosePersonalPhotoLetterTheme(){
+		
+		boolean isPersonalPhotoLetterSelectable = false;
+		mainParentHandle = driver.getWindowHandle();
+		try{
+			Thread.sleep(3000);
+				
+			//create a new doc via + icon
+			int divcount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			//Get current windows		
+			final Set<String> parentWindowHandle = driver.getWindowHandles();
+			try {
+				driver.findElement(By.xpath(iCloudConstants.docCount+"["+divcount+iCloudConstants.docCount_end)).click();
+			}catch(Exception e){
+				captureScreenshot(isPersonalPhotoLetterSelectable, "UnableToSelectThemeOption");
+				debugLogger.info("Unable to Select Perosnal Photo Letter Theme Option.");
+			}
+			
+	        WebElement PersonalPhotoLetterTheme = driver.findElement(By.xpath("//img[contains(@src,'PersonalPhotoLetter.')]"));
+	        Actions myMouse = new Actions(driver);
+	        myMouse.moveToElement(PersonalPhotoLetterTheme).build().perform();
+	        
+			//look for Personal Photo Letter theme 
+			String PersonalPhotoLetterThemePath = "//img[contains(@src,'PersonalPhotoLetter.')]";
+			
+			if(isElementPresent(By.xpath(PersonalPhotoLetterThemePath)))
+			{
+				driver.findElement(By.xpath(PersonalPhotoLetterThemePath)).isSelected();
+				driver.findElement(By.xpath(PersonalPhotoLetterThemePath)).click();
+				driver.findElement(By.xpath(PersonalPhotoLetterThemePath)).click();
+				//selenium.doubleClick(PersonalPhotoLetterThemePath);
+			
+				//create "Personal Photo Letter" doc
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+				{
+					driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+					//selenium.doubleClick(iCloudConstants.templateChooseButton);
+				}
+				Thread.sleep(12000);
+				
+				debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Personal Photo Letter Theme selected : PASSED");
+			}
+			else
+			{
+				debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PERSONAL PHOTO LETTER THEME not found :  ******* FAILED *******");
+				captureScreenshot(isPersonalPhotoLetterSelectable, "UnableToSelectPersonalPhotoTheme");
+				
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(parentWindowHandle);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+				driver.switchTo().window(newWindowHandle);
+				//save and close
+				driver.switchTo().window(newWindowHandle).close();
+			}
+			
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			
+			//open another browser window and non-supported browser pop-up shows up, close that one
+			if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+			}
+			driver.switchTo().window(newWindowHandle);
+
+			Thread.sleep(5000);
+			//Edit manipulation of a Personal Photo Letter
+			editFontStyle();
+			
+			Thread.sleep(4000);
+			Shapes();
+			Thread.sleep(5000);
+			generalUtility.bringTheFocusToCentreOfScreen();
+			
+			Thread.sleep(6000);
+			driver.close();
+			Thread.sleep(5000);
+			driver.switchTo().window(mainParentHandle);
+			Thread.sleep(5000);	
+			//driver.switchTo().frame("pages");
+			isPersonalPhotoLetterSelectable = true;
+		}
+		catch(Exception e){
+			captureScreenshot(isPersonalPhotoLetterSelectable, "ChoosePersonalPhotoLetter");
+			debugLogger.info("Choosing Personal Photo Letter Theme Failed.");
+		}
+		return isPersonalPhotoLetterSelectable;
+	}
+		
+	public void editFontStyle(){
+		boolean isEditFontStyle = false;
+		try {
+			Robot robot = new Robot();
+			Actions aObject = new Actions(driver);
+			String fontTypeDropDown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view iw-font-family-select-view button sc-regular-size icon']/label";
+			String fontFutura = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view']/div[23]"; //was 24
+			
+			try {
+				//generalUtility.bringTheFocusToCentreOfScreen();
+				Thread.sleep(2000);
+				robot.keyPress(KeyEvent.VK_RIGHT);
+				Thread.sleep(200);
+				robot.keyRelease(KeyEvent.VK_RIGHT);
+				Thread.sleep(200);
+				String text = "Test_02";
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+				//generalUtility.robotEnterKeyPress();
+				
+				//aObject.sendKeys("Test_02").build().perform();
+				/*Thread.sleep(4000);
+				aObject.sendKeys(Keys.DELETE).perform();
+				Thread.sleep(4000);
+				aObject.sendKeys(Keys.DOWN).sendKeys(Keys.RIGHT).perform();
+				Thread.sleep(4000);
+				aObject.sendKeys(Keys.DELETE).perform();*/
+			} catch (Exception e) {
+				captureScreenshot(isEditFontStyle, "UnableToAddAuthor");
+				debugLogger.info("Unable to Add Author");
+			}
+			
+			try {
+				Thread.sleep(2000);
+				for(int i=0;i<5;i++){
+					robot.keyPress(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+				}
+				String text = "Internal User";
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+				/*aObject.sendKeys("Internal User").perform();
+				Thread.sleep(4000);
+				//aObject.sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).sendKeys(Keys.RIGHT).perform();
+				aObject.sendKeys(Keys.DOWN).perform();
+				//aObject.sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).perform();
+				aObject.sendKeys(Keys.RIGHT).perform();
+				//aObject.sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).perform();
+				aObject.sendKeys(Keys.DELETE).perform();*/
+			} catch (Exception e) {
+				captureScreenshot(isEditFontStyle, "UnableToAddNewRecepient");
+				debugLogger.info("Unable to add new recepient");
+			}
+			
+			try {
+				/*Thread.sleep(4000);
+				aObject.sendKeys("Internal User").perform();
+				Thread.sleep(4000);
+				//aObject.sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).perform();
+				aObject.sendKeys(Keys.RIGHT).perform();
+				Thread.sleep(3000);
+				//aObject.sendKeys(Keys.SHIFT).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).
+				//sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).perform();
+				aObject.sendKeys(Keys.SHIFT).sendKeys(Keys.DOWN).perform();*/
+				Thread.sleep(2000);
+				for(int i=0;i<3;i++){
+					robot.keyPress(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+				}
+				String text = "Internal User";
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+			} catch (Exception e1) {
+				captureScreenshot(isEditFontStyle, "UnableToEnterRecepient");
+				debugLogger.info("Unable to enter recepeint");
+			}
+			
+			// selecting the font type starts
+			
+			try {
+				Thread.sleep(2000);
+				for(int i=0;i<6;i++){
+					robot.keyPress(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+				}
+				Thread.sleep(2000);
+				selenium.click(fontTypeDropDown);
+				Thread.sleep(3000);
+				selenium.click(fontFutura);
+			} catch (Exception e) {
+				captureScreenshot(isEditFontStyle, "ChooseFontTypeFailed");
+				debugLogger.info("Choosing FUTURA font style failed.");
+			}
+			// selecting the font type ends
+			
+			try {
+				String downFocus = "//*[@class='sc-button-label sc-regular-size ellipsis icon']";
+				/*Thread.sleep(4000);
+				aObject.sendKeys(Keys.RIGHT).sendKeys(Keys.RIGHT).perform();
+				Thread.sleep(2000);*/
+				
+				Thread.sleep(2000);
+				for(int i=0;i<3;i++){
+					robot.keyPress(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+				}
+				Thread.sleep(2000);
+				
+				List<WebElement> myFields = driver.findElements(By.xpath(downFocus));
+				
+				/*for(int i=0; i<myFields.size();i++){
+					if(i==13){
+						String optionId = myFields.get(i).getAttribute("id");
+						String allignId = "//*[@id='"+optionId+"']";
+						Thread.sleep(3000);
+						selenium.click(allignId);
+					}
+				}*/
+				
+				WebElement listElement = driver.findElement(By.xpath("//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view button sc-regular-size']/label"));
+				//aObject.click(listElement).build().perform();
+				listElement.click();
+				
+				Thread.sleep(2000);
+				for(int i=0;i<3;i++){
+					robot.keyPress(KeyEvent.VK_DOWN);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_DOWN);
+					Thread.sleep(200);
+					robot.keyPress(KeyEvent.VK_DOWN);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_DOWN);
+					Thread.sleep(200);
+					robot.keyPress(KeyEvent.VK_ENTER);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_ENTER);
+				}
+				Thread.sleep(2000);
+				/*aObject.sendKeys(Keys.DOWN).build().perform();
+				Thread.sleep(1000);
+				//aObject.sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).build().perform();
+				aObject.sendKeys(Keys.DOWN).build().perform();
+				aObject.sendKeys(Keys.RETURN).build().perform();*/
+			} catch (Exception e) {
+				captureScreenshot(isEditFontStyle, "UnableToClickListStyle");
+				debugLogger.info("Unable to click on List Style");
+			}
+			
+			isEditFontStyle = true;
+		} catch (Exception e) {
+			captureScreenshot(isEditFontStyle, "EditFontStyleUnsuccessful");
+			debugLogger.info("Edit Font Style Unsuccessful");
+		}
+	}
+
+	public void captureScreenshot(boolean result, String name) {
+		 
+	        if (!result) { // if (result == false)
+	            try {
+	            	SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+	                WebDriver returned = new Augmenter().augment(driver);
+	                if (returned != null) {
+	                	File f = ((TakesScreenshot) returned)
+	                            .getScreenshotAs(OutputType.FILE);
+	                    try {
+	                    	FileUtils.copyFile(f, new File(SCREENSHOT_FOLDER
+	                                + name+"_"+formater.format(Calendar.getInstance().getTime()) + SCREENSHOT_FORMAT));
+	                        } catch (IOException e) {
+	                        e.printStackTrace();
+	                    }
+	                }
+	            } catch (ScreenshotException se) {
+	                se.printStackTrace();
+	            }
+	        }
+	    }
+	 
+	public void EditBlankDocAddTextBox(){
+			
+		boolean isEditTextBox = false;
+		String fontTypeDropDown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view iw-font-family-select-view button sc-regular-size icon']/label";
+		String fontFutura = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view']/div[23]";
+		String sizeChange = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+		String textInputBox = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+		Robot robot;
+		 	try {
+				Actions aObject = new Actions(driver);
+				
+				robot = new Robot();
+				// clicking the text box icon starts
+				try {
+					Thread.sleep(2000);
+					selenium.click("xpath=//div[text()='Text Box']");
+				} catch (Exception e) {
+					captureScreenshot(isEditTextBox, "TextBoxTabNotPresent");
+					debugLogger.info("Unable to click on Text Box icon.");
+				}
+				
+				//selecting arrange to move text box
+				try {
+					Thread.sleep(2000);
+					selenium.click("xpath=//label[text()='Arrange']");
+				} catch (Exception e1) {
+					captureScreenshot(isEditTextBox, "ArrangeTabSelectFailed");
+					debugLogger.info("Unable to select Arrange Tab");
+				}
+				
+				// moving the shape next to the image
+				try{
+					Thread.sleep(3000);
+					
+					List<WebElement> myFields = driver.findElements(By.xpath(textInputBox));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==2){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.focus(inputId);
+				    	    Thread.sleep(1000);
+				    	    
+				    	    String text = "181";
+							generalUtility.setClipboardData(text);
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(2000);
+						}
+						if(i==3){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	   // String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+				    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.focus(inputId);
+				    	    Thread.sleep(1000);
+				    	    
+				    	    String text = "120";
+							generalUtility.setClipboardData(text);
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(2000);
+						}
+					}
+					
+				}
+				catch(Exception e3){
+					captureScreenshot(isEditTextBox, "TextBoxMoveFailed");
+					debugLogger.info("Text Box move does not work*****");
+				}
+				
+				
+				
+				// entering text inside the text box starts
+				try {
+					Thread.sleep(2000);
+					//aObject.sendKeys("Font Example").perform();
+					//driver.findElement(By.xpath("//*[name()='svg' and @class='layer layer-svg layer-svg-selection_highlight']")).sendKeys("font example");
+					String text = "font example";
+					generalUtility.robotMousePress(textBox_X, textBox_Y);
+					generalUtility.robotMousePress(textBox_X, textBox_Y);
+					Thread.sleep(2000);
+					generalUtility.setClipboardData(text);
+					generalUtility.robotSearchProcess(operatingSystem);
+					Thread.sleep(2000);
+					generalUtility.robotEnterKeyPress();
+				} catch (Exception e) {
+					captureScreenshot(isEditTextBox, "TypingInsideTextBoxFailed");
+					debugLogger.info("Typing inside the text box failed.");
+				}
+				// entering text inside the text box ends***********
+				
+				// selecting all inside the text box starts
+				try {
+					Thread.sleep(2000);
+					generalUtility.bringTheFocusToCentreOfScreen();
+					robot.keyPress(KeyEvent.VK_META);
+					Thread.sleep(1000);
+					robot.keyPress(KeyEvent.VK_A);
+					Thread.sleep(1000);
+					robot.keyRelease(KeyEvent.VK_A);
+					Thread.sleep(1000);
+					robot.keyRelease(KeyEvent.VK_META);
+					Thread.sleep(3000);
+				} catch (Exception e) {
+					captureScreenshot(isEditTextBox, "SelectingAllInsideTextBoxFailed");
+					debugLogger.info("Selecting all inside the text box failed.");
+				}
+				
+				// selecting all inside the text box ends
+				
+				// selecting the font type starts
+				
+				try {
+					Thread.sleep(3000);
+					selenium.click(fontTypeDropDown);
+					Thread.sleep(3000);
+					selenium.click(fontFutura);
+				} catch (Exception e1) {
+					captureScreenshot(isEditTextBox, "FontTypeSelectFailed");
+					debugLogger.info("Selecting FUTURA font style failed.");
+				}
+				// selecting the font type ends
+				
+				// selecting the font size starts
+				try {
+					Thread.sleep(3000);
+					
+					List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==0){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    //selenium.doubleClick(upId);
+				    	    driver.findElement(By.xpath(upId)).click();
+				    	    driver.findElement(By.xpath(upId)).click();
+				    	   
+							Thread.sleep(4000);
+						}
+						
+					}
+				} catch (Exception e) {
+				captureScreenshot(isEditTextBox, "FontSizeSelectFailed");
+				debugLogger.info("Selecting font size failed.");
+				}
+				
+				isEditTextBox = true;
+			} catch (Exception e) {
+				captureScreenshot(isEditTextBox, "EditTextBoxUnsuccessful");
+				debugLogger.info("Editing text box was unsuccessful");
+			}
+			
+		}
+	 
+	public void EditDocFormat(){
+			
+		boolean isEditDocFormatSucessfull = false;
+		
+		try {
+			// before disabling the format options
+			try{
+				// clicking on shapes
+				selenium.focus("class=img format-icon");
+				Thread.sleep(2000);
+				selenium.click("xpath=//div[text()='Format']");
+			}
+			catch(Exception e){
+				selenium.close();
+				captureScreenshot(isEditDocFormatSucessfull, "DisableFormatFailed");
+				debugLogger.info("Format menu is not selectable while disabling ***** ");
+			}
+			
+			try{
+				// clicking on shapes
+				selenium.focus("class=img format-icon");
+				Thread.sleep(2000);
+				selenium.click("xpath=//div[text()='Format']");
+			}
+			catch(Exception e){
+				selenium.close();
+				captureScreenshot(isEditDocFormatSucessfull, "EnableFormatFailed");
+				debugLogger.info("Format menu is not selectable while enabling ***** ");
+			}
+			isEditDocFormatSucessfull = true;
+		} catch (Exception e) {;
+			captureScreenshot(isEditDocFormatSucessfull, "isEditDocFormatUnSucessfull");
+			debugLogger.info("Editing Document Format Unsuccessful");
+		}
+	}
+		
+	public void Shapes(){
+			
+		boolean isShapesTabFunctional = false;
+		//String shapeInputBox = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-text-field-view not-empty sc-regular-size']";
+		String shapeInputBox = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+		
+		try {
+			try{
+				// clicking on shapes
+				selenium.focus("class=img insert-shape-icon");
+				Thread.sleep(2000);
+				selenium.click("xpath=//div[text()='Shapes']");
+			}
+			catch(Exception e){
+				selenium.close();
+				captureScreenshot(isShapesTabFunctional, "ClickShapesIconFailed");
+				debugLogger.info("Shapes menu is not selectable or pop over menu did not appear to allow to select star ***** ");
+			}
+			
+			try {
+				Thread.sleep(2000);
+				selenium.click("xpath=html/body/div[6]/div[3]/div[15]/div[2]");		// selecting the star
+			} catch (Exception e1) {
+				captureScreenshot(isShapesTabFunctional, "SelectStarShapeFailed");
+				debugLogger.info("Selecting Start Shape Failed.");
+			}
+			
+			
+			try {
+				Thread.sleep(2000);
+				selenium.click("xpath=//label[text()='Arrange']");
+			} catch (Exception e1) {
+				captureScreenshot(isShapesTabFunctional, "ArrangeTabSelectFailed");
+				debugLogger.info("Unable to select Arrange Tab");
+			}
+			
+			// moving the shape next to the image
+			try{
+				Robot robot = new Robot();
+				Thread.sleep(3000);
+				
+
+				List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+				int width = 80;
+	    	    int height = 50;
+	    	    for(int i=0;i<=myFields.size();i++){
+					if(i==0){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.focus(inputId);
+			    	    Thread.sleep(1000);
+			    	    
+			    	    String text = "80";
+						generalUtility.setClipboardData(text);
+						generalUtility.robotSearchProcess(operatingSystem);
+						Thread.sleep(2000);
+						generalUtility.robotEnterKeyPress();
+			    	    
+			    	   /* driver.findElement(By.xpath(inputId)).sendKeys("80");
+			    	    Thread.sleep(1000);
+			    	    driver.findElement(By.xpath(inputId)).sendKeys(Keys.ENTER);
+			    	    Thread.sleep(1000);
+			    	    selenium.focus(inputId);*/
+			    	    
+			    	    /*robot.keyPress(KeyEvent.VK_ENTER);
+			    	    Thread.sleep(1000);
+			    	    robot.keyRelease(KeyEvent.VK_ENTER)*/;
+						Thread.sleep(3000);
+					}
+					if(i==1){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	   // String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+
+			    	    Thread.sleep(2000);
+				    	   
+			    	    selenium.focus(inputId);
+			    	    Thread.sleep(1000);
+			    	    
+			    	    String text = "50";
+						generalUtility.setClipboardData(text);
+						generalUtility.robotSearchProcess(operatingSystem);
+						Thread.sleep(2000);
+						generalUtility.robotEnterKeyPress();
+			    	   
+			    	    /*for(int t=0;t<212;t++){
+			    	    	driver.findElement(By.xpath(inputId)).click();
+			    	    }*/
+			    	   // selenium.focus(inputId);
+			    	   // driver.findElement(By.xpath(inputId)).sendKeys("120 px");
+			    	    //robot.keyPress(KeyEvent.VK_ENTER);
+			    	    //Thread.sleep(1000);
+			    	    //robot.keyRelease(KeyEvent.VK_ENTER);
+			    	    //driver.findElement(By.xpath(inputId)).sendKeys(Keys.RETURN);
+			    	    
+			    	   
+						Thread.sleep(3000);
+					}
+				}
+	    	   /* Actions action = new Actions(driver);
+				for(int i=0;i<=myFields.size();i++){
+					if(i==0){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.focus(inputId);
+			    	    WebElement widthElement = driver.findElement(By.xpath(inputId));
+			    	    action.sendKeys(widthElement, Keys.DELETE).perform();
+			    	    action.sendKeys(widthElement, Keys.SHIFT).perform();
+			    	    driver.findElement(By.xpath(inputId)).sendKeys(width +" px");
+			    	   
+			    	   
+						Thread.sleep(3000);
+					}
+					if(i==1){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.focus(inputId);
+			    	    driver.findElement(By.xpath(inputId)).sendKeys(Keys.DELETE);
+			    	    driver.findElement(By.xpath(inputId)).sendKeys(height + " px");
+			    	   
+						Thread.sleep(3000);
+					}
+				}*/
+	    	 
+			}
+			catch(Exception e2){
+				captureScreenshot(isShapesTabFunctional, "ShapeReLocFailed");
+				debugLogger.info("Shape move does not work*****");
+			}
+			// resizing the shape
+		/*	try{
+				Thread.sleep(3000);
+				
+				List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+			    
+				for(int i=0;i<=myFields.size();i++){
+					if(i==2){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.focus(inputId);
+			    	    driver.findElement(By.xpath(inputId)).sendKeys("400 px");
+			    	   
+						Thread.sleep(3000);
+					}
+					if(i==3){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.focus(inputId);
+			    	    driver.findElement(By.xpath(inputId)).sendKeys("20 px");
+			    	    driver.findElement(By.xpath(inputId)).sendKeys(Keys.RETURN);
+			    	   
+						Thread.sleep(3000);
+					}
+				}
+				
+			}*/
+			
+			try{
+				   List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+
+				   for(int i=0;i<=myFields.size();i++){
+						if(i==2){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.focus(inputId);
+				    	    Thread.sleep(1000);
+				    	    
+				    	    String text = "400";
+							generalUtility.setClipboardData(text);
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(3000);
+						}
+						if(i==3){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+
+				    	    Thread.sleep(2000);
+					    	   
+				    	    selenium.focus(inputId);
+				    	    Thread.sleep(1000);
+				    	    
+				    	    String text = "20";
+							generalUtility.setClipboardData(text);
+							generalUtility.robotSearchProcess(operatingSystem);
+							Thread.sleep(2000);
+							generalUtility.robotEnterKeyPress();
+							Thread.sleep(3000);
+						}
+					}
+			}
+			catch(Exception e3){
+				captureScreenshot(isShapesTabFunctional, "ShapeReSizeFailed");
+				debugLogger.info("Shape resize does not work*****");
+			}
+			isShapesTabFunctional = true;
+		} catch (Exception e) {
+			captureScreenshot(isShapesTabFunctional, "ShapesTabNotFunctional");
+			debugLogger.info("Shapes Tab Function Failed.");
+		}
+		
+		// switching to the document Window
+		Set<String> lHandle = driver.getWindowHandles();
+		lHandle.remove(mainParentHandle);
+		String theWindow = lHandle.toString();
+		//removing brackets from the string "theWindow"
+		String string_one = theWindow.substring(0, theWindow.length()-1);
+		String myDocWindow = string_one.substring(1,string_one.length());
+		driver.switchTo().window(myDocWindow);
+	}
+		
+	public void helpMenu(){
+		boolean isHelpFunctional = false;
+		try {
+			final Set<String> beforeHandlesA = driver.getWindowHandles();
+			try{
+				Thread.sleep(3000);
+				selenium.click("xpath=//div[text()='Tools']");
+			}
+			catch(Exception e){
+				captureScreenshot(isHelpFunctional, "ToolsIconNotClickable");
+				debugLogger.info("Tools Icon not Clickable.");
+			}
+			try{
+				Thread.sleep(2000);
+				selenium.click("xpath=//span[text()='Help']");
+				selenium.click("xpath=//span[text()='Help']");
+			}catch(Exception e){
+				captureScreenshot(isHelpFunctional, "HelpIconNotClickable");
+				debugLogger.info("Help Icon not clickable.");
+			}
+			try{
+				Thread.sleep(3000);
+				
+				Set<String> cHandle1 = driver.getWindowHandles();
+				cHandle1.removeAll(beforeHandlesA);
+				String newWindowHandle1 = cHandle1.iterator().next();
+				driver.switchTo().window(newWindowHandle1);
+				Thread.sleep(2000);
+				driver.close();
+				Thread.sleep(4000);
+				
+				// switching to the document Window
+				Set<String> lHandle = driver.getWindowHandles();
+				lHandle.remove(mainParentHandle);
+				String theWindow = lHandle.toString();
+				//removing brackets from the string "theWindow"
+				String string_one = theWindow.substring(0, theWindow.length()-1);
+				String myDocWindow = string_one.substring(1,string_one.length());
+				driver.switchTo().window(myDocWindow);
+				
+				Thread.sleep(2000);
+				isHelpFunctional = true;
+				
+			}catch(Exception e){
+				captureScreenshot(isHelpFunctional, "HelpWindowNotClosing");
+				debugLogger.info("Help Window not closing.");
+			}
+			isHelpFunctional = true;
+		} catch (Exception e) {
+			captureScreenshot(isHelpFunctional, "HelpFailed");
+			debugLogger.info("Help action failed.");
+		}
+	}
+	
+	public void find(){
+		
+		boolean isFindFunctional = false;
+		String gearFind = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-menu-item']";
+		
+		try {
+			try{
+				Thread.sleep(3000);
+				selenium.click("xpath=//div[text()='Tools']");
+			}
+			catch(Exception e){
+				captureScreenshot(isFindFunctional, "ToolsIconNotClickable");
+				debugLogger.info("Tools Icon not clickable");
+			}
+			
+			try{
+				Thread.sleep(2000);
+				selenium.click("xpath=//span[text()='Show Find & Replace']");
+				selenium.click("xpath=//span[text()='Show Find & Replace']");
+			}catch(Exception e){
+				captureScreenshot(isFindFunctional, "FindIconNotClickable");
+				debugLogger.info("Find Icon not clickable");
+			}
+			
+			try {
+				Thread.sleep(2000);
+				if(isElementPresent(By.xpath("//*[@aria-label='Find']"))){
+					driver.findElement(By.xpath("//*[@aria-label='Find']")).sendKeys("the");
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//label[text()='Done']")).click();
+				}
+			} catch (InterruptedException e) {
+				captureScreenshot(isFindFunctional, "KeywordSearchFailed");
+				debugLogger.info("Keyword search failed.");
+			}
+			
+			try {
+				Thread.sleep(3000);
+				selenium.click("xpath=//div[text()='Tools']");
+				
+				Thread.sleep(2000);
+				selenium.click("xpath=//span[text()='Show Find & Replace']");
+				selenium.click("xpath=//span[text()='Show Find & Replace']");
+				
+				Thread.sleep(2000);
+				if(isElementPresent(By.xpath("//*[@class='img options-button']"))){
+					driver.findElement(By.xpath("//*[@class='img options-button']")).click();
+					
+					Thread.sleep(3000);
+					
+					List<WebElement> myFields = driver.findElements(By.xpath(gearFind));
+					
+					for(int i=0;i<=myFields.size();i++){
+						if(i==1){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String inputId = "//*[@id='"+optionId+"']/a/span";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    selenium.click(inputId);
+				    	    selenium.click(inputId);
+							Thread.sleep(3000);
+						}
+					}
+					selenium.focus("xpath=//*[@aria-label='Find']");
+					driver.findElement(By.xpath("//*[@aria-label='Find']")).sendKeys("the");
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//*[@aria-label='Replace']")).sendKeys("yes");
+					Thread.sleep(3000);
+					if(isElementPresent(By.xpath("//label[text()='Replace']"))){
+						for(int i=0;i<11;i++){
+							selenium.click("//label[text()='Replace']");
+						}
+					}
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//label[text()='Done']")).click();
+				}
+			} catch (InterruptedException e) {
+				captureScreenshot(isFindFunctional, "FindReplaceFailed");
+				debugLogger.info("Find and Repalace failed.");
+			}
+			
+			isFindFunctional = true;
+			
+		} catch (Exception e) {
+			captureScreenshot(isFindFunctional, "FindScenarioFailed");
+			debugLogger.info("Find Scenario Failed.");
+		}
+		
+		
+	}
+	//deepak addition for demo.
+public boolean saveDocument(){
+		
+		boolean isSaveSuccessful = false;
+
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		
+		try {
+			
+			driver.close();
+			isSaveSuccessful = true;
+		}catch(Exception e){
+			debugLogger.info("Not able to close the current window");
+			captureScreenshot(isSaveSuccessful, "CloseCurrentWindowFailed");
+		}
+
+		return isSaveSuccessful;
+	}
+
+public boolean deleteAllDoc(){
+	
+	boolean isDeleteAll = false;
+	
+	Actions action= new Actions(driver);
+	
+	try {
+		int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+		WebElement actionMenuElemeent = driver.findElement(By.xpath(iCloudConstants.helpMenu));
+		actionMenuElemeent.click();
+		
+		if(docCount>1){
+			
+			String selectFirstDoc_alt = "//div[@class='img-container']";
+			
+			driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+			Thread.sleep(2000);
+			action.sendKeys("\uE03D").sendKeys("a").perform();
+			Thread.sleep(2000);
+			
+			//send keys (ctrl + enter)
+			WebElement firstDoc = driver.findElement(By.xpath(selectFirstDoc_alt));
+			action.contextClick(firstDoc).sendKeys(Keys.LEFT_CONTROL).sendKeys(Keys.RETURN).perform();
+			Thread.sleep(3000);
+			//action.build().perform();
+			action.release().sendKeys(Keys.NULL).perform();
+			Thread.sleep(3000);
+			
+							
+			String deleteContextMenu = "/html/body/div[5]/div[2]/div/div/div[3]/a";
+			
+			if(isElementPresent(By.xpath(deleteContextMenu)))
+			{					
+				driver.findElement(By.xpath(deleteContextMenu)).click();
+					
+				Thread.sleep(3000);
+				
+				String deleteButtonConfirmation = "//label[text()='Delete']";
+				if(isElementPresent(By.xpath(deleteButtonConfirmation))){
+					driver.findElement(By.xpath(deleteButtonConfirmation)).isSelected();
+					driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+					Thread.sleep(7000);
+				}else {
+					captureScreenshot(isDeleteAll, "DeleteConfSelectFailed");
+					debugLogger.info("Unable to confirm Delete by clicking on the button");
+				}
+				
+			} else {
+				captureScreenshot(isDeleteAll, "UnableToSelectDelete");
+				debugLogger.info("Unable to select delete option");
+			}	
+			isDeleteAll = true;
+		}
+		else{
+			debugLogger.info("There are no existing documents to delete.");
+		}
+	} catch (Exception e) {
+		captureScreenshot(isDeleteAll, "DeleteAllExistingFailed");
+		debugLogger.info("Delete all existing documents failed.");
+	}
+	return isDeleteAll;
+}
+
+//@Ignore
+@Test
+public void testRunAllScenario()
+{
+	
+	testScenario03B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();} 
+	
+	testScenario04B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+	
+	/*testScenario05B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+	
+	testScenario06B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+
+	testScenario07B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();} 
+	
+	testScenario08B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+	*/
+	/*testScenario09B();
+	try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}*/
+	//removeHelpMenuYellow(); 
+}
+
+private void imageAddAndEdit(){
+
+
+	try {Thread.sleep(9000);} catch (InterruptedException e) {e.printStackTrace();}
+	Actions action = new Actions(driver);
+	boolean isImageEditPossible = false;
+	try{				
+			Thread.sleep(2000);
+			String imageOndocLink = "//*[@width='475' and @height='310' and @x='0']";
+			String imageIcon = "//div[@class='iw-toolbar-button-label' and text()='Image']";		
+			String bordertypeDropdown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view button sc-regular-size']";
+			String borderPicFrame ="//span[contains(text(),'Picture')]";
+			String borderPicFrameTypeDropdown =".//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme iw-picture-frame sc-view sc-button-view button sc-regular-size icon']";
+			String borderPicFrameType ="//div[@class='icon img' and contains(@style,'Hardcover')]";				
+			String shadowCheckbox ="//div[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-button-view sc-checkbox-view sc-checkbox-control sc-static-layout checkbox sc-regular-size']/span[@class='label sc-regular-size' and text()='Shadow']";
+			String reflectionCheckbox ="//div[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-button-view sc-checkbox-view sc-checkbox-control sc-static-layout checkbox sc-regular-size']/span[@class='label sc-regular-size' and text()='Reflection']";
+			String chooseImageButton ="//label[text()='Choose Image']";
+			String opacityInputbox = "//input";
+			String reflectionInputbox = "//input";
+			String textImageText = "//*[contains(@style, 'font-size: 40px;')]";
+			Thread.sleep(1000);
+			
+			if(isElementPresent(By.xpath(imageOndocLink)))
+			{			
+				Thread.sleep(1000);
+				
+				Thread.sleep(2000);
+				//select the image
+				driver.findElement(By.xpath(imageOndocLink)).click();
+				
+				//re-size image
+				Thread.sleep(2000);
+				//selenium.click("xpath=//label[text()='Arrange']");
+				if(isElementPresent(By.xpath("//label[text()='Arrange']")))
+				{
+					driver.findElement(By.xpath("//label[text()='Arrange']")).click();
+				} else {
+					debugLogger.info("unable to find arrange tab");
+					captureScreenshot(isImageEditPossible, "ArrangeTabNotFound");
+				}
+				
+				// re-size image
+				try{
+					//change size
+					Thread.sleep(2000);
+					selenium.focus("xpath=html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input");
+					//driver.findElement(By.xpath("html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input")).isSelected();
+					driver.findElement(By.xpath("html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input")).sendKeys("300 px");
+					//change position
+					Thread.sleep(3000);
+					selenium.focus("xpath=html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[3]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input");
+					//driver.findElement(By.xpath("html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[3]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input")).isSelected();
+					driver.findElement(By.xpath("html/body/div[3]/div[1]/div[3]/div[3]/div[2]/div/div[2]/div[3]/div[2]/div/div[3]/div[2]/div/div[1]/div[1]/div[2]/div[2]/input")).sendKeys("40 px");
+					Thread.sleep(3000);
+					
+				}catch(Exception e){
+					debugLogger.info("unable to re-size image" + e);
+					captureScreenshot(isImageEditPossible, "UnableToResize");
+				}
+				
+				Thread.sleep(2000);
+				//selenium.click("xpath=//label[text()='Image']");
+				if(isElementPresent(By.xpath("//label[text()='Image']")))
+				{
+					driver.findElement(By.xpath("//label[text()='Image']")).click();
+				} else {
+					debugLogger.info("unable to find image tab");
+					captureScreenshot(isImageEditPossible, "ImageTabNotFound");
+				}
+				
+				//click on Border type down on side bar
+				if(isElementPresent(By.xpath(bordertypeDropdown)))
+				{
+					driver.findElement(By.xpath(bordertypeDropdown)).click();
+					Thread.sleep(2000);
+					//click on border type
+					if(isElementPresent(By.xpath(borderPicFrame)))
+					{
+						driver.findElement(By.xpath(borderPicFrame)).click();
+						Thread.sleep(3000);
+						if(isElementPresent(By.xpath(borderPicFrameTypeDropdown)))
+						{
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).isEnabled();
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).isSelected();
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).click();
+							Thread.sleep(3000);
+							if(isElementPresent(By.xpath(borderPicFrameType)))
+							{
+								WebElement borderPicFrameTypeElement = driver.findElement(By.xpath(borderPicFrameType));           
+					            Actions myMouse = new Actions(driver); 
+					            myMouse.moveToElement(borderPicFrameTypeElement).build().perform();
+								driver.findElement(By.xpath(borderPicFrameType)).click();
+							}
+						}
+						
+					}
+					
+				}
+				
+				Thread.sleep(3000);
+				//add shadow
+				if(isElementPresent(By.xpath(shadowCheckbox)))
+				{
+					driver.findElement(By.xpath(shadowCheckbox)).click();
+				}else{
+					debugLogger.info("Shadow not applied");
+					captureScreenshot(isImageEditPossible, "ShadowNotApplied");
+				}
+				
+				Thread.sleep(3000);
+				//add reflection
+				if(isElementPresent(By.xpath(reflectionCheckbox)))
+				{
+					//checks the reflection box
+					driver.findElement(By.xpath(reflectionCheckbox)).click();
+					Thread.sleep(2000);
+				
+					//adds 100% reflection
+					List<WebElement> inputs = driver.findElements(By.xpath(reflectionInputbox));
+					if (isElementPresent(By.xpath(reflectionInputbox))){
+						int i =0;
+						for (WebElement option : inputs) {						
+							if(i==0 || i==1 || i==2 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==9){i++;}
+							if (i==10){
+								String optionid = option.getAttribute("name");
+								Thread.sleep(2000);
+								String reflectionInputBoxXpath = "//input[@name='" + optionid + "']"; 
+								selenium.focus(reflectionInputBoxXpath);
+								Thread.sleep(2000);
+								driver.findElement(By.xpath(reflectionInputBoxXpath)).sendKeys("100%");
+								driver.findElement(By.xpath(reflectionInputBoxXpath)).sendKeys(Keys.ENTER);
+								Thread.sleep(4000);
+								break;
+							}
+						}//end for
+					} else {
+						debugLogger.info("Reflection not applied to 100%");
+						captureScreenshot(isImageEditPossible, "OpacityNotAppliedTo100");
+					}
+					
+				}else{
+					debugLogger.info("Reflection not applied");
+					captureScreenshot(isImageEditPossible, "ReflectionNotApplied");
+				}
+				
+				//Opacity set to 50%
+				List<WebElement> inputs = driver.findElements(By.xpath(opacityInputbox));
+				if (isElementPresent(By.xpath(opacityInputbox))){
+					int i =0;
+					for (WebElement option : inputs) {						
+						if(i==0 || i==1 || i==2 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==9 || i==10){i++;}
+						if (i==11){
+							String optionid = option.getAttribute("name");
+							Thread.sleep(2000);
+							String opacityInputBoxXpath = "//input[@name='" + optionid + "']"; 
+							selenium.focus(opacityInputBoxXpath);
+							Thread.sleep(2000);
+							driver.findElement(By.xpath(opacityInputBoxXpath)).sendKeys("82%");
+							driver.findElement(By.xpath(opacityInputBoxXpath)).sendKeys(Keys.ENTER);
+
+							
+							Thread.sleep(4000);
+						}
+					}//end for
+				} else {
+					debugLogger.info("Opacity not applied");
+					captureScreenshot(isImageEditPossible, "OpacityNotApplied");
+				}
+								
+				//add a new image
+				//action.release(imageOndocElementLink);
+				//Image Icon on top menu
+				Thread.sleep(6000);
+				selenium.focus("class=iw-toolbar-button-label");
+				//click on Image on menu bar, add an image
+				if(isElementPresent(By.xpath(imageIcon)))
+				{
+					driver.findElement(By.xpath(imageIcon)).click();
+					if(isElementPresent(By.xpath(chooseImageButton)))
+					{
+						driver.findElement(By.xpath(chooseImageButton)).isSelected();
+						Thread.sleep(1000);
+						driver.findElement(By.xpath(chooseImageButton)).click();
+					}else{
+						debugLogger.info("Choose Image button not clickable");
+						captureScreenshot(isImageEditPossible, "ImageButtonNotClickable");
+					}
+					Thread.sleep(2000);
+				}
+			}else{
+				debugLogger.info("No image found on current page");
+				captureScreenshot(isImageEditPossible, "NoImageFound");
+			}
+			
+			//Changing Text Below Image
+			try{
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(textImageText))){
+
+					WebElement imageTextElement = driver.findElement(By.xpath(textImageText));
+					action.sendKeys(imageTextElement, Keys.DELETE).build().perform();
+					action.sendKeys(imageTextElement, "One Year Mileage").build().perform();
+					Thread.sleep(2000);
+				}
+				
+			}catch(Exception e){
+				debugLogger.info("Unable to change text below image" + e);
+				captureScreenshot(isImageEditPossible, "UnableToChangeText");
+			}
+			isImageEditPossible = true;
+			
+	}catch(Exception e1){
+		debugLogger.info("Image menu is not selectable or pop over menu did not show up");
+		captureScreenshot(isImageEditPossible, "ImageNotSelectableORMenuNoShow");
+		selenium.close();	
+	}
+	try {Thread.sleep(6000);} catch (InterruptedException e) {e.printStackTrace();}
+}
+
+//@Test
+public void testError(){
+	boolean isTestError = false;
+	try {
+		if(!downloadInPDFContextMenu(iCloudConstants.docSelection)){
+			isTestError = false;
+			testResultsLogger.info("DOWNLOADING PDF (VIA CONTEXT MENU) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DOWNLOADING PDF (VIA CONTEXT MENU) : ########## FAILED ##########");
+			captureScreenshot(isTestError, "DownloadPDF_Failed");
+		}else{
+			testResultsLogger.info("Downloading PDF (Via Context Menu) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Downloading PDF (Via Context Menu) : PASSED");
+			isTestError = true;
+			Thread.sleep(6000);	
+		}
+		
+	} 
+	catch (Exception e) {
+		testResultsLogger.info("DOWNLOADING PDF (VIA CONTEXT MENU) :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DOWNLOADING PDF (VIA CONTEXT MENU) : ########## FAILED ##########");
+		captureScreenshot(isTestError, "DownloadPDF_Failed");
+	}
+	try {
+		if(!choosePersonalPhotoLetterTheme_Error()){
+			isTestError = false;
+			testResultsLogger.info("CREATING AND EDITING PERSONAL PHOTO LETTER THEME :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": CREATING AND EDITING PERSONAL PHOTO LETTER THEME : ########## FAILED ##########");
+			captureScreenshot(isTestError, "CreateAndEditPersonalPhotoLetterFailed");
+		}else{
+			testResultsLogger.info("CREATING AND EDITING PERSONAL PHOTO LETTER THEME :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": CREATING AND EDITING PERSONAL PHOTO LETTER THEME : PASSED");
+			isTestError = true;
+			Thread.sleep(6000);	
+		}
+		
+	} 
+	catch (Exception e) {
+		testResultsLogger.info("CREATING AND EDITING PERSONAL PHOTO LETTER THEME :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": CREATING AND EDITING PERSONAL PHOTO LETTER THEME : ########## FAILED ##########");
+		captureScreenshot(isTestError, "CreateAndEditPersonalPhotoLetterFailed");
+	}
+}
+
+public boolean choosePersonalPhotoLetterTheme_Error(){
+	
+	boolean isPersonalPhotoLetterSelectable = false;
+	mainParentHandle = driver.getWindowHandle();
+	try{
+			
+		//create a new doc via + icon
+		int divcount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+		
+		try {
+			driver.findElement(By.xpath(iCloudConstants.docCount+"["+divcount+iCloudConstants.docCount_end)).click();
+		}catch(Exception e){
+			captureScreenshot(isPersonalPhotoLetterSelectable, "UnableToSelectThemeOption");
+			debugLogger.info("Unable to Select Perosnal Photo Letter Theme Option.");
+		}
+		
+        WebElement PersonalPhotoLetterTheme = driver.findElement(By.xpath("//img[contains(@src,'PersonalPhotoLetter.')]"));
+        Actions myMouse = new Actions(driver);
+        myMouse.moveToElement(PersonalPhotoLetterTheme).build().perform();
+        
+		//look for Personal Photo Letter theme 
+		String PersonalPhotoLetterThemePath = "//img[contains(@src,'PersonalPhotoLetterTheme.')]"; //appended Theme for failure.
+		
+		if(isElementPresent(By.xpath(PersonalPhotoLetterThemePath)))
+		{
+			driver.findElement(By.xpath(PersonalPhotoLetterThemePath)).isSelected();
+			selenium.doubleClick("xpath="+PersonalPhotoLetterThemePath);
+		
+			//create "Personal Photo Letter" doc
+	
+			if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+				//selenium.doubleClick(iCloudConstants.templateChooseButton);
+			}
+			
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Personal Photo Letter Theme selected : PASSED");
+		}
+		else
+		{
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PERSONAL PHOTO LETTER THEME not found :  ******* FAILED *******");
+			captureScreenshot(isPersonalPhotoLetterSelectable, "UnableToSelectPersonalPhotoTheme");
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//label[text()='Cancel']")).click();
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			//save and close
+			driver.switchTo().window(newWindowHandle).close();
+		}
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+		
+		//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);
+
+		//Edit manipulation of a Personal Photo Letter
+		editFontStyle();
+		
+		Shapes();
+		generalUtility.bringTheFocusToCentreOfScreen();
+		driver.close();
+		driver.switchTo().window(mainParentHandle);
+		//driver.switchTo().frame("pages");
+		isPersonalPhotoLetterSelectable = true;
+	}
+	catch(Exception e){
+		captureScreenshot(isPersonalPhotoLetterSelectable, "ChoosePersonalPhotoLetterFailed");
+		debugLogger.info("Choosing Personal Photo Letter Theme Failed.");
+		driver.switchTo().frame("pages");
+	}
+	return isPersonalPhotoLetterSelectable;
+}
+	
+//@Ignore
+//@Test
+public void testScenario03B(){
+	
+	boolean isTestScenario03success = false;
+	try {
+		try {
+			deleteAllDoc3();
+			testResultsLogger.info("Deleting All Existing Documents :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Deleting All Existing Documents : PASSED");
+			isTestScenario03success = true;
+			Thread.sleep(2000);
+		}
+		catch (Exception e) {
+			testResultsLogger.info("DELETING ALL EXISTING DOCUMENTS :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DELETING ALL EXISTING DOCUMENTS : ########## FAILED ##########");
+			captureScreenshot(isTestScenario03success, "DeleteAllExistingFailed");
+		}
+		try {
+			createDocGearMenu3();
+			testResultsLogger.info("Creating Doc (Blank Theme Via Gear Icon) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Creating Doc (Blank Theme Via Gear Icon) : PASSED");
+			isTestScenario03success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("CREATING DOC (BLANK THEME VIA GEAR ICON) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": CREATING DOC (BLANK THEME VIA GEAR ICON) : ########## FAILED ##########");
+			captureScreenshot(isTestScenario03success, "CreateBlankDocGearFailed");
+		}
+		try {
+			renameDoc3();
+			testResultsLogger.info("Rename Doc :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Rename Doc : PASSED");
+			isTestScenario03success = true;
+			Thread.sleep(2000); //previous 6000
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("RENAME DOC :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": RENAME DOC : ########## FAILED ##########");
+			captureScreenshot(isTestScenario03success, "RenameDocFailed");
+		}
+		try {
+			editBlankDocFontAndStyle3(iCloudConstants.docSelection);
+			testResultsLogger.info("Blank Document [Edit/Font&Style/Add Text Box/Format Menu/View(Grid/Zoom)/Tools(Find/Find&Replace)/Help)] :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Blank Document [Edit/Font&Style/Add Text Box/Format Menu/View(Grid/Zoom)/Tools(Find/Find&Replace)/Help)] : PASSED");
+			isTestScenario03success = true;
+			Thread.sleep(2000);
+		} 
+	    catch (Exception e) {
+			testResultsLogger.info("BLANK DOCUMENT [EDIT/FONT&STYLE/ADD TEXT BOX/FORMAT MENU/VIEW(GRID/ZOOM)/TOOLS(FIND/FIND&REPLACE)/HELP)] :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": BLANK DOCUMENT [EDIT/FONT&STYLE/ADD TEXT BOX/FORMAT MENU/VIEW(GRID/ZOOM)/TOOLS(FIND/FIND&REPLACE)/HELP)] : ########## FAILED ##########");
+			captureScreenshot(isTestScenario03success, "BlankDocEditFailed");
+		}  
+	} catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 03  :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 03  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario03success, "TestScenario03Failed");
+	}
+}
+
+public boolean deleteAllDoc3(){
+	
+	boolean isDeleteAll = false;
+	String helpLearn = "//span[@class='value ellipsis' and text()='Learn More About Pages']";
+	String openFirstDoc = "xpath=//*[@class='preview clickable preview-img select-border']";
+	String openFirst = "//*[@class='preview clickable preview-img select-border']";
+
+	Actions action= new Actions(driver);
+	Robot tempRobot;
+	
+	try {
+		tempRobot = new Robot();
+		Thread.sleep(4000);
+		
+		waitForElementPresent(By.xpath(iCloudConstants.helpMenu), "Waiting for yellow help menu");
+		Thread.sleep(3000);
+		if(isElementPresent(By.xpath(helpLearn)))
+			removeHelpMenuYellow();
+		Thread.sleep(1000);
+		
+		int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+		
+		if(docCount>1){
+
+			selenium.click(openFirstDoc);
+			Thread.sleep(2000);
+			generalUtility.bringTheFocusToCentreOfScreen();
+			Thread.sleep(5000);
+			tempRobot.keyPress(KeyEvent.VK_META);
+			Thread.sleep(1000);
+			tempRobot.keyPress(KeyEvent.VK_A);
+			Thread.sleep(1000);
+			tempRobot.keyRelease(KeyEvent.VK_A);
+			Thread.sleep(1000);
+			tempRobot.keyRelease(KeyEvent.VK_META);
+			Thread.sleep(3000);
+			/*tempRobot.keyPress(KeyEvent.VK_DELETE);
+			Thread.sleep(2000);
+			tempRobot.keyPress(KeyEvent.VK_ENTER);
+			Thread.sleep(2000);*/
+			
+			String actionMenu = "//*[@class='img action-menu']";
+			
+			
+			if(isElementPresent(By.xpath(actionMenu)))
+			{					
+				boodriver.findElement(By.xpath(actionMenu)).isSelected();
+				driver.findElement(By.xpath(actionMenu)).click();
+				
+				Thread.sleep(3000);
+				/*List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']/a/span"));
+				int index =0;
+				for (WebElement option : inputs) {
+					if(index==3){
+						Thread.sleep(3000);
+						option.isSelected();
+						option.click();
+						option.click();
+					}
+					index++;
+					break;
+				}*/
+				String testString ="//*[@class='atv3 sc-view']/div[6]/a/span[1]";
+				//driver.findElement(By.xpath("//*[@class='value ellipsis' and text()='Delete Document']")).click();
+				//driver.findElement(By.xpath(testString)).click();
+				selenium.focus(testString);
+				Thread.sleep(2000);
+				selenium.click("xpath=" + testString);
+				selenium.click("xpath=" + testString);
+				Thread.sleep(3000);
+				
+				//generalUtility.robotMousePress(deleteDoc_X, deleteDoc_Y);
+				
+				Thread.sleep(2000);
+
+				
+				String deleteButtonConfirmation = "//label[text()='Delete']";
+				if(isElementPresent(By.xpath(deleteButtonConfirmation))){
+					driver.findElement(By.xpath(deleteButtonConfirmation)).isSelected();
+					driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+					Thread.sleep(4000); 
+				} else {
+					captureScreenshot(isDeleteAll, "DeleteConfSelectFailed");
+					debugLogger.info("Unable to confirm Delete by clicking on the button");
+				}
+				
+			} else {
+				captureScreenshot(isDeleteAll, "UnableToSelectDelete");
+				debugLogger.info("Unable to select delete option");
+			}	
+			isDeleteAll = true;
+		}
+		else{
+			debugLogger.info("There are no existing documents to delete.");
+		}
+	} catch (Exception e) {
+		captureScreenshot(isDeleteAll, "DeleteAllExistingFailed");
+		debugLogger.info("Delete all existing documents failed.");
+	}
+	return isDeleteAll;
+}
+
+public boolean createDocGearMenu3()
+{
+	boolean createDocGearMenuSuccessful = false;
+	//Get current windows		
+	final Set<String> parentWindowHandle = driver.getWindowHandles();
+	String parentWindowHandle1 = driver.getWindowHandle();
+	String actionMenu = "//*[@class='img action-menu']";
+
+	try {
+		if(isElementPresent(By.xpath(actionMenu))){
+			driver.findElement(By.xpath(actionMenu)).isSelected();
+			driver.findElement(By.xpath(actionMenu)).click();
+			Thread.sleep(3000);
+			/*List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']/a/span"));
+			int index =0;
+			for (WebElement option : inputs) {
+				if(index==0){
+					Thread.sleep(3000);
+					option.isSelected();
+					option.click();
+					option.click();
+				}
+				index++;
+				break;
+			}*/
+			
+			String testString ="//*[@class='atv3 sc-view']/div[1]/a/span[1]";
+			selenium.focus(testString);
+			Thread.sleep(2000);
+			selenium.click("xpath=" + testString);
+			selenium.click("xpath=" + testString);
+			Thread.sleep(3000);
+			
+			//generalUtility.robotMousePress(createDoc_X, createDoc_Y);
+			//generalUtility.robotMousePress(createDoc_X, createDoc_Y);
+			
+			Thread.sleep(3000);
+			if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+				Thread.sleep(1000);
+				
+			}else{
+				debugLogger.info("Template choose window didn't open...going back to canvas manager");
+				driver.switchTo().frame("pages");
+			}
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+	
+			//Thread.sleep(5000);
+			waitForEditStartToComplete();
+			//open another browser window and non-supported browser pop-up shows up, close that one
+			if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+			}
+			Thread.sleep(2000);
+			//driver.switchTo().window(newWindowHandle);
+			driver.close();
+			Thread.sleep(2000);
+			driver.switchTo().window(parentWindowHandle1);			
+			Thread.sleep(1000);
+			driver.switchTo().frame("pages");
+			Thread.sleep(1000);
+			createDocGearMenuSuccessful = true;
+			waitForEditCloseComplete();
+		} else {
+			debugLogger.info("Create doc: Unable to find gear menu");
+			captureScreenshot(createDocGearMenuSuccessful, "GearMenuNotFound");
+		}
+	} catch (Exception e) {
+		debugLogger.info("Creating doc via gear menu failed.");
+		captureScreenshot(createDocGearMenuSuccessful, "createDocGearMenuUnSuccessful");
+	}	
+	return createDocGearMenuSuccessful;
+}
+
+public boolean renameDoc3()
+{
+	
+	Actions aObject = new Actions(driver);
+	boolean renameDocSuccessful = false;
+	
+	try {
+		
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection)))
+		{			
+			int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			if (docCount < 1){
+				//no document found, please create a new document 
+				createDocGearMenu3();
+				renameDoc3();
+			}else{
+				String selectFirstDoc_alt = "//div[@class='img-container']";		
+				
+				if(isElementPresent(By.xpath(selectFirstDoc_alt)))
+				{
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				} else {
+					debugLogger.info("Unable to select first document");
+					captureScreenshot(renameDocSuccessful, "UnableToSelect");
+				}
+				if(isElementPresent(By.xpath(iCloudConstants.docToRename)))
+				{
+					Thread.sleep(2000);
+					//driver.findElement(By.xpath(iCloudConstants.docToRename)).isSelected();
+					driver.findElement(By.xpath(iCloudConstants.docToRename)).click();
+					Thread.sleep(2000);
+					// enter the new file name
+					
+					driver.findElement(By.xpath("//*[@type='text']")).sendKeys("Test_00.pages");
+
+					/*aObject.sendKeys("Test_00.pages").perform();
+					Thread.sleep(1000);
+					aObject.sendKeys(Keys.RETURN).build().perform();*/
+					Thread.sleep(3000);
+				} else {
+					debugLogger.info("Dcoument with same name already exists");
+					captureScreenshot(renameDocSuccessful, "SameNameExists");
+				}
+			}
+			renameDocSuccessful = true;
+		}else{
+			debugLogger.info("Unable to find document to rename");
+			captureScreenshot(renameDocSuccessful, "SameNameExists");
+		}
+	} catch (Exception e) {
+		debugLogger.info("Rename failed");
+		captureScreenshot(renameDocSuccessful, "RenameFailed");
+	}
+	return renameDocSuccessful;
+}
+
+public boolean editBlankDocFontAndStyle3(String docPath){
+	
+	boolean isEditBlankSucessfull = false;
+	Actions actionObject = new Actions(driver);
+	
+	try {Thread.sleep(3000);} catch (InterruptedException e1) {e1.printStackTrace();}
+	
+	//Get current windows		
+	final Set<String> beforeHandles = driver.getWindowHandles();
+	//String beforeHandle = driver.getWindowHandle();
+	mainParentHandle = driver.getWindowHandle();
+	
+	String openFirstDoc = "xpath=//*[@class='preview clickable preview-img select-border']";
+	String fontTypeDropDown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view iw-font-family-select-view button sc-regular-size icon']/label";
+	String fontFutura = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view']/div[23]";
+	String sizeChange = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+	String allignmentChange = "//*[@class='sc-button-label sc-regular-size ellipsis icon']";
+
+	try{
+		Robot robot = new Robot();
+		if(isElementPresent(By.xpath(docPath)))
+		{
+			int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			if (docCount < 1){
+				//no document found, please create a new document 
+				createDocGearMenu3();
+				editBlankDocFontAndStyle3(docPath);
+			}
+			else{ 
+				try {
+	
+						generalUtility.bringTheFocusToCentreOfScreen();
+						Thread.sleep(2000);
+						generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+						generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+
+						System.out.println("Open Doc");
+
+					
+				} catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "OpeningFirstDocFailed");
+					debugLogger.info("Opening of first blank document failed while editing.");
+				}
+			
+			//below code written for handling the pop up********************
+			
+			try {
+				Thread.sleep(1000);
+				
+				//Get current window handles
+				Set<String> cHandle = driver.getWindowHandles();
+				
+				//remove all before handles from after.  Leaves you with new window handle
+				cHandle.removeAll(beforeHandles);		
+				//Switch to the new window
+				String newWindowHandle = cHandle.iterator().next();
+
+				driver.switchTo().window(newWindowHandle);
+				
+				waitForEditStartToComplete();
+				
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "HandlingAlertFailed");
+				debugLogger.info("Clicking on OK Alert option failed.");
+			}
+			
+			// pop up alert handled ends here...
+			
+			// the first paragraph starts
+
+			try {
+				String docWindow = "//div[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme iw-pages-canvas sc-view iw-canvas-root-layer-view']/div[1]/div[1]/div[1]/div[1]";
+				String docWindow2 = "//*[name()='svg' and @width='766']";
+				String docWindow3 = "//*[name()='rect' and @class='textLayerCaret']";
+				
+				String text = "A published report says Apple may introduce a cheaper iPhone in an effort to reclaim some of the sales that the company has been losing.";
+				Thread.sleep(2000);
+				generalUtility.bringTheFocusToCentreOfScreen();
+				Thread.sleep(2000);
+				
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+				generalUtility.robotEnterKeyPress();
+				Thread.sleep(2000);
+				
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "WritingFirstParaFailed");
+				debugLogger.info("Writing the first paragraph failed.");
+			}
+			// enter the first paragraph ends
+			
+			
+			// selecting all starts
+			try {
+				//actionObject.sendKeys("\uE03D").sendKeys("a").perform();
+				generalUtility.bringTheFocusToCentreOfScreen();
+				Thread.sleep(5000);
+				robot.keyPress(KeyEvent.VK_META);
+				Thread.sleep(1000);
+				robot.keyPress(KeyEvent.VK_A);
+				Thread.sleep(1000);
+				robot.keyRelease(KeyEvent.VK_A);
+				Thread.sleep(1000);
+				robot.keyRelease(KeyEvent.VK_META);
+				Thread.sleep(3000);
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "SelectAllFirstParaFailed");
+				debugLogger.info("Select all of first paragraph failed.");
+			}
+			// selecting all ends
+			
+			// selecting the font type starts
+			
+			try {
+				Thread.sleep(3000);
+				selenium.click(fontTypeDropDown);
+				Thread.sleep(3000);
+				selenium.click(fontFutura);
+				Thread.sleep(3000);
+				
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "ChooseFontTypeFailed");
+				debugLogger.info("Choosing FUTURA font style failed.");
+			}
+			// selecting the font type ends
+			
+			
+			// checking redo and undo ends here
+			
+			try {
+					Thread.sleep(3000);
+					
+					List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+				    
+					for(int i=0;i<=myFields.size();i++){
+						if(i==0){
+				    	    String optionId = myFields.get(i).getAttribute("id");
+				    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+				    	    Thread.sleep(2000);
+				    	   
+				    	    //selenium.doubleClick(upId);
+				    	    driver.findElement(By.xpath(upId)).click();
+				    	    driver.findElement(By.xpath(upId)).click();
+
+				    	   
+							Thread.sleep(4000);
+						}
+					}
+				} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "SelectFontSizeFailed");
+				debugLogger.info("Selecting the font size failed.");
+			}
+			// selecting the font size ends
+			
+			// increasing the para spacing before starts
+			try {
+				Thread.sleep(3000);
+				List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+			    
+				for(int i=0;i<=myFields.size();i++){
+					if(i==2){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    //selenium.doubleClick(upId);
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	   
+						Thread.sleep(4000);
+					}
+				}
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "IncreaseSpaceBeforeParaFailed");
+				debugLogger.info("Increasing para space 'before' failed.");
+			}
+			// increasing the para spacing before ends
+			
+			// increasing the para spacing after starts
+			try {
+				Thread.sleep(3000);
+				List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+			    
+				for(int i=0;i<=myFields.size();i++){
+					if(i==3){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	   
+						Thread.sleep(4000);
+					}
+				}
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "IncreaseSpaceAfterParaFailed");
+				debugLogger.info("Increasing para space 'after' failed.");
+			}
+			// increasing the para spacing after ends
+			
+			// changing the alignment starts
+			try {
+				List<WebElement> myFields = driver.findElements(By.xpath(allignmentChange));
+				
+				for(int i=0; i<myFields.size();i++){
+					if(i>5 && i<10){   // 1 & 6 for BUIS
+						String optionId = myFields.get(i).getAttribute("id");
+						String allignId = "//*[@id='"+optionId+"']";
+						Thread.sleep(3000);
+						//selenium.click(allignId);
+						driver.findElement(By.xpath(allignId)).click();
+					}
+				}
+				
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "AlignmentFailed");
+				debugLogger.info("Alignment failed.");
+			}
+			// changing the alignment ends
+			
+			// changing line spacing starts
+			try {
+				Thread.sleep(3000);
+				List<WebElement> myFields = driver.findElements(By.xpath(sizeChange));
+			    
+				for(int i=0;i<=myFields.size();i++){
+					if(i==1){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String upId = "//*[@id='"+optionId+"']/div[1]/div[1]";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    //selenium.doubleClick(upId);
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	    driver.findElement(By.xpath(upId)).click();
+			    	   
+						Thread.sleep(4000);
+					}
+				}
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "LineSpacingFailed");
+				debugLogger.info("Line spacing failed");
+			}
+			// changing line spacing ends
+			
+			// indentation starts
+			try {
+				List<WebElement> myFields = driver.findElements(By.xpath(allignmentChange));
+				
+				for(int i=0; i<myFields.size();i++){
+					if(i>12 && i<15){
+						String optionId = myFields.get(i).getAttribute("id");
+						String allignId = "//*[@id='"+optionId+"']";
+						Thread.sleep(3000);
+						//selenium.click(allignId);
+			    	    driver.findElement(By.xpath(allignId)).click();
+					}
+				}
+				
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "IndentationFailed");
+				debugLogger.info("Indenting failed.");
+			}
+			// indentation ends
+			
+			// changing color start
+			try {
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//*[@class='iw-color-label-view']")).click();
+				
+				Thread.sleep(1000);
+				List<WebElement> myFields = driver.findElements(By.xpath("//*[@class='item first-row']"));
+				
+				for(int i=0; i<myFields.size();i++){
+					if(i==1){
+						String optionId = myFields.get(i).getAttribute("id");
+						String colorId = "//*[@id='"+optionId+"']";
+						Thread.sleep(3000);
+						//selenium.click(colorId);
+						driver.findElement(By.xpath(colorId)).click();
+					}
+				}
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "ColorChangeFailed");
+				debugLogger.info("Changing color failed.");
+			}
+			// changing color ends
+			
+			// deselecting starts
+			try {
+				Thread.sleep(3000);
+				//actionObject.sendKeys("\uE03D").sendKeys(Keys.UP).perform();
+				robot.keyPress(KeyEvent.VK_UP);
+				Thread.sleep(1000);
+				robot.keyRelease(KeyEvent.VK_UP);
+				Thread.sleep(2000);
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "DeselectingFailed");
+				debugLogger.info("Deselecting failed.");
+			}
+			// deselecting ends
+			
+			// entring the heading starts
+			try {
+				//actionObject.sendKeys("Apple may build less expensive iPhone: report\n\n").perform();
+				String text = "Apple may build less expensive iPhone: report\n\n";
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+				generalUtility.robotEnterKeyPress();
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "EntringHeadingFailed");
+				debugLogger.info("Entring a header failed.");
+			}
+			// entring the heading ends
+			
+			// going to the end and typing a new para starts
+			
+			try {
+				Thread.sleep(2000);
+				//actionObject.sendKeys("\uE03D").sendKeys(Keys.DOWN).perform();
+				for(int i=0;i<2;i++){
+					robot.keyPress(KeyEvent.VK_DOWN);
+					Thread.sleep(500);
+					robot.keyRelease(KeyEvent.VK_DOWN);
+					Thread.sleep(500);
+				}
+				
+				for(int i=0;i<7;i++){
+					robot.keyPress(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+					robot.keyRelease(KeyEvent.VK_RIGHT);
+					Thread.sleep(200);
+				}
+				
+				Thread.sleep(2000);
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "TraversingToEndFailed");
+				debugLogger.info("Traversing to end of the paragraph failed.");
+			}
+			// going to the end and typing a new para starts
+			
+			// enter a new para at the end starts
+			try {
+				//actionObject.sendKeys("\uE03D").perform();
+				//actionObject.sendKeys("\n\nThe cheaper iPhone could come out as early as this year, or the idea could be scrapped, as has "+
+						//"previously happened.").perform();
+				String text = "\n\nThe cheaper iPhone could come out as early as this year, or the idea could be scrapped, as has "+
+						"previously happened.";
+				generalUtility.setClipboardData(text);
+				generalUtility.robotSearchProcess(operatingSystem);
+				Thread.sleep(2000);
+				generalUtility.robotEnterKeyPress();
+				Thread.sleep(5000);
+			} catch (Exception e) {
+				captureScreenshot(isEditBlankSucessfull, "EntringSecondParaFailed");
+				debugLogger.info("Enting second paragraph failed.");
+			}
+			// enter a new para at the end ends
+
+			// checking redo and undo 
+			try{
+					WebElement undoIconElement;
+					WebElement redoIconElement;;
+
+					if(isElementPresent(By.xpath(iCloudConstants.undoIcon))){
+						undoIconElement = driver.findElement(By.xpath(iCloudConstants.undoIcon));
+						
+						undoIconElement.click();
+						Thread.sleep(4000);
+						undoIconElement.click();
+						Thread.sleep(4000);
+						undoIconElement.click();
+						Thread.sleep(4000);
+						undoIconElement.click();
+						Thread.sleep(4000);
+								
+						redoIconElement = driver.findElement(By.xpath(iCloudConstants.redoIcon));
+						redoIconElement.click();
+						Thread.sleep(4000);
+						redoIconElement.click();
+						Thread.sleep(4000);
+						redoIconElement.click();
+						Thread.sleep(4000);
+						redoIconElement.click();
+						Thread.sleep(4000);
+					}
+				}
+				catch (Exception e) {
+					captureScreenshot(isEditBlankSucessfull, "Redo and Undo Failed");
+					debugLogger.info("Redo and Undo failed.");
+				}
+			
+			//Close and open functionality **********************************************
+			try{
+					Thread.sleep(4000);
+					//Closing the Project Proposal Document
+					driver.close();
+					Thread.sleep(2000);
+					//Switching to the main parent window and frame
+					driver.switchTo().window(mainParentHandle);
+					Thread.sleep(2000);
+					driver.switchTo().frame("pages");
+					
+					waitForEditCloseComplete();
+					Thread.sleep(1000);
+					//double click on the saved documents, which is the first document
+					//selenium.doubleClick("xpath=" + iCloudConstants.docSelection);		
+					
+					generalUtility.bringTheFocusToCentreOfScreen();
+					Thread.sleep(2000);
+					generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+					generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+
+					Thread.sleep(1000);
+					//swithing to the correct document window
+					Set<String> currentWB = driver.getWindowHandles();
+					currentWB.remove(mainParentHandle);
+					//removing brackets to pass correctly into the switchTo method
+					String theWindow = currentWB.toString();
+					String string_one = theWindow.substring(0, theWindow.length()-1);
+					String myDocWindow = string_one.substring(1,string_one.length());
+					driver.switchTo().window(myDocWindow);
+					waitForEditStartToComplete();
+				
+				}catch(Exception e){
+					debugLogger.info("Unable to close and open the same document" + e);
+					captureScreenshot(isEditBlankSucessfull, "UnableCloseAndOpenSameDocument");
+				}
+				//end of close and open functionality ***************************************
+			
+			Thread.sleep(2000);
+			EditBlankDocAddTextBox();
+			Thread.sleep(4000);
+			//EditDocFormat();
+			Thread.sleep(4000);
+			viewMenu(); 
+			Thread.sleep(4000);
+			find();
+			Thread.sleep(4000);
+			helpMenu();
+			
+			Thread.sleep(4000);
+			driver.close();
+			Thread.sleep(2000);
+			driver.switchTo().window(mainParentHandle);
+			Thread.sleep(2000);
+			driver.switchTo().frame("pages");
+			waitForEditCloseComplete();
+		}
+		isEditBlankSucessfull = true;
+	}
+	else{
+		isEditBlankSucessfull = false;
+		debugLogger.debug("Unable to locate the document to open");
+		captureScreenshot(isEditBlankSucessfull, "LocatingDocToOpenFailed");
+	}
+	
+}
+catch(Exception e){
+	isEditBlankSucessfull = false;
+	captureScreenshot(isEditBlankSucessfull, "EditBlank");
+	debugLogger.debug("Creating document from gear option was unsuccessful"+e);
+	e.printStackTrace();
+}
+return isEditBlankSucessfull;
+}	
+
+//@Ignore
+//@Test
+public void testScenario04B(){
+	
+	boolean isTestScenario04success = false;
+	try {
+		try {
+			choosePersonalPhotoLetterTheme4();
+			testResultsLogger.info("Personal Photo Letter (add shapes) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Personal Photo Letter (add shapes) : PASSED");
+			isTestScenario04success = true;
+			Thread.sleep(2000);
+		} 
+	    catch (Exception e) {
+			testResultsLogger.info("PERSONAL PHOTO LETTER (ADD SHAPES)  :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PERSONAL PHOTO LETTER (ADD SHAPES)  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario04success, "ChoosePersonalPhotoLetterFailed");
+		}
+		try {
+			renameDoc4();
+			testResultsLogger.info("Rename Doc :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Rename Doc : PASSED");
+			isTestScenario04success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("RENAME DOC :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": RENAME DOC : ########## FAILED ##########");
+			captureScreenshot(isTestScenario04success, "RenameDocFailed");
+		}
+		try {
+			duplicateInPagesGearMenu4(iCloudConstants.docSelection);
+			testResultsLogger.info("Duplicate (Via Gear Icon) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Duplicate (Via Gear Icon) : PASSED");
+			isTestScenario04success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("DUPLICATE (VIA GEAR ICON) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DUPLICATE (VIA GEAR ICON) : ########## FAILED ##########");
+			captureScreenshot(isTestScenario04success, "DuplicateViaContextFailed");
+		}
+		try {
+			downloadInPagesGearMenu4(iCloudConstants.docSelection);
+			testResultsLogger.info("Download (In Pages Via Gear Icon) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Download (In Pages Via Gear Icon) : PASSED");
+			isTestScenario04success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("DOWNLOAD (IN PAGES VIA GEAR ICON) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DOWNLOAD (IN PAGES VIA GEAR ICON) : ########## FAILED ##########");
+			captureScreenshot(isTestScenario04success, "DownloadViaGearPagesFailed");
+		}
+		
+	} catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 04  :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 04  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario04success, "TestScenario04Failed");
+	}
+}
+
+public boolean choosePersonalPhotoLetterTheme4(){
+	
+	boolean isPersonalPhotoLetterSelectable = false;
+	mainParentHandle = driver.getWindowHandle();
+	try{
+		Robot robot = new Robot();
+		Thread.sleep(3000);
+			
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+		
+		String actionMenu = "//*[@class='img action-menu']";
+
+			if(isElementPresent(By.xpath(actionMenu))){
+				driver.findElement(By.xpath(actionMenu)).isSelected();
+				driver.findElement(By.xpath(actionMenu)).click();
+				Thread.sleep(3000);
+				
+				String createDoc ="//*[@class='atv3 sc-view']/div[1]/a/span[1]";
+				selenium.focus(createDoc);
+				Thread.sleep(2000);
+				selenium.click("xpath=" + createDoc);
+				selenium.click("xpath=" + createDoc);
+				Thread.sleep(3000);
+				/*List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']/a/span"));
+				int index =0;
+				for (WebElement option : inputs) {
+					if(index==0){
+						Thread.sleep(3000);
+						option.isSelected();
+						option.click();
+						option.click();
+					}
+					index++;
+					break;
+				}*/
+			}	
+				Thread.sleep(3000);
+			
+        WebElement PersonalPhotoLetterTheme = driver.findElement(By.xpath("//img[contains(@src,'PersonalPhotoLetter.')]"));
+       // Actions myMouse = new Actions(driver);
+        //myMouse.moveToElement(PersonalPhotoLetterTheme).build().perform();
+        
+        generalUtility.bringTheFocusToCentreOfScreen();
+        robot.keyPress(KeyEvent.VK_DOWN);
+		Thread.sleep(500);
+		robot.keyRelease(KeyEvent.VK_DOWN);
+		Thread.sleep(500);
+        
+		//look for Personal Photo Letter theme 
+		String PersonalPhotoLetterThemePath = "//img[contains(@src,'PersonalPhotoLetter.')]";
+		
+		if(isElementPresent(By.xpath(PersonalPhotoLetterThemePath)))
+		{
+			driver.findElement(By.xpath(PersonalPhotoLetterThemePath)).isSelected();
+			//selenium.doubleClick(PersonalPhotoLetterThemePath);
+			PersonalPhotoLetterTheme.click();
+			PersonalPhotoLetterTheme.click();
+		
+			//create "Personal Photo Letter" doc
+			Thread.sleep(1000);
+			if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+			}
+			
+			
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Personal Photo Letter Theme selected : PASSED");
+		}
+		else
+		{
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PERSONAL PHOTO LETTER THEME not found :  ******* FAILED *******");
+			captureScreenshot(isPersonalPhotoLetterSelectable, "UnableToSelectPersonalPhotoTheme");
+			
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			//save and close
+			driver.switchTo().window(newWindowHandle).close();
+		}
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+
+		//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);
+
+		waitForEditStartToComplete();
+		//Edit manipulation of a Personal Photo Letter
+		editFontStyle();
+		
+		try{
+			//Close and open functionality **********************************************
+				Thread.sleep(4000);
+				//Closing the Project Proposal Document
+				driver.close();
+				Thread.sleep(2000);
+				//Switching to the main parent window and frame
+				driver.switchTo().window(mainParentHandle);
+				Thread.sleep(1000);
+				driver.switchTo().frame("pages");
+				Thread.sleep(1000); //wait 12 seconds until it's clickable
+				waitForEditCloseComplete();
+				Thread.sleep(2000);
+			
+				//double click on the saved documents, which is the first document
+				//selenium.doubleClick("xpath=" + iCloudConstants.docSelection);
+				generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+				generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+				Thread.sleep(500);
+				
+				//swithing to the correct document window
+				Set<String> currentWB = driver.getWindowHandles();
+				currentWB.remove(mainParentHandle);
+				//removing brackets to pass correctly into the switchTo method
+				String theWindow = currentWB.toString();
+				String string_one = theWindow.substring(0, theWindow.length()-1);
+				String myDocWindow = string_one.substring(1,string_one.length());
+				driver.switchTo().window(myDocWindow);
+				waitForEditStartToComplete();
+			
+			}catch(Exception e){
+				debugLogger.info("Unable to close and open the same document" + e);
+				captureScreenshot(isPersonalPhotoLetterSelectable, "UnableCloseAndOpenSameDocument");
+			}
+			//end of close and open functionality ***************************************
+		
+		Thread.sleep(4000);
+		Shapes();
+		Thread.sleep(2000);
+		generalUtility.bringTheFocusToCentreOfScreen();
+		Thread.sleep(2000);
+
+		driver.close();
+		Thread.sleep(2000);
+
+		driver.switchTo().window(mainParentHandle);	
+		Thread.sleep(1000);
+		driver.switchTo().frame("pages");
+		Thread.sleep(1000);
+		waitForEditCloseComplete();
+		isPersonalPhotoLetterSelectable = true;
+	}
+	catch(Exception e){
+		captureScreenshot(isPersonalPhotoLetterSelectable, "ChoosePersonalPhotoLetter");
+		debugLogger.info("Choosing Personal Photo Letter Theme Failed.");
+	}
+	return isPersonalPhotoLetterSelectable;
+}
+
+public boolean renameDoc4()
+{
+	
+	boolean renameDocSuccessful = false;
+	
+	try {
+		String selectFirstDoc_alt = "//div[@class='img-container']";	
+		Thread.sleep(5000);
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection)))
+		{			
+			if (!isElementPresent(By.xpath(selectFirstDoc_alt))){
+				//no document found, please create a new document 
+				System.out.println("Something wrong here");
+				createDocGearMenu3();
+				renameDoc4();
+			}else{
+					
+				
+				if(isElementPresent(By.xpath(selectFirstDoc_alt)))
+				{
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				} else {
+					debugLogger.info("Unable to select first document");
+					captureScreenshot(renameDocSuccessful, "UnableToSelect");
+				}
+				if(isElementPresent(By.xpath(iCloudConstants.docToRename)))
+				{
+					Thread.sleep(2000);
+					driver.findElement(By.xpath(iCloudConstants.docToRename)).click();
+					Thread.sleep(2000);
+					
+					// enter the new file name
+					driver.findElement(By.xpath("//*[@type='text']")).sendKeys("Test_02.pages");
+					Thread.sleep(3000);
+				} else {
+					debugLogger.info("Dcoument with same name already exists");
+					captureScreenshot(renameDocSuccessful, "SameNameExists");
+				}
+			}
+			renameDocSuccessful = true;
+		}else{
+			debugLogger.info("Unable to find document to rename");
+			captureScreenshot(renameDocSuccessful, "SameNameExists");
+		}
+	} catch (Exception e) {
+		debugLogger.info("Rename failed");
+		captureScreenshot(renameDocSuccessful, "RenameFailed");
+	}
+	return renameDocSuccessful;
+}
+
+public boolean duplicateInPagesGearMenu4(String docPath)
+{
+	
+	boolean duplicateSuccessful = false;
+	
+	try {
+		Thread.sleep(2000);
+		if(isElementPresent(By.xpath(docPath)))
+		{
+			
+			int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			if (docCount < 1){
+				//no document found, please create a new document 
+				//createDoc();
+				duplicateInPagesGearMenu(docPath);
+			}else{
+				
+				//String selectFirstDoc_alt = "//div[@class='img-container']";		
+				
+				//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+				/*driver.findElement(By.xpath(selectFirstDoc_alt)).click();*/
+				generalUtility.bringTheFocusToCentreOfScreen();
+				
+				Thread.sleep(2000);
+				generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+				Thread.sleep(2000);
+				
+				driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+				
+				Thread.sleep(4000);
+				
+				
+				//String downloadOptionGear = "//*[@class='atv3 sc-view sc-menu-item focus']";
+				String duplicateOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[5]/a";
+				if(isElementPresent(By.xpath(duplicateOptionGear)))
+				{
+					driver.findElement(By.xpath(duplicateOptionGear)).click();
+					driver.findElement(By.xpath(duplicateOptionGear)).click();
+
+					Thread.sleep(6000);
+				}
+				else{
+					duplicateSuccessful = false;
+					captureScreenshot(duplicateSuccessful, "DuplicateOptionUnavailable");
+				}
+			}
+			duplicateSuccessful = true;
+		} else {
+			duplicateSuccessful = false;
+			captureScreenshot(duplicateSuccessful, "DuplicateGearMenuNotSeen");
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		captureScreenshot(duplicateSuccessful, "DuplicateUnSucessfull");
+	}
+	//driver.switchTo().frame("pages");
+	return duplicateSuccessful;
+}
+
+public boolean downloadInPagesGearMenu4(String docPath)
+{
+	boolean downloadSuccessful = false;
+	
+	try {
+		
+			int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			if (docCount < 1){
+				//no document found, please create a new document 
+				createDocGearMenu();
+				downloadInPagesGearMenu(docPath);
+			}else{
+
+				String selectFirstDoc_alt = "//div[@class='img-container']";
+				
+				//docCount = driver.findElements(By.xpath(selectFirstDoc)).size();				
+				//driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				generalUtility.bringTheFocusToCentreOfScreen();
+				Thread.sleep(2000);
+				generalUtility.robotMousePress(firstDoc_X, firstDoc_Y);
+				Thread.sleep(2000);
+				
+				driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+				
+				Thread.sleep(3000);
+				
+				String downloadOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[4]/a";
+				if(isElementPresent(By.xpath(downloadOptionGear)))
+				{
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(downloadOptionGear)).click();
+					driver.findElement(By.xpath(downloadOptionGear)).click();
+
+					Thread.sleep(4000);
+					String downloadPages = "//div[contains(@class,'type-choice type-choice-0')]";
+					
+					if(isElementPresent(By.xpath(downloadPages)))
+					{
+						driver.findElement(By.xpath(downloadPages)).click();
+						waitForDownloadToComplete();
+					}
+				}
+				else
+				{
+					captureScreenshot(downloadSuccessful, "DownloadOptionNotPresent");
+					debugLogger.info("Download Option Not present.");
+				}
+			}
+			downloadSuccessful = true;
+			
+	} catch (Exception e) {
+		e.printStackTrace();
+		
+	}
+	return downloadSuccessful;
+}
+
+public void testScenario05B()
+{
+	boolean isTestScenario05success = false;
+	try{
+		try {
+			chooseProjectProposalTheme5();
+			testResultsLogger.info("Project Proposal (Image Edit) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Project Proposal (Image Edit) : PASSED");
+			isTestScenario05success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("PROJECT PROPOSAL (IMAGE EDIT)  :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PROJECT PROPOSAL (IMAGE EDIT)  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario05success, "ChooseProjectProposalFailed");
+		}
+	}catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 05  :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 05  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario05success, "TestScenario05Failed");
+	}	
+}
+
+public boolean chooseProjectProposalTheme5(){
+	
+	boolean isProjectProposalThemeSelected = false;
+	try {
+		mainParentHandle = driver.getWindowHandle();
+		Thread.sleep(4000);
+		
+		//create a new doc via + icon
+		int divcount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+		
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+		try {
+			driver.findElement(By.xpath(iCloudConstants.docCount+"["+divcount+iCloudConstants.docCount_end)).click();
+			Thread.sleep(2000);
+		}catch(Exception e){
+			debugLogger.error(e.getMessage());
+		}
+		
+	    WebElement projectProposalTheme = driver.findElement(By.xpath("//img[contains(@src,'ProjectProposal')]"));          
+	    Actions myMouse = new Actions(driver); 
+	    myMouse.moveToElement(projectProposalTheme).build().perform();
+	    
+
+		//look for Project Proposal theme 
+		String projectProposalThemePath = "//img[contains(@src,'ProjectProposal')]";
+		
+		if(isElementPresent(By.xpath(projectProposalThemePath)))
+		{
+			driver.findElement(By.xpath(projectProposalThemePath)).isSelected();
+			driver.findElement(By.xpath(projectProposalThemePath)).click();
+		
+			//create "Project Proposal" doc
+			Thread.sleep(2000);
+			if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+			}
+			Thread.sleep(500);
+
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Project Proposal Theme selected : PASSED");
+		}else
+		{
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PROJECT PROPOSAL THEME NOT SELECTED : *********FAILED********");
+			
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			//save and close
+			driver.switchTo().window(newWindowHandle).close();
+		}
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+		
+		//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);
+		waitForEditStartToComplete();
+		//Image manipulation
+		imageAddAndEdit5();			
+		
+		driver.close();
+		Thread.sleep(2000);
+		driver.switchTo().window(mainParentHandle);
+		Thread.sleep(1000);
+		driver.switchTo().frame("pages");
+		Thread.sleep(1000);
+		waitForEditCloseComplete();
+		isProjectProposalThemeSelected = true;
+		
+	} catch (Exception e) {
+		captureScreenshot(isProjectProposalThemeSelected, "ProjectProposalThemeNotSelected");
+		debugLogger.info("Project Proposal Theme Not Selected.");
+	}
+	return isProjectProposalThemeSelected;
+}
+
+/**
+ * 
+ */
+private void imageAddAndEdit5(){
+
+	Actions action = new Actions(driver);
+	boolean isImageEditPossible = false;
+	String shapeInputBox = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+
+	try{				
+			String imageOndocLink = "//*[@width='475' and @height='310' and @x='0']";
+			String imageIcon = "//div[@class='iw-toolbar-button-label' and text()='Image']";		
+			String bordertypeDropdown = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme popup sc-view sc-button-view sc-select-view button sc-regular-size']";
+			String borderPicFrame ="//span[contains(text(),'Picture')]";
+			String borderPicFrameTypeDropdown =".//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme iw-picture-frame sc-view sc-button-view button sc-regular-size icon']";
+			String borderPicFrameType ="//div[@class='icon img' and contains(@style,'Hardcover')]";				
+			String shadowCheckbox ="//div[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-button-view sc-checkbox-view sc-checkbox-control sc-static-layout checkbox sc-regular-size']/span[@class='label sc-regular-size' and text()='Shadow']";
+			String reflectionCheckbox ="//div[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-button-view sc-checkbox-view sc-checkbox-control sc-static-layout checkbox sc-regular-size']/span[@class='label sc-regular-size' and text()='Reflection']";
+			String chooseImageButton ="//label[text()='Choose Image']";
+			String opacityInputbox = "//input";
+			String reflectionInputbox = "//input";
+			String textImageText = "//*[contains(@style, 'font-size: 40px;')]";
+			Thread.sleep(2000);
+			
+			if(isElementPresent(By.xpath(imageOndocLink)))
+			{			
+				Shapes5();
+				viewMenu();
+				
+			try{
+				//Close and open functionality **********************************************
+					Thread.sleep(4000);
+					//Closing the Project Proposal Document
+					driver.close();
+					Thread.sleep(2000);
+
+					//Switching to the main parent window and frame
+					driver.switchTo().window(mainParentHandle);
+					Thread.sleep(1000);
+					driver.switchTo().frame("pages");
+					Thread.sleep(1000);
+					waitForEditCloseComplete();
+					Thread.sleep(2000);
+				
+					//double click on the saved documents, which is the first document
+					selenium.doubleClick("xpath=" + iCloudConstants.docSelection);
+
+					//swithing to the correct document window
+					Set<String> currentWB = driver.getWindowHandles();
+					currentWB.remove(mainParentHandle);
+					//removing brackets to pass correctly into the switchTo method
+					String theWindow = currentWB.toString();
+					String string_one = theWindow.substring(0, theWindow.length()-1);
+					String myDocWindow = string_one.substring(1,string_one.length());
+					driver.switchTo().window(myDocWindow);
+					waitForEditStartToComplete();
+				
+				}catch(Exception e){
+					debugLogger.info("Unable to close and open the same document" + e);
+					captureScreenshot(isImageEditPossible, "UnableCloseAndOpenSameDocument");
+				}
+				//end of close and open functionality ***************************************
+				
+				waitForElementPresent(By.xpath(imageOndocLink), " Project Sheet Document Sheet");
+				//select the image
+				driver.findElement(By.xpath(imageOndocLink)).click();
+				
+				//re-size image
+				Thread.sleep(2000);
+				//selenium.click("xpath=//label[text()='Arrange']");
+				if(isElementPresent(By.xpath("//label[text()='Arrange']")))
+				{
+					driver.findElement(By.xpath("//label[text()='Arrange']")).click();
+				} else {
+					debugLogger.info("unable to find arrange tab");
+					captureScreenshot(isImageEditPossible, "ArrangeTabNotFound");
+				}
+				
+				// re-size image
+				try{
+					
+						Thread.sleep(3000);
+						
+						List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+						int width = 300;
+			    	    
+						for(int i=0;i<=myFields.size();i++){
+							if(i==0){
+					    	    String optionId = myFields.get(i).getAttribute("id");
+					    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+					    	    Thread.sleep(2000);
+					    	   
+					    	    selenium.focus(inputId);
+					    	    driver.findElement(By.xpath(inputId)).sendKeys(width +" px");
+					    	   
+					    	   
+								Thread.sleep(3000);
+							}
+						}
+					
+					
+				}catch(Exception e){
+					debugLogger.info("unable to re-size image" + e);
+					captureScreenshot(isImageEditPossible, "UnableToResize");
+				}
+				
+				Thread.sleep(2000);
+				if(isElementPresent(By.xpath("//label[text()='Image']")))
+				{
+					driver.findElement(By.xpath("//label[text()='Image']")).click();
+				} else {
+					debugLogger.info("unable to find image tab");
+					captureScreenshot(isImageEditPossible, "ImageTabNotFound");
+				}
+				
+				//click on Border type down on side bar
+				if(isElementPresent(By.xpath(bordertypeDropdown)))
+				{
+					driver.findElement(By.xpath(bordertypeDropdown)).click();
+					Thread.sleep(2000);
+					//click on border type
+					if(isElementPresent(By.xpath(borderPicFrame)))
+					{
+						driver.findElement(By.xpath(borderPicFrame)).click();
+						Thread.sleep(3000);
+						if(isElementPresent(By.xpath(borderPicFrameTypeDropdown)))
+						{
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).isEnabled();
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).isSelected();
+							driver.findElement(By.xpath(borderPicFrameTypeDropdown)).click();
+							Thread.sleep(3000);
+							if(isElementPresent(By.xpath(borderPicFrameType)))
+							{
+								WebElement borderPicFrameTypeElement = driver.findElement(By.xpath(borderPicFrameType));           
+					            Actions myMouse = new Actions(driver); 
+					            myMouse.moveToElement(borderPicFrameTypeElement).build().perform();
+								driver.findElement(By.xpath(borderPicFrameType)).click();
+							}
+						}
+						
+					}
+					
+				}
+				
+				Thread.sleep(3000);
+				//add shadow
+				if(isElementPresent(By.xpath(shadowCheckbox)))
+				{
+					driver.findElement(By.xpath(shadowCheckbox)).click();
+				}else{
+					debugLogger.info("Shadow not applied");
+					captureScreenshot(isImageEditPossible, "ShadowNotApplied");
+				}
+				
+				Thread.sleep(3000);
+				//add reflection
+				if(isElementPresent(By.xpath(reflectionCheckbox)))
+				{
+					//checks the reflection box
+					driver.findElement(By.xpath(reflectionCheckbox)).click();
+					Thread.sleep(2000);
+				
+					//adds 100% reflection
+					List<WebElement> inputs = driver.findElements(By.xpath(reflectionInputbox));
+					if (isElementPresent(By.xpath(reflectionInputbox))){
+						int i =0;
+						for (WebElement option : inputs) {						
+							if(i==0 || i==1 || i==2 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==9){i++;}
+							if (i==10){
+								String optionid = option.getAttribute("name");
+								Thread.sleep(2000);
+								String reflectionInputBoxXpath = "//input[@name='" + optionid + "']"; 
+								selenium.focus(reflectionInputBoxXpath);
+								Thread.sleep(2000);
+								driver.findElement(By.xpath(reflectionInputBoxXpath)).sendKeys("100%");
+								driver.findElement(By.xpath(reflectionInputBoxXpath)).sendKeys(Keys.ENTER);
+								Thread.sleep(4000);
+								break;
+							}
+						}//end for
+					} else {
+						debugLogger.info("Reflection not applied to 100%");
+						captureScreenshot(isImageEditPossible, "OpacityNotAppliedTo100");
+					}
+					
+				}else{
+					debugLogger.info("Reflection not applied");
+					captureScreenshot(isImageEditPossible, "ReflectionNotApplied");
+				}
+				
+				//Opacity set to 50%
+				List<WebElement> inputs = driver.findElements(By.xpath(opacityInputbox));
+				if (isElementPresent(By.xpath(opacityInputbox))){
+					int i =0;
+					for (WebElement option : inputs) {						
+						if(i==0 || i==1 || i==2 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==9 || i==10){i++;}
+						if (i==11){
+							String optionid = option.getAttribute("name");
+							Thread.sleep(2000);
+							String opacityInputBoxXpath = "//input[@name='" + optionid + "']"; 
+							selenium.focus(opacityInputBoxXpath);
+							Thread.sleep(2000);
+							driver.findElement(By.xpath(opacityInputBoxXpath)).sendKeys("82%");
+							driver.findElement(By.xpath(opacityInputBoxXpath)).sendKeys(Keys.ENTER);
+
+							
+							Thread.sleep(4000);
+						}
+					}//end for
+				} else {
+					debugLogger.info("Opacity not applied");
+					captureScreenshot(isImageEditPossible, "OpacityNotApplied");
+				}
+								
+				//add a new image
+				//action.release(imageOndocElementLink);
+				//Image Icon on top menu
+				Thread.sleep(6000);
+				selenium.focus("class=iw-toolbar-button-label");
+				//click on Image on menu bar, add an image
+				if(isElementPresent(By.xpath(imageIcon)))
+				{
+					driver.findElement(By.xpath(imageIcon)).click();
+					if(isElementPresent(By.xpath(chooseImageButton)))
+					{
+						driver.findElement(By.xpath(chooseImageButton)).isSelected();
+						Thread.sleep(1000);
+						driver.findElement(By.xpath(chooseImageButton)).click();
+					}else{
+						debugLogger.info("Choose Image button not clickable");
+						captureScreenshot(isImageEditPossible, "ImageButtonNotClickable");
+					}
+					Thread.sleep(2000);
+				}
+			}else{
+				debugLogger.info("No image found on current page");
+				captureScreenshot(isImageEditPossible, "NoImageFound");
+			}
+			
+			//Changing Text Below Image
+			try{
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath(textImageText))){
+
+					WebElement imageTextElement = driver.findElement(By.xpath(textImageText));
+					action.sendKeys(imageTextElement, Keys.DELETE).build().perform();
+					action.sendKeys(imageTextElement, "One Year Mileage").build().perform();
+					Thread.sleep(4000);
+				}
+				
+			}catch(Exception e){
+				debugLogger.info("Unable to change text below image" + e);
+				captureScreenshot(isImageEditPossible, "UnableToChangeText");
+			}
+			
+			
+			
+			isImageEditPossible = true;
+			
+	}catch(Exception e1){
+		debugLogger.info("Image menu is not selectable or pop over menu did not show up");
+		captureScreenshot(isImageEditPossible, "ImageNotSelectableORMenuNoShow");
+		selenium.close();	
+	}
+	try {Thread.sleep(6000);} catch (InterruptedException e) {e.printStackTrace();}
+}
+
+public void Shapes5(){
+	
+	boolean isShapesTabFunctional = false;
+	String shapeInputBox = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view iw-text-spinner-view']";
+	
+	try {
+		try{
+			// clicking on shapes
+			selenium.focus("class=img insert-shape-icon");
+			Thread.sleep(2000);
+			selenium.click("xpath=//div[text()='Shapes']");
+		}
+		catch(Exception e){
+			selenium.close();
+			captureScreenshot(isShapesTabFunctional, "ClickShapesIconFailed");
+			debugLogger.info("Shapes menu is not selectable or pop over menu did not appear to allow to select star ***** ");
+		}
+		
+		try {
+			Thread.sleep(2000);
+			selenium.click("xpath=html/body/div[6]/div[3]/div[15]/div[2]");		// selecting the star
+		} catch (Exception e1) {
+			captureScreenshot(isShapesTabFunctional, "SelectStarShapeFailed");
+			debugLogger.info("Selecting Start Shape Failed.");
+		}
+		
+		
+		try {
+			Thread.sleep(2000);
+			selenium.click("xpath=//label[text()='Arrange']");
+		} catch (Exception e1) {
+			captureScreenshot(isShapesTabFunctional, "ArrangeTabSelectFailed");
+			debugLogger.info("Unable to select Arrange Tab");
+		}
+		
+		// resizing the shape
+		try{
+			Thread.sleep(3000);
+			
+			List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+			
+			for(int i=0;i<=myFields.size();i++){
+				if(i==0){
+		    	    String optionId = myFields.get(i).getAttribute("id");
+		    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+		    	    Thread.sleep(2000);
+		    	   
+		    	    selenium.focus(inputId);
+		    	    driver.findElement(By.xpath(inputId)).sendKeys("100 px");
+		    	   
+					Thread.sleep(3000);
+				}
+				if(i==1){
+		    	    String optionId = myFields.get(i).getAttribute("id");
+		    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+		    	    Thread.sleep(2000);
+		    	   
+		    	    selenium.focus(inputId);
+		    	    driver.findElement(By.xpath(inputId)).sendKeys("100 px");
+		    	   
+					Thread.sleep(3000);
+				}
+			}
+		}
+		catch(Exception e2){
+			captureScreenshot(isShapesTabFunctional, "ShapeReLocFailed");
+			debugLogger.info("Shape move does not work*****");
+		}
+		
+		// moving the shape next to the image
+		try{
+			Thread.sleep(3000);
+			
+			List<WebElement> myFields = driver.findElements(By.xpath(shapeInputBox));
+		    
+			for(int i=0;i<=myFields.size();i++){
+				if(i==2){
+		    	    String optionId = myFields.get(i).getAttribute("id");
+		    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+		    	    Thread.sleep(2000);
+		    	   
+		    	    selenium.focus(inputId);
+		    	    driver.findElement(By.xpath(inputId)).sendKeys("437 px");
+		    	   
+					Thread.sleep(3000);
+				}
+				if(i==3){
+		    	    String optionId = myFields.get(i).getAttribute("id");
+		    	    String inputId = "//*[@id='"+optionId+"']/div[2]/div[2]/input";
+		    	    Thread.sleep(2000);
+		    	   
+		    	    selenium.focus(inputId);
+		    	    driver.findElement(By.xpath(inputId)).sendKeys("184 px");
+		    	    driver.findElement(By.xpath(inputId)).sendKeys(Keys.RETURN);
+		    	   
+					Thread.sleep(3000);
+				}
+			}
+			
+		}
+		catch(Exception e3){
+			captureScreenshot(isShapesTabFunctional, "ShapeReSizeFailed");
+			debugLogger.info("Shape resize does not work*****");
+		}
+		isShapesTabFunctional = true;
+	} catch (Exception e) {
+		captureScreenshot(isShapesTabFunctional, "ShapesTabNotFunctional");
+		debugLogger.info("Shapes Tab Function Failed.");
+	}
+}
+
+public void testScenario06B()
+{ 
+	boolean isTestScenario06success = false;
+	try{
+		try{
+			
+			//downloadInWordGearMenu7(iCloudConstants.docSelection);
+			uploadInvalidFormat("InvalidFile.pdf");
+			testResultsLogger.info("Upload Invalid :, PASSED");
+			isTestScenario06success = true;
+			Thread.sleep(2000);
+	    		    
+		 }catch (Exception e) {
+			testResultsLogger.info("UPLOAD INVALID :, FAILED");
+			debugLogger.debug("OS: " +operatingSystem+" Browser: " +browserType+ ": Upload Invalid : ########## FAILED ##########");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Upload Invalid : ########## FAILED ##########");
+			captureScreenshot(isTestScenario06success, "InvalidFileUploadFailed");
+		 }
+	 }catch (Exception e) {
+			testResultsLogger.info("TEST SCENARIO 06  :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 06  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario06success, "TestScenario06Failed");
+	 }
+}
+
+public void testScenario07B(){
+	
+	boolean isTestScenario07success = false;
+	try {
+		try {
+			downloadInWordGearMenu7(iCloudConstants.docSelection);
+			testResultsLogger.info("Downloading Word Doc Via Gear Menu :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Downloading Word Doc Via Gear Menu : PASSED");
+			isTestScenario07success = true;
+			Thread.sleep(2000);
+		}
+		catch (Exception e) {
+			testResultsLogger.info("DOWNLOADING WORD DOC VIA GEAR MENU :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DOWNLOADING WORD DOC VIA GEAR MENU : ########## FAILED ##########");
+			captureScreenshot(isTestScenario07success, "downloadInWordGearFailed");
+		}
+		try {
+			createDocPlusMenu7();
+			testResultsLogger.info("Creating Doc (Blank Theme Via + Icon) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Creating Doc (Blank Theme Via + Icon) : PASSED");
+			isTestScenario07success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("CREATING DOC (BLANK THEME VIA + ICON) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": CREATING DOC (BLANK THEME VIA + ICON) : ########## FAILED ##########");
+			captureScreenshot(isTestScenario07success, "createDocPlusMenuFailed");
+		}
+		try {
+			saveDoc7();
+			testResultsLogger.info("Saving Document :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Saving Document : PASSED");
+			isTestScenario07success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("SAVING DOCUMENT :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": SAVING DOCUMENT : ########## FAILED ##########");
+			captureScreenshot(isTestScenario07success, "saveDocFailed");
+		}
+		try {
+			deleteFirstDocGearMenu7(iCloudConstants.docSelection);
+			testResultsLogger.info("Deleting Document Via Gear Menu :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Deleting Document Via Gear Menu : PASSED");
+			isTestScenario07success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("DELETING DOCUMENT VIA GEAR MENU :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DELETING DOCUMENT VIA GEAR MENU : ########## FAILED ##########");
+			captureScreenshot(isTestScenario07success, "deleteFirstDocGearFailed");
+		}
+	} catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 07  :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 07  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario07success, "TestScenario07Failed");
+	}	
+}
+
+public boolean downloadInWordGearMenu7(String docPath)
+{
+	boolean downloadSuccessful = false;
+	
+	try {
+			
+			int docCount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+			if (docCount < 1){
+				//no document found, please create a new document 
+				createDocGearMenu();
+				downloadInPagesGearMenu(docPath);
+			}else{
+				
+				String selectFirstDoc_alt = "//div[@class='img-container']";
+				
+				driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				Thread.sleep(2000);
+				
+				driver.findElement(By.xpath(iCloudConstants.actionMenu)).click();
+				
+				Thread.sleep(3000);
+				
+				String downloadOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[4]/a";
+				if(isElementPresent(By.xpath(downloadOptionGear)))
+				{
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(downloadOptionGear)).click();
+					Thread.sleep(4000);
+					String downloadWord = "//div[contains(@class,'type-choice type-choice-2')]";
+					
+					if(isElementPresent(By.xpath(downloadWord)))
+					{
+						driver.findElement(By.xpath(downloadWord)).click();
+						//wait for downnload to complete
+						waitForDownloadToComplete();
+					}
+				}
+				else
+				{
+					captureScreenshot(downloadSuccessful, "DownloadOptionNotPresent");
+					debugLogger.info("Download Option Not present.");
+				}
+				
+				
+			}
+			downloadSuccessful = true;
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+		
+	}
+	return downloadSuccessful;
+}
+
+public boolean createDocPlusMenu7()
+{
+	boolean createDocGearMenuSuccessful = false;
+	//Get current windows		
+	//final Set<String> parentWindowHandle = driver.getWindowHandles();
+
+	try {
+		Thread.sleep(1000);
+		//create a new doc via + icon
+		int divcount = driver.findElements(By.xpath(iCloudConstants.docCount)).size();
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+		try{
+			driver.findElement(By.xpath(iCloudConstants.docCount+"["+divcount+iCloudConstants.docCount_end)).click();
+			Thread.sleep(2000);
+		}catch(Exception e){
+			captureScreenshot(createDocGearMenuSuccessful, "UnableToSelectThemeOption");
+			debugLogger.info("Unable to Select Perosnal Photo Letter Theme Option.");
+		}
+		
+		
+		String ModernPhotoLetterPath = "//img[contains(@src,'ModernPhotoLetter.jpg')]";
+		WebElement ModernPhotoLetterTheme = driver.findElement(By.xpath(ModernPhotoLetterPath));
+		 
+	    Actions myMouse = new Actions(driver); 
+	    myMouse.moveToElement(ModernPhotoLetterTheme).build().perform();
+
+		if(isElementPresent(By.xpath(ModernPhotoLetterPath))){
+				
+			driver.findElement(By.xpath(ModernPhotoLetterPath)).isSelected();
+			driver.findElement(By.xpath(ModernPhotoLetterPath)).click();
+		}		
+			
+		if(isElementPresent(By.xpath(ModernPhotoLetterPath)))
+		{
+			driver.findElement(By.xpath(ModernPhotoLetterPath)).isSelected();
+			
+			selenium.doubleClick("xpath="+ModernPhotoLetterPath);
+		
+			//create "Poster" doc
+			//Thread.sleep(2000);
+			if(isElementPresent(By.xpath(iCloudConstants.templateChooseButton)))
+			{
+				driver.findElement(By.xpath(iCloudConstants.templateChooseButton)).click(); //click action that cause new window to open 
+				
+			}
+			
+			
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Personal Photo Letter Theme selected : PASSED");
+		}
+		else
+		{
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": PERSONAL PHOTO LETTER THEME not found :  ******* FAILED *******");
+			captureScreenshot(createDocGearMenuSuccessful, "UnableToSelectPersonalPhotoTheme");
+			
+			//Get current window handles
+			Set<String> cHandle = driver.getWindowHandles();
+			//remove all before handles from after.  Leaves you with new window handle
+			cHandle.removeAll(parentWindowHandle);		
+			//Switch to the new window
+			String newWindowHandle = cHandle.iterator().next();
+			driver.switchTo().window(newWindowHandle);
+			//save and close
+			driver.switchTo().window(newWindowHandle).close();
+		}
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+		
+		/*//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);*/
+		waitForEditStartToComplete();
+
+	} catch (Exception e) {
+		debugLogger.info("Creating doc via gear menu failed.");
+		captureScreenshot(createDocGearMenuSuccessful, "createDocGearMenuUnSuccessful");
+	}	
+	return createDocGearMenuSuccessful;
+}
+
+public boolean saveDoc7(){
+	boolean saveDocumenetSuccess=false;
+	try{
+		//Closing the Document
+		driver.close();
+		Thread.sleep(2000);
+		Set<String> parentWindowHandle = driver.getWindowHandles();
+		String temp = parentWindowHandle.toString();
+		temp = temp.substring(0, temp.length()-1);
+		String parentWindow = temp.substring(1,temp.length());
+		
+		//Switching to the main parent window and frame
+		driver.switchTo().window(parentWindow);
+		Thread.sleep(1000);
+		driver.switchTo().frame("pages");
+		Thread.sleep(1000);
+		waitForEditCloseComplete();
+		
+		saveDocumenetSuccess=true;
+	}catch (Exception e) {
+		debugLogger.info("Saving Document failed.");
+		captureScreenshot(saveDocumenetSuccess, "saveDocumenetSuccess");
+	}	
+	return saveDocumenetSuccess;
+}
+
+public boolean deleteFirstDocGearMenu7(String docPath)
+{
+	boolean deleteSuccessful = false;
+	
+	try {      
+
+				waitForElementPresent(By.xpath(iCloudConstants.docSelection), "First Doc");
+		        driver.findElement(By.xpath(iCloudConstants.docSelection)).click();
+				//The first doc is already selected when you open and close the document, so we
+				//don't have to click on the doc
+				//Gear option menu click
+				waitForElementPresent(By.xpath("//*[@class='img action-menu']"), "Action Menu");
+				driver.findElement(By.xpath("//*[@class='img action-menu']")).click();
+				Thread.sleep(3000);
+				
+				String deleteOptionGear = "/html/body/div[5]/div[3]/div[2]/div/div[6]/a";
+				if(isElementPresent(By.xpath(deleteOptionGear)))
+				{
+					Thread.sleep(2000);
+					driver.findElement(By.xpath(deleteOptionGear)).click();
+					Thread.sleep(4000);
+					String deleteButtonConfirmation = "//label[text()='Delete']";
+					if(isElementPresent(By.xpath(deleteButtonConfirmation))){
+						driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+					}else {
+						//deepak deleteSuccessful = false;
+						captureScreenshot(deleteSuccessful, "DeleteButtonUnclickable");
+						debugLogger.info("Delete Confirmation Button not clickable");	//deepak
+						}
+			
+					Thread.sleep(2000);
+				}
+				else{
+					captureScreenshot(deleteSuccessful, "DeleteGearOptionNotSeen");
+					debugLogger.info("Delete Gear Option Not Seen");	//deepak
+				}
+			deleteSuccessful = true;
+	} catch (Exception e) {
+		captureScreenshot(deleteSuccessful, "DeleteViaGearUnsuccessful");
+		debugLogger.info("Delete Via Gear Unsuccessful");
+	}
+	return deleteSuccessful;
+}
+
+public void removeHelpMenuYellow(){
+	try {waitForElementPresent(By.xpath(iCloudConstants.helpMenu), "Wait For Help Menu");} catch (InterruptedException e1) {e1.printStackTrace();}
+	WebElement actionMenuElemeent = driver.findElement(By.xpath(iCloudConstants.helpMenu));
+	try {Thread.sleep(6000);} catch (InterruptedException e) {e.printStackTrace();}
+	actionMenuElemeent.click();
+}
+
+//@Ignore
+//@Test
+public void testScenario08B(){
+	
+	boolean isTestScenario08success = false;
+	try {
+		try {
+			//downloadInWordGearMenu7(iCloudConstants.docSelection);
+			//uploadText9("Test.txt");
+			downloadInPagesGearMenu4(iCloudConstants.docSelection);
+			uploadPages8("Test_01.pages");
+			
+			testResultsLogger.info("Upload Pages :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Upload Pages : PASSED");
+			isTestScenario08success = true;
+			Thread.sleep(2000);
+		} 
+	    catch (Exception e) {
+			testResultsLogger.info("UPLOAD PAGES  :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": UPLOAD PAGES  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario08success, "UploadPagesFailed");
+		}
+		try {
+			renameDoc8();
+			testResultsLogger.info("Rename Doc :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Rename Doc : PASSED");
+			isTestScenario08success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("RENAME DOC :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": RENAME DOC : ########## FAILED ##########");
+			captureScreenshot(isTestScenario08success, "RenameDocFailed");
+		}
+		try {
+			editUploadPages8(iCloudConstants.docSelection);
+			testResultsLogger.info("Open And Edit Uploaded Pages :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Open And Edit Uploaded Pages : PASSED");
+			isTestScenario08success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("OPEN AND EDIT UPLOADED PAGES :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": OPEN AND EDIT UPLOADED PAGES : ########## FAILED ##########");
+			captureScreenshot(isTestScenario08success, "OpenEditUploadedPagesFailed");
+		}
+		
+	} catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 08  :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 08  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario08success, "TestScenario08Failed");
+	}
+}
+
+public boolean uploadPages8(String docLocation)
+{
+	boolean uploadSuccessful = false;
+	
+	try {
+		Thread.sleep(2000);
+		if(isElementPresent(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)))
+		{
+			driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).isSelected();
+			driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).click();
+			Thread.sleep(4000);
+	
+			generalUtility.robotMousePress(uploadDoc_X, uploadDoc_Y);
+			/*String testString ="//*[@class='atv3 sc-view']/div[2]/a/span[1]";
+			selenium.focus(testString);
+			Thread.sleep(2000);
+			selenium.click("xpath=" + testString);
+			Thread.sleep(3000);
+			selenium.click("xpath=//*[@class='sc-button-label sc-regular-size ellipsis sc-large-size' and text()='Choose']");
+			selenium.click("xpath=//*[@class='sc-button-label sc-regular-size ellipsis sc-large-size' and text()='Choose']");*/
+
+			//select from enabled choices
+		/*	List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']"));
+			int index = 0;
+			for (WebElement option : inputs) {
+				if(index==0 || index==1 ){
+					index++;
+				}
+				
+				//upload document option
+				if(index==2){
+					Thread.sleep(3000);
+					option.isSelected();					
+					option.click();
+					Thread.sleep(3000);
+					break;
+				}	
+			}*/			
+
+			Thread.sleep(4000);
+
+			if(com.webtest.icloud.iwork.iCloudConstants.safari.equalsIgnoreCase(browserType)&& operatingSystem.equalsIgnoreCase(com.webtest.icloud.iwork.iCloudConstants.MacOsX))
+			{
+				Thread.sleep(2000);
+				generalUtility.bringTheFocusToCentreOfScreen();
+				
+				try{								
+						//clicking on the view icon to view as columns
+						/*generalUtility.robotMousePress(BrowserCoordinates.xCoordianteForViewIconInDocumentUploadWindow,
+											BrowserCoordinates.yCoordianteForViewIconInDocumentUploadWindow);*/
+					//clicking the left Navigation Desktop
+					generalUtility.robotMousePress(430,170);
+						Thread.sleep(2000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to locate view icon\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//clicking on the search box
+						/*generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInDocumentUploadWindow,
+											BrowserCoordinates.yCoordinateOfSearchInDocumentUploadWindow);*/
+					//clicking on the search box
+					generalUtility.robotMousePress(875,65);
+						Thread.sleep(2000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to search box icon\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+					
+				}		
+				try{
+					String uploadFileName = generalUtility.getFileNameFromFileLocation(docLocation);
+						//debugLogger.debug("The file name obtained after processing file location is "+ uploadFileName);
+						//typing the file name in search box
+						generalUtility.setClipboardData(uploadFileName);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to type file name\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}		
+				try{
+						generalUtility.robotSearchProcess(operatingSystem);
+						Thread.sleep(2000);
+						//clicking for to search the file in the entire mac
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInEntireMacForDocumentUpload,
+										BrowserCoordinates.yCoordinateOfSearchInEntireMacForDocumentUpload);
+						Thread.sleep(5000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to locate file\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//choosing the first search result document
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchResultInDocumentUploadWindow,
+											BrowserCoordinates.yCoordinateOfSearchResultInDocumentUploadWindow);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to click on first found file\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//clicking the enter to upload the doc
+						generalUtility.robotEnterKeyPress();
+						waitForUploadToComplete();
+					
+						uploadSuccessful = true;
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to click enter\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+	
+					//upload OK button
+				/**String uploadFileOKButton = "//label[text()='OK']";
+				if(isElementPresent(By.xpath(uploadFileOKButton)))
+				{
+					driver.findElement(By.xpath(uploadFileOKButton)).isSelected();
+					driver.findElement(By.xpath(uploadFileOKButton)).click();
+					uploadSuccessful = true;
+				}*/
+			}//browser check
+			//if file to upload already exits, replace it
+			/**String uploadFileReplaceButton = "//label[text()='Replace']";
+			if(isElementPresent(By.xpath(uploadFileReplaceButton)))
+			{
+				driver.findElement(By.xpath(uploadFileReplaceButton)).isSelected();
+				driver.findElement(By.xpath(uploadFileReplaceButton)).click();
+				uploadSuccessful = true;
+				Thread.sleep(2000);	
+			}*/
+						
+		}else {
+			debugLogger.info("Gear menu missing or upload menu is missing...file couldn't be uploaded");
+			uploadSuccessful = false;
+			captureScreenshot(uploadSuccessful, "GearMenuMissing");
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		uploadSuccessful = false;
+		captureScreenshot(uploadSuccessful, "UploadPagesUnsucessfull");
+	}
+	return uploadSuccessful;
+}
+
+public boolean renameDoc8()
+{
+	
+	Actions aObject = new Actions(driver);
+	boolean renameDocSuccessful = false;
+	
+	try {
+		
+		Thread.sleep(1000);
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection)))
+		{	
+		
+				String selectFirstDoc_alt = "//div[@class='img-container']";			
+				
+				if(isElementPresent(By.xpath(selectFirstDoc_alt)))
+				{
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				} else {
+					debugLogger.info("Unable to select first document");
+					captureScreenshot(renameDocSuccessful, "UnableToSelect");
+				}
+				if(isElementPresent(By.xpath(iCloudConstants.docToRename)))
+				{
+					Thread.sleep(2000);
+					driver.findElement(By.xpath(iCloudConstants.docToRename)).click();
+					Thread.sleep(2000);
+					// enter the new file name
+					aObject.sendKeys("Test_Uploaded").perform();
+					aObject.sendKeys(Keys.RETURN).build().perform();
+					Thread.sleep(2000);
+				} else {
+					debugLogger.info("Dcoument with same name already exists");
+					captureScreenshot(renameDocSuccessful, "SameNameExists");
+				}
+			
+			renameDocSuccessful = true;
+		}else{
+			debugLogger.info("Unable to find document to rename");
+			captureScreenshot(renameDocSuccessful, "SameNameExists");
+		}
+	} catch (Exception e) {
+		debugLogger.info("Rename failed");
+		captureScreenshot(renameDocSuccessful, "RenameFailed");
+	}
+	return renameDocSuccessful;
+}
+
+public boolean editUploadPages8(String docPath){
+	
+	boolean isUploadPagesEditable = false;
+	mainParentHandle = driver.getWindowHandle();
+	
+	try{
+		Thread.sleep(1000);
+			
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection))){
+
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+
+		//opens the uploaded document
+	    selenium.doubleClick("xpath="+iCloudConstants.docSelection);
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+		
+		//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);
+		waitForEditStartToComplete();
+
+		//Edit manipulation 
+		editFontStyle8();
+		
+		Thread.sleep(1000);
+		generalUtility.bringTheFocusToCentreOfScreen();
+		
+		//closing the document window
+		Thread.sleep(1000);
+		driver.close();
+		Thread.sleep(2000);
+		driver.switchTo().window(mainParentHandle);
+		Thread.sleep(1000);	
+		driver.switchTo().frame("pages");
+		Thread.sleep(1000);	
+		waitForEditCloseComplete();
+		isUploadPagesEditable = true;
+		
+		}
+		else{
+			captureScreenshot(isUploadPagesEditable, "No Document Upload to edit");
+			debugLogger.info("No Documents to Edit Failed.");
+		}
+	}
+	catch(Exception e){
+		captureScreenshot(isUploadPagesEditable, "Upload Edit Document");
+		debugLogger.info("Upload Edit Document Failed.");
+	}
+	return isUploadPagesEditable;
+}	
+
+public boolean editFontStyle8(){
+	//Changing Text Below Image
+	boolean isEditStyleValue = false;
+	String textImageText = "//*[contains(@style, 'font-size: 40px;')]";
+	String fontAppleGothic = "//*[@class='image AppleGothic']";
+
+	String boldButton = "//*[@class='icon font-bold']";
+	String italicButton = "//*[@class='icon font-italic']";
+	String underlineButton = "//*[@class='icon font-underline']";
+	String strikethroughButton = "//*[@class='icon font-strikethrough']";
+
+	
+	Actions action = new Actions(driver);
+
+	try{
+		try{
+			
+			waitForElementPresent(By.xpath(textImageText), "Text below image");
+			Thread.sleep(2000);
+			if(isElementPresent(By.xpath(textImageText))){
+
+				
+				// selecting the font type starts
+				try {
+					Thread.sleep(3000);
+					action.sendKeys(Keys.RIGHT).perform();
+					Thread.sleep(2000);
+					selenium.click(iCloudConstants.fontTypeDropDown);
+					Thread.sleep(2000);
+					selenium.click(fontAppleGothic);
+					Thread.sleep(4000);
+				} catch (Exception e) {
+					captureScreenshot(isEditStyleValue, "ChooseFontTypeFailed");
+					debugLogger.info("Choosing APPLE GOTHIC font style failed.");
+				}
+				// selecting the font type ends
+				
+				//selecting bold starts here
+				try{
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					Thread.sleep(3000);
+					selenium.click("xpath=" + boldButton);
+					Thread.sleep(4000);
+				} catch (Exception e) {
+					captureScreenshot(isEditStyleValue, "ChooseBoldFailed");
+					debugLogger.info("Choosing BOLD failed.");
+				}
+				// selecting bold ends here	
+				
+				//selecting italic starts here
+				try{
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					Thread.sleep(3000); 
+					selenium.click("xpath=" + italicButton);
+					Thread.sleep(4000);
+				} catch (Exception e) {
+					captureScreenshot(isEditStyleValue, "ChooseItalicFailed");
+					debugLogger.info("Choosing ITALIC failed.");
+				}
+				// selecting italic ends here	
+				
+				//selecting underline starts here
+				try{
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					Thread.sleep(3000);
+					selenium.click("xpath=" + underlineButton);
+					Thread.sleep(4000);
+				} catch (Exception e) {
+					captureScreenshot(isEditStyleValue, "ChooseUnderlineFailed");
+					debugLogger.info("Choosing UNDERLINE failed.");
+				}
+				// selecting underline ends here	
+				
+				//selecting strikethrough starts here
+				try{
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					action.sendKeys(Keys.RIGHT).perform();
+					Thread.sleep(3000);
+					selenium.click("xpath=" + strikethroughButton);
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					captureScreenshot(isEditStyleValue, "ChooseStrikethroughFailed");
+					debugLogger.info("Choosing STRIKETHROUGH failed.");
+				}
+				// selecting Strikethrough ends here	
+				
+				Thread.sleep(2000);
+			}
+		}catch(Exception e){
+			debugLogger.info("Unable to make changes to text" + e);
+			captureScreenshot(isEditStyleValue, "UnableToChangeText");
+		}
+		isEditStyleValue = true;	
+	}catch(Exception e){
+		debugLogger.info("Unable to edit the uploaded document" + e);
+		captureScreenshot(isEditStyleValue, "UnableToEditUploadedDocument");
+	}
+	return isEditStyleValue;
+}
+
+//@Ignore
+//@Test
+public void testScenario09B(){
+	
+	boolean isTestScenario09success = false;
+	try {
+		try {
+			duplicateContextMenu9(iCloudConstants.docSelection);
+			testResultsLogger.info("Duplicate (Via Context Menu) :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Duplicate (Via Context Menu) : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+	    catch (Exception e) {
+			testResultsLogger.info("DUPLICATE (VIA CONTEXT MENU) :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DUPLICATE (VIA CONTEXT MENU)  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "DuplicatePagesContextFailed");
+		}
+		try {
+			downloadInPDFContextMenu9(iCloudConstants.docSelection);
+			testResultsLogger.info("Downloading PDF Doc Via Context Menu :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Downloading PDF Doc Via Context Menu : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("DOWNLOADING PDF DOC VIA CONTEXT MENU :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DOWNLOADING PDF DOC VIA CONTEXT MENU : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "DownloadingPDFDocContextFailed");
+		}
+		try {
+			renameDoc9();
+			testResultsLogger.info("Rename Doc :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Rename Doc : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("RENAME DOC :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": RENAME DOC : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "RenameDocFailed");
+		}
+		try {
+			openExistingDocAndEdit9(iCloudConstants.docSelection);
+			testResultsLogger.info("Open And Edit Existing Doc :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Open And Edit Existing Doc : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("OPEN AND EDIT EXISTING DOC :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": OPEN AND EDIT EXISTING DOC : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "OpenEditExistingDocFailed");
+		}
+		try {
+			uploadText9("Test.txt");
+			testResultsLogger.info("Upload Text File :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Upload Text File : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+	    catch (Exception e) {
+			testResultsLogger.info("UPLOAD TEXT FILE  :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": UPLOAD TEXT FILE  : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "UploadTextFileFailed");
+		}
+		try {
+			deleteTextFileDeleteButton9(iCloudConstants.docSelection);
+			testResultsLogger.info("Deleting Text File With Delete Key :, PASSED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": Deleting Text File With Delete Key : PASSED");
+			isTestScenario09success = true;
+			Thread.sleep(2000);
+		} 
+		catch (Exception e) {
+			testResultsLogger.info("DELETING TEXT FILE WITH DELETE KEY :, FAILED");
+			debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": DELETING TEXT FILE WITH DELETE KEY : ########## FAILED ##########");
+			captureScreenshot(isTestScenario09success, "deleteTextFileDeleteKeyFailed");
+		}
+	} catch (Exception e) {
+		testResultsLogger.info("TEST SCENARIO 09 :, FAILED");
+		debugLogger.info("OS: " +operatingSystem+" Browser: " +browserType+ ": TEST SCENARIO 09  : ########## FAILED ##########");
+		captureScreenshot(isTestScenario09success, "TestScenario09Failed");
+	}
+}
+
+public boolean duplicateContextMenu9(String docPath)
+{
+	boolean duplicateSuccessful = false;
+		
+	try {
+		Actions action= new Actions(driver);
+		
+		if(isElementPresent(By.xpath(docPath)))
+		{
+			
+				String selectFirstDoc_alt = "//div[@class='img-container']";			
+				driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				Thread.sleep(2000);
+				
+				//send keys (ctrl + enter)
+				//action.contextClick().sendKeys(Keys.CONTROL).sendKeys(Keys.ENTER);
+				action.build().perform();
+				Thread.sleep(3000);
+				String duplicateContextMenu = "/html/body/div[5]/div[2]/div/div/div[2]/a";
+				
+				if(isElementPresent(By.xpath(duplicateContextMenu)))
+				{
+					Thread.sleep(3000);
+					driver.findElement(By.xpath(duplicateContextMenu)).isEnabled();
+					driver.findElement(By.xpath(duplicateContextMenu)).isSelected();
+					driver.findElement(By.xpath(duplicateContextMenu)).click();
+				} 
+				else {
+					captureScreenshot(duplicateSuccessful, "DuplicateContextNotClickable");
+					debugLogger.info("Duplicate Option not clickable.");
+					action.release();
+				}
+				Thread.sleep(2000);
+				action.sendKeys(Keys.CONTROL).build().perform();
+			//}
+			duplicateSuccessful = true;
+		}
+	} catch (Exception e) {
+		debugLogger.info("Duplicate Via Context failed");
+		captureScreenshot(duplicateSuccessful, "DuplicateContextFail");
+	}
+	return duplicateSuccessful;
+}
+
+public boolean downloadInPDFContextMenu9(String docPath)
+{
+	boolean downloadSuccessful = false;
+	
+	try {
+		Actions action= new Actions(driver);
+		waitForElementPresent(By.xpath(docPath), "Doc Selection Element");
+		if(isElementPresent(By.xpath(docPath)))
+		{
+			
+				String selectFirstDoc_alt = "//div[@class='img-container']";
+				driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+
+				Thread.sleep(2000);
+				
+				//send keys (ctrl + enter)
+				//action.contextClick().sendKeys(Keys.LEFT_ALT).sendKeys(Keys.RETURN);
+				action.build().perform();
+				Thread.sleep(3000);
+				String downloadContextMenu = "/html/body/div[5]/div[2]/div/div/div[1]/a";
+				Thread.sleep(3000);
+				action.sendKeys(Keys.LEFT_ALT).build().perform();
+				if(isElementPresent(By.xpath(downloadContextMenu)))
+				{
+					driver.findElement(By.xpath(downloadContextMenu)).isEnabled();
+					driver.findElement(By.xpath(downloadContextMenu)).isSelected();
+					driver.findElement(By.xpath(downloadContextMenu)).click();
+						
+					Thread.sleep(3000);
+				
+					String downloadPDF = "//div[contains(@class,'type-choice type-choice-1')]";
+					
+					if(isElementPresent(By.xpath(downloadPDF)))
+					{
+						driver.findElement(By.xpath(downloadPDF)).click();
+						waitForDownloadToComplete();
+						
+					} else {
+						captureScreenshot(downloadSuccessful, "DownloadPDFIcon");
+						debugLogger.info("Download PDF Icon not clickable");
+					}
+				} 
+				else {
+						captureScreenshot(downloadSuccessful, "DownloadPDFViaContext");
+						debugLogger.info("Download PDF Icon not present");
+				}
+			downloadSuccessful = true;
+		}
+	} 
+	catch (Exception e) {
+		captureScreenshot(downloadSuccessful, "DownloadViaContext");
+		debugLogger.info("Download PDF Via Context Failed");
+	}
+	return downloadSuccessful;
+}
+
+public boolean renameDoc9()
+{
+	
+	Actions aObject = new Actions(driver);
+	boolean renameDocSuccessful = false;
+	
+	
+	try {
+		
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection)))
+		{	
+		
+				String selectFirstDoc_alt = "//div[@class='img-container']";			
+				
+				if(isElementPresent(By.xpath(selectFirstDoc_alt)))
+				{
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+				} else {
+					debugLogger.info("Unable to select first document");
+					captureScreenshot(renameDocSuccessful, "UnableToSelect");
+				}
+				if(isElementPresent(By.xpath(iCloudConstants.docToRename)))
+				{
+					Thread.sleep(2000);
+					driver.findElement(By.xpath(iCloudConstants.docToRename)).click();
+					Thread.sleep(2000);
+					// enter the new file name
+					aObject.sendKeys("Test_03").perform();
+					aObject.sendKeys(Keys.RETURN).build().perform();
+					Thread.sleep(2000);
+				} else {
+					debugLogger.info("Dcoument with same name already exists");
+					captureScreenshot(renameDocSuccessful, "SameNameExists");
+				}
+			renameDocSuccessful = true;
+		}else{
+			debugLogger.info("Unable to find document to rename");
+			captureScreenshot(renameDocSuccessful, "SameNameExists");
+		}
+	} catch (Exception e) {
+		debugLogger.info("Rename failed");
+		captureScreenshot(renameDocSuccessful, "RenameFailed");
+	}
+	return renameDocSuccessful;
+}
+
+public boolean openExistingDocAndEdit9(String docPath){
+	
+	boolean isUploadPagesEditable = false;
+	mainParentHandle = driver.getWindowHandle();
+	
+	try{
+			
+		if(isElementPresent(By.xpath(iCloudConstants.docSelection))){
+
+		//Get current windows		
+		final Set<String> parentWindowHandle = driver.getWindowHandles();
+
+		//opens the uploaded document
+	    selenium.doubleClick("xpath="+iCloudConstants.docSelection);
+		
+		//Get current window handles
+		Set<String> cHandle = driver.getWindowHandles();
+		//remove all before handles from after.  Leaves you with new window handle
+		cHandle.removeAll(parentWindowHandle);		
+		//Switch to the new window
+		String newWindowHandle = cHandle.iterator().next();
+		driver.switchTo().window(newWindowHandle);
+		
+		//open another browser window and non-supported browser pop-up shows up, close that one
+		if(isElementPresent(By.xpath(iCloudConstants.nonSupportedBrowserPopup)))
+		{
+			driver.findElement(By.xpath(iCloudConstants.nonSupportedBrowserPopup)).click();
+		}
+		driver.switchTo().window(newWindowHandle);
+		waitForEditStartToComplete();
+		
+		//Edit manipulation 
+		editDoc9();
+		
+		//closing the document window
+		driver.close();
+		Thread.sleep(2000);
+		driver.switchTo().window(mainParentHandle);
+		Thread.sleep(1000);	
+		driver.switchTo().frame("pages");
+		Thread.sleep(1000);	
+		waitForEditCloseComplete();
+		isUploadPagesEditable = true;
+		
+		}
+		else{
+			captureScreenshot(isUploadPagesEditable, "No Document Upload to edit");
+			debugLogger.info("No Documents to Edit Failed.");
+		}
+	}
+	catch(Exception e){
+		captureScreenshot(isUploadPagesEditable, "Upload Edit Document");
+		debugLogger.info("Upload Edit Document Failed.");
+	}
+	return isUploadPagesEditable;
+}	
+
+public boolean editDoc9(){
+	//Changing Text Below Image
+	boolean isEditStyleValue = false;
+	String textImageText = "//*[contains(@style, 'font-size: 40px;')]";
+
+	try{
+		try{
+			
+			waitForElementPresent(By.xpath(textImageText), "Text below image");
+			Thread.sleep(2000);
+			if(isElementPresent(By.xpath(textImageText))){
+
+				find9();
+				Thread.sleep(3000);
+				helpMenu9();
+				Thread.sleep(2000);
+			}
+		}catch(Exception e){
+			debugLogger.info("Unable to make changes to text" + e);
+			captureScreenshot(isEditStyleValue, "UnableToChangeText");
+		}
+		isEditStyleValue = true;	
+	}catch(Exception e){
+		debugLogger.info("Unable to edit the uploaded document" + e);
+		captureScreenshot(isEditStyleValue, "UnableToEditUploadedDocument");
+	}
+	return isEditStyleValue;
+}
+
+public void find9(){
+	
+	boolean isFindFunctional = false;
+	String gearFind = "//*[@class='gilligan-atv3 gilligan-atv3-extra iwork-theme sc-view sc-menu-item']";
+	
+	try {
+		try{
+			Thread.sleep(3000);
+			selenium.click("xpath=//div[text()='Tools']");
+		}
+		catch(Exception e){
+			captureScreenshot(isFindFunctional, "ToolsIconNotClickable");
+			debugLogger.info("Tools Icon not clickable");
+		}
+		
+		try{
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Show Find & Replace']");
+		}catch(Exception e){
+			captureScreenshot(isFindFunctional, "FindIconNotClickable");
+			debugLogger.info("Find Icon not clickable");
+		}
+		
+		try {
+			Thread.sleep(2000);
+			if(isElementPresent(By.xpath("//*[@aria-label='Find']"))){
+				driver.findElement(By.xpath("//*[@aria-label='Find']")).sendKeys("Goals");
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//label[text()='Done']")).click();
+			}
+		} catch (InterruptedException e) {
+			captureScreenshot(isFindFunctional, "KeywordSearchFailed");
+			debugLogger.info("Keyword search failed.");
+		}
+		
+		try {
+			Thread.sleep(3000);
+			selenium.click("xpath=//div[text()='Tools']");
+			
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Show Find & Replace']");
+			
+			Thread.sleep(2000);
+			if(isElementPresent(By.xpath("//*[@class='img options-button']"))){
+				driver.findElement(By.xpath("//*[@class='img options-button']")).click();
+				
+				Thread.sleep(3000);
+				
+				List<WebElement> myFields = driver.findElements(By.xpath(gearFind));
+				
+				for(int i=0;i<=myFields.size();i++){
+					if(i==1){
+			    	    String optionId = myFields.get(i).getAttribute("id");
+			    	    String inputId = "//*[@id='"+optionId+"']/a/span";
+			    	    Thread.sleep(2000);
+			    	   
+			    	    selenium.click(inputId);
+						Thread.sleep(3000);
+					}
+				}
+				driver.findElement(By.xpath("//*[@aria-label='Find']")).sendKeys("Goals");
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//*[@aria-label='Replace']")).sendKeys("yes");
+				Thread.sleep(3000);
+				if(isElementPresent(By.xpath("//label[text()='Replace']"))){
+					for(int i=0;i<2;i++){
+						selenium.click("//label[text()='Replace']");
+					}
+				}
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//label[text()='Done']")).click();
+			}
+		} catch (InterruptedException e) {
+			captureScreenshot(isFindFunctional, "FindReplaceFailed");
+			debugLogger.info("Find and Repalace failed.");
+		}
+		
+		isFindFunctional = true;
+		
+	} catch (Exception e) {
+		captureScreenshot(isFindFunctional, "FindScenarioFailed");
+		debugLogger.info("Find Scenario Failed.");
+	}
+	
+	
+}
+
+public void helpMenu9(){
+	boolean isHelpFunctional = false;
+	try {
+		final Set<String> beforeHandlesA = driver.getWindowHandles();
+		try{
+			Thread.sleep(1000);
+			selenium.click("xpath=//div[text()='Tools']");
+		}
+		catch(Exception e){
+			captureScreenshot(isHelpFunctional, "ToolsIconNotClickable");
+			debugLogger.info("Tools Icon not Clickable.");
+		}
+		try{
+			Thread.sleep(2000);
+			selenium.click("xpath=//span[text()='Help']");
+		}catch(Exception e){
+			captureScreenshot(isHelpFunctional, "HelpIconNotClickable");
+			debugLogger.info("Help Icon not clickable.");
+		}
+		try{
+			Thread.sleep(3000);
+			
+			Set<String> cHandle1 = driver.getWindowHandles();
+			cHandle1.removeAll(beforeHandlesA);
+			String newWindowHandle1 = cHandle1.iterator().next();
+			driver.switchTo().window(newWindowHandle1);
+			Thread.sleep(2000);
+			driver.close();
+			Thread.sleep(4000);
+			
+			// switching to the document Window
+			Set<String> lHandle = driver.getWindowHandles();
+			lHandle.remove(mainParentHandle);
+			String theWindow = lHandle.toString();
+			//removing brackets from the string "theWindow"
+			String string_one = theWindow.substring(0, theWindow.length()-1);
+			String myDocWindow = string_one.substring(1,string_one.length());
+			driver.switchTo().window(myDocWindow);
+			Thread.sleep(2000);
+			isHelpFunctional = true;
+			
+		}catch(Exception e){
+			captureScreenshot(isHelpFunctional, "HelpWindowNotClosing");
+			debugLogger.info("Help Window not closing.");
+		}
+		isHelpFunctional = true;
+	} catch (Exception e) {
+		captureScreenshot(isHelpFunctional, "HelpFailed");
+		debugLogger.info("Help action failed.");
+	}
+}
+
+public boolean uploadText9(String docLocation)
+{
+	boolean uploadSuccessful = false;
+	
+	try {
+		if(isElementPresent(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)))
+		{
+			driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).isSelected();
+			driver.findElement(By.xpath(com.webtest.icloud.iwork.iCloudConstants.actionMenu)).click();
+			Thread.sleep(4000);
+	
+			//select from enabled choices
+			List<WebElement> inputs = driver.findElements(By.xpath("//*[@class='atv3 sc-view sc-menu-item']"));
+			int index = 0;
+			for (WebElement option : inputs) {
+				if(index==0 || index==1 ){
+					index++;
+				}
+				
+				//upload document option
+				if(index==2){
+					Thread.sleep(3000);
+					option.isSelected();					
+					option.click();
+					Thread.sleep(3000);
+					break;
+				}	
+			}			
+
+			Thread.sleep(4000);
+
+			if(com.webtest.icloud.iwork.iCloudConstants.googleChromeBrowser.equalsIgnoreCase(browserType)&& operatingSystem.equalsIgnoreCase(com.webtest.icloud.iwork.iCloudConstants.MacOsX))
+			{
+				Thread.sleep(2000);
+				generalUtility.bringTheFocusToCentreOfScreen();
+				
+				try{								
+						//clicking on the view icon to view as columns
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordianteForViewIconInDocumentUploadWindow,
+											BrowserCoordinates.yCoordianteForViewIconInDocumentUploadWindow);
+						Thread.sleep(2000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to locate view icon\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//clicking on the search box
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInDocumentUploadWindow,
+											BrowserCoordinates.yCoordinateOfSearchInDocumentUploadWindow);
+						Thread.sleep(2000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to search box icon\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+					
+				}		
+				try{
+					String uploadFileName = generalUtility.getFileNameFromFileLocation(docLocation);
+						//debugLogger.debug("The file name obtained after processing file location is "+ uploadFileName);
+						//typing the file name in search box
+						generalUtility.setClipboardData(uploadFileName);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to type file name\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}		
+				try{
+						generalUtility.robotSearchProcess(operatingSystem);
+						Thread.sleep(2000);
+						//clicking for to search the file in the entire mac
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchInEntireMacForDocumentUpload,
+										BrowserCoordinates.yCoordinateOfSearchInEntireMacForDocumentUpload);
+						Thread.sleep(5000);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to locate file\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//choosing the first search result document
+						generalUtility.robotMousePress(BrowserCoordinates.xCoordinateOfSearchResultInDocumentUploadWindow,
+											BrowserCoordinates.yCoordinateOfSearchResultInDocumentUploadWindow);
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to click on first found file\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+				try{
+						//clicking the enter to upload the doc
+						generalUtility.robotEnterKeyPress();
+						waitForUploadToComplete();
+						uploadSuccessful = true;
+				} catch (Exception ioe) {
+					debugLogger.info("File upload: unable to click enter\n" + ioe);
+					uploadSuccessful = false;
+					captureScreenshot(uploadSuccessful, "FileUploadFailed");
+					generalUtility.robotEscKeyPress();
+				}
+	
+			/**		//upload OK button
+				String uploadFileOKButton = "//label[text()='OK']";
+				if(isElementPresent(By.xpath(uploadFileOKButton)))
+				{
+					driver.findElement(By.xpath(uploadFileOKButton)).isSelected();
+					driver.findElement(By.xpath(uploadFileOKButton)).click();
+					uploadSuccessful = true;
+				}*/
+				
+			}//browser check
+			//if file to upload already exits, replace it
+		/**	String uploadFileReplaceButton = "//label[text()='Replace']";
+			if(isElementPresent(By.xpath(uploadFileReplaceButton)))
+			{
+				driver.findElement(By.xpath(uploadFileReplaceButton)).isSelected();
+				driver.findElement(By.xpath(uploadFileReplaceButton)).click();
+				uploadSuccessful = true;
+			}*/
+		}else {
+			debugLogger.info("Gear menu missing or upload menu is missing...file couldn't be uploaded");
+			uploadSuccessful = false;
+			captureScreenshot(uploadSuccessful, "GearMenuMissing");
+		}
+	} catch (Exception e) {
+		uploadSuccessful = false;
+		captureScreenshot(uploadSuccessful, "UploadTextUnsuccessful");
+	}
+	return uploadSuccessful;
+}
+
+public boolean deleteTextFileDeleteButton9(String docPath)
+{
+	boolean deleteSuccessful = false;
+	Actions action= new Actions(driver);
+	
+	try {
+			if(isElementPresent(By.xpath(docPath)))
+			{
+					Thread.sleep(2000);
+					String selectFirstDoc_alt = "//div[@class='img-container']";						
+					driver.findElement(By.xpath(selectFirstDoc_alt)).click();
+					Thread.sleep(2000);
+					
+					//send keys (ctrl + enter)
+					WebElement firstDoc = driver.findElement(By.xpath(selectFirstDoc_alt));
+					action.sendKeys(firstDoc, Keys.DELETE).perform();
+					Thread.sleep(3000);
+				
+					String deleteButtonConfirmation = "//label[text()='Delete']";
+					if(isElementPresent(By.xpath(deleteButtonConfirmation))){	
+							driver.findElement(By.xpath(deleteButtonConfirmation)).isSelected();
+							driver.findElement(By.xpath(deleteButtonConfirmation)).click();
+							Thread.sleep(2000);
+					} 
+					else {
+						captureScreenshot(deleteSuccessful, "UnableToLocateDeletePopUp");
+						debugLogger.info("Unable to locate delete pop up.");
+					}				
+			}//doc path
+		//}//else of doc > 1
+		deleteSuccessful = true;
+	} 
+	catch (Exception e) {
+		captureScreenshot(deleteSuccessful, "UnableToDeleteViaDeleteButton");
+		debugLogger.info("Unable to delete via delete button.");
+	}
+	return deleteSuccessful;
+}
+
+    public void convertCsvToJson() throws IOException, JSONException{
+        //creating a CSV object using the csv path
+        CSVReader reader = new CSVReader(new FileReader(basePath + iworksType + "TestResults.csv"), '\t');
+        String[] nextLine;
+        
+        // Start constructing JSON.
+        JSONObject json = new JSONObject();
+        int count = 0;
+        
+        // Iterate through the rows.
+        JSONArray rows = new JSONArray();
+        
+        //reading every row in the csv file
+        while ((nextLine = reader.readNext()) != null) {
+            
+            //creating a json row object
+            JSONObject jRow = new JSONObject();
+            
+            //fetching the row
+            String row = nextLine[0];
+            StringTokenizer tokenizer = new StringTokenizer(row, ",");
+            
+            // Iterate through the cells.
+            JSONArray cells = new JSONArray();
+            
+            //breaking down the row into cells and adding them into json cells
+            while(tokenizer.hasMoreTokens()){
+                String value = tokenizer.nextToken();
+                cells.put(value);
+            }//end of inner while
+            
+            count++;
+            //adding cells into row
+            jRow.put("row " + count, cells );
+            //adding row into rows
+            rows.put( jRow );
+        }//end of outer while
+        
+        //adding rows into the json Object
+        json.put( "rows", rows );
+        String finalJson = json.toString(3).trim();
+        
+        //creating and writing to a json file
+        BufferedWriter out = new BufferedWriter(new FileWriter(basePath + iworksType + "TestResults.json"));
+        out.write(finalJson);
+        out.close();
+    }
+    
+    public String convertCsvToText() throws IOException, JSONException{
+        //creating a CSV object using the csv path
+        CSVReader reader = new CSVReader(new FileReader(basePath + iworksType + "TestResults.csv"), '\t');
+        String[] nextLine;
+        String total = "\n";
+        
+        int count = 0;
+        
+        //reading every row in the csv file
+        while ((nextLine = reader.readNext()) != null) {
+            
+            //fetching the row
+            String row = nextLine[0];
+            StringTokenizer tokenizer = new StringTokenizer(row);
+            
+            //breaking down the row into cells and adding them into a string
+            while(tokenizer.hasMoreTokens()){
+                String value = tokenizer.nextToken();
+                value = value.trim();
+                if(value.equalsIgnoreCase("FAILED")){
+                    passOrFail = false;
+                }
+                if(value.equalsIgnoreCase(":,"))
+                    total = total +  " : ";
+                else
+                    total = total +  value + " ";
+                
+            }//end of inner while
+            total = total + "\n";
+            
+            count++;
+        }//end of outer while
+        
+        total = total.trim();
+        
+        return total;
+    }
+    
+    public void execute(String reportFileName, String reportFileName2) throws Exception
+    {
+        //path for test results in csv for format
+        String path= basePath + iworksType + "TestResults.csv";
+        
+        //path for test results in json for format
+        String path2= basePath + iworksType + "TestResults.json";
+        
+        String[] to={};
+        String[] cc={};
+        String[] bcc={"pbeltran@apple.com"};
+        
+        //email setup call
+    	sendMail("pbeltran@apple.com",
+                 "pn8572449296",
+                 "mail.apple.com",
+                 "465",
+                 "true",
+                 "true",
+                 true,
+                 "javax.net.ssl.SSLSocketFactory",
+                 "false",
+                 to,
+                 cc,
+                 bcc,
+                 "iCloud3: Pesto Chrome/Mac Gilligan QL Automation Results:"+new SimpleDateFormat("MM/dd/yyyy").format(new Date()),
+                 "bcc intentional...\nPlease do not reply, this is an auto generated mail.\n\nHi All,\n\nPlease find attahced the automation test results below: \n\nThanks," +
+                 "\niWork Automation Team\n\n"+buildDetails,
+                 path,
+                 path2,
+                 reportFileName,
+                 reportFileName2);
+    }
+    
+    public boolean sendMail(String userName,
+                            String passWord,
+                            String host,
+                            String port,
+                            String starttls,
+                            String auth,
+                            boolean debug,
+                            String socketFactoryClass,
+                            String fallback,
+                            String[] to,
+                            String[] cc,
+                            String[] bcc,
+                            String subject,
+                            String text,
+                            String attachmentPath,
+                            String attachmentPath2,
+                            String attachmentName,
+                            String attachmentName2){
+        
+        //Object Instantiation of a properties file.
+        Properties props = new Properties();
+        
+        props.put("mail.smtp.user", userName);
+        
+        props.put("mail.smtp.host", host);
+        
+        if(!"".equals(port)){
+            props.put("mail.smtp.port", port);
+        }
+        
+        if(!"".equals(starttls)){
+            props.put("mail.smtp.starttls.enable",starttls);
+            props.put("mail.smtp.auth", auth);
+        }
+        
+        if(debug){
+            
+            props.put("mail.smtp.debug", "true");
+            
+        }else{
+            
+            props.put("mail.smtp.debug", "false");
+            
+        }
+        
+        if(!"".equals(port)){
+            props.put("mail.smtp.socketFactory.port", port);
+        }
+        if(!"".equals(socketFactoryClass)){
+            props.put("mail.smtp.socketFactory.class",socketFactoryClass);
+        }
+        if(!"".equals(fallback)){
+            props.put("mail.smtp.socketFactory.fallback", fallback);
+        }
+        
+        try{
+            
+            Session session = Session.getDefaultInstance(props, null);
+            session.setDebug(debug);
+            
+            MimeMessage msg = new MimeMessage(session);
+            
+            String textResultMessage = convertCsvToText();
+            if(passOrFail==false)
+                msg.setSubject(subject + " FAILED");
+            else
+                msg.setSubject(subject + " PASSED");
+            
+            
+            Multipart multipart = new MimeMultipart();
+            
+            //creating objects for the content message, and attachments of the test reports in CSV and JSON format
+            MimeBodyPart messageText = new MimeBodyPart();
+            MimeBodyPart messageCSV = new MimeBodyPart();
+            MimeBodyPart messageJSON = new MimeBodyPart();
+            MimeBodyPart messageResultContent = new MimeBodyPart();
+            MimeBodyPart messageSpace = new MimeBodyPart();
+            
+            //adding content to the email
+            messageText.setText(text);
+            multipart.addBodyPart(messageText);
+            
+            //adding text results in the content of the email
+            messageResultContent.setText(textResultMessage);
+            multipart.addBodyPart(messageResultContent);
+            
+            //adding space between email message and two files
+            messageSpace.setText("\n\n\n");
+            multipart.addBodyPart(messageSpace);
+            
+            //adding CSV test report file to the email
+            DataSource source = new FileDataSource(attachmentPath);
+            messageCSV.setDataHandler(new DataHandler(source));
+            messageCSV.setFileName(attachmentName);
+            multipart.addBodyPart(messageCSV);
+            
+            //adding JSON test report file to the email
+            DataSource source2 = new FileDataSource(attachmentPath2);
+            messageJSON.setDataHandler(new DataHandler(source2));
+            messageJSON.setFileName(attachmentName2);
+            multipart.addBodyPart(messageJSON);
+            
+            
+            
+            msg.setContent(multipart);
+            msg.setFrom(new InternetAddress(userName));
+            for(int i=0;i<to.length;i++){
+                msg.addRecipient(Message.RecipientType.TO, new
+                                 InternetAddress(to[i]));
+            }
+            
+            for(int i=0;i<cc.length;i++){
+                msg.addRecipient(Message.RecipientType.CC, new
+                                 InternetAddress(cc[i]));
+            }
+            
+            for(int i=0;i<bcc.length;i++){
+                msg.addRecipient(Message.RecipientType.BCC, new
+                                 InternetAddress(bcc[i]));
+            }
+            
+            msg.saveChanges();
+            
+            Transport transport = session.getTransport("smtp");
+            
+            transport.connect(host, userName, passWord);
+            
+            transport.sendMessage(msg, msg.getAllRecipients());
+            
+            transport.close();
+            
+            return true;
+            
+        } catch (Exception mex){
+            mex.printStackTrace();
+            return false;
+        }
+    }
+
+
+}//end of class
+	

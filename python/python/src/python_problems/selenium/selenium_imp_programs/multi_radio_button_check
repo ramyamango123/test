@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>multi_radio_button_check</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">multi_radio_button_check</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.w3schools.com/html/html_forms.asp</td>
+	<td></td>
+</tr>
+<!--Use name id and value name to distinguish with other buttons-->
+<tr>
+	<td>check</td>
+	<td>name=sex value=female</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>sex value=female</td>
+	<td></td>
+</tr>
+<!--Both gives same result-->
+
+</tbody></table>
+</body>
+</html>

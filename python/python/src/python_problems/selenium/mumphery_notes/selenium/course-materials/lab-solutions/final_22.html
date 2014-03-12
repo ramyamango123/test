@@ -1,0 +1,120 @@
+<html><head><title>Automated Web Page Testing with Selenium IDE</title></head><body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Midterm Take-Home Programming Problem #22</h3>
+<font size="+1">
+<p>Create a single-file SIDE test case for the following test case specification.  When you have finished testing
+it, email it to <b>mamp@earthlink.net</b> with a <b>Subject:</b> line of <b>SELENIUM FINAL #22</b>.  You have until midnight tonight to mail it.
+<p><b>WARNING: </b>Please be very careful to not accidentally submit the
+form with four valid values.  We do not want a host of bogus comments
+landing in any campus email-boxes!
+<p><b>HINT: </b>This problem is a test of your ability to synthesize what
+you've learned in class to research and utilize new (to you) Selenium
+functionality.  In other words, you may need to skim through the reference
+docs, looking for a needed command or two.
+<p><b>REQUIRED: </b>Store your valid values in variables, and access those
+variables for each of the four tests.  Do <b>NOT</b> use a literal 
+such as a value for the name field more than once.
+<p>
+<table border=2>
+<tr>
+<th>Action</th>
+<th>Expected Results</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Point your browser to the <a href="http://www.deanza.edu/comment.html">De Anza College Questions and Comments Form</a>.
+<p>
+<li>Enter values for email, comment, and recipient, but NOT name.  
+<p>
+<li>Click the Submit button.
+<p>
+<li>Confirm the pop-up.
+</ol>
+</td>
+
+<td>
+Verify that the landing page contains the string <b>Please enter your name</b>.
+</td>
+</tr>
+
+<tr>
+<td colspan=2>
+Return to the form.
+</td>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter values for name, comment, and recipient, but NOT email.  
+<p>
+<li>Click the Submit button.
+<p>
+<li>Confirm the pop-up.
+</ol>
+</td>
+
+<td>
+Verify that the landing page contains the string <b>Correct e-mail address required.</b>
+</td>
+</tr>
+
+<tr>
+<td colspan=2>
+Return to the form.
+</td>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter values for name, email, and recipient, but NOT comment.  
+<p>
+<li>Click the Submit button.
+<p>
+<li>Confirm the pop-up.
+</ol>
+</td>
+
+<td>
+Verify that the landing page contains the string <b>No comments entered</b>.
+</td>
+</tr>
+
+<tr>
+<td colspan=2>
+Return to the form.
+</td>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter values for name, email, and comment.
+<p>
+<li>Select the "-----------" recipient.
+<p>
+<li>Click the Submit button.
+<p>
+<li>Confirm the pop-up.
+</ol>
+</td>
+
+<td>
+Verify that the landing page contains the string <b>Error: recipient</b>.  
+</td>
+</tr>
+
+<tr>
+<td colspan=2>
+Return to the form.
+</td>
+</tr>
+
+</table>
+</body>
+</html>

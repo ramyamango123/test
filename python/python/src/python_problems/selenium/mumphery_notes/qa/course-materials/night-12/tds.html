@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Test Design Specification: half.com Textbook Superstore Buy Feature
+</title>
+</head>
+<body>
+<h2 align="center">Test Design Specification</h2>
+<h2 align="center"> half.com Textbook Superstore Buy Feature</h2>
+<h4 align="center">Author: Mary Ann May-Pumphrey</h4>
+<font size=+1>
+<ol> 
+<li><b>Test Design Specification Identifier:</b> 26-001-2007-05-20
+<p>
+<li><b>Feature(s) to Be Tested:</b> This Test Design Specification documents the testing to be done
+for the "Buy Textbooks" feature of <a href="http://www.half.com">half.com</a>.
+That feature can be found on the <a href="http://www.half.ebay.com/textbooks">Textbook Superstore</a> page of
+the half.com web site.
+<p>
+<li><b>Approach Refinement:</b>  All of the test cases below should be
+executed with a single Grade-A browser from the <b>Supported Platforms</b>
+matrix in the Master Test Plan.  In addition, all test cases below which
+have an asterisk adjacent to them should be re-tested on all remaining 
+Grade-A and Grade-B browser/OS platforms from the matrix.
+<p>
+<li><b>Test Identification:</b>
+<p>
+<ul>
+<li>HALF-BUY-TC-1 - Check for misspellings, grammatical and punctuation mistakes, etc.
+<li>HALF-BUY-TC-2 - Select the <b>Advanced Search</b> link to make sure it's working.
+<p>
+<li>HALF-BUY-TC-3 - Negative: Enter nonexistent ISBN
+<li>HALF-BUY-TC-4* - Enter 3 existing ISBNs (with dashes included), separated with commas
+<li>HALF-BUY-TC-5 - Enter 3 existing ISBNs (with dashes excluded), separated with commas
+<li>HALF-BUY-TC-6 - Enter 3 existing ISBNs, separated with spaces
+<li>HALF-BUY-TC-7 - Enter 3 existing ISBNs, separated with semi-colons
+<li>HALF-BUY-TC-8 - Enter 3 existing ISBNs, separated with carriage-returns
+<li>HALF-BUY-TC-9 - Enter 3 existing ISBNs, with first separator a space, and second separator a semi-colon
+<li>HALF-BUY-TC-10 - Enter 3 existing ISBNs, with first separator a semi-colon, and second separator a carriage-return
+<li>HALF-BUY-TC-11 - Enter 3 existing ISBNs, separated with commas, and with an extra semi-colon at end
+<li>HALF-BUY-TC-12 - Negative: Enter three nonexistent ISBNs, separated with commas
+<li>HALF-BUY-TC-13 - Enter nonexistent ISBN, then existing ISBN, separated with commas
+<li>HALF-BUY-TC-14 - Enter alphabetical term, then existing ISBN, separated with commas
+<p>
+<li>HALF-BUY-TC-15* - Select <b>Title</b>, then enter legitimate title
+<li>HALF-BUY-TC-16 - Negative: Select <b>Title</b>, then enter nonexistent title
+<li>HALF-BUY-TC-17 - Negative: Select <b>Title</b>, then enter existing ISBN
+<li>HALF-BUY-TC-18 - Select <b>Title</b>, then enter portion of legitimate title
+<p>
+<li>HALF-BUY-TC-19* - Select <b>Author</b>, then enter legitimate author (last name, comma, first name)
+<li>HALF-BUY-TC-20 - Select <b>Author</b>, then enter legitimate author (first name, last name)
+<li>HALF-BUY-TC-21 - Negative: Select <b>Author</b>, then enter nonexistent author (last name, comma, first name)
+<li>HALF-BUY-TC-22 - Negative: Select <b>Author</b>, then enter nonexistent author (first name, last name)
+<li>HALF-BUY-TC-23 - Negative: Select <b>Author</b>, then enter existing title
+<li>HALF-BUY-TC-24 - Select <b>Author</b>, then enter just existing last name of author who has written only one textbook
+<li>HALF-BUY-TC-25 - Select <b>Author</b>, then enter just existing last name of author who has written more than one textbook
+<p>
+<li>HALF-BUY-TC-26* - Select <b>Keyword</b>, then enter legitimate author (last name, comma, first name)
+<li>HALF-BUY-TC-27 - Select <b>Keyword</b>, then enter legitimate author (first name, last name)
+<li>HALF-BUY-TC-28 - Select <b>Keyword</b>, then enter multi-word portion of existing title
+<li>HALF-BUY-TC-29 - Select <b>Keyword</b>, then enter single-word portion of existing title
+<li>HALF-BUY-TC-30 - Negative: Select <b>Keyword</b>, then enter nonexistent word
+<p>
+<li>HALF-BUY-TC-31* - With JavaScript disabled, enter 3 existing ISBNs, separated with commas
+<li>HALF-BUY-TC-32* - With JavaScript disabled, select <b>Title</b>, then enter legitimate title
+<li>HALF-BUY-TC-33* - With JavaScript disabled, select <b>Author</b>, then enter legitimate author (last name, comma, first name) 
+<li>HALF-BUY-TC-34* - With JavaScript disabled, select <b>Keyword</b>, then enter legitimate author (last name, comma, first name)
+<p>
+<li>HALF-BUY-TC-35* - With images disabled, enter 3 existing ISBNs, separated with commas
+<li>HALF-BUY-TC-36* - With images disabled, select <b>Author</b>, then enter legitimate author (last name, comma, first name)
+<p>
+<li>HALF-BUY-TC-37 - Use screen-reader to determine accessibility of Buy module.
+</ul>
+<p>
+<li><b>Feature Pass/Fail Criteria:</b>
+  <p>
+  <ul>
+  <li>All non-negative tests must pass.
+  <li>No bug of severity higher than 3 can be left unresolved.
+  </ul>
+</ol>
+</body>
+</html>

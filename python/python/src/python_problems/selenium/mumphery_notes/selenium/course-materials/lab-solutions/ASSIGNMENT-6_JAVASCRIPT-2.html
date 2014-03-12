@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ASSIGNMENT-6_JAVASCRIPT-2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ASSIGNMENT-6_JAVASCRIPT-2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu</td>
+
+	<td></td>
+</tr>
+<!--Get the date from the upper right corner of De Anza's home page...-->
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, 20[0-9][0-9]/)[0]</td>
+	<td>dateShown</td>
+</tr>
+<!--Convert today's date to format on page, then compare the two...-->
+<tr>
+	<td>verifyEval</td>
+	<td>var dates = new Date();<br /> var day = dates.getDate();<br /> var month = dates.getMonth();<br /> if (month==0) month="January";<br /> else if (month==1) month="February"; else if (month==2) month="March"; else if (month==3) month=April; else if (month==4) month="May"; else if (month==5) month="June"; else if (month==6) month="July"; else if (month==7) month="August"; else if (month==8) month="September"; else if (month==9) month="October"; else if (month==10) month="November"; else if (month==11) month="December";var year = dates.getFullYear();month + ' ' + day + ', ' + year;</td>
+
+	<td>${dateShown}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

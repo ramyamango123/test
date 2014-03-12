@@ -1,0 +1,24 @@
+
+[oval build] ===============================================
+[oval build] instruction: make  Prog1
+[oval build] eval `oval runtime -csh ko`
+[oval build] INPUT = ok
+[oval build] ===============================================
+
+c++ -g -O2    Prog1.cpp   -o Prog1
+
+
+[oval run] =================================================
+[oval run] arguments: 
+[oval run] USER : mgallas
+[oval run] HOST : pcitapi31
+[oval run] eval `oval runtime -csh ko`
+[oval run] INPUT = ok
+[oval run] =================================================
+
+hello
+[OVAL] input ok
+[OVAL] result = 1
+
+
+

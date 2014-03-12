@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ASSIGNMENT-3_REGEXP-3.2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ASSIGNMENT-3_REGEXP-3.2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://voyager.deanza.edu/~mam-p/selenium/course-materials/regexp/bette.html</td>
+	<td></td>
+</tr>
+<!--This test is looking for a movie with 14 vowels.-->
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/.*([aeiouAEIOU].*){14}/)[0]</td>
+	<td>movie</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${movie}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

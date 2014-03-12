@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>CIS-74: Night-6</title>
+</head>
+<body>
+<h2 align="center">CIS-74 - Computer Software Quality Assurance</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h2 align="center">Night-6</h2>
+<font size=+2>
+<ul>
+<li>Roll call for last class AND this class!  (via sign-in sheet)
+<p>
+<li>Test plans!
+<p>Pick any De Anza page(s) you want other than the ones on <a href="../../test-plan-list.html">last quarter's list</a>.  Let me know by 
+next Tuesday night.  If you haven't picked one by then, I'll assign
+you one.
+<p>
+<li>Reminder:  Quiz over chapter 4 next Tuesday at start of class!
+<p>Bring a PARScore sheet and a number 2 pencil.  And <b>prepare</b>
+in advance for the quiz!  
+<p>
+<li>Bugzilla bug report critique session
+<p>
+<li>Demo of developer (me) fixing a bug, and tester (Danny) doing
+<b>confirmation testing</b> of the fix.
+<p>
+<li>Leftover items from last Bugzilla agenda
+<p>
+  <ul>
+  <li>Setting up a new product/component
+  <p>
+  <li>Adding an attachment to a bug report
+  <p>
+  <li>How to obtain more than three levels of hierarchy
+  <p>
+  <li><a href="http://landfill.bugzilla.org/testopia_tip/page.cgi?id=voting.html">Voting</a>
+  </ul>
+<p>
+<li>Bugzilla administration
+<p>
+  <ul>
+  <li>Deleting a product with no bugs in it
+  <p>
+  <li>Deleting a product that does have bugs in it
+  <p>
+  <li>Deleting a component with no bugs in it
+  <p>
+  <li>Changing multiple bugs
+  <p>
+  <li>Bug "watching" (time and interest permitting)
+      <ol>
+      <li>Enable via <a href="https://landfill.mozilla.org/testopia_tip/editparams.cgi?section=admin">supportwatchers</a> if needed.
+      <li>Set up dummy account via <a href="https://landfill.mozilla.org/testopia_tip/editusers.cgi?action=add">Add user</a>.
+      <li>Set the <a href="https://landfill.mozilla.org/testopia_tip/editparams.cgi?section=bugfields">useqacontact</a> to <b>on</b> if needed.
+      <li>Make that dummy account the default QA contact for your component(s).
+      <li>Add that dummy account to your <a href="https://landfill.mozilla.org/testopia_tip/userprefs.cgi?tab=email">Users to Watch</a> list.
+      <li><b>Net effect</b>: Receive email about all bugs for that component even if your
+      own username is not on a bug (as reporter, Cc: list member, owner, whatever).
+      </ol>
+  </ul>
+</ul>
+<p>
+</font>
+<h2>Suggested Student Exercises for Tonight's Lab</h2>
+<font size=+2>
+Use the <a href="http://bugzilla.mozilla.org/">
+Mozilla/Bugzilla site</a> for the first four problems below.
+<ol>
+<li>Pretend you're the QA engineer for Bugzilla and Firefox.  You want your
+weekly status report to include info on how many bugs you formally verify
+each week.  Use Bugzilla to determine the number of Bugzilla and Firefox
+bugs verified for the week of 01/01/07 - 01/05/07.  (19 bugs total)
+<!--<p><a href="https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product=Bugzilla&product=Firefox&long_desc_type=substring&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&status_whiteboard_type=allwordssubstr&status_whiteboard=&keywords_type=allwords&keywords=&resolution=FIXED&resolution=INVALID&resolution=WONTFIX&resolution=DUPLICATE&resolution=WORKSFORME&resolution=EXPIRED&resolution=MOVED&resolution=---&emailassigned_to1=1&emailtype1=exact&email1=&emailassigned_to2=1&emailreporter2=1&emailqa_contact2=1&emailtype2=exact&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=2007-01-01&chfieldto=2007-01-06&chfield=bug_status&chfieldvalue=VERIFIED&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=">Solution</a>-->
+<p>
+<li>Determine how many Bugzilla bugs were filed during the first 10 days
+of 2007.  Hint:  If you're not getting the right answer, use the "Change Columns" link on your query results page to try to figure out what's going on.
+(Answer:  92) 
+<!--<p><a href="https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product=Bugzilla&long_desc_type=substring&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&status_whiteboard_type=allwordssubstr&status_whiteboard=&keywords_type=allwords&keywords=&resolution=FIXED&resolution=INVALID&resolution=WONTFIX&resolution=DUPLICATE&resolution=WORKSFORME&resolution=EXPIRED&resolution=MOVED&resolution=---&emailassigned_to1=1&emailtype1=exact&email1=&emailassigned_to2=1&emailreporter2=1&emailqa_contact2=1&emailtype2=exact&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=2007-01-01&chfieldto=2007-01-11&chfield=%5BBug+creation%5D&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=">Solution</a>-->
+<p>
+<li>Determine when the first bug was filed against testopia.  (Answer:  04/19/06)
+<p>
+<li>Create a single query to pull up these bugs:  126151, 133508, and 279142.
+<p>
+<li>Review a classmate's bug, and have him/her review one of yours.  Provide
+feedback on the clarity of each other's bug.
+<p>
+<li>Create a saved search of all your CLOSED bugs (the ones that won't be
+graded for this course).
+<p>
+<li>Create a saved search of all your OPEN bugs (the ones that will be
+graded for this course).
+<p>
+<li>Create a saved search of your best bugs so far.
+</ol>
+</body>
+</html>

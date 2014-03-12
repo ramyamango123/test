@@ -1,0 +1,225 @@
+</SyncCustomerAssetABM>
+
+2012-01-25 16:22:17,388 DEBUG
+[nucleusNamespace.intuit.apd.lacerte.LacerteAssetS yncHandler] failed to
+match item 1099837, Tax Year= Brand= Fulfillment Method= with any
+segments
+2012-01-25 16:22:17,414 DEBUG
+[nucleusNamespace.intuit.scs.commerce.lightweight.
+order.OrderJMSClientManager]
+<est:EStoreCreateSalesOrderABM
+	xmlns:est="http://ww                           w.intuit.com/eStore/EStoreCreateSalesOrderABM">
+	<est:DocumentId>
+		100000002266035</ est:DocumentId>
+		<est:OrderDateTime>2012-01-26T00:22:16.997Z</est:OrderDateTime>
+		<e st:OrderSource>
+			eStore
+		</est:OrderSource>
+			<est:TypeCode>Sales Order</est:TypeCode>
+			< est:CurrencyCode>USD
+		</est:CurrencyCode>
+			<est:Pricing>
+				<est:PriceListName>Intuit Pr icelist</est:PriceListName>
+				<est:TotalAmount currency="USD">
+					3121.67
+				</est:TotalAmo                           unt>
+					<est:TaxAmount currency="USD">123.67</est:TaxAmount>
+					<est:ShippingAmount curr ency="USD">0.00</est:ShippingAmount>
+			</est:Pricing>
+			<est:Account>
+				<est:CustomerAcco untNumber schemeId="CustomerNumber"
+					schemeAgencyId="MDM">
+					459956746
+				</est:Customer                           AccountNumber>
+					<est:CustomerContactNumber schemeId="ContactNumber"
+						schemeAgencyId="MDM">827518</est:CustomerContactNumber>
+					<est:CustomerAddressNumber
+						schemeId="Ad                           dressNumber"
+						schemeAgencyId="MDM">1254543</est:CustomerAddressNumber>
+					<est:BillTo AccountNumber schemeId="CustomerNumber"
+						schemeAgencyId="MDM">
+						459956746
+					</est:Bill                           ToAccountNumber>
+						<est:BillToContactNumber schemeId="ContactNumber"
+							schemeAgencyId="MDM">827518</est:BillToContactNumber>
+						<est:BillToAddressNumber
+							schemeId="Addres                           sNumber"
+							schemeAgencyId="MDM">1254543</est:BillToAddressNumber>
+			</est:Account>
+			<es t:Payment>
+				<est:BillingProfileId schemeId="BillingProfileId"
+					schemeAgencyId="Sieb                           el">PDS-667WZEB</est:BillingProfileId>
+				<est:BillingProfileActionCode>ExistingBill ingProfileId</est:BillingProfileActionCode>
+				<est:PaymentMethodCode>Credit Card
+		</e                           st:PaymentMethodCode>
+		<est:PaymentTerm>Immediate</est:PaymentTerm>
+		<est:Authorizat ionResponse>
+			<est:RefOrderNumber>IGS_110007484862</est:RefOrderNumber>
+			<est:Respon seCode>
+				AA01-AUTH-100
+			</est:ResponseCode>
+				<est:AuthorizationCode>
+					tst280
+				</est:Author                           izationCode>
+					<est:AuthorizationDateTime>
+						2012-01-24T21:00:00.000-08:00
+					</est:Author                           izationDateTime>
+						<est:TransactionDateTime>
+							2012-01-26T00:20:58.000Z
+						</est:Transacti                           onDateTime>
+							<est:AuthorizedAmount currency="USD">3121.67</est:AuthorizedAmount>
+							<e st:AVSResponse>
+								I1
+							</est:AVSResponse>
+								<est:CSVResponse>M</est:CSVResponse>
+							</est:Aut                           horizationResponse>
+							</est:Payment>
+								<est:SalesOrderLine>
+									<est:LineNumber>
+										1
+									</est:Line                           Number>
+										<est:ActionCode>ADD</est:ActionCode>
+										<est:Status>Pending</est:Status>
+										<est: OrderQuantity>
+											1
+										</est:OrderQuantity>
+											<est:ItemReference>
+												<est:PartNumber>1099837
+							</e                           st:PartNumber>
+							<est:SmartPartNumber xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2                           001/XMLSchema-instance" />
+							<est:Attributes>
+								<est:ActionCode>ADD</est:ActionCode>
+								<es t:Name>
+									Tax Year
+								</est:Name>
+									<est:DataType>Text</est:DataType>
+									<est:TextValue>Tax Ye ar 2011</est:TextValue>
+							</est:Attributes>
+							<est:Attributes>
+								<est:ActionCode>
+									ADD
+								</est                           :ActionCode>
+									<est:Name>Brand</est:Name>
+									<est:DataType>Text</est:DataType>
+									<est:Text Value>
+										Lacerte
+									</est:TextValue>
+							</est:Attributes>
+							<est:Attributes>
+								<est:ActionCode>AD D</est:ActionCode>
+								<est:Name>Fulfillment Method</est:Name>
+								<est:DataType>
+									Text
+								</est                           :DataType>
+									<est:TextValue>Download</est:TextValue>
+							</est:Attributes>
+						</est:ItemRefe                           rence>
+							<est:Entitlement>
+								<est:LicenseNumber>219491248291604</est:LicenseNumber>
+								<es t:EntitlementOfferingCode>
+									731584
+								</est:EntitlementOfferingCode>
+							</est:Entitlement>
+							<est:Pricing>
+								<est:StartPrice currency="USD">1499.00</est:StartPrice>
+								<est:BasePri ce currency="USD">
+									1499.00
+								</est:BasePrice>
+									<est:FinanceListPrice currency="USD">14 99.00</est:FinanceListPrice>
+									<est:RecurringCharge currency="USD">
+										0.00
+									</est:Recurr                           ingCharge>
+										<est:CurrentCharge currency="USD">1499.00</est:CurrentCharge>
+										<est:NetP rice currency="USD">
+											1499.00
+										</est:NetPrice>
+											<est:Tax currency="USD">0.00</est:Tax>
+											<est:TaxUnitAmount currency="USD">0.00</est:TaxUnitAmount>
+											<est:FreightTax curren cy="USD">0.00</est:FreightTax>
+											<est:FreightTaxUnitAmount currency="USD">
+												0.00
+											</est                           :FreightTaxUnitAmount>
+												<est:ShippingCharge currency="USD">
+													0.00
+												</est:ShippingCharg                           e>
+							</est:Pricing>
+							<est:Promotion>
+								<est:PromotionDiscountAmount
+									currency="USD">0.00< /est:PromotionDiscountAmount>
+							</est:Promotion>
+							<est:Service />
+						</est:SalesOrderLine>
+							<est:SalesOrderLine>
+								<est:LineNumber>2</est:LineNumber>
+								<est:ActionCode>
+									ADD
+								</est:A                           ctionCode>
+									<est:Status>Pending</est:Status>
+									<est:OrderQuantity>
+										1
+									</est:OrderQuantit                           y>
+										<est:ItemReference>
+											<est:PartNumber>1099837</est:PartNumber>
+											<est:SmartPartNumbe r xsi:nil="true"
+												xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+											<est:Att ributes>
+												<est:ActionCode>ADD</est:ActionCode>
+												<est:Name>Tax Year</est:Name>
+												<est:Da taType>
+													Text
+												</est:DataType>
+													<est:TextValue>Tax Year 2011</est:TextValue>
+												</est:Attr                           ibutes>
+													<est:Attributes>
+														<est:ActionCode>ADD</est:ActionCode>
+														<est:Name>
+															Brand
+														</est:                           Name>
+															<est:DataType>Text</est:DataType>
+															<est:TextValue>Lacerte</est:TextValue>
+														</es                           t:Attributes>
+															<est:Attributes>
+																<est:ActionCode>ADD</est:ActionCode>
+																<est:Name>Fulfi llment Method</est:Name>
+																<est:DataType>Text</est:DataType>
+																<est:TextValue>Download with CD</est:TextValue>
+															</est:Attributes>
+										</est:ItemReference>
+										<est:Entitlement>
+											<e st:LicenseNumber>
+												219491248291604
+											</est:LicenseNumber>
+												<est:EntitlementOfferingCode>731584</est:EntitlementOfferingCode>
+										</est:Entitlement>
+										<est:Pricing>
+											<est:StartPr ice currency="USD">
+												1499.00
+											</est:StartPrice>
+												<est:BasePrice currency="USD">1499.00                           </est:BasePrice>
+												<est:FinanceListPrice currency="USD">
+													1499.00
+												</est:FinanceListPri                           ce>
+													<est:RecurringCharge currency="USD">0.00</est:RecurringCharge>
+													<est:CurrentCha rge currency="USD">
+														1499.00
+													</est:CurrentCharge>
+														<est:NetPrice currency="USD">1499. 00</est:NetPrice>
+														<est:Tax currency="USD">123.67</est:Tax>
+														<est:TaxUnitAmount curr ency="USD">123.67</est:TaxUnitAmount>
+														<est:FreightTax currency="USD">
+															0.00
+														</est:Fr                           eightTax>
+															<est:FreightTaxUnitAmount
+																currency="USD">0.00</est:FreightTaxUnitAmount>
+															<est:ShippingCharge currency="USD">0.00</est:ShippingCharge>
+										</est:Pricing>
+										<est: Promotion>
+											<est:PromotionDiscountAmount
+												currency="USD">
+												0.00
+											</est:PromotionDiscoun                           tAmount>
+											</est:Promotion>
+												<est:Service />
+							</est:SalesOrderLine>
+						</est:EStoreCreateSal                           esOrderABM

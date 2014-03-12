@@ -1,0 +1,11 @@
+
+f1 ='''
+        dfjd fdlkfjds
+        fdjdsf
+        fdfjdf
+        s'''
+        
+fp = open("text1.txt", 'w')
+res = fp.write(f1)
+
+print len("text1.txt")

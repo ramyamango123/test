@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>tc4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tc4</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter/</td>
+	<td></td>
+</tr>
+<!--Initialize variables-->
+<tr>
+	<td>store</td>
+	<td>may-pumphrey</td>
+	<td>search_string</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>double_quotes(storedVars['search_string'])</td>
+	<td>ss_dq</td>
+</tr>
+<!--ACTIONS-->
+<!--Save number of hits for search_string-->
+<tr>
+	<td>type</td>
+	<td>faculty_s</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.fac.btnG</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/of about +([0-9]+)\./)[1]</td>
+	<td>hits</td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Save number of hits for double-quoted version of search_string-->
+<tr>
+	<td>type</td>
+	<td>all_s</td>
+	<td>${ss_dq}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.all.btnG</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/of about +([0-9]+)\./)[1]</td>
+	<td>dq_hits</td>
+</tr>
+<tr>
+	<td>verifyExpression</td>
+	<td>${hits}</td>
+	<td>${dq_hits}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+1.  Better integration with defect-tracking
+system.
+
+2.  Better sorting functionality than a table.
+
+3.  Attachments are useful.
+
+4.  Manager can see status of test cases in run 
+as results are recorded.
+
+5.  Dev can start looking into problematic areas
+as soon as a trend is noticed in the results.
+
+6.  Versioning is free/easy with a tool.  (Keeping
+zillions of softcopy tables around creates an
+issue.)

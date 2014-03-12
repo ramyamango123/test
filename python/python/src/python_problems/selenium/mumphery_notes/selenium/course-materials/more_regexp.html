@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">More Regular Expressions</h3>
+<p>
+<h2 align="center"></h2>
+<font size=+2>
+<ol type="I">
+<li>Regular Expressions: Alternation <b>(|)</b>
+  <p>
+  <ul>
+  <li>Means <b>or</b>, i.e., the regular expression can match <b>this|that|this-other-thing</b>.
+  <p>
+  <li>Often used with parentheses to <b>group</b> those entities that are part
+of the <b>alternation</b>.
+  <p>
+  <li><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/more_regexp/alternation_with_date.html">Example</a>.
+  <p>
+  <li>The parentheses also cause <b>memorization</b>, a topic we're not going to cover.  This memorization is what forces the use of the <b>[0]</b> at the end
+of the third test in the example above.
+  </ul>
+<p>
+<li>Regular Expressions:  Matching a Meta-Character (character with special meaning in regular expressions)
+  <p>
+  <ul>
+  <li>Method-1:  Put the special character inside a character class.  <br>
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/more_regexp/meta-inside-character-class.html">Example</a>
+  <p>
+  <li>Method-2:  <b>Escape</b> the special character by putting a backslash
+in front of it.<br>
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/more_regexp/escaped-meta.html">Example</a>
+  </ul>
+<p>
+<li>Regular Expressions: The Plus-Sign (+) Quantifier
+  <p>
+  <ul>
+  <li>Similar to <b>* quantifier</b> but means "1 or more" of preceding character or group<br>
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/more_regexp/plus-sign.html">Example</a>
+  </ul>
+<p><b>LAB EXERCISE MORE_REGEXP-1</b>
+<p>Write a SIDE program that outputs to the log file
+the name and year of a Bette movie
+that contains three consecutive periods. 
+<p><b>[info] echo: Hush...Hush, Sweet Charlotte (1964)</b>
+<p>
+<li>Regular Expressions: The Numeric Quantifier with Two Comma-Separated Numbers (<b>{<i>n</i>,<i>m</i>}</b>)
+  <p>
+  <ul>
+  <li>Means <b><i>n</i> OR <i>m</i></b> occurrences of the previous entity.
+  <p>
+  <li><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/more_regexp/numeric-quantifier-with-two-numbers.html">Example</a>
+  </ul>
+<p>
+<p><b>LAB EXERCISE MORE_REGEXP-2</b>
+<p>Create a test program similar to the one above that will output to the
+log file the <b>official eBay Time</b> from the <a href="http://viv.ebay.com/ws/eBayISAPI.dll?EbayTime&_trksid=m40">eBay official time</a> page.  
+For example, the program should
+output something like...
+<p><b>[info] echo: Saturday, May 03, 2008 19:01:08 PDT</b>
+<p><b>LAB EXERCISE MORE_REGEXP-3</b>
+<p>
+Create another test program similar to the one above that will output to the
+log file the timestamp on the <a href="http://finance.yahoo.com">Yahoo! Finance</a> page.  Be sure that your program will work whether the hour is composed of one or two digits, and whether the time is AM or PM.
+<p><b>[info] echo: 10:29PM</b>
+</ol>
+</body>
+</html>

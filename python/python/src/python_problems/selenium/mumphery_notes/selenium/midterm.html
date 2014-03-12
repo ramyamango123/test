@@ -1,0 +1,156 @@
+<html><head><title>Automated Web Page Testing with Selenium IDE</title></head><body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Midterm</h3>
+<font size="+1">
+<p>
+There are 22 questions on this exam, 21 short-answer and 1 programming.
+Your best 20 questions will be graded.  This means that you can do all
+22, miss 2, and still get a 100%.  Or you can choose not to do any two
+questions (including programming
+problem) if you're short on time and/or long on confidence!
+<p>Please keep your short answers <b>short</b> and <b>neat</b>!  Only a
+few words are required to answer each question. 
+<p>When you have finished the short-answer questions, write
+your name at the top of the exam and hand it in to me.  I will hand you
+another sheet that contains just question 22.  You can then turn
+on your computer and work on that question.
+<p>Good luck!
+<ol>
+<p>
+<li>Write a Selenium regular expression that 
+will produce exactly the same results as the globbing pattern
+below, regardless of the input page used.
+<p>
+&lt;td&gt;glob:Hush...Hush&lt;/td&gt;
+<!-- SOLUTION:  regexp:Hush\.{3}Hush -->
+<p>
+<li>Write a Selenium globbing pattern that 
+will produce exactly the same results as the regular
+expression pattern below,
+regardless of the input page used.
+<p>
+&lt;td&gt;regexp:In.*Life&lt;/td&gt;
+<!-- SOLUTION: glob:In*Life -->
+<p>
+<li>Which SIDE feature allows the user to run a test from
+the beginning to a particular command in <b>Table</b> mode?
+You may answer with either the name of this feature or
+a description of its glyph.
+<!-- A breakpoint.  "Pause" glyph.
+<p>
+</p></li><li>If a Selenese command calls for a <b>script</b> argument,
+what is the syntax for that argument? 
+<!-- SOLUTION: just the JS code, i.e., no surrounding javascript{} --> 
+<p>
+<li>What type of URL has been specified as an argument to
+the <b>open</b> command below?
+<pre>
+&lt;td&gt;open&lt;/td&gt;
+&lt;td&gt;/spring_2008/selenium/course-materials/class-05.html&lt;/td&gt;
+</pre>
+<!-- SOLUTION: A relative URL -->
+<p>
+<li>If one wanted to access the value of a SIDE variable
+named "month" from within a JavaScript snippet in a
+test case, what would be the syntax for that access?
+<!-- SOLUTION:  storedVars['month'] -->
+<p>
+<li>How could the following regular expression be
+rewritten to be more concise?
+<p>
+<pre>
+regexp: [A-Za-z].*[b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]
+</pre>
+<!-- SOLUTION:  regexpi: [a-z].*[b-df-hj-np-tv-z] -->
+<p>
+<li>How could the following regular expression be
+rewritten to be more concise?
+<p>
+<pre>
+regexp: [A-Z]+[0-9]{1}[A-Z]+
+</pre>
+<!-- SOLUTION:  regexp: [A-Z]+[0-9][A-Z]+ -->
+<p>
+<li>What code would be needed to display the value of
+a SIDE variable named <b>result</b> in the log file?
+(Just the value is sufficient; no labeling is required.)
+<!-- SOLUTION: echo ${result} -->
+<p>
+<li>What do <b>xpath</b> arguments to Selenese commands
+start with?
+<!-- SOLUTION: // -->
+<p>
+<li>What regular expression could be used to match a
+single question mark?
+<!-- SOLUTION: [?] or \? -->
+<p>
+<li>Which open-source organization maintains and enhances
+SIDE?
+<!-- SOLUTION:  openqa -->
+<p>
+<li>How can one best provide vertical "white space" between
+sections of a test in order to aid readability?
+<!-- SOLUTION:  By inserting blank comments -->
+<p>
+<li>Given the SIDE status shown below, what are the
+two steps needed to run just the second test case, the
+one starting with "link2?"  Be as concise as possible
+in your description of the steps.
+<p>
+<img src="./SIDE.gif">
+<!-- SOLUTION: 
+1.  Double-click on the "link2" entry under the "Test Case" heading.
+2.  Select the second glyph with the right-pointing
+green triangle.
+-->
+<p>
+<li>What are one-column tables used for within SIDE?
+<!-- SOLUTION:  Test suites.  Each table cell contains a link to a single test case file. -->
+<p>
+<li>What is the <b>title</b> of a <b>test case</b> 
+based on?
+<!-- SOLUTION:  The name of the test case file minus
+the .html extension. -->
+<p>
+<li>What Selenese command and arguments are needed to
+put the value "Today is the midterm" (minus the quotes)
+in a SIDE variable named "motd?"
+<!-- SOLUTION:  store | Today is the midterm | motd -->
+<p>
+<li>Complete the Selenese command below, assuming
+that the regular expression one wants to search for
+is "[^a-zA-Z]{4}" (without quotes).  This is a
+question about <b>syntax</b>.
+<p>
+<pre>
+storeEval | this.browserbot.bodyText().match_____________ 
+</pre>
+<!-- SOLUTION: (/[^a-zA-Z]{4}/) -->
+<p>
+<li>Describe as succinctly as possible what the regular
+expression in the last question will match.
+<!-- SOLUTION:  Four consecutive non-alphabet characters. -->
+<p>
+<li>List five strings that would match the following
+regular expression:
+<p>
+<pre>
+regexp:[XZ]A|E|I|O|U[ZX]
+</pre>
+<!-- SOLUTION: XA, E, I, O, UZ -->
+<p>
+<li>What type of argument does your instructor recommend
+using with the <b>open</b> command?  You may answer this
+via an example OR the correct term.
+<!-- SOLUTION:  http://www.deanza.edu/directory/directory/dir-az.html ...  An absolute URL -->
+<p>
+<li>Describe as succinctly as possible what the following Selenese command and arguments do.
+<pre>
+storeExpression | javascript{selenium.browserbot.getCurrentWindow().state}  |  mystery
+</pre>
+<!-- Store the value of the SUT's variable named "state" in a SIDE variable named mystery. -->
+</ol>
+</body>
+</html>

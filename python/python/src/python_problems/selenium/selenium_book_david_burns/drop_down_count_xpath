@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.guestlistnation.com/" />
+<title>drop_down_count_xpath</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">drop_down_count_xpath</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.guestlistnation.com/Events.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EventDates_ctl01_NestedEvents_ctl01_btnDetails</td>
+	<td></td>
+</tr>
+<!--To count numbers from drop-down (/option)-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>//select[@id='listGuests']/option</td>
+	<td>xdata</td>
+</tr>
+<tr>
+	<td>storeSelectOptions</td>
+	<td>id=listGuests</td>
+	<td>data</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${data}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${xdata}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

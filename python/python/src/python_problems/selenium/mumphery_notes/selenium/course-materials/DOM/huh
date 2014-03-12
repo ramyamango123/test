@@ -1,0 +1,1329 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<!-- ----- PLEASE EDIT TITLE ----- -->
+
+   <title>Searchable Schedule of Classes</title>
+
+<!-- ----- PLEASE EDIT TITLE ----- -->
+
+<!-- ----- Do Not Edit Below This Line ----- -->
+
+<link rel='stylesheet' href='/template/standard/css/ie_win.css' type='text/css' /><style type="text/css">
+
+.about { 
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+	left: 84px;
+	top: 108px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+.apply { 
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+	left: 222px;
+	top: 108px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+.adinfo { 
+	position: absolute;
+	width: 200px;
+	z-index: 3;
+	left: 384px;
+	top: 115px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+.reginfo { 
+	position: absolute;
+	width: 200px;
+	z-index: 3;
+	left: 384px;
+	top: 131px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+ 
+.clas { 
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+	left: 430px;
+	top: 108px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+.divdepts { 
+	position: absolute;
+	width: 200px;
+	z-index: 6;
+	left: 590px;
+	top: 116px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+.stuser { 
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+	left: 600px;
+	top: 108px;
+	background-color: #830330;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	visibility: hidden;
+}
+
+
+</style>
+
+<script type='text/javascript'>
+
+var nameDivs = new Array(
+	'about',
+	'apply',
+	'adinfo',
+	'reginfo',
+	'clas',
+	'divdepts',
+	'stuser');
+	
+
+function everyonElse(currentLayer, parentLayer, childLayer)
+{
+	
+	for (i = 0; i < nameDivs.length; i++)
+	{
+		if(nameDivs[i] != currentLayer)
+		{
+			if(nameDivs[i] != parentLayer )
+			{ document[nameDivs[i]].visibility = "hide"; }
+		}
+		else if(childLayer)
+		{
+			document[nameDivs[i]].visibility = "hide";
+		}
+	
+	}
+	
+	document.clearlayers.visibility = "show";
+}
+
+// About
+function showabout()
+{	
+	if (document.all)
+	{
+		about.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.about.visibility = "show";
+		everyonElse('about');
+	}
+	else
+	{
+		var temp = document.getElementById('about');
+		temp.style.visibility = "visible";
+	}
+}
+
+function hideabout()
+{	
+	if (document.all)
+	{
+		about.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('about');
+	}
+	else
+	{
+		var temp = document.getElementById('about');
+		temp.style.visibility = "hidden";
+	}
+}
+
+// Apply and Register
+function showapply()
+{	
+	if (document.all)
+	{
+		apply.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.apply.visibility = "show";
+		everyonElse('apply');
+	}
+	else
+	{
+		var temp = document.getElementById('apply');
+		temp.style.visibility = "visible";
+	}
+}
+
+function hideapply()
+{	
+	if (document.all)
+	{
+		apply.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('apply');
+	}
+	else
+	{
+		var temp = document.getElementById('apply');
+		temp.style.visibility = "hidden";
+	}
+}
+
+// Apply and Register > Admissions
+function showadinfo()
+{	
+	if (document.all)
+	{
+		adinfo.style.visibility = "visible";
+		apply.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.adinfo.visibility = "show";
+		everyonElse('adinfo','apply');
+	}
+	else
+	{
+		var temp = document.getElementById('adinfo');
+		temp.style.visibility = "visible";
+		var temp2 = document.getElementById('apply');
+		temp2.style.visibility = "visible";
+	}
+}
+
+function hideadinfo(hidechild)
+{	
+	if (document.all)
+	{
+		adinfo.style.visibility = "hidden";
+		apply.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('adinfo','apply', hidechild);
+	}
+	else
+	{
+		var temp = document.getElementById('adinfo');
+		temp.style.visibility = "hidden";
+		var temp2 = document.getElementById('apply');
+		temp2.style.visibility = "hidden";
+	}
+}
+
+// Apply and Register > Registration
+function showreginfo()
+{	
+	if (document.all)
+	{
+		reginfo.style.visibility = "visible";
+		apply.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.reginfo.visibility = "show";
+		everyonElse('reginfo','apply');
+	}
+	else
+	{
+		var temp = document.getElementById('reginfo');
+		temp.style.visibility = "visible";
+		var temp2 = document.getElementById('apply');
+		temp2.style.visibility = "visible";
+	}
+}
+
+function hidereginfo(hidechild)
+{	
+	if (document.all)
+	{
+		reginfo.style.visibility = "hidden";
+		apply.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('reginfo','apply', hidechild);
+	}
+	else
+	{
+		var temp = document.getElementById('reginfo');
+		temp.style.visibility = "hidden";
+		var temp = document.getElementById('apply');
+		temp.style.visibility = "hidden";
+	}
+}
+
+// Course Information
+function showclas()
+{	
+	if (document.all)
+	{
+		clas.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.clas.visibility = "show";
+		everyonElse('clas');
+	}
+	else
+	{
+		var temp = document.getElementById('clas');
+		temp.style.visibility = "visible";
+	}
+}
+
+function hideclas()
+{	
+	if (document.all)
+	{
+		clas.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('clas');
+	}
+	else
+	{
+		var temp = document.getElementById('clas');
+		temp.style.visibility = "hidden";
+	}
+}
+
+// Course Information > Divisions and Departments
+function showdivdepts()
+{	
+	if (document.all)
+	{
+		clas.style.visibility = "visible";
+		divdepts.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.divdepts.visibility = "show";
+		everyonElse('clas','divdepts');
+	}
+	else
+	{
+		var temp = document.getElementById('clas');
+		temp.style.visibility = "visible";
+		var temp2 = document.getElementById('divdepts');
+		temp2.style.visibility = "visible";
+	}
+}
+
+function hidedivdepts(hidechild)
+{	
+	if (document.all)
+	{
+		clas.style.visibility = "hidden";
+		divdepts.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('clas','divdepts', hidechild);
+	}
+	else
+	{
+		var temp = document.getElementById('clas');
+		temp.style.visibility = "hidden";
+		var temp = document.getElementById('divdepts');
+		temp.style.visibility = "hidden";
+	}
+}
+
+
+// Student Services
+function showstuser()
+{	
+	if (document.all)
+	{
+		stuser.style.visibility = "visible";
+	}
+	else if (document.layers)
+	{
+		document.stuser.visibility = "show";
+		everyonElse('stuser');
+	}
+	else
+	{
+		var temp = document.getElementById('stuser');
+		temp.style.visibility = "visible";
+	}
+}
+
+function hidestuser()
+{	
+	if (document.all)
+	{
+		stuser.style.visibility = "hidden";
+	}
+	else if (document.layers)
+	{
+		everyonElse('stuser');
+	}
+	else
+	{
+		var temp = document.getElementById('stuser');
+		temp.style.visibility = "hidden";
+	}
+}
+
+</script><!-- About -->
+<div class='about' id='about' name='about' OnMouseOver='showabout();' OnMouseOut='hideabout();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<a class='menu'  href='/about/special.html'>Why De Anza?</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a class='menu'  href='/about/offer.html'>What We Can Offer You</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu'  href='/about/mission.html'>De Anza's Mission</a>
+
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<a class='menu'  href='/about/accreditation/'>Accreditation</a>
+		</td>
+	<tr>
+		<td>
+			<a class='menu'  href='/about/facts.html'>De Anza Fast Facts</a>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu'  href='/map/'>Campus Map</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td>
+			<a class='menu'  href='/parking/'>Parking</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu'  href='/about/campustour.html'>Campus Tours</a>
+		</td>
+
+	</tr>
+	
+	<tr>
+		<td>
+			<a class='menu'  href='/president/'>Office of the President</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu'  href='/instruction/'>Office of Instruction</a>
+		</td>
+	</tr>
+	<tr>
+	<td>
+			<a class='menu'  href='/outreach/'>Outreach Program</a>
+		</td>
+	</tr>	
+	<tr>
+
+		<td>
+			<a class='menu'  href='/about/jobs.html'>Job Opportunities</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu'  href='http://www.foothill.edu'>Foothill College</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu'  href='http://www.fhda.edu/'>Foothill-De Anza Community College District</a>
+		</td>
+	</tr>
+	</table>
+</div>
+<!-- Apply & Register -->
+
+<div class='apply' id='apply' name='apply' OnMouseOver='showapply();' OnMouseOut='hideapply();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<span class="menu">How to Apply and Register</span>
+		</td>
+		<td align='left' valign='middle' width='15'>
+			<a href='' onMouseOver='showadinfo();' onMouseOut='hideadinfo();'><img src='/template/standard/images/tri.gif' border='0' width='15' height='15' alt='right arrow' align='absmiddle' /></a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<span class="menu">Registration Info</span>
+		</td>
+		<td align='left' valign='middle' width='15'>
+			<a href='' onMouseOver='showreginfo();' onMouseOut='hidereginfo();'><img src='/template/standard/images/tri.gif' border='0' width='15' height='15' alt='right arrow' align='absmiddle' /></a>
+		</td>
+
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/registration/cashier/'>Fees and Refunds</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+
+			<a class='menu' href='/financialaid/'>Financial Aid</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/counseling/'>Counseling and Advising</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/transfer/'>Transfer Planning</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/admissions/placement/'>Placement Tests</a>
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/registration/forms.html'>Student Forms</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td colspan='2'>
+			<a class='menu' href='/registration/transcript.html'>Transcripts</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/registration/enrollverify.html'>Verify Degree / Enrollment</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<hr size='1' />
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/registration/myinfo.html'><img src='/images/my-maroonREV.gif' border='0' alt='My De Anza' width='74' height='35' align='absmiddle' /></a>
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<a class='menu' href='/registration/myinfo.html'>Apply & Register for Classes</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td colspan='2'>
+			<a class='menu' href='/registration/phonereg.html'>Register for Classes by Phone</a>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<!-- Apply & Register  Admissions Info -->
+<div class='adinfo' id='adinfo' name='adinfo' OnMouseOver='showadinfo();' OnMouseOut='hideadinfo();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/getstarted.html'>Steps for New Students</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/admreq.html'>Admission Requirements</a>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/residency.html'>Residency Requirements</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td>
+			<a class='menu' href='/admissions/policies.html'>College Policies and Guidelines</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/faq.html'>Frequently Asked Questions</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/contact.html'>Admissions and Records Office</a>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<!-- Apply & Register  Registration Info -->
+<div class='reginfo' id='reginfo' name='reginfo' OnMouseOver='showreginfo();' OnMouseOut='hidereginfo();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<a class='menu' href='/registration/current.html'>Steps for Current Students</a>
+		</td>
+	</tr>
+	
+	<tr>
+
+		<td>
+			<a class='menu' href='/calendar/'>Important Dates</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/registration/add-drop.html'>Adding/Dropping Classes</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/registration/waitinglists.html'>Waiting Lists</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='/registration/pin.html'>Personal ID Number (PIN)</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/registration/photoid.html'>Photo ID</a>
+		</td>
+	</tr>
+
+	</table>
+</div>
+
+<!-- Course Information (Classes) -->
+<div class='clas' id='clas' name='clas' OnMouseOver='showclas();' OnMouseOut='hideclas();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<span class="menu"><a class='menu' href='/directory/dir-depts.html'>Instructional Divisions & Depts.</a></span>
+		</td>
+
+		<td align='left' valign='middle' width='15'>
+			<a href='' onMouseOver='showdivdepts();' onMouseOut='hidedivdepts();'><img src='/template/standard/images/tri.gif' border='0' width='15' height='15' alt='right arrow' align='absmiddle' /></a>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a class='menu' href='/schedule/'>Schedule of Classes</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/calendar/'>Academic Calendar</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='/calendar/'>Final Exam Schedule</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='http://faculty.deanza.edu/'>Faculty Web Sites</a>
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td>
+			<a class='menu' href='/courseinfo/majors.html'>Majors/Areas of Study</a>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<a class='menu' href='/publications/catalog/'>College Catalog</a>
+
+		</td>
+	</tr>	
+	
+	<tr>
+		<td>
+			<a class='menu' href='http://distance.deanza.edu'>Distance Learning</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='http://communityeducation.fhda.edu/'>Community Ed. Short Courses</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/workforceed/'>Workforce Education</a>
+		</td>
+	</tr>
+
+	</table>
+</div>
+
+<!-- Course Information Divisions -->
+<div class='divdepts' id='divdepts' name='divdepts' OnMouseOver='showdivdepts();' OnMouseOut='hidedivdepts();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<a class='menu' href='/appliedtech/'>Applied Technologies</a>
+		</td>
+
+	</tr>
+	
+	<tr>
+		<td>
+			<a class='menu' href='/bhes/'>Biological, Health and Environmental Sciences</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='/buscis/'>Business/Computer Systems</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/counseling/'>Counseling</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a class='menu' href='/creativearts/'>Creative Arts</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/iis/'>Intercultural/International Studies</a>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='http://group.deanza.edu/languagearts/'>Language Arts</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td>
+			<a class='menu' href='/library/'>Library Services</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/pe/'>Physical Education/Athletics</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='http://nebula.deanza.edu/'>Physical Science/Math/Engineering</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='/socialsciences/'>Social Sciences and Humanities</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/specialed/'>Special Education</a>
+		</td>
+	</tr>
+
+	</table>
+</div>
+
+<!-- Student Services -->
+<div class='stuser' id='stuser' name='stuser' OnMouseOver='showstuser();' OnMouseOut='hidestuser();'>
+	<table border='0' cellpadding='1' cellspacing='1' width='100%'>
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/contact.html'>Admissions and Records</a>
+		</td>
+
+	</tr>			
+	<tr>
+		<td>
+			<a class='menu' href='/bookstore/'>Bookstore</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/studentservices/career/'>Career & Employment Services</a>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/child/'>Child Care</a>
+		</td>
+	</tr>
+	<tr>
+
+		<td>
+			<a class='menu' href='/counseling/'>Counseling and Advising</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/diningservices/'>Dining Services</a>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/specialed/'>Disability Support Services</a>
+		</td>
+	</tr>
+			
+	<tr>
+		<td>
+
+			<a class='menu' href='/academicsupport/'>EOPS, LinC, RENEW, SSRSC, Tutorial, Writing & Reading...</a>
+		</td>
+	</tr>		
+	<tr>
+		<td>
+			<a class='menu' href='/financialaid/'>Financial Aid</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a class='menu' href='/healthservices/'>Health Services</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/honors/'>Honors Program</a>
+
+		</td>
+	</tr>		
+	<tr>
+		<td>
+			<a class='menu' href='/admissions/placement/'>Placement Tests</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+			<a class='menu' href='/studentactivities/'>Student Activities</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class='menu' href='/registration/transcript.html'>Transcript Request</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a class='menu' href='/transfer/'>Transfer Planning</a>
+		</td>
+	</tr>
+									
+	
+	</table>
+</div>
+
+<style type="text/css">
+
+.tdsmall {
+	font-size: .9em;
+}
+
+.tdsmaller {
+	font-size: .85em;
+}
+
+li {
+	font-size: 9pt;
+	font-weight: normal;
+}
+
+p.highlight { 
+    background-color: fcf0d2; 
+    padding: 5px; 
+    border-style: solid; 
+    border-color: #333366; 
+    border-width: 2px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function checkform()
+{
+	var QtrSelect = document.schsearch.Quarter.options[document.schsearch.Quarter.selectedIndex].value;
+    var LLselected = document.schsearch.LL;
+
+	if (QtrSelect == "" )
+	{
+		alert("Please select a specific quarter.");
+		return;
+	}
+	else
+	{
+        if(LLselected[0].checked)
+        {
+          document.schsearch.Uniq_Course_ID.value =  "LLPE";
+        }
+        
+        if(LLselected[1].checked)
+        {
+          document.schsearch.Uniq_Course_ID.value =  "LLCA";
+        }
+        
+		document.schsearch.QuarterYear.value = document.schsearch.Quarter.options[document.schsearch.Quarter.selectedIndex].value.substring(0,4);
+		document.schsearch.QuarterQtr.value = document.schsearch.Quarter.options[document.schsearch.Quarter.selectedIndex].value.substring(4,5);
+		document.schsearch.CourseID.value = document.schsearch.CourseID.value.toUpperCase();
+		document.schsearch.submit();
+	}
+}
+
+function clearLL()
+{
+    var LLselected = document.schsearch.LL;
+    LLselected[0].checked = false;
+    LLselected[1].checked = false;
+}
+
+
+</script>
+<!-- Google Analytics, installed by De Anza Web Team -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ?
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End Google Analytics -->
+
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<style type="text/css">
+.toplinks { 
+	font-size: 90%;
+	font-weight: bold;
+}
+</style>
+
+
+<map name="navbar3t">
+<area shape="rect" coords="720,11,789,30" href="/friends/" alt="Friends and Community"></area>
+<area shape="rect" coords="640,11,709,30" href="/faculty/" alt="Faculty and Staff"></area>
+<area shape="rect" coords="560,11,629,30" href="/international/" alt="International Students"></area>
+<area shape="rect" coords="470,11,549,30" href="/gettingstarted/" alt="Future Students"></area>
+<area shape="rect" coords="390,11,469,30" href="/students/" alt="Current Students"></area>
+<area shape="rect" coords="680,31,799,54" href="/studentservices/"  onmouseover="showstuser();" onmouseout="hidestuser();" alt="Student Services"></area>
+<area shape="rect" coords="590,31,679,54" href="/library/" alt="Library"></area>
+<area shape="rect" coords="430,31,589,54" href="/courseinfo/" onmouseover="showclas();" onmouseout="hideclas();" alt="Course Information"></area>
+<area shape="rect" coords="220,31,429,54" href="/admissions/appregmenu.html" onmouseover="showapply();" onmouseout="hideapply();" alt="Admissions and Registration"></area>
+<area shape="rect" coords="80,31,219,54" href="/about/" onmouseover="showabout();" onmouseout="hideabout();" alt="About De Anza"></area>
+<area shape="rect" coords="0,31,79,54" href="/" alt="Home"></area>
+</map>
+<table border="0" width="800" cellpadding="0" cellspacing="0" bgcolor="white">
+<tr>
+<td width="125" align="left" valign="top">
+<a href="/"><img src="/images/dalogow.jpg" width="119" height="54" alt="De Anza College" border="0" /></a>
+
+</td><form name="search" method="get" action="http://gsearch.fhda.edu/search">
+<td width="675" align="right" valign="middle">
+<span class="toplinks"><a href="/news/">News</a>&nbsp;&bull;&nbsp;<a href="/eventscalendar/">Events</a>&nbsp;&bull;&nbsp;<a href="/directory/dir-az.html">A-Z Index</a>&nbsp;&bull;&nbsp;<a href="/directory/">Directories</a>&nbsp;&bull;&nbsp;<a href="/comment.html">Contact</a>&nbsp;</span>
+	<input type="hidden" name="site" value="Main_Crawl" />
+	<input type="hidden" name="client" value="Main_Crawl" />
+	<input type="hidden" name="proxystylesheet" value="Main_Crawl" />
+	<input type="hidden" name="output" value="xml_no_dtd" />
+	<input type="text" size="20" name="q" value="" onclick="ClearIfAppropriate();">
+
+	<input type="image" name="btnG" src="/images/ndgo3tw.gif" width="22" height="22" alt="Search" /><span class="hpmisc"><a href="/searchcenter/">Advanced Search</a></span>
+</td></form><script type="text/javascript">
+
+var LabelText = " Search";
+
+if(document.search.q.value.length == 0) 
+{ document.search.q.value = LabelText; }
+
+function ClearIfAppropriate() 
+{ 
+	if(document.search.q.value == LabelText) 
+	{ document.search.q.value = ""; }
+}
+
+</script></tr></table><img src="/images/navbarwhite3T.gif" width="800" height="55" alt="Global Navigation" usemap="#navbar3t" border="0" /><br />
+<table border="0" width="800" cellspacing="0" cellpadding="0" summary="Main Content"><tr valign="top">
+<td width="10" bgcolor="#fcf0d2">&nbsp;<br /></td>
+<td width="180" bgcolor="#fcf0d2"><br />
+<p class="leftnav">
+
+<a href="/courseinfo/"><img src="/courseinfo/images/courseinfo.jpg" width="175" height="168" border="0" alt="Course Information" /></a><br />
+<br />
+<a href="/schedule/">Schedule of Classes</a><br />
+<br />
+<a href="/calendar/">Academic Calendar</a><br />
+
+<br />
+<a href="/calendar/">Final Exam Schedule</a><br />
+<br />
+<a href="/publications/catalog/">College Catalog</a><br />
+<br />
+<a href="/courseinfo/majors.html">Majors/Areas of Study</a><br />
+<br />
+<a href="/workforceed/">Workforce Education</a><br />
+<br />
+<a href="http://distance.deanza.fhda.edu">Distance Learning</a><br />
+<br />
+<a href="http://communityeducation.fhda.edu">Community Education</a><br />
+
+<br />
+<a href="/directory/dir-depts.html">Divisions and Departments</a><br />
+<br />
+
+</p><br /></td>
+<td width="10" bgcolor="#ffffff">&nbsp;</td>
+<td width="600">
+<br />
+
+<!-- ----- Do Not Edit Above This Line ----- -->
+
+<!-- ----- CONTENT BEGINS ----- -->
+
+<p class="hpmisc">
+Bugs? Errors? Comments? <a href="mailto:webteam@saturn.deanza.edu?subject=Searchable Schedule Feedback">Searchable Schedule Feedback</a></p>
+
+<h3>Online Searchable Schedule</h3>
+
+
+<p>
+	<b>Selecting a Quarter and <strong>one other search criteria</strong> is required</b>. <br /><br />
+	Note: Results limited to 300. Narrow your search by entering <b><i>more</i></b>  information in the <b>Advanced Search</b> section. Make sure your browser's <a href="/registration/cookies.html">JavaScript has been enabled</a>.
+
+</p>
+
+<hr size="4" color="darkred" />
+
+<form name="schsearch" action="schsearch.html" method="post" onsubmit="javascript:checkform();">
+<input type="hidden" name="QuarterQtr" value="" />
+<input type="hidden" name="QuarterYear" value="" />
+<input type="hidden" name="sortBy" value="1" />
+
+<table width="595" border="0" cellpadding="0" cellspacing="0" summary="Search for courses. Note that the selection field Quarter is required along with one other search criteria.">
+<tr>
+<tr><td colspan="2"><strong>Quick Search by Department</strong><hr size="1" /></td></tr>
+<td valign="top" width="110" class="tdsmaller"><font color="darkred"><b><label for="Quarter">Quarter:</label></font></b> </td>
+<td valign="top">
+
+<select name="Quarter" id="Quarter">
+<option value='' selected></option><option value='2008F'>Fall 2008</option><option value='2008S'>Spring 2008</option><option value='2008M'>Summer 2008</option>
+</select>
+&nbsp; (<font color="red"><b>Required</b></font>)
+</td>
+</tr>
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" width="110" class="tdsmaller"><b><font color="darkred"><label for="Uniq_Course_ID">Dept:</label></font></b> </td>
+
+<td valign="top">
+	<select name="Uniq_Course_ID" id="Uniq_Course_ID" onChange="clearLL();">
+        		<option value=""></option>
+		<option value="ACCT">Accounting (ACCT)</option>
+		<option value="ADMJ">Administration of Justice (ADMJ)</option>
+		<option value="ANTH">Anthropology (ANTH)</option>
+		<option value="ARBC">Arabic (ARBC)</option>
+
+		<option value="ARTS">Arts (ARTS)</option>
+		<option value="ASTR">Astronomy (ASTR)</option>
+		<option value="AUTO">Automotive Technology (AUTO)</option>
+		<option value="BIOL">Biology (BIOL)</option>
+		<option value="BUS ">Business (BUS)</option>
+		<option value="CANT">Cantonese (CANT)</option>
+
+		<option value="CLP ">Career Life Planning (CLP)</option>
+		<option value="CHEM">Chemistry (CHEM)</option>
+		<option value="CDI ">CAD &amp; Digital Imaging (CDI)</option>
+		<option value="C D ">Child Development (CD)</option>
+		<option value="CAOS">Computer Applications and Office Systems (CAOS)</option>
+
+		<option value="CIS ">Computer Information Systems (CIS)</option>
+		<option value="COOP">Co-Op Ed - Work Experience (COOP)</option>
+		<option value="COUN">Counseling (COUN)</option>
+		<option value="DANC">Dance (DANC)</option>
+		<option value="ECON">Economics (ECON)</option>
+		<option value="EDUC">Education (EDUC)</option>
+
+		<option value="ENGR">Engineering (ENGR)</option>
+		<option value="ESL ">English as a Second Language (ESL)</option>
+		<option value="ELIT">English-Literature (ELIT)</option>
+		<option value="EWRT">English-Writing (EWRT)</option>
+		<option value="E S ">Environmental Studies (ES)</option>
+		<option value="ESCI">Environmental Science (ESCI)</option>
+
+		<option value="F/TV">Film/Television (F/TV)</option>
+		<option value="FREN">French (FREN)</option>
+		<option value="GEO ">Geography (GEO)</option>
+		<option value="GEOL">Geology (GEOL)</option>
+		<option value="GERM">German (GERM)</option>
+		<option value="GUID">Guidance (GUID)</option>
+
+		<option value="HLTH">Health (HLTH)</option>
+		<option value="HTEC">Health Technologies (HTEC)</option>
+		<option value="HEBR">Hebrew (HEBR)</option>
+		<option value="HNDI">Hindi (HNDI)</option>
+		<option value="HIST">History (HIST)</option>
+		<option value="HUMA">Human Development (HUMA)</option>
+
+		<option value="HUMI">Humanities (HUMI)</option>
+		<option value="ICS ">Intercultural Studies (ICS)</option>
+		<option value="INTL">International Studies (INTL)</option>
+		<option value="ITAL">Italian (ITAL)</option>
+		<option value="JAPN">Japanese (JAPN)</option>
+		<option value="JOUR">Journalism (JOUR)</option>
+
+		<option value="KORE">Korean (KORE)</option>
+		<option value="LART">Language Arts (LART)</option>
+		<option value="LRNA">Learning Assistance (LRNA)</option>
+		<option value="LCEN">Learning Center (LCEN)</option>
+		<option value="LING">Linguistics (LING)</option>
+		<option value="LLBH">Lifelong Learning Biological (LLBH)</option> 
+		<option value="LLCA">Lifelong Learning Creative Arts (LLCA)</option>
+
+		<option value="LLPE">Lifelong Learning Physical Ed (LLPE)</option>
+		<option value="MAND">Mandarin (MAND)</option>
+		<option value="MATH">Mathematics (MATH)</option>
+		<option value="MET ">Meteorology (MET)</option>
+		<option value="MCNC">Manufacturing &amp; CNC Technologies (MCNC)</option>
+
+		<option value="MUSI">Music (MUSI)</option>
+		<option value="NURS">Nursing (NURS)</option>
+		<option value="NUTR">Nutrition (NUTR)</option>
+		<option value="PARA">Paralegal Studies (PARA)</option>
+		<option value="PERS">Persian (PERS)</option>
+		<option value="PHIL">Philosophy (PHIL)</option>
+
+		<option value="PHTG">Photography (PHTG)</option>
+		<option value="PHYS">Physics (PHYS)</option>
+		<option value="P E ">Physical Education (PE)</option>
+		<option value="PEA ">Physical Education-Adapted (PEA)</option>
+		<option value="PSME">Physical Sciences, Math, and Engineering (PSME)</option>
+		<option value="POLI">Political Science (POLI)</option>
+
+		<option value="PSYC">Psychology (PSYC)</option>
+		<option value="READ">Reading (READ)</option>
+		<option value="REST">Real Estate (REST)</option>
+		<option value="RUSS">Russian (RUSS)</option>
+		<option value="SIGN">Sign Language (SIGN)</option>
+		<option value="SKIL">Skills (SKIL)</option>
+
+		<option value="SOSC">Social Science (SOSC)</option>
+		<option value="SOC ">Sociology (SOC)</option>
+		<option value="SPAN">Spanish (SPAN)</option>
+		<option value="SPED">Special Education (SPED)</option>
+		<option value="SPCH">Speech Communication (SPCH)</option>
+		<option value="TWRT">Technical Writing (TWRT)</option>
+
+		<option value="THEA">Theatre Arts (THEA)</option>
+		<option value="URDU">Urdu (URDU)</option>
+		<option value="VIET">Vietnamese (VIET)</option>
+		<option value="WMST">Women's Studies (WMST)</option>
+	</select>
+    <br />
+    <p class="highlight"><b>Lifelong Learning:</b> <label for="LLPE"><input type="radio" name="LL" id="LLPE" value="LLPE" /> Physical Education</label> <label for="LLCA"><input type="radio" name="LL" id="LLCA" value="LLCA" /> Creative Arts</label></p>
+
+	</td>
+</tr>
+<tr><td valign="top" colspan="2">
+<br /><input type="submit" value="Search"  /> <input type="reset" value="Clear" />
+</td></tr>
+
+<tr><td valign="top" colspan="2"><hr size="4" color="darkred" />
+	<strong>Advanced Search</strong> (Quarter selection required)
+<hr size="1" />
+</td></tr>
+<tr>
+<td valign="top" class="tdsmaller"><b>Course Type:</b> </td>
+
+<td valign="top" class="tdsmall">
+<label for="DL"><input type="radio" name="CourseType" id="DL" value="Z" /> Distance Learning</label> 
+<label for="CSL"><input type="radio" name="CourseType" id="CSL" value="S" /> Community Service Learning</label>
+<br />
+<label for="LinC"><input type="radio" name="CourseType" id="LinC" value="D" /> Learning in Communities (LinC)</label> 
+<label for="OC"><input type="radio" name="CourseType" id="OC" value="F" /> Off-Campus</label> 
+<label for="Any"><input type="radio" name="CourseType" id="Any" value="" /> Any</label>
+
+</td>
+</tr>
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" class="tdsmaller"><b><label for="CourseID">Course Num:</label></b> </td>
+<td valign="top" class="tdsmall"><input type="text" name="CourseID" id="CourseID" size="10" maxlength="10" /><br />(Example:  51A)<br /><br /></td>
+</tr>
+<tr>
+<td valign="top" class="tdsmaller"><b><label for="CourseTitle">Course Title:</label></b> </td>
+<td valign="top" class="tdsmall"><input type="text" name="CourseTitle" id="CourseTitle" size="35" maxlength="35" /><br />(Enter keywords, don't use punctuation)</td>
+</tr>
+
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" class="tdsmaller"><b>Time of Day:</b> </td>
+<td valign="top" class="tdsmall"> <label for="TDM"><input type="radio" name="Time_of_Day" id="TDM" value="M" />Morning</label>&nbsp;<label for="TDD"><input type="radio" name="Time_of_Day" id="TDD" value="D" /> Afternoon</label>&nbsp;<label for="TDE"><input type="radio" name="Time_of_Day" id="TDE" value="E" /> Evening</label></td>
+</tr>
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" class="tdsmaller"><b>Day of Week:</b> </td>
+
+<td valign="top" class="tdsmall">
+<input type="checkbox" name="MDay" id="Monday" value="M" /> <label for="Monday">Monday</label> &nbsp; 
+<input type="checkbox" name="TuDay" id="Tuesday" value="Tu" /> <label for="Tuesday">Tuesday</label> &nbsp; <br />
+<input type="checkbox" name="WDay" id="Wednesday" value="W" /> <label for="Wednesday">Wednesday</label> &nbsp;
+<input type="checkbox" name="ThDay" id="Thursday" value="Th" /> <label for="Thursday">Thursday</label> <br />
+
+<input type="checkbox" name="FDay" id="Friday" value="F" /> <label for="Friday">Friday</label> &nbsp;
+<input type="checkbox" name="SaDay" id="Saturday" value="S" /> <label for="Saturday">Saturday</label> &nbsp;
+<input type="checkbox" name="SuDay" id="Sunday" value="U" /> <label for="Sunday">Sunday</label> 
+</td>
+</tr>
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" class="tdsmaller"><b><label for="Instructor">Instructor:</label></b> </td>
+
+<td valign="top"><input type="text" name="Instructor" id="Instructor" size="20" maxlength="20" /><br /><font size="2">(Use last name only, don't use punctuation)</font><br /><br /></td>
+</tr>
+<tr>
+<td valign="top" class="tdsmaller"><b><label for="Location">Location:</label></b> </td>
+<td valign="top"><input type="text" name="Location" id="Location" size="20" maxlength="20" /><br /><font size="2">(Example: MCC-10 or L72 &nbsp;<a href="/map">See Map</a> )</font></td>
+</tr>
+<tr><td valign="top" colspan="2"><hr size="1" /></td></tr>
+<tr>
+<td valign="top" colspan="2"><br /><input type="submit" value="Search" /> <input type="reset" value="Clear" /></td>
+
+</tr>
+</table>
+</form>
+
+
+<br /><br />
+
+<!-- ----- CONTENT ENDS ----- -->
+
+<!-- ----- Do Not Edit Below This Line ----- -->
+
+    </td>
+  </tr>
+</table>
+<table width="800" border="0" cellspacing="0" cellpadding="3" summary"Text Links">
+
+  <tr> 
+    <td nowrap class="bar">Page updated: May 28, 2008</td>
+    <td nowrap align="right" class="bar">De Anza College. Just What You Need.</td>
+  </tr>
+  <tr>
+  	<td colspan="2" >&nbsp;</td>
+  </tr>
+  <tr>
+
+  	<td colspan="2" align="center">
+	<p class="smlink">
+        [ <a class="smlink" href="/students/">Current Students</a>] &nbsp; [ <a  class="smlink" href="/gettingstarted/">Future Students &amp; Parents</a> ] &nbsp;
+        [ <a class="smlink" href="/international/">International Students</a> ] &nbsp; [ <a  class="smlink" href="/faculty/">Faculty and Staff</a> ] &nbsp; [<a class="smlink" href="/friends/">Friends &amp; Community</a> ]
+        <br />
+
+        [ <a  class="smlink" href="/about">About De Anza</a> ] &nbsp; [ <a class="smlink" href="/admissions/appregmenu.html">Admissions &amp; Registration</a> ] &nbsp; [ <a  class="smlink" href="/courseinfo/">Course Information</a> ] &nbsp; [ <a  class="smlink" href="/library/">Library</a> ] &nbsp; [ <a  class="smlink" href="/studentservices/">Student Services</a> ]
+        </p>
+
+        <p class="smlink"><a href="/policies/privacy.html">Privacy Statement</a></p>
+        </td>
+  </tr>
+</table>
+<br /><br />
+<font color='#ffffff'>4067230</font><br /><!-- Google Analytics, installed by De Anza Web Team -->
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2729974-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- End Google Analytics -->
+</body>
+</html>
+

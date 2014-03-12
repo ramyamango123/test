@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.deanza.edu/" />
+<title>test_case1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test_case1</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>pass &quot;no pass&quot;</td>
+	<td>search_string</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>all_s</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.forms[4].elements[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>Search Results: ${search_string}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exact:Searched for ${search_string}.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regex: [Results 1 - 10&nbsp;&nbsp;of about\s\d{4}.*]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

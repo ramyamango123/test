@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>excluding_caret</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">excluding_caret</td></tr>
+</thead><tbody>
+<!--This test looks for a word of 15 characters where a word is defined as any series of characters excluding a space.-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:[^ ]{15}</td>
+	<td></td>
+</tr>
+<!--This test looks for a word of 14 characters where a word is defined as any series of characters excluding a space.-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:[^ ]{14}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

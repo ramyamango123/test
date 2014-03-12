@@ -1,0 +1,100 @@
+
+import unittest
+import re
+import os
+
+class StringCheck:
+    def __init__(self, file_name):
+        self.fp = None
+        self.text_data = []
+        #self.file_name = []
+        try:
+            self.fp = open(file_name, 'r')
+            self.text_data = self.fp.readlines()
+        except:
+            print "Invalid file name"
+        
+    def __del__(self):
+        if self.fp != None:
+            self.fp.close()
+            
+            
+    def str_check_from_file(self, str):
+        list_data = []
+        print self.text_data
+        for lines in self.text_data:
+            for i in lines.split():
+                list_data.append(i)
+                for j in list_data:
+                    print "j", j
+                try:
+                    int(str)
+                    return True
+                except:
+                    return False
+        
+        #return list_data
+    def count(self):
+        print self
+        return len(self.text_data)
+        
+class StringCheckUnitTest(unittest.TestCase):
+    def createFile(self, file_content):
+        fw = open(self.valid_file_name, 'w')
+        fw.write(file_content)
+        fw.close()
+        
+    @classmethod
+    def setUpClass(self):
+        print "in setUpClass"
+        # mysql = open connection
+    
+    @classmethod
+    def tearDownClass(self):
+        print "in tearDownClass"
+        os.remove("strnums.txt")
+        
+    def setUp(self):
+        print "in setUp"
+        s = '''4556 hjgjgj 7677 uiu344 89989 12
+099 tr5 98
+23 764'''
+        print s
+        fw = open("strnums.txt", 'w')
+        fw.write(s)
+        fw.close()
+    
+    def test1_valid_file(self):
+        self.table_name = "valid_names"
+        # mysql.runCmd("create table " + self.table_name)
+        self.file_name = "strnums.txt"
+        self.obj1 = StringCheck(self.file_name)
+        data = self.obj1.str_check_from_file("347h")
+        print data
+        
+    def test2_invalid_file(self):
+        self.table_name = "invalid_names"
+        self.file_name = "strnums2.txt"
+        self.createFile(
+        '''dfjd fdlkfjds
+        fdjdsf
+        fdfjdf
+        s''')
+        obj1 = StringCheck("strnums2.txt")
+        self.assertEqual(4, obj1.count()) # count(obj1)
+
+        pass
+        
+    def tearDown(self):
+        print "in TearDown"
+        # mysql.runCmd("drop table " + self.table_name)
+        os.remove(self.file_name)
+        
+    
+if __name__ == "__main__":
+    unittest.main()
+        
+        
+        
+            
+        

@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h2 align="center">Globbing, Exact, and Prefix-Free Patterns</h2>
+<p>
+<font size=+2>
+<ol type=I>
+<li><b>Question</b>: When does one use globbing, exact, regular expression (covered
+next week), and prefix-free patterns?  
+<p><b>Answer</b>:  Whenever the reference documentation for a Selenium
+command specifies a <b>pattern</b> argument.
+<p><b>Example</b>: <b>verifyTitle</b>
+<p>
+<li>Globbing
+<p>
+  <ol type=A>
+  <li>Globbing is sometimes called "filename expansion."  
+  <p>
+  <li>Globbing utilizes "wildcards."
+  <p>
+  <li>Globbing and regular expressions ARE NOT THE SAME THING!!!
+  <p>
+  <li>The usual globbing wildcards are:
+  <p>
+      <ol type=1>
+      <li><b>?</b> - matches any single character.  Thus, <b>a?b</b> would match "aXb" or "a b".
+      <p>
+      <li><b>*</b> - matches anything, including nothing.  Thus, <b>a*b</b> would match:
+        <p>
+        <ul>
+        <li>ab
+        <li>aXb
+        <li>a Now is the time for all good women to come to the aid of their countryb
+        <li>&lt;an infinite number of other strings&gt;
+        </ul>
+      <p>
+      <li><b>[]</b> - character class, which matches any single character that is included between the brackets.  Thus, <b>[0123456789]</b> would match any digit.  
+      <p><b>[abcdefghijjklmnopqrstuvwxyz]</b> would match any lowercase alphabetic character.  
+      <p><b>[A-Za-z0-9]</b> would match any alphabetical letter, regardless of case, or any digit.
+      </ol>
+  <li>To use globbing within a Selenium IDE test, one must prefix a pattern with <b>glob:</b>.
+  <p>
+  <li>Note that the <a href="http://voyager.deanza.edu/~mam-p/spring_2008/selenium/course-materials/reference.html">Selenium reference docs</a>
+  make it sound like only the <b>?</b> and <b>*</b>
+  work.  My experiments reveal that this is indeed the class, i.e., character classes are NOT
+  supported for <b>glob:</b> patterns.
+  <p>
+  <li><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/globbing-exact-no_prefix/globbing.html">Example</a> 
+  </ol>
+<p>
+<li>exact
+<p>
+  <ol type=A>
+  <li>In addition to regular expressions (<b>regexp:</b>) and globbing (<b>glob:</b>), Selenium
+also supports <b>exact:</b> matching with pattern arguments.
+  <p>
+  <li><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/globbing-exact-no_prefix/exact.html">Example</a>
+  </ol>
+<p>
+<li>No label prefixing pattern
+<p>
+  <ol type=A>
+  <li>Defaults to <b>glob</b>
+  <p>
+  <li><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/globbing-exact-no_prefix/no-prefix.html">Example</a> (same as used for <b>globbing:</b> with same results)
+  </ol>
+</ol>
+<p><b>LAB EXERCISE GLOBBING-EXACT-NO_PREFIX-1</b>
+<p>
+<ol>
+<li>Which of the three <b>verifyTitle</b> tests in this <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/globbing-exact-no_prefix/globbing-exact-no_prefix-1.html">example</a> is best?  Why?  Which is worst?  Why?
+<p>
+<li>Select a link from the <a href="http://www.deanza.edu/directory/dir-az.html">De Anza A-Z Directory</a> for which the target page's title looks like it could be changed at some point in the future.  Create a Selenium IDE test for that link in which you use globbing to make the test as <i>robust</i> as possible.  Be sure to check that the test can also fail when appropriate by making a tiny
+change to the title provided in your test.
+</ol>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ASSIGNMENT-2_GLOBBING-EXACT-NO_PREFIX-1-2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ASSIGNMENT-2_GLOBBING-EXACT-NO_PREFIX-1-2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/directory/dir-az.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Assessment and Placement Information</td>
+	<td></td>
+</tr>
+<!--Note that both the "and" and "Office" have been eliminated in the pattern below.-->
+<!--"Office" really should be "Information" to match the link from A-Z directory; this pattern will still work if that change is made.-->
+<tr>
+	<td>verifyTitle</td>
+	<td>glob:Assessment*Placement*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

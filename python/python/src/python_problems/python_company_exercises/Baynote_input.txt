@@ -1,0 +1,2110 @@
+Execution started at 05/25/2011 05:22:03 PM
+
+=======================================
+[Case MostPopular-BlogFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=BlogFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-ReleaseFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=ReleaseFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case augmentpro-1] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=john+chambers+blog&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-2] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+logo&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-3] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+blog&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-4] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+india&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-5] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=linksys+phone+number&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-6] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+uc&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-7] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=china&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-8] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=asp+top+ten+web+support+site+2008&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-9] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=perfigo&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-10] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=telepresence&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-11] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+webex&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-12] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+nac&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-13] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=navini&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-14] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+podcast&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-15] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=trademark+infringement&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-16] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=what+are+stakeholder+demand+on+british+airways&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-17] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=reactivity&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-18] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=opnet&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-19] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+waas&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-20] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+news&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-21] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+selfdefending+network&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-22] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=mpls+fast+rerouting&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-23] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+in+india&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-24] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+ottawa&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-25] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=bts&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-26] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=broadband+availability+map&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-27] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=latigent&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-28] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=at+%26+t+and+cisco&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-29] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=linksys+support+number&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-30] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=scientific+atlanta&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-31] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=axa+technologies&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-32] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=suzanne+brooke&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-33] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+market+share&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-34] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=public+relations&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-35] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+systems+webex+acquisition&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-36] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=iron+port&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-37] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+rss&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-38] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=padmasree+warrior&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-39] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=implemented&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-40] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+10k+report&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-41] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=linksys+tech+support+number&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-42] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=toronto+office&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-43] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+ip+camera&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-44] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+workspace+everywhere&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-45] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=vieo+systems&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-46] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+ceo&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-47] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+galway&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-48] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=campaign&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-49] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=hong+kong&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-50] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=site+cisco.com+wan+optimization&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-51] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=web+collaboration+tools+study+document&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-52] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=nitin+kawale+cisco&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-53] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+network+data+center&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-54] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=granite+systems&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-55] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+2007+security+report&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-56] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=trademark+news&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-57] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=role+of+us+china+and+india&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-58] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=charlie+giancarlo+cisco+webex&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-59] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=eurodocsis+3.0&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-60] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=on+my+mind+cisco+blog&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-61] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+notes&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-62] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=daryl+brooke&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-63] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=working+at+cisco&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-64] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=identity&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-65] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=yvon+le+roux&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-66] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=att+cisco+telepresence&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-67] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+subnetting+game&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-68] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+rss+feeds&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-69] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=nexus&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-70] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+empowered+branch&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-71] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=support+wiki+cisco&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-72] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=linksys+800+number&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-73] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=standard+of+living+in+developing+countries&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-74] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=colombia+free+trade+agreement+2008&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-75] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=sypixx&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-76] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=virtual+world&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-77] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=trust+in+virtual+teams&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-78] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=charlie+giancarlo&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-79] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+video&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-80] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=integration+partner+incentive+program&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-81] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+videos&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-82] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+asr+1000&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-83] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+strategy&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-84] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=fcoe+tape+drives&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-85] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=strategic+alliances+drive+customer+success&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-86] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+company+history&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-87] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=john+chambers+interview&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-88] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+fellows&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-89] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=dynamicsoft&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-90] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+environmental+strategy&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-91] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+earnings+calendar&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-92] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=nasdaq+csco&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-93] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+expresscard&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-94] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+ace&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-95] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=virtual+meetings&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-96] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+system+earning+release+q208&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-97] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+history&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-98] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+university&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-99] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=catalyst+2950&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case augmentpro-100] 
+[REQ-URL]: http://qa2:8080/baynote/augmentpro?customerId=cisco&code=news&query=cisco+live&searchType=merged&data=<raw/>
+***Passed!***
+
+=======================================
+[Case bnemgr-01] 
+[REQ-CMD]: /usr/local/baynote/bin/bnemgr -x -c cisco news getAll
+***Passed!***
+
+=======================================
+[Case guide-01] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&v=1
+***Passed!***
+
+=======================================
+[Case guide-02] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&startingDocNum=3&resultsPerPage=4&maxTermCount=1&maxStars=3&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guide-03] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrList=n,v&startingDocNum=3&resultsPerPage=4&maxTermCount=1&maxStars=3&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guide-04] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AdGuide&query=news&maxStars=2&v=1
+***Passed!***
+
+=======================================
+[Case guide-05] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http://newsroom.cisco.com/dlls/index.html&resultsPerPage=11&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guide-06] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=SimilarDocs&url=http://newsroom.cisco.com/dlls/index.html&startingDocNum=2&resultsPerPage=4&v=1
+***Passed!***
+
+=======================================
+[Case guide-07] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&attrList=FeatureFlag&resultsPerPage=15&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guide-08] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=ReleaseFlag:true&maxTermCount=1&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-1] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Fcorporate_overview.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-AlsoUsedMatch-2] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Findex.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-3] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressreleases_filter.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-AlsoUsedMatch-4] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Ffactsheet.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-5] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_042308.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-AlsoUsedMatch-6] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Frss.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-7] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Fmilestones.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-8] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042508.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-AlsoUsedMatch-9] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Ffin_020608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-10] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042008.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-11] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042408b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-12] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Ffin_042208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-13] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fvideo_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-14] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Ffeatures_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-15] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042408.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-16] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-17] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressresources%2Flogos.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-18] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcast_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-19] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorporate_information.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-20] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fnews.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-21] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041008.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-22] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-23] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022708.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-24] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040708.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-25] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-26] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_030308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-27] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcasts%2Fciscocast_exec_stevenson_042808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-28] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-29] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-30] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041508.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-31] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_011007.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-32] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-33] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-34] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022608c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-35] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908d.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-36] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fevents.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-37] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042008b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-38] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fts_012406.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-39] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_102307.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-40] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_012208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-41] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-42] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_052107b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-43] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-44] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fcorp_111805.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-45] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_031507b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-46] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fhd_102306b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-47] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041008b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-48] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042308.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-AlsoUsedMatch-49] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-50] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_011408b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-51] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorporate_timeline.pdf&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-52] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-53] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_042808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-54] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_020608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-55] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fglobal%2Fasiapac%2Fnews%2F2006%2Fpr_12-06c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-56] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcisconews%2Fin_the_news.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-57] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-58] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_012808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-59] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorp_082301b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-60] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fglobal%2Fcanada%2Fnew_execs_page.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-61] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-62] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_103007f.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-63] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-64] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-65] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fprod_091906.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-66] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-67] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_103007.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-68] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_020608b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-69] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_091007c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-70] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022508c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-71] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcasts%2Fciscocast_exec_chambers_040808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-72] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_080707b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-73] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_110707.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-74] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-75] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fprod_051105.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-76] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-77] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressresources.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-78] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_040307.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-79] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_090407c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-80] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcisconews%2Ftechnology_news.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-81] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_020108.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-82] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2004%2Fcorp_102104.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-83] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fprod_081506.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-84] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2004%2Fhd_052504f.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-85] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fprod_081605b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-86] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_010808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-87] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_010308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-88] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorp_012303.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-89] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-90] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040808e.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-91] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_032607b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-92] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042308b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-93] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_103007e.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-94] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-95] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-96] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_031908b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-97] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_041508.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-98] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040108c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-99] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_062807.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-AlsoUsedMatch-100] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=AlsoUsedMatch&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fcorp_011205.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-1] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Fcorporate_overview.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-2] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Findex.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-3] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressreleases_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-4] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Ffactsheet.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-5] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_042308.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-6] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Frss.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-7] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Fmilestones.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-8] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042508.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-9] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Ffin_020608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-10] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042008.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-11] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042408b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-12] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Ffin_042208.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-13] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fvideo_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-14] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Ffeatures_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-15] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042408.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-16] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-17] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressresources%2Flogos.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-18] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcast_filter.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-19] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorporate_information.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-20] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fnews.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-21] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041008.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-22] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-23] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022708.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-24] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040708.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-25] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-26] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_030308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-27] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcasts%2Fciscocast_exec_stevenson_042808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-28] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-29] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042808.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-30] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041508.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-31] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_011007.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-32] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-33] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-34] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022608c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-35] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908d.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-36] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fevents.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-37] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042008b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-38] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fts_012406.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-39] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_102307.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-40] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_012208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-41] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040808c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-42] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_052107b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-43] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-44] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fcorp_111805.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-45] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fcorp_031507b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-46] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fhd_102306b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-47] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041008b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-48] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-49] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-50] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_011408b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-51] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorporate_timeline.pdf&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-52] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-53] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_042808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-54] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_020608.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-55] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fglobal%2Fasiapac%2Fnews%2F2006%2Fpr_12-06c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-56] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcisconews%2Fin_the_news.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-57] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-58] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_012808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-59] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorp_082301b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-60] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fglobal%2Fcanada%2Fnew_execs_page.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-61] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-62] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_103007f.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-63] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-64] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_041608b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-65] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fprod_091906.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-66] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012808b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-67] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_103007.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-68] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_020608b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-69] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_091007c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-70] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_022508c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-71] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpodcasts%2Fciscocast_exec_chambers_040808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-72] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_080707b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-73] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_110707.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-74] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-75] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fprod_051105.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-76] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040908.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-77] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fpressresources.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-78] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fhd_040307.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-79] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_090407c.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-80] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcisconews%2Ftechnology_news.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-81] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_020108.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-82] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2004%2Fcorp_102104.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-83] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2006%2Fprod_081506.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-84] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2004%2Fhd_052504f.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-85] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fprod_081605b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-86] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_010808.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-87] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_010308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-88] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorp_012303.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-89] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_012308.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-90] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fhd_040808e.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-91] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_032607b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-92] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042308b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-93] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_103007e.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-94] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-95] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_042208b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-96] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_031908b.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-97] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fts_041508.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-98] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2008%2Fprod_040108c.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-99] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Fprod_062807.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-100] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2005%2Fcorp_011205.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-autoguide-1] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-autoguide-1-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-autoguide-2] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testbnuri&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-autoguide-1-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+executing bnadmin -c cisco news purgeResultsCaches...
+qa2 - bns
+    Customer cisco code news: cached results data purged
+qa2 - dispatcher
+    Customer cisco code news: cached results data purged
+
+=======================================
+[Case guiderest-autoguide-1] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-autoguide-2] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testbnuri&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case guiderest-NextStep-1] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Fcorpinfo%2Fcorporate_overview.html&v=1
+***Passed!***
+
+=======================================
+[Case guiderest-NextStep-2] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=NextStep&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2Findex.html&v=1
+***Passed!***
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-BlogFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=BlogFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-ReleaseFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=ReleaseFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+executing bnapu -c cisco news processAdminFeature attribute...
+
+Processing for attribute has been initiated
+
+
+=======================================
+[Case guiderest-autoguide-1-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+
+Execution completed at 05/25/2011 05:34:08 PM

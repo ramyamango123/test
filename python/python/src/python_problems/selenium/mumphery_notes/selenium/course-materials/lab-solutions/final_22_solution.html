@@ -1,0 +1,238 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>final_22_solution</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">final_22_solution</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/comment.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Mary Ann May-Pumphrey</td>
+	<td>my_realname</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>maypumphreymary@fhda.edu</td>
+	<td>my_email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>This is a test comment here!</td>
+	<td>my_comments</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Admissions and Records</td>
+	<td>my_recipient</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>---------------------------------------------</td>
+	<td>my_erroneous_recipient</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>60000</td>
+	<td>timeout</td>
+</tr>
+<!--Test Case #1 - missing name-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>${my_email}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comments</td>
+	<td>${my_comments}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>recipient</td>
+	<td>${my_recipient}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Please confirm your message/comment to the office or department chosen.<br />Thank you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>${timeout}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please enter your name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to Comments Form</td>
+	<td></td>
+</tr>
+<!-- Test Case #2 - missing email-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>realname</td>
+	<td>${my_realname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comments</td>
+	<td>${my_comments}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>recipient</td>
+	<td>${my_recipient}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Please confirm your message/comment to the office or department chosen.<br />Thank you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>${timeout}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Correct e-mail address required.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to Comments Form</td>
+	<td></td>
+</tr>
+<!-- Test Case #3 - missing comments-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>realname</td>
+	<td>${my_realname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>${my_email}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>recipient</td>
+	<td>${my_recipient}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Please confirm your message/comment to the office or department chosen.<br />Thank you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>${timeout}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>No comments entered</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to Comments Form</td>
+	<td></td>
+</tr>
+<!--Test Case #4 - erroneous recipient-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>realname</td>
+	<td>${my_realname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>${my_email}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comments</td>
+	<td>${my_comments}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>recipient</td>
+	<td>${my_erroneous_recipient}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Please confirm your message/comment to the office or department chosen.<br />Thank you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>${timeout}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Error: recipient</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to Comments Form</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

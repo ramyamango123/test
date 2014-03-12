@@ -1,0 +1,21 @@
+# Use "ls" to see all files in existence at beginning
+ls
+
+# Compile the program under test with two special -f options...
+gcc -ftest-coverage -fprofile-arcs codecoverage.c -lm
+
+# See new files created by compilation.  "a.out" is the executable program. 
+ls
+
+# Run the program with just one input (test case).
+a.out
+
+# See new files created by execution of "instrumented binary" (a.out compiled
+# with special flags)
+ls
+
+# Run the gcov program to see how our one test case did at code coverage.
+gcov codecoverage
+
+# Look at the detailed code coverage results.
+more *.gcov

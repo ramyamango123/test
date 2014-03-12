@@ -1,0 +1,158 @@
+<HTML>  
+<HEAD>
+<TITLE>CIS-74 Story Problem Review</title>
+</HEAD>
+
+<P>&nbsp;</P>
+
+<P><CENTER><B><FONT SIZE="+2">CIS-74 - Computer Software Quality Assurance</FONT></B></CENTER></P>
+
+<P><CENTER><B><FONT SIZE="+1">Fall Quarter 2007 -
+DeAnza College</FONT></B></CENTER></P>
+
+<P><CENTER><B><FONT SIZE="+1">Story Problem Review<br> </FONT></B></CENTER></P>
+
+<font size=+1>
+<ol>
+<li>Suppose a project team "seeds" their software with 100 bugs, 60 of
+which are found by the testers.  If the testers also find 450 "real" bugs,
+what is the estimate of "real" bugs which have not been found?
+<p>
+  <ol type="a">
+  <li>40
+  <li>150
+  <li>300
+  <li>750
+  <li>None of the above
+  </ol>
+<p>
+
+<li>Suppose a project had 500 bugs found during the various testing phases,
+and another 125 found by customers during the first year after the
+software was released.  What would be the DRE for this project?
+<p>
+  <ol type="a">
+  <li>20%
+  <li>25%
+  <li>33%
+  <li>80%
+  <li>None of the above
+  </ol>
+<p>
+
+<li>What is the PhAge of a bug introduced during the Coding
+phase of a project, but not found until the Integration Testing phase?
+<p>
+  <ol type="a">
+  <li>0
+  <li>1
+  <li>2
+  <li>3
+  <li>4
+  </ol>
+<p>
+
+<li>What is the PhAge of a bug introduced during the Requirements
+phase of a project, and caught later in that same phase?  
+<p> 
+  <ol type="a">
+  <li>0
+  <li>1
+  <li>2
+  <li>3
+  <li>4
+  </ol>
+<p>
+
+<li>Suppose a project contained 25,000 lines of code, and 375 bugs were
+found during testing.  What is the defect density for this project?
+<p>
+  <ol type="a">
+  <li>1.5%
+  <li>15%
+  <li>33.33%
+  <li>66.66%
+  <li>85%
+  </ol>
+<p>
+
+<li>If a tester worked 185 hours during a 4-week period, and experienced
+37 hours of interrupts during that period, what would his or her E-Factor
+be?
+<p>
+  <ol type="a">
+  <li>0%
+  <li>20%
+  <li>25% 
+  <li>80%
+  <li>None of the above
+  </ol>
+<p>
+
+<li>What is the Defect Spoilage of Project FE, given the <b>Defect
+Creation vs. Discovery</b> data below?  You can use Table 7-6 on page 281--Scale
+for Defect Age--to help you answer this problem, but you should be able to
+re-create that table on your own also.
+<p>
+<table border=2>
+<tr>
+<th colspan=12>Defect Creation vs. Discovery</th>
+</tr>
+<tr>
+<th rowspan=2>Phase Created</th>
+<th colspan=10>Phase Discovered</th>
+<th rowspan=2>Total Defects</th>
+</tr>
+<tr>
+<th>Requirements</th>
+<th>High-Level Design</th>
+<th>Low-Level Design</th>
+<th>Coding</th>
+<th>Unit Testing</th>
+<th>Integration Testing</th>
+<th>System Testing</th>
+<th>Acceptance Testing</th>
+<th>Pilot</th>
+<th>Production</th>
+</tr>
+</tr>
+<tr><th>Requirements</th><td align=center>0</td><td align=center>4</td><td align=center>0</td><td align=center>2</td><td align=center>3</td><td align=center>4</td><td align=center>1</td><td align=center>3</td><td align=center>4</td><td align=center>10</td><td align=center>31</td></tr>
+<tr><th>High-Level Design</th><td align=center>&nbsp;</td><td align=center>7</td><td align=center>5</td><td align=center>2</td><td align=center>1</td><td align=center>1</td><td align=center>4</td><td align=center>5</td><td align=center>3</td><td align=center>2</td><td align=center>30</td></tr>
+<tr><th>Low-Level Design</th><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>5</td><td align=center>2</td><td align=center>0</td><td align=center>1</td><td align=center>6</td><td align=center>7</td><td align=center>1</td><td align=center>1</td><td align=center>23</td></tr>
+<tr><th>Coding</th><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>33</td><td align=center>22</td><td align=center>13</td><td align=center>7</td><td align=center>9</td><td align=center>17</td><td align=center>1</td><td align=center>102</td></tr>
+<tr><th>Summary</th><td align=center>0</td><td align=center>11</td><td align=center>10</td><td align=center>39</td><td align=center>26</td><td align=center>19</td><td align=center>18</td><td align=center>24</td><td align=center>25</td><td align=center>14</td><td align=center>186</td></tr>
+</table>
+
+<p>
+<table border=2>
+<tr>
+<th colspan=12>Number of Defects Weighted by Defect Age</th>
+</tr>
+<tr>
+<th rowspan=2>Phase Created</th>
+<th colspan=10>Phase Discovered</th>
+<th rowspan=2>Spoilage = Weight/Total Defects</th>
+</tr>
+<tr>
+<th>Requirements</th>
+<th>High-Level Design</th>
+<th>Low-Level Design</th>
+<th>Coding</th>
+<th>Unit Testing</th>
+<th>Integration Testing</th>
+<th>System Testing</th>
+<th>Acceptance Testing</th>
+<th>Pilot</th>
+<th>Production</th>
+</tr>
+</tr>
+<tr><th>Requirements</th><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>???</td></tr>
+<tr><th>High-Level Design</th><td align=center>&nbsp;</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>???</td></tr>
+<tr><th>Low-Level Design</th><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>???</td></tr>
+<tr><th>Coding</th><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>?</td><td align=center>???</td></tr>
+<tr><th>Summary</th><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td><td align=center>&nbsp;</td></tr>
+</table>
+
+</ol>
+</body>
+</html>

@@ -1,0 +1,59 @@
+Mon 22 Apr 2013 11:05:23 AM:  #############################################################
+Mon 22 Apr 2013 11:05:23 AM:  UUID:      f81881e8-ab75-11e2-a1f0-001f5b2fee0c
+Mon 22 Apr 2013 11:05:23 AM:  runPath:   2013.04.22/f81881e8-ab75-11e2-a1f0-001f5b2fee0c
+Mon 22 Apr 2013 11:05:23 AM:  iCloudEnv: iCloud2
+Mon 22 Apr 2013 11:05:23 AM:  userid:    nc_cge_icloud2_120@icloud.com
+Mon 22 Apr 2013 11:05:23 AM:  password:  P@ssword120
+Mon 22 Apr 2013 11:05:23 AM:  #############################################################
+Mon 22 Apr 2013 11:05:23 AM:  #############################################################
+Mon 22 Apr 2013 11:05:23 AM:  type:             Performance
+Mon 22 Apr 2013 11:05:23 AM:  version:          1
+Mon 22 Apr 2013 11:05:23 AM:  machine name:     ceichhorn3.apple.com
+Mon 22 Apr 2013 11:05:23 AM:  browser type:     Safari
+Mon 22 Apr 2013 11:05:23 AM:  browser version:  6.0.4 (8536.29.10)
+Mon 22 Apr 2013 11:05:23 AM:  date:             2013-04-22
+Mon 22 Apr 2013 11:05:23 AM:  environment:      iCloud2
+Mon 22 Apr 2013 11:05:23 AM:  impairment:       
+Mon 22 Apr 2013 11:05:23 AM:  #############################################################
+Mon 22 Apr 2013 11:05:36 AM:  INFO - OSX system profile stored
+Mon 22 Apr 2013 11:05:50 AM:  PASS - load icloud url
+Mon 22 Apr 2013 11:05:59 AM:  PASS - icloud sign in
+Mon 22 Apr 2013 11:06:01 AM:  PASS - load gilligan app - Pages
+Mon 22 Apr 2013 11:06:05 AM:  PASS - gear menu item 'Create Document'
+Mon 22 Apr 2013 11:06:05 AM:  PASS - gear menu item 'Upload Document...'
+Mon 22 Apr 2013 11:06:05 AM:  PASS - gear menu item 'Download Document...'
+Mon 22 Apr 2013 11:06:05 AM:  PASS - gear menu item 'Duplicate Document'
+Mon 22 Apr 2013 11:06:05 AM:  PASS - gear menu item 'Share Document Link'
+Mon 22 Apr 2013 11:06:05 AM:  PASS - validate gear menu for Pages
+Mon 22 Apr 2013 11:06:16 AM:  PASS - create new file - Pages / Blank
+Mon 22 Apr 2013 11:06:26 AM:  PASS - file close - Blank
+Mon 22 Apr 2013 11:06:30 AM:  PASS - file rename - Pages / Blank to Test_00.pages
+Mon 22 Apr 2013 11:06:41 AM:  PASS - file open - Pages / Test_00.pages
+Mon 22 Apr 2013 11:06:51 AM:  PASS - file close - Test_00.pages
+Mon 22 Apr 2013 11:07:10 AM:  PASS - create new file - Pages / Personal Photo Letter
+Mon 22 Apr 2013 11:07:12 AM:  PASS - file close - Personal Photo Letter
+Mon 22 Apr 2013 11:07:26 AM:  INFO - waited for file syncing for 5 iterations
+Mon 22 Apr 2013 11:07:29 AM:  PASS - file rename - Pages / Personal Photo Letter to Test_02
+Mon 22 Apr 2013 11:07:32 AM:  PASS - file duplicate - Pages / Test_00.pages
+Mon 22 Apr 2013 11:07:54 AM:  PASS - file export - Pages / Test_00.pages copy / Pages
+Mon 22 Apr 2013 11:08:23 AM:  PASS - create new file - Pages / Project Proposal
+Mon 22 Apr 2013 11:08:25 AM:  PASS - file close - Project Proposal
+Mon 22 Apr 2013 11:08:40 AM:  INFO - waited for file syncing for 6 iterations
+Mon 22 Apr 2013 11:08:53 AM:  PASS - file export - Pages / Project Proposal / Word
+Mon 22 Apr 2013 11:09:31 AM:  PASS - create new file - Pages / Poster
+Mon 22 Apr 2013 11:09:33 AM:  PASS - file close - Poster
+Mon 22 Apr 2013 11:09:47 AM:  INFO - waited for file syncing for 6 iterations
+Mon 22 Apr 2013 11:10:03 AM:  PASS - file delete - Pages / Project Proposal
+Mon 22 Apr 2013 11:10:21 AM:  PASS - file upload - Pages / Test_01.pages
+Mon 22 Apr 2013 11:10:24 AM:  PASS - file rename - Pages / Test_01 to Test Uploaded
+Mon 22 Apr 2013 11:10:31 AM:  PASS - file open - Pages / Test Uploaded
+Mon 22 Apr 2013 11:10:33 AM:  PASS - file close - Test Uploaded
+Mon 22 Apr 2013 11:10:49 AM:  INFO - waited for file syncing for 7 iterations
+Mon 22 Apr 2013 11:10:52 AM:  PASS - context menu file duplicate - Pages / Test Uploaded
+Mon 22 Apr 2013 11:11:14 AM:  PASS - context menu file export - Pages / Test Uploaded copy / Pages
+Mon 22 Apr 2013 11:11:15 AM:  PASS - exit gilligan from - Pages
+Mon 22 Apr 2013 11:11:18 AM:  PASS - load gilligan app - Pages
+Mon 22 Apr 2013 11:11:34 AM:  INFO - deleted 6 files in Pages document manager
+Mon 22 Apr 2013 11:11:42 AM:  PASS - exit gilligan from - Pages
+Mon 22 Apr 2013 11:11:46 AM:  PASS - icloud sign out
+Mon 22 Apr 2013 11:11:46 AM:  INFO - cleanupConfiguration executed

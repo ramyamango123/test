@@ -1,0 +1,63 @@
+
+[oval build] ===============================================
+[oval build] instruction: make  FirstCppUnitTest_TDCppUnit
+[oval build] eval `oval runtime -csh IntegrationWithCppUnit`
+[oval build] ===============================================
+
+--------------------------------------------------------------------
+  LCG stuff                                                         
+--------------------------------------------------------------------
+Your path has been set to have access to LCG stuff (CppUnit, Oval..)
+--------------------------------------------------------------------
+ CPPUNIT settings                                                   
+ USE -> $CPPUNIT_LDFLAGS, previously undefined, has been set to:      
+
+  -L/afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/lib
+ -lcppunit
+   
+ USE -> $CPPUNIT_INCLUDES, previously undefined, has been set to:      
+        /afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/include
+ USE -> $ACLOCAL, previously undefined, has been set to:      
+        /afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/share/aclocal/
+--------------------------------------------------------------------
+g++ -c -I/afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/include FirstCppUnitTest_TDCppUnit.cpp
+g++ -c -I/afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/include  ComplexNumberTest_CppUnit.cpp
+g++  -g -O2 -o FirstCppUnitTest_TDCppUnit
+  -L/afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/lib
+ -lcppunit
+  -ldl 
+ FirstCppUnitTest_TDCppUnit.o ComplexNumberTest_CppUnit.o 
+
+
+[oval run] =================================================
+[oval run] arguments: 
+[oval run] USER : mgallas
+[oval run] HOST : lxplus074
+[oval run] eval `oval runtime -csh IntegrationWithCppUnit`
+[oval run] =================================================
+
+--------------------------------------------------------------------
+  LCG stuff                                                         
+--------------------------------------------------------------------
+Your path has been set to have access to LCG stuff (CppUnit, Oval..)
+--------------------------------------------------------------------
+ CPPUNIT settings                                                   
+ USE -> $CPPUNIT_LDFLAGS, previously undefined, has been set to:      
+     -L/afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/lib -lcppunit -ldl
+ USE -> $CPPUNIT_INCLUDES, previously undefined, has been set to:      
+        /afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/include
+ USE -> $ACLOCAL, previously undefined, has been set to:      
+        /afs/cern.ch/sw/lcg/external/CppUnit/1.8.0/rh73_gcc32/share/aclocal/
+--------------------------------------------------------------------
+.F.
+
+!!!FAILURES!!!
+Test Results:
+Run:  2   Failures: 1   Errors: 0
+
+
+1) test: 17ComplexNumberTest.testEquality (F) line: 42 ComplexNumberTest_CppUnit.cpp
+ "This test fails intentionally"
+
+
+

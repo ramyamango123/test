@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Final Review</h3>
+<p>
+<font size="+2">
+</font></p><ol>
+<font size="+2">
+<li>What do DOM expressions start with (after the <b>dom=</b>)?
+<!-- SOLUTION: document. -->
+<p>
+<li>If an <b>xpath</b> expression did not start with the <b>xpath=</b>
+prefix, what would it start with?
+<!-- SOLUTION: // -->
+<p>
+<li>What does a character class for any character except an alphabetical
+letter look like?
+<!-- SOLUTION: [^a-zA-Z] -->
+<p>
+<li>What is the difference between these two regular expressions?
+<pre>
+[.]*
+.*
+</pre>
+<!-- SOLUTION: The first matches 0 or more periods, whereas
+the second matches 0 or more of any character. -->
+<p>
+<li>How can the following regular expression be easily shortened?
+<pre>
+[M].*[m]
+</pre>
+<!-- SOLUTION: M.*m -->
+<p>
+<li>What is the generic name for expressions that begin with
+<b>dom=</b>, <b>name=</b>, <b>xpath=</b>, and <b>id=</b>?
+<!-- SOLUTION: Element locators -->
+<p>
+<li>What is the generic name for expressions that begin with
+<b>regexp:</b>, <b>glob:</b>, and <b>exact:</b>?
+<!-- SOLUTION: Patterns -->
+<p>
+<li>In order to use the <b>Find</b> button, what type would the first
+argument for the current command have to be?
+<!-- SOLUTION: An element locator -->
+<p>
+<li>What is the generic name for HTML entities such as <b>title=</b>,
+<b>name=</b>,
+<b>href=</b>, <b>id=</b>, <b>alt=</b>, etc. that are found within the
+source code of a
+page?
+<!-- SOLUTION: Attributes -->
+<p>
+<li>What command simulates clicking the browser's <b>Refresh</b> button and
+then waiting for the page to finish loading?
+<!-- SOLUTION: refreshAndWait-->
+<p>
+<li>What will the Selenium reference show as the argument type when
+a small piece of JavaScript code is required?
+<!-- SOLUTION: Script -->
+<p>
+<li>What is the difference between these two expressions?  Answer in 
+English AND by providing an example of what each can match.
+<pre>
+glob:Aa?BC
+regexp:Aa?BC
+</pre>
+<!-- SOLUTION: The glob pattern matches strings of five characters:
+A, a, any character, B, C.  The regexp pattern matches only two strings:
+AaBC or ABC.  The "?" in globbing means any single character.  The "?" in
+regular expressions is a quantifier meaning 0 or 1 of the preceding character.
+-->
+<p>
+<li>What extension does a SIDE user extensions file have?
+<!-- SOLUTION: .js (JavaScript) -->
+<p>
+<li>Where does one start (on the SIDE UI) when one wants to add a new
+user extensions file?
+<!-- SOLUTION: Options menu -->
+<p>
+<li>What critical step must be done after including a new user extensions
+file in SIDE?
+<!-- SOLUTION:  Restarting SIDE -->
+<p>
+<li>What critical step must be done after making a change to an already-installed
+user extensions file in SIDE?
+<!-- SOLUTION:  Restarting SIDE -->
+<p>
+<li>What type of command
+argument requires that the <b>javascript{}</b> syntax NOT be
+specified?
+<!-- SOLUTION:  script -->
+<p>
+<li>What is the default strategy for element locators--<b>identifier=</b>,
+<b>id=</b>, <b>name=</b>, <b>dom=</b>, <b>xpath=</b>, or <b>link=</b>?
+<!-- SOLUTION: identifier= -->
+<p>
+<li>How can one look at just a small portion of a page's HTML code, a portion
+in which one is particularly interested?
+<!-- SOLUTION: Select that portion of the rendered page, and then bring
+up the context menu's "View Selection Source" entry -->
+<p>
+<li>What is the difference between what these two <b>xpath</b> expressions
+match?  Give specific examples of what each can match.
+<pre>
+//input[@name='April']
+//input[contains(@name,'April')]
+</pre>
+<!-- SOLUTION: The first one will only match input fields which have a
+name attribute equal to 'April' whereas the second will also match input fields
+which have names like 'Aprilla' and 'GoodApril' -->
+<p>
+<li>What does DOM stand for?
+<!-- SOLUTION: Document Object Model -->
+<p>
+<li>Which of the following DOM expressions is better to use, and why?
+<pre>
+dom=document.forms[3]
+dom=document.forms['RoomSearch']
+</pre>
+<!-- SOLUTION: The second is better because the addition or deletion of
+a preceding form on the page would break the first one but not the second one. -->
+<p>
+<li>If a page contained five forms, what would be the <b>DOM</b> expression
+for accessing the third one via an array index?
+<!-- SOLUTION: dom=document.forms[2] (JavaScript arrays start with index 0.) -->
+<p>
+<li>What command can be used to check the value of a particular HTML element's
+attribute?
+<!-- SOLUTION: verifyAttribute -->
+<p>
+<li>What are the two ways of matching a left parenthesis in a regular expression?
+<!-- SOLUTION: [(] and \( -->
+<p>
+<li>What are the four ways to specify an <b>option locator</b> for a
+<b>select</b>?
+<!--SOLUTION: index=, label=, id=, value=  -->
+<p>
+<li>What <b>xpath</b> locator would one use to specify an anchor with
+a <b>title</b> attribute which contained the string <b>last</b>?
+<!-- SOLUTION: //a[contains(@title,'last')] -->
+<p>
+<li>What Selenese command is needed to perform tooltip testing?
+<!-- SOLUTION: verifyAttribute -->
+</font>
+</ol>
+</body>
+</html>

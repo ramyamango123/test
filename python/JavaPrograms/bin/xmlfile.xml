@@ -1,0 +1,27 @@
+
+<?xml version="1.0"?>
+<p1:SyncCertifications xmlns:p1="http://www.intuit.com"
+	xsi:schemaLocation="http://www.intuit.com" xmlns="http://www.intuit.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<p1:ApplicationArea>
+		<p1:CreationDateTime>2007-07-27T15:42:55.768-08:00</p1:CreationDateTime>
+		<p1:Signature>TR65$@AEFHBNM95Z</p1:Signature>
+		<p1:Source>proadvisor</p1:Source>
+		<p1:Environment>QA</p1:Environment>
+	</p1:ApplicationArea>
+	<p1:DataArea>
+		<p1:SyncCertificationResponse>
+			<p1:Status>
+				<p1:StatusCode>0</p1:StatusCode>
+				<p1:StatusMessage>
+					<p1:Description>Successfully Retrieved Certifications</p1:Description>
+					<p1:MessageType></p1:MessageType>
+					<p1:ReturnCode>0</p1:ReturnCode>
+				</p1:StatusMessage>
+			</p1:Status>
+		</p1:SyncCertificationResponse>
+	</p1:DataArea>
+</p1:SyncCertifications>
+
+failed to match item 1099935, Number of Returns=50 Returns Tax Year=Tax Year 2011  with any segments
+2012-03-01 10:55:59,928 DEBUG [nucleusNamespace.intuit.wcg.e2e.asset.AssetSyncService]  +++ Acknowleged message receipt for message - ID:jms01e2e.52274E4962321:2341A03F

@@ -1,0 +1,13 @@
+
+[oval run] =================================================
+[oval run] arguments: 4
+[oval run] USER : mgallas
+[oval run] HOST : pcitapi31
+[oval run] eval `oval runtime -csh StandardOval-2`
+[oval run] INPUT = ok
+[oval run] =================================================
+
+[OVAL] result = 4
+
+
+

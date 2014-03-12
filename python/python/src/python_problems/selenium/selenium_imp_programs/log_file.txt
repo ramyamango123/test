@@ -1,0 +1,740 @@
+[debug] window.open call intercepted; window ID (which you can use with selectWindow()) is "exitPop"
+[debug] createForWindow
+[debug] browserName: Netscape
+[debug] userAgent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.18) Gecko/20110319 Firefox/3.5.18 PBSTB/1.2
+[debug] modifyWindow seleniumMarker1303851945389:undefined
+[debug] _getFrameElement: frameElement=null
+[debug] isPollingForLoad false, this.pollingForLoad[1]: undefined
+[debug] Starting pollForLoad (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _getFrameElement: frameElement=null
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] getCurrentWindow newPageLoaded = false
+[debug] currentTest.start()
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |open | /2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T= |  |
+[debug] Command found, going to execute open
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851945392
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851945392
+[debug] getCurrentWindow newPageLoaded = false
+[debug] openLocation newPageLoaded = false
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] window.open call intercepted; window ID (which you can use with selectWindow()) is "exitPop"
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad continue (selenium1303851945392): undefined
+[debug] runScheduledPollers DONE
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851945392): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: false
+[debug] _isSamePage: sameLoc: false
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: undefined
+[debug] pollForLoad FINISHED (selenium1303851945392): complete (http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=)
+[debug] modifyWindow seleniumMarker1303851945389:undefined
+[debug] _getFrameElement: frameElement=null
+[debug] isPollingForLoad false, this.pollingForLoad[1]: undefined
+[debug] Starting pollForLoad (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _getFrameElement: frameElement=null
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] _getFrameElement: frameElement=null
+[debug] _getFrameElement: frameElement=null
+[debug] pollForLoad (selenium1303851945392) restarting selenium1303851946826
+[debug] Page load detected
+[debug] Page load location=http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] runScheduledPollers DONE
+[debug] condition satisfied; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |click | link=Accreditation |  |
+[debug] Command found, going to execute click
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851946826
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851946826
+[debug] getCurrentWindow newPageLoaded = false
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851946826
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851946826
+[debug] getCurrentWindow newPageLoaded = false
+[debug] triggerMouseEvent assumes setting screenX and screenY to 0 is ok
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] runScheduledPollers DONE
+[debug] condition satisfied; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] window.open call intercepted; window ID (which you can use with selectWindow()) is "Thandie"
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |waitForPopUp | Thandie | 30000 |
+[debug] Command found, going to execute waitForPopUp
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] runScheduledPollers DONE
+[debug] getWindowByName(Thandie)
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851946826
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851946826
+[debug] getCurrentWindow newPageLoaded = false
+[debug] condition satisfied; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |selectWindow | Thandie |  |
+[debug] Command found, going to execute selectWindow
+[debug] getWindowByName(Thandie)
+[debug] modifyWindow seleniumMarker1303851945389:undefined
+[debug] _getFrameElement: frameElement=null
+[debug] isPollingForLoad false, this.pollingForLoad[1]: undefined
+[debug] Starting pollForLoad (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _getFrameElement: frameElement=null
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |pause | 3000 |  |
+[debug] Command found, going to execute pause
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |selectWindow | name=exitPop |  |
+[debug] Command found, going to execute selectWindow
+[debug] getWindowByName(exitPop)
+[debug] modifyWindow seleniumMarker1303851945389:undefined
+[debug] _getFrameElement: frameElement=null
+[debug] isPollingForLoad false, this.pollingForLoad[1]: undefined
+[debug] Starting pollForLoad (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _getFrameElement: frameElement=null
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: currentHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: originalHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851953984): undefined
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: currentHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: originalHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851953984): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: currentHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: originalHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851953984): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |verifyTitle | Accreditation - DeVry University |  |
+[debug] Command found, going to execute verifyTitle
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851953984
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851953984
+[debug] getCurrentWindow newPageLoaded = false
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: currentHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: originalHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851953984): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[error] Actual value '' did not match 'Accreditation - DeVry University'
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: currentHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: originalHref: http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851953984): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |close |  |  |
+[debug] Command found, going to execute close
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] pollForLoad original (selenium1303851953984): http://k.kopsil.com/jsc/dr/ff2.html?;n=203;c=301288/301270/297463/217521/217516;s=4685;d=41;w=500;h=350
+[debug] pollForLoad WINDOW CLOSED (selenium1303851953984)
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |selectWindow | null |  |
+[debug] Command found, going to execute selectWindow
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |pause | 3000 |  |
+[debug] Command found, going to execute pause
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] currentTest.resume() - actually execute
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[info] Executing: |verifyTitle | DeVry Online Focus Site |  |
+[debug] Command found, going to execute verifyTitle
+[debug] modifyWindow seleniumMarker1303851945389:selenium1303851946826
+[debug] _getFrameElement: frameElement=null
+[debug] modifySeparateTestWindowToDetectPageLoads: already polling this window: selenium1303851946826
+[debug] getCurrentWindow newPageLoaded = false
+[debug] runScheduledPollers
+[debug] pollForLoad original (selenium1303851946826): http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&CLK=133090221054119939&&exp=y&redirected=redirect_devry&CLK=133090221054119939&CCID=11107203202758&QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&ZN=ref&ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&KY_T=
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851946826): undefined
+[debug] pollForLoad original (selenium1303851949939): http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: currentHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: originalHref: http://www.devry-degrees.com/2x/aboutus.jsp?
+[debug] _isSamePage: sameDoc: true
+[debug] _isSamePage: sameLoc: true
+[debug] _isSamePage: sameHref: true
+[debug] _isSamePage: markedLoc: true
+[debug] pollForLoad continue (selenium1303851949939): undefined
+[debug] runScheduledPollers DONE
+[debug] null condition; let's continueTest()
+[debug] Command complete
+[debug] currentTest.continueTest() - acquire the next command
+[debug] currentTest.continueTestAtCurrentCommand()
+[debug] testComplete: failed=true
+[debug] window.open call intercepted; window ID (which you can use with selectWindow()) is "Thandie"

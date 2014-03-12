@@ -1,0 +1,1 @@
+QA testing is unique. Python is used for automation testing. Python is used for scripting.

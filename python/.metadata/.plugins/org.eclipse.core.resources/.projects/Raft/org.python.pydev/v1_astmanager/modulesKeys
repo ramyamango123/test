@@ -1,0 +1,6 @@
+MODULES_MANAGER_V2
+bs_common|/Users/ramya/Google Drive/eclipse/workspace/python/Raft/src/bs_common.py
+bs_gilligan|/Users/ramya/Google Drive/eclipse/workspace/python/Raft/src/bs_gilligan.py
+bs_icloud|/Users/ramya/Google Drive/eclipse/workspace/python/Raft/src/bs_icloud.py
+createFromTemplate|/Users/ramya/Google Drive/eclipse/workspace/python/Raft/src/createFromTemplate.py
+quicklooks|/Users/ramya/Google Drive/eclipse/workspace/python/Raft/src/quicklooks.py

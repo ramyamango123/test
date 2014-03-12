@@ -1,0 +1,34 @@
+
+2012-04-18 18:32:33,863 DEBUG
+[nucleusNamespace.intuit.wcg.e2e.selfservice.billingprofiles.BillingProfileHelper]
+Using MDM Account Number - 865335286
+2012-04-18 18:32:33,863 WARN
+[nucleusNamespace.atg.dynamo.servlet.sessiontracking.GenericSessionManager.+PHJIN+rL+2xHFqvq5L+Sg**.essbointwsatg-1.intuit.scs.commerce.lightweight.UserSession]
+MDMUserProfileUtil should be referenced directly and not through another
+session component.
+2012-04-18 18:32:33,863 WARN
+[nucleusNamespace.atg.dynamo.servlet.sessiontracking.GenericSessionManager.+PHJIN+rL+2xHFqvq5L+Sg**.essbointwsatg-1.intuit.scs.commerce.lightweight.UserSession]
+Please update your JSP/Java code to reference the session-component
+/intuit/estore/profile/util/MDMUserProfileUtil directly.
+2012-04-18
+18:32:33,863 WARN
+[nucleusNamespace.atg.dynamo.servlet.sessiontracking.GenericSessionManager.+PHJIN+rL+2xHFqvq5L+Sg**.essbointwsatg-1.intuit.scs.commerce.lightweight.UserSession]
+MDMUserProfileUtil should be referenced directly and not through another
+session component.
+2012-04-18 18:32:33,863 WARN
+[nucleusNamespace.atg.dynamo.servlet.sessiontracking.GenericSessionManager.+PHJIN+rL+2xHFqvq5L+Sg**.essbointwsatg-1.intuit.scs.commerce.lightweight.UserSession]
+Please update your JSP/Java code to reference the session-component
+/intuit/estore/profile/util/MDMUserProfileUtil directly.
+2012-04-18
+18:32:33,863 DEBUG
+[nucleusNamespace.intuit.wcg.e2e.selfservice.billingprofiles.BillingProfileHelper]
+MDM Address - 3483333
+2012-04-18 18:32:33,863 DEBUG
+[nucleusNamespace.intuit.wcg.e2e.selfservice.billingprofiles.BillingProfileHelper]
+MDM Address - 3483334
+2012-04-18 18:32:33,863 DEBUG
+[nucleusNamespace.intuit.wcg.e2e.selfservice.billingprofiles.BillingProfileHelper]
+MDM Address - 3483335
+2012-04-18 18:32:33,863 DEBUG
+[nucleusNamespace.intuit.wcg.e2e.selfservice.billingprofiles.BillingProfileHelper]
+MDM Address - null

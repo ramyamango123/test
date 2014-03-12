@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>checkbox_check</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">checkbox_check</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.w3schools.com/html/html_forms.asp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>vehicle value=Car</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>vehicle value=Car</td>
+	<td>result</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${result}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>vehicle value=Car</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>vehicle value=Car</td>
+	<td>result1</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${result1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>vehicle value=Bike</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeChecked</td>
+	<td>vehicle value=Bike</td>
+	<td>bike</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${bike}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>//input[@name = 'vehicle' and @value='Bike']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>firstname</td>
+	<td>ramy</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lastname</td>
+	<td>nag</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>firstname</td>
+	<td>result2</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${result2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>firstname</td>
+	<td>ramya</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

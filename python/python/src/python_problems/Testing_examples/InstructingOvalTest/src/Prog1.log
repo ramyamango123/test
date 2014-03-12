@@ -1,0 +1,31 @@
+
+[oval build] ===============================================
+[oval build] instruction: g++ Prog1.cpp -o ../executables/Prog1
+[oval build] eval `oval runtime -csh StandardOval-0`
+[oval build] PATH =
+[oval build]   ../executables
+[oval build]  :${PATH}
+[oval build] INPUT = ok
+[oval build] ===============================================
+
+g++ Prog1.cpp -o ../executables/Prog1
+
+[oval run] =================================================
+[oval run] arguments: 
+[oval run] USER : mgallas
+[oval run] HOST : lxplus099
+[oval run] eval `oval runtime -csh StandardOval-0`
+[oval run] PATH =
+[oval run]   ../executables
+[oval run]  :${PATH}
+[oval run] INPUT = ok
+[oval run] =================================================
+
+hello
+[OVAL] input ok
+[OVAL] result = 1
+
+[oval diff] ================================================
+[oval diff] diff line: /^(\[OVAL.*)$/
+[oval diff] ================================================
+

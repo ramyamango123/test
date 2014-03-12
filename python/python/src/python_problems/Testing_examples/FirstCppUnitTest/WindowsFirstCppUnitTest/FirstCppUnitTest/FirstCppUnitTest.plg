@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FirstCppUnitTest - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\mgallas\LOCALS~1\Temp\RSP4C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GR /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/FirstCppUnitTest.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\mgallas\Desktop\Testing_examples\FirstCppUnitTest\ComplexNumberTest_CppUnit.cpp"
+"C:\Documents and Settings\mgallas\Desktop\Testing_examples\FirstCppUnitTest\FirstCppUnitTest_TDCppUnit.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\mgallas\LOCALS~1\Temp\RSP4C.tmp" 
+Creating temporary file "C:\DOCUME~1\mgallas\LOCALS~1\Temp\RSP4D.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib cppunitd.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/FirstCppUnitTest.pdb" /debug /machine:I386 /out:"Debug/FirstCppUnitTest.exe" /pdbtype:sept 
+".\Debug\ComplexNumberTest_CppUnit.obj"
+".\Debug\FirstCppUnitTest_TDCppUnit.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\mgallas\LOCALS~1\Temp\RSP4D.tmp"
+<h3>Output Window</h3>
+Compiling...
+ComplexNumberTest_CppUnit.cpp
+FirstCppUnitTest_TDCppUnit.cpp
+warning C4786: 'std::_Tree<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,CppUnit::TestFactory *>,std::map<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,CppUnit::TestFactory *,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Kfn,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::_Tree<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,CppUnit::TestFactory *>,std::map<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,CppUnit::TestFactory *,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Kfn,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::const_iterator' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::_Tree<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,CppUnit::TestFactory *>,std::map<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,CppUnit::TestFactory *,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Kfn,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::iterator' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::_Tree<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,CppUnit::TestFactory *>,std::map<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,CppUnit::TestFactory *,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Kfn,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Node' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::_Tree<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,CppUnit::TestFactory *>,std::map<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,CppUnit::TestFactory *,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Kfn,std::less<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<CppUnit::TestFactory *> >::_Redbl' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::deque<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > >' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::deque<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > >::const_iterator' : identifier was truncated to '255' characters in the debug information
+warning C4786: 'std::deque<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > >::iterator' : identifier was truncated to '255' characters in the debug information
+Linking...
+
+
+
+<h3>Results</h3>
+FirstCppUnitTest.exe - 0 error(s), 8 warning(s)
+</pre>
+</body>
+</html>

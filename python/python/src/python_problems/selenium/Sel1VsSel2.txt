@@ -1,0 +1,46 @@
+@Before
+public void setUp(){
+driver = new FirefoxDriver();
+selenium =
+new WebDriverBackedSelenium(
+driver,
+"http://book.theautomatedtester.co.uk")
+}
+
+import com.thoughtworks.selenium.*;
+import org.junit.*;
+public class Selenium2 {
+Selenium selenium;
+
+@Before
+public void setUp(){
+selenium =
+new DefaultSelenium(
+"localhost",4444,
+"*chrome","http://book.theautomatedtester.co.uk");
+selenium.start();
+}
+@Test
+public void shouldOpenChapter2LinkAndVerifyAButton(){
+}
+@After
+public void tearDown(){
+selenium.stop();
+}
+}
+
+
+@Before
+public void setUp(){
+driver = new FirefoxDriver();
+selenium =
+new WebDriverBackedSelenium(
+driver,
+"http://book.theautomatedtester.co.uk")
+}
+
+Change the tearDown() method to:
+@After
+public void tearDown(){
+driver.quit();
+}

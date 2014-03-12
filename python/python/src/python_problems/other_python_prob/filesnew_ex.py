@@ -1,0 +1,7 @@
+in_file = open("lines.txt", 'r')
+p = in_file.read()
+in_file.close()
+UC = p.upper()
+out_file = open("copytext.txt", 'w')
+out_file = out_file.write(UC)
+out_file.close()

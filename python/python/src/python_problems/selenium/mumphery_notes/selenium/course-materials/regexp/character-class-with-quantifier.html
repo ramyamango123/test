@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>character-class-with-quantifier</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">character-class-with-quantifier</td></tr>
+</thead><tbody>
+<!--This test looks for five consecutive consonants using the curly-brace quantifier.-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:[b-df-hj-np-tv-z]{5}</td>
+	<td></td>
+</tr>
+<!--This test looks for four consecutive consonants using the curly-brace quantifier.-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:[b-df-hj-np-tv-z]{4}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

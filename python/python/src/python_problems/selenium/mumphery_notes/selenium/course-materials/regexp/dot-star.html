@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dot-star</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">dot-star</td></tr>
+</thead><tbody>
+<!--Wrong way to use asterisk metacharacter!  -->
+<!--* means 0 or more of the preceding character.-->
+<!--So "Z*a" matches all lines with a lowercase "a" in them.-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:Z*a</td>
+	<td></td>
+</tr>
+<!---->
+<!--. (period) = any character, so .* = any number of any character-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:Z.*a</td>
+	<td></td>
+</tr>
+<!---->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:Hush.*Charlotte</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

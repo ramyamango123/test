@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MORE_REGEXP_3</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">MORE_REGEXP_3</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://finance.yahoo.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/[0-9]{1,2}:[0-9]{2}[AP]M/)</td>
+	<td>day_and_time</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${day_and_time}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

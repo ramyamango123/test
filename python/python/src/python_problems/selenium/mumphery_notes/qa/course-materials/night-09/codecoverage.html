@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>CIS-74: Code Coverage</title>
+</head>
+<body>
+<h2 align="center">CIS-74 - Computer Software Quality Assurance</h2>
+<h3 align="center">DeAnza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h2 align="center">Code Coverage</h2>
+<font size=+2>
+<ol>
+<li>Copy the C source program over to your home directory.
+<br><b>cp /tmp/codecoverage.c .</b>
+<p>
+<li>Use "ls" to see all files in existence at beginning.
+<br>
+<b>ls</b>
+<p>
+<li>Compile the source program under test with two special -f options:
+<br>
+<b>gcc -ftest-coverage -fprofile-arcs codecoverage.c -lm</b>
+<p>
+<li>See the new files created by compilation.  "a.out" is the executable program. 
+<br><b>ls</b>
+<p>
+<li>Run the program with just one input (test case).
+<br><b>a.out</b>
+<p>
+<li>See the new files created by execution of "instrumented binary" (a.out compiled
+with special flags).
+<br><b>ls</b>
+<p>
+<li>Run the gcov program to see how our one test case did at code coverage.
+<br><b>gcov codecoverage</b>
+<p>
+<li>Look at the detailed code coverage results.
+<br><b>more *.gcov</b>
+<p>
+<li>Repeat this cycle until you've achieved the maximal coverage you can:
+  <p>
+  <ul>
+  <li>Run the program with a new input (test case).
+  <li>Run gcov again.
+  <li>Look at the detailed code coverage results again to see if the
+      code coverage has improved.
+  </ul>
+<p>
+<li>To remove files in order to start over, use the "rm" command.
+<br><b>rm &lt;filename(s)&gt;</b>
+</ol>
+</body>
+</html>

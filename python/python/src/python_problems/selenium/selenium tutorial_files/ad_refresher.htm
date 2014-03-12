@@ -1,0 +1,47 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+    <script type="text/javascript" src="selenium%20tutorial_files/google_service.js"></script>
+    <script type="text/javascript">
+      GS_googleAddAdSenseService("ca-pub-7291399211842501");
+      GS_googleEnableAllServices();
+    </script><script src="selenium%20tutorial_files/google_ads2.js"></script>
+    <script type="text/javascript">
+      params = {};
+      var parts = window.location.href.match(/[#&]([^&#=]+)=([^&#=]+)/g);
+      for (var part = 0; part < parts.length; part++) {
+        var keyval = parts[part].substr(1).split('=');
+        params[keyval[0]] = unescape(keyval[1]);
+      }
+
+      params['skip'] = parseInt(params['skip']) || 0;
+
+      if (params['ad_unit']) {
+        if (params['attributes']) {
+          var attrs = params['attributes'].split('&');
+          for (var i = 0; i < attrs.length; i++) {
+            var keyval = attrs[i].split('=');
+            GA_googleAddAttr(unescape(keyval[0]), unescape(keyval[1]));
+          }
+        }
+
+        GA_googleAddSlot("ca-pub-7291399211842501", params['ad_unit']);
+
+        GA_googleAddAttr('Skip', params['skip']);
+        GA_googleAddAdSenseSlotAttr(params['ad_unit'], "google_skip", params['skip']);
+
+        if (params['url'])
+          GA_googleAddAdSenseSlotAttr(params['ad_unit'], "google_page_url", params['url']);
+      }
+    </script>
+    <script type="text/javascript">
+      GA_googleFetchAds();
+    </script>
+  </head><body>
+    <script type="text/javascript">
+      if (params['ad_unit'])
+        GA_googleFillSlot(params['ad_unit']);
+    </script><script src="ad_refresher_data/ads"></script><div id="google_ads_div_Doc_Sideboard_MediumRectangle_BTF_300x250_ad_container">
+<ins style="border: 0pt none ; width: 300px; height: 250px; display: inline-table; position: relative;"><ins style="border: 0pt none ; width: 300px; height: 250px; display: block; position: relative;"><iframe style="border: 0pt none ; position: absolute; top: 0pt; left: 0pt;" marginheight="0" marginwidth="0" name="google_ads_iframe_Doc_Sideboard_MediumRectangle_BTF_300x250" id="google_ads_iframe_Doc_Sideboard_MediumRectangle_BTF_300x250" width="300" frameborder="0" height="250" scrolling="no"></iframe></ins></ins></div>
+<script>GA_googleCreateDomIframe("google_ads_div_Doc_Sideboard_MediumRectangle_BTF_300x250_ad_container" ,"Doc_Sideboard_MediumRectangle_BTF_300x250");</script>
+  </body></html>

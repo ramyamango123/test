@@ -1,0 +1,19 @@
+
+f1 ='''
+        dfjd fdlkfjds
+        fdjdsf
+        fdfjdf
+        s'''
+        
+fw = open("text1.txt", 'w')
+res = fw.write(f1)
+
+fp = open("text1.txt", 'r')
+res1 = fp.readlines()
+print res1
+
+    
+
+
+fw.close()
+fp.close()

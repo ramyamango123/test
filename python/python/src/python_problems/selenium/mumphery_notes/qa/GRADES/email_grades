@@ -1,0 +1,11 @@
+#! /usr/bin/perl -w
+
+while (<>) {
+  m/(.*) *	+([0-9]+)$/;
+  $email = $1;
+  $grade = $2;
+  print "\$email = $email\n";
+  print "\$grade = $grade\n";
+  system("echo $grade | mail -s \"Quiz-1 grade\" $email");
+  sleep 2;
+}

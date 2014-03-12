@@ -1,0 +1,11 @@
+INSTUPsrc.WebDriverPrograms.selenium_ex1
+/Users/ramya/Google Drive/eclipse/workspace/python/python/src/WebDriverPrograms/selenium_ex1.py
+INFOS:&&1|1|2|0&&3|3|2|1&&2|4|2|1&&3|5|2|6&&3|3|2|6&&2|7|2|1&&2|8|2|1
+setUp=4
+test1=7
+verificationErrors=5
+barnesNobleEx=1
+selenium=3
+barnesNobleEx.setUp=6
+src.WebDriverPrograms.selenium_ex1=2
+tearDown=8

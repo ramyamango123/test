@@ -1,0 +1,259 @@
+<html><head><title>Automated Web Page Testing with Selenium IDE</title></head><body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Project</h3>
+<font size="+1">
+<p>Use SIDE to automate the Test Case Specification below.
+You should create a single test suite, composed of several test cases, one
+for each of the individual test cases below.  Note that many of the test cases
+contain more than one expected result; for these test cases, it is fine to have the multiple verifications inside a single test case file.
+<p>The search string to be used for each test case should appear once and
+only once!
+You should store the search string's value
+in a variable, and use the variable in all future commands that need it.
+If you need to modify the search string somewhat for use as a regular
+expression, store that modified value in a second variable, and use it
+in all future commands that need it.
+<p>All test cases should be started from <b>http://www.deanza.edu/searchcenter</b>.
+<p><b>HINT:</b>  Test cases #1 and #3 are fairly similar.  Both require
+using the flow control extension.  They're also both harder than the other
+problems, so I'd suggest doing them <b>last</b>.
+<p>
+<table border=2>
+<tr>
+<th>Test ID</th>
+<th>Action</th>
+<th>Expected Results</th>
+<th>Hints</th>
+</tr>
+
+<tr>
+<td rowspan=2>SC-1</td>
+<th align=left colspan=2>Word + quoted phrase search of entire site</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>pass "no pass"</b> into the textarea just below
+<b>...search the entire De Anza Web site</b>.
+<li>Select the <b>Search</b> button.
+</ol>
+</td>
+<td>
+<ul>
+<li>The browser title should be <b>Search Results: pass "no pass"</b>.
+<li>The phrase <b>Searched for pass "no pass"</b> string should appear on the page.
+<li>The phrase <b>Results of 1 - 10 of about </b> should appear on the page.
+<li>The textarea above the search results should contain the original search string, including quotes.
+<li>Each of the 10 resulting snippets should include the word <b>pass</b> and
+the phrase <b>no pass</b>, although the punctuation and spacing may vary.
+</ul>
+</td>
+<td>
+<ul>
+<li>One or more <b>while/endWhile</b> constructs
+from the SIDE flow control extension are probably going to be necessary.
+<li>Indented snippets are HTML <b>blockquote</b>s, whereas non-indented
+snippets are HTML <b>paragraph</b>s.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td rowspan=2>SC-2</td>
+<th align=left colspan=2>Search must be case-insensitive</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>pass "no pass"</b> into the textarea just below the
+<b>search the entire De Anza Web site</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+<li>Enter <b>PASS "NO PASS"</b> into the textarea just below the
+<b>search the entire De Anza Web site</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+</ol>
+</td>
+<td>
+The number of hits obtained from the uppercase search 
+should be exactly the same as from the lowercase search.
+</td>
+</tr>
+
+<tr>
+<td rowspan=2>SC-3</td>
+<th align=left colspan=2>Basic one-name search of Faculty site</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>may-pumphrey</b> into the textarea underneath <b>Faculty 
+Web Sites</b>.
+<li>Select the <b>Search</b> button.
+</ol>
+</td>
+<td>
+<ul>
+<li>The browser title should be <b>Search Results: may-pumphrey</b>.
+<li>The phrase <b>Searched for may-pumphrey</b> string should appear on the page.
+<li>The textarea above the search results should contain the original
+search string, including the hyphen.
+<li>Each of the 10 snippets should include the URL domain <b>faculty.deanza.edu/</b>.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td rowspan=2>SC-4</td>
+<th align=left colspan=2>Double-quoted single-word search should yield same results as unquoted single-word search</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>may-pumphrey</b> 
+into the textarea underneath <b>Faculty 
+Web Sites</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+<li>Enter <b>"may-pumphrey"</b> (including double quotes) into the textarea underneath
+<b>Faculty Web Sites</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+</ol>
+</td>
+<td>
+The number of hits obtained from the quote-free search 
+should be exactly the same as from the quoted search.
+</td>
+</tr>
+
+<tr>
+<td rowspan=2>SC-5</td>
+<th align=left colspan=2>Single-quoted single-word search should yield same results as unquoted single-word search</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>may-pumphrey</b> 
+into the textarea underneath <b>Faculty 
+Web Sites</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+<li>Enter <b>'may-pumphrey'</b> (including single quotes) into the textarea underneath
+<b>Faculty Web Sites</b>.
+<li>Select the <b>Search</b> button.
+<li>Note the number of hits on the search results page.
+</ol>
+</td>
+<td>
+The number of hits obtained from the quote-free search 
+should be exactly the same as from the quoted search.
+</td>
+</tr>
+
+<tr>
+<td rowspan=2>SC-6</td>
+<th align=left colspan=2>Negative:  Search for nonexistent string</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>NonexistentFirstName NonexistentLastName</b> into the textarea underneath <b>Faculty
+Web Sites</b>.
+<li>Select the <b>Search</b> button.
+</ol>
+</td>
+<td>
+<ul>
+<li>The browser title should be <b>Search Results: NonexistentFirstName NonexistentLastName</b>.
+<li>The textarea above the search results should contain the original
+search string.
+<li>The search results page should contain the following error message:
+<pre>
+
+Your search - NonexistentFirstName NonexistentLastName- did not match any documents.
+No pages were found containing "NonexistentFirstName NonexistentLastName". 
+</pre>
+</ul>
+</td>
+</tr>
+
+<!--
+<tr>
+<td rowspan=2>SC-7</td>
+<th align=left colspan=2>Search for existing course</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Select the <b>second</b> item from the quarter drop-down underneath
+<b>Searchable Schedule Quick Search</b>.  (Your test should NOT have
+hard-coded <b>Summer 2008</b> in order to make it as robust as possible.)
+<li>Enter <b>computer</b> into the <b>Course Title</b> textarea.
+<li>Select the <b>Search</b> button.
+</ol>
+</td>
+<td>
+<ul>
+<li>There must be at least one course listed containing the string <b>computer</b>.
+<li>Every course listed must contain the string <b>computer</b>.
+</ul>
+</td>
+</tr>
+-->
+
+<tr>
+<td rowspan=2>SC-7</td>
+<th align=left colspan=2>Basic check of <u>Cached</u> links</th>
+</tr>
+
+<tr>
+<td>
+<ol>
+<li>Enter <b>loan</b> into the textarea just below 
+<b>Financial Aid</b>.
+<li>Select the <b>Search</b> button.
+<li>Look for a <u>Cached</u> link in the SERP.
+</ol>
+</td>
+<td>
+<b>If</b> a <u>Cached</u> link does not exist, output an error message to the log
+file and quit the test</br>
+<b>else</b>
+<ol>
+<li>Select the <u>Cached</u> link.
+<li>Capture the title of the target landing page.
+<li>Return to the SERP.
+<li>See if the title of the target landing page is present on the
+SERP (it would be a snippet title if present).  If it is present, that
+means the <u>Cached</u> link takes one to <b>one</b> of the hits' URLs, which
+gives one reasonable confidence that the <u>Cached</u> links are working.
+If the title of the target landing page is not present on the SERP, the
+test should fail.
+</ol>
+<p>
+NOTE: It would be better but much harder to iterate through every hit on the
+SERP, capturing the title of each, and then seeing if the <u>Cached</u> link led one to a
+page with the same title.
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+</table>
+</body>
+</html>

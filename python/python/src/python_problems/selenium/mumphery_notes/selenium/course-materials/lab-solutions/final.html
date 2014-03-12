@@ -1,0 +1,145 @@
+<html><head><title>Automated Web Page Testing with Selenium IDE</title></head><body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Final Exam</h3>
+<font size="+1">
+<p>
+There are 22 questions on this exam, 21 short-answer and 1 programming.
+Your best 20 questions will be graded.  This means that you can do all
+22, miss 2, and still get a 100%.  Or you can choose not to do any two
+questions (including the programming
+problem) if you're short on time and/or long on confidence!
+<p>Please keep your short answers <b>short</b> and <b>neat</b>!  Only a
+few words are required to answer each question. 
+<p>When you have finished the short-answer questions, write
+your name at the top of the exam and hand it in to me.  I will hand you
+another sheet that contains just question 22.  You can then turn
+on your computer and work on that question.
+<p>Good luck!
+<ol>
+<p>
+<li>Below is the syntax for two different Selenium commands.  Which 
+one of them requires using the <b>javascript{}</b> syntax?
+<pre>
+storeEval(script, variableName)
+store(expression, variableName)
+</pre>
+<!-- SOLUTION: store(expression, variableName) --> <p> <li>What type of element locator is represented by the following?  <pre>
+//input[contains(@id,'fiftyplus')]
+</pre>
+<!-- SOLUTION: xpath  -->
+<p>
+<li>What type of element locator is represented by the following?
+<pre>
+document.forms['search'].day
+</pre>
+<!-- SOLUTION: DOM -->
+<p>
+<li>In order to create a test that would click on the <b><u>Meet a De Anza employee of the month</u></b> element of the De Anza home page, what prefix
+would be needed for the element locator below?
+<pre>
+click	_____=Meet a De Anza employee of the month
+</pre>
+<!-- SOLUTION: link -->
+<p>
+<li>Fill in the blank.  
+<b>src</b>, <b>alt</b>, <b>align</b>, <b>border</b>, <b>height</b>, <b>hspace</b>, and <b>width</b> in the HTML line below are all examples of __________.
+<pre>
+&lt;img src="images/2grads.jpg" alt="Two female students in cap and gown" 
+align="left" border="0" height="63" hspace="5" width="72"&gt;
+</pre>
+<!-- SOLUTION: attributes -->
+<p>
+<li>What component of SIDE's GUI can be used to visually identify the
+locations of <b>element locators</b> on an HTML page?
+<!-- SOLUTION: the "Find" button -->
+<p>
+<li>In order to do tooltip testing, what would always appear in the
+blank below?
+<pre>
+<i>Selenium-cmd</i>&nbsp;&nbsp;&nbsp;<b><i>xpath-element-locator</i></b>_______ &nbsp;&nbsp;&nbsp;<b><i>pattern</i></b>
+</pre>
+<!-- SOLUTION: @title -->
+<p>
+<li>What Selenium construct is associated with <b>contains</b>, <b>starts-with</b>, <b>last</b>, and <b>following-sibling</b>?
+<!-- SOLUTION: xpath element locators -->
+<p>
+<li>What can one do to modify the command arguments that appear 
+in the SIDE context menu?
+<!-- SOLUTION: select part of the current page displayed by the browser -->
+<p>
+<li>What SIDE command can be used to reload a browser page?
+<!-- SOLUTION: refreshAndWait -->
+<p>
+<li>Given this page source code...
+<pre>
+&lt;select name="Quarter" id="Quarter"&gt;
+&lt;option value="2008M" selected="selected"&gt;Summer 2008&lt;/option&gt;
+&lt;option&gt; ---------- &lt;/option&gt;
+&lt;option value="2008F"&gt;Fall 2008</option>
+&lt;option value="2008S"&gt;Spring 2008</option>
+&lt;option value="2008M"&gt;Summer 2008</option>
+&lt;/select&gt;
+</pre>
+Finish filling in four ways to select the Fall 2008 course schedule using the code
+below...
+<pre>
+select document.schsearch.Quarter&nbsp;&nbsp;&nbsp;index=________
+select document.schsearch.Quarter&nbsp;&nbsp;&nbsp;label=________
+select document.schsearch.Quarter&nbsp;&nbsp;&nbsp;value=________
+select document.schsearch.Quarter&nbsp;&nbsp;&nbsp;________ (no prefix)
+</pre>
+<!-- SOLUTION: 2, Fall 2008, 2008F, Fall 2008 -->
+<p>
+<li>What is the <b>regexp</b> equivalent of the <b>glob</b> pattern below?
+<pre>
+glob:filename.?
+</pre>
+<!-- SOLUTION: regexp: regexp:filename\.. -->
+<p>
+<li>What must one first do in order to be able to write a <b>while</b> loop in a SIDE
+test program?
+<!-- SOLUTION: install the flow-control extension goto_sel_ide.js -->
+<p>
+<li>What Selenium command can be used to do tooltip testing?
+<!-- SOLUTION: verifyAttribute -->
+<p>
+<li>What's the difference between the <b>verify</b> and <b>assert</b> prefixes to many commands?
+<!-- SOLUTION: Execution can continue after a failed verify, but halts after a failed assert -->
+<p>
+<li>Which of the element locators below is better, and why?
+<pre>
+document.forms['restaurantLocator'].zip
+document.forms[2].zip
+</pre>
+<!-- SOLUTION: The first one, because it is impervious to developers adding a new
+form, deleting a form, or modifying the order of the forms -->
+<p>
+<li>Which Selenese command can be used to check the contents of a page's URL?
+<!-- SOLUTION: verifyLocation or assertLocation -->
+<p>
+<li>Which Selenese command can be used to check the contents of the wording at
+the very top of the browser itself?
+<!-- SOLUTION: verifyTitle or assertTitle -->
+<p>
+<li>What type of URL has been specified as an argument to the <b>open</b>
+command below?
+<pre>
+open&nbsp;&nbsp;&nbsp;http://www.deanza.edu/athletics/swimming/
+</pre>
+<p>
+<!-- SOLUTION: absolute -->
+<p>
+<li>How could the following be rewritten to be more concise?
+<pre>
+regexp:[AEIOUaeiou][^AEIOUaeiou][AEIOUaeiou]
+</pre>
+<!-- SOLUTION: regexpi:[aeiou][^aeiou][aeiou] -->
+<p>
+<li>What two actions on the part of the test developer (unfortunately)
+require closing and reopening SIDE?
+<!-- SOLUTION: (1) adding another file to the list of user extensions; and 
+(2) modifying the contents of a user extensions file -->
+</body>
+</html>

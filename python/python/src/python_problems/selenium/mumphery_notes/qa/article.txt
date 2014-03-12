@@ -1,0 +1,68 @@
+According to the Merriam-Webster Online Dictionary, one definition of a "bug" 
+is "an unexpected defect, fault, flaw, or imperfection."  Unfortunately for 
+those of us who have long admired De Anza College, the De Anza web site is 
+literally full of bugs, bugs of many different flavors.  For starters, the 
+De Anza A-Z Directory has eight separate areas of alphabetical DISorder!  
+(For example, "Map" appears after both "Massage Therapy Program" and 
+"Mathematics Department," "Center for Applied Competitive Technologies" 
+appears after "Chemistry Department," etc.)  
+
+Broken links abound throughout the site.  The Crisis Counseling and
+Suicide Prevention page has a link entitled "Santa Clara County Suicide
+and Crisis Services" which is broken; it doesn't take much imagination to
+envision the potential negative impact of that particular bug.  Especially
+egregious are the SEVENTEEN broken links which appear on the "Student 
+Resources" page of the Writing & Reading Center site.  Almost as bad are
+the six broken links on the "Accreditation Links" page, and the four
+broken links at the top of the Career Center's "Guide to Cover Letters."
+
+And then there are the misspellings!  The Physics Department page has one 
+short link with two out of three words misspelled ("Wolfam Synbolic
+Integrator" should be "Wolfram Symbolic Integrator").  Math
+instructor Hassan Bourgoub's faculty page starts off with a "Wellcome" 
+to visitors.
+
+Usability issues are another concern.  Students looking for a particular
+instructor's classes via the "Searchable Schedule of Classes" are not warned
+that only 10 letters of the instructor's name can be entered.  Thus, 
+a student looking for classes taught by instructor "krishnamurthy" had 
+better supply no more than "krishnamur"; any longer variation will be met with
+a "No results for your search" message even though this instructor is in fact
+teaching a class this quarter.
+
+Then there are pages which have an unfinished look and feel.
+Selecting the "General Book" link on the left side of the bookstore's 
+home page results in just two graphics being displayed, neither of 
+which is clickable.  And the "General Book/Merchandise" module seems 
+to be inoperable--no combination of menu selection and search
+string produces a match!  Students interested in viewing a list of software
+available for sale in the bookstore are given a message telling them to
+check back the week of 11/27/07!
+
+So, what can be done about all these bugs?  In short, the entire De Anza
+community--faculty, administrators, staff, parents, and especially
+students--must demand better!  If you find a problem with a De Anza
+web site page, try the following:
+
+--Look for a link at the bottom of the page which will allow you to send
+email to the page's owner about the problem.  
+
+--If no owner is listed, and the page's URL starts with
+"http://www.deanza.edu," there's a good chance that the Web Team owns that
+page.  Use their "Broken Link Report" at
+http://www.deanza.edu/webguide/weblinks.html to report broken links
+and other problems.  If you don't see your problem fixed within a few weeks,
+follow up with an email to the Web Team, webteam@saturn.deanza.edu. 
+
+--If you're not having any luck getting someone to fix a
+problem you've found, send email to me, maypumphreymaryann@fhda.edu.  As
+the instructor for CIS-74, Computer Software Quality Assurance, I am
+determined to utilize my students' efforts to improve the quality
+of De Anza's web site. 
+
+If you own a De Anza web page that doesn't provide a way for visitors
+to send you problem reports, fix that right now.  And if you are notified 
+about a bug in a page that you own, resolve it promptly.
+
+Working together, we can make our site better!  If it looks good, we
+look good!  If it looks bad....

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>improved-debugging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">improved-debugging</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://voyager.deanza.edu/~mam-p/selenium/course-materials/regexp/bette.html</td>
+	<td></td>
+</tr>
+<!--This test is looking for four consecutive lowercase consonants.-->
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/[b-df-hj-np-tv-z][b-df-hj-np-tv-z][b-df-hj-np-tv-z][b-df-hj-np-tv-z]/)</td>
+	<td>movie</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;movie = &quot; + storedVars['movie']}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyLocation</td>
+	<td>regexp:.*selenium.*</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

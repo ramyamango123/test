@@ -1,0 +1,51 @@
+		#include <stdio.h>
+		#include <math.h>
+		
+		int main(void)
+           1    {
+		  void foo(int num);
+           1      int num; 
+           1      scanf("%d",&num);
+           1      foo(num);
+      ######      exit();
+		}
+		
+		void foo(int bar)
+           1    {
+           1       double dbar;
+           1       if (bar < 0) {
+      ######          printf("negative\n");
+		   }
+           1       else if (bar > 0) {
+           1          printf("positive\n");
+		   }
+		   else {
+      ######       printf("zero\n");
+		   }
+		
+           1       if (bar % 2) {
+      ######         printf("odd\n");
+		   }
+		   else {
+           1         printf("even\n");
+		   }
+		   
+           1       if (!(bar % 3)) {
+      ######         printf("divisible by 3\n");
+		   }
+		
+           1       if (!(bar % 5)) {
+      ######         printf("divisible by 5\n");
+		   }
+		
+           1       if (!(bar % 7)) {
+      ######         printf("divisible by 7\n");
+		   }
+           1       printf("squared = %d\n",bar*bar);
+           1       if (bar > 0) {
+           1         dbar = bar;
+           1         printf("square root = %g\n",sqrt(dbar));
+		   }
+		
+           1       exit(0);
+		}

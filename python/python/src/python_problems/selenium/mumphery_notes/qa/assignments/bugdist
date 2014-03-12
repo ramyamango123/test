@@ -1,0 +1,25 @@
+#! /usr/bin/perl -wd
+
+use strict;
+
+my @emails;
+while (<DATA>) {
+  chomp;
+  push(@emails,$_);
+}
+
+my $URL = "http://landfill.bugzilla.org/testopia_tip/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&status_whiteboard_type=allwordssubstr&status_whiteboard=&keywords_type=allwords&keywords=&deadlinefrom=&deadlineto=&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=RESOLVED&bug_status=VERIFIED&emailreporter1=1&emailtype1=substring&email1=mamp%40earthlink.net&emailassigned_to2=1&emailreporter2=1&emailcc2=1&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=";
+
+foreach my $email (@emails) {
+  my $STUDENT = $URL;
+  $STUDENT =~ s/mamp%40earthlink.net/$email/;
+#  system("wget -O bugdist.$email $STUDENT");
+  my $results = `wget -O bugdist.$email $STUDENT`;
+  my $grep = `grep "bugs found" bugdist.$email`;
+  $grep =~ m/([0-9]+) bugs found/;
+  my $count = $1;
+  print "$email : $count\n";
+}
+
+__DATA__
+mamp%40earthlink.net

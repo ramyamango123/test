@@ -1,0 +1,4 @@
+
+[oval build] ===============================================
+[oval build] instruction: scram b ComplexNumberTest_CppUnit_o
+[oval build] eval `oval runtime -csh `

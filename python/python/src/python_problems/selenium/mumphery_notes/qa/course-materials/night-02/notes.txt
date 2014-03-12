@@ -1,0 +1,24 @@
+
+SAMPLE BUG REPORT
+=================
+
+To reproduce:
+
+1.  Go the De Anza's A-Z Directory at...
+http://www.deanza.edu/directory/dir-az.html
+
+2.  Scroll down until this link is visible...
+Assistive Technology Training Center
+
+3.  Select the "Assistive Technology Training Center"
+link.
+
+BUG:  The URL of the landing page is
+http://www.deanza.edu/specialed/attc/
+which is a "Page Not Found."
+
+This bug was found on:
+
+Windows XP Pro Version 2002 Service Pack 2
+Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6
+Page updated: September 13, 2007

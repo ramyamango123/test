@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h3 align="center">More JavaScript</h3>
+<font size=+2>
+<ol type=I>
+<p>
+<li>Using your own JavaScript functions with SIDE
+  <p>STEPS:
+  <ol type=A>
+  <li>Create a <b>user-extensions.js</b> file (can have different name)
+with whatever JavaScript functions/methods
+are desired.
+  <p>
+  <li>Select <b>Options=>Options=>General</b> from SIDE.
+  <p>
+  <li>Enter the path to the <b>user-extensions.js</b> file in the <b>Selenium Core extensions</b> field, then select the <b>OK</b> button to save the change.
+  <p>
+  <li>Close and re-open SIDE.  (Critical step!)
+  <p>
+  <li>Create a test that calls the function.  The function can be
+called by a SIDE command requiring a <b>snippet</b> or by one requiring an
+expression.  The latter would require the <b>javascript{}</b> syntax as usual.
+     <p>
+     <ul>
+     <li><b>storeEval...<i>function-call</i>...<i>variablename</i></b>
+     <p>
+     <li><b>store...javascript{<i>function-call</i>}...<i>variablename</i></b>
+     </ul>
+  <p>
+  <li>Sample <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/javascript/user-extensions.js">user-extensions.js</a> file
+  <p>
+  <li>Sample <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/javascript/user-extensions.html">SIDE program</a> that requires the <b>user-extensions.js</b> file above
+  </ol>
+<p><b>LAB EXERCISE JAVASCRIPT_PART2-1</b>
+<p>Install the <b>user-extensions.js</b> file above.  Run the sample program above to make sure that your installation of <b>user-extensions.js</b> is working.
+<li>Using JavaScript to extend Selenium
+  <p>
+  <ol type=A>
+  <li>How to write such code?  Covered at bottom of <a href="http://voyager.deanza.edu/~mam-p/spring_2008/selenium/course-materials/reference.html#extending-selenium">reference docs</a>.
+  <p>
+  <li>How to install such code written by others?  Same steps as above.
+  <p>
+  <li>The lab activity below involves a very popular extension that allows
+one to have <b>while</b> loops and primitive conditionals in one's SIDE tests.
+  </ol>
+<p><b>LAB EXERCISE JAVASCRIPT_PART2-2</b>
+<p>Download and install <b>goto_sel_ide.js</b>, a <a href="http://51elliot.blogspot.com/2008/02/selenium-ide-goto.html">Selenium IDE Flow Control</a> extension.
+<p>Verify that your download and installation was properly done by running this 
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript_part2/while-test.html">Selenium program</a>, 
+which should echo a <b>Good morning</b> message
+to the SIDE log file five times in succession.
+<p><b>LAB EXERCISE JAVASCRIPT_PART2-3</b>
+<p>Write a Selenium program that does the following:
+  <p>
+  <ol>
+  <li>Creates a variable with the value of your name in title-case, e.g.,
+<b>Abraham Lincoln</b>.
+  <p>
+  <li>Uses <b>echo</b> and a call to a JavaScript function from your <b>user-extensions.js</b> file to display your name in all <b>upper</b>-case in the log file.
+  <p>
+  <li>Uses <b>echo</b> and a call to a JavaScript function from your <b>user-extensions.js</b> file to display your name in all <b>lower</b>-case in the log file.
+  <p>
+  <li>Uses <b>echo</b> and a call to a JavaScript function from your <b>user-extensions.js</b> file to display your name <b>enclosed in single quotes</b> in the log file.
+  <p>
+  <li>Uses <b>echo</b> and a call to a JavaScript function from your <b>user-extensions.js</b> file to display your name <b>enclosed in double quotes</b> in the log file.
+  <p>
+  <li>Uses <b>echo</b> and a call to a JavaScript function from your <b>user-extensions.js</b> file to display your name in <b><i>lastname, firstname</i></b> 
+format in the log file.
+  </ol>
+<p>For example, my solution to this program produced log output that looked like this...
+<pre>
+[info] echo: EDITH WHARTON
+.
+.
+.
+[info] echo: edith wharton
+.
+.
+.
+[info] echo: 'Edith Wharton'
+.
+.
+.
+[info] echo: "Edith Wharton"
+.
+.
+.
+[info] echo: Wharton, Edith 
+</pre>
+<p><b>NOTE: </b>Your program may contain only <b>ONE</b> occurrence of your
+name!  You must store your name in a variable and manipulate the variable
+to produce the output above.
+<p><b>HINT:  </b>You've already learned about 
+JavaScript's concatenation operator and a String method which can convert
+a string to all uppercase.  There's a similar method for converting a string
+to all lowercase.  And there are also String methods named <b>indexOf</b> and
+<b>substring</b> which may prove helpful.
+</ol>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://book.theautomatedtester.co.uk/" />
+<title>check_button(element)_on_page</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">check_button(element)_on_page</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://book.theautomatedtester.co.uk/chapter1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>radiobutton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selecttype</td>
+	<td>label=Selenium Grid</td>
+</tr>
+<tr>
+	<td>storeElementPresent</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Assert that this text is on the page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeElementPresent</td>
+	<td>//div[2]</td>
+	<td>variable</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${variable}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>verifybutton</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

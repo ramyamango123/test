@@ -1,0 +1,11 @@
+--16:44:54--  http://landfill.bugzilla.org/testopia_tip/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&status_whiteboard_type=allwordssubstr&status_whiteboard=&keywords_type=allwords&keywords=&deadlinefrom=&deadlineto=&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=RESOLVED&bug_status=VERIFIED&emailreporter1=1&emailtype1=substring&email1=mamp%40earthlink.net&emailassigned_to2=1&emailreporter2=1&emailcc2=1&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=
+           => `bugdist.mamp'
+Resolving landfill.bugzilla.org... 63.245.210.140, 2620:0:330:21:20c:29ff:fe3d:4e52
+Connecting to landfill.bugzilla.org|63.245.210.140|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .......... .......... ......                              1.23 MB/s
+
+16:45:10 (1.23 MB/s) - `bugdist.mamp' saved [27436]
+

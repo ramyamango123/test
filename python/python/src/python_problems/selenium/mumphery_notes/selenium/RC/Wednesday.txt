@@ -1,0 +1,44 @@
+Tutorial steps completed (after modification):
+
+1.  cd to location of selenium-server.jar file (/home/selenium/selenium/selenium.*9.2)
+
+2.  java -jar selenium-server.jar -interactive
+
+3.  cmd=getNewBrowswerSession&1=*firefox /usr/lib/firefox-1.5.0.12/firefox-bin&2=http://www.deanza.edu 
+Up comes a Firefox browser with TestRunner in the upper panes.
+
+4.  Note down sessionID value.
+
+5.  cmd=open&1=http://www.deanza.edu/schedule/classes/?qttr=W
+
+6.  cmd=type&1=CourseID&2=74&sessionId=368885  <== replace value of sessionId as appropriate
+
+7.  cmd=getTitle&sessionId=368885
+
+8.  cmd=testComplete&sessionId=368885
+Down goes the Firefox browser.
+
+
+Lessons learned:
+
+One has to specify the full path to the firefox *binary* in cmd #3 above.  What did not work?  Assuming that
+because the shell from which java was invoked could find firefox in its path, the selenium.sh file would be
+able to also!  And...  Putting the path to the firefox *shell* script in the argument to #3 above rather
+than the path to the firefox *binary*.  We spent a lot of time figuring out these two matters.
+
+
+KEY POINTS FROM DISCUSSION WITH MARIE:
+
+1.  We don't think that running Selenium RC on voyager or bugz, and popping up a browser on a Windows desktop is going
+to work.
+
+2.  Given #1, the Selenium RC class would have to be taught on either:
+
+--The 10 Linux desktops in the lab.  Marie said they could get me a Linux system for the classroom.  Students
+would have to pair up in the lab.
+
+--I'd have to bite the bullet and teach Selenium RC with Perl on Windows desktops.  (A fate worse than death!)
+
+--Eventually, when we have the new machines, we'll probably be using VMWare environments, which would allow me the
+platform of my choice!
+

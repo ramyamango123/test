@@ -1,0 +1,149 @@
+
+Shalaka (Interfaces):
+
+Types of data:
+
+production
+generated
+captured
+random
+manually-created
+
+The test group should use volume equal to volume expected in production.
+
+Pranjal Tiambe (What Should Be Automated?):
+
+repetitive (regression, smoke, performance, load) and...
+tedious (code coverage, mathematical, simulations, human interface tasks)
+
+Michelle (Avoiding Testing Tool Traps):
+
+--no clear strategy
+
+Define process, THEN select tool to help with that process, not the
+other way around.
+
+--great expectations
+
+Measure before and after use of tool in order to determine whether it's
+helping.
+
+--Lack of Buy-In
+
+Testers won't use tools if they weren't involved in the tool selection
+process.
+
+
+Chaparna (?):  
+
+Poor training:  Lack of All testers s/b trained in how to use new 
+tools, but the importance of training is often underestimated.
+
+Sometimes, training is too early, i.e., there's a big time gap between
+training on a tool and use of the tool.
+
+
+Soumya:
+
+--Choosing the Wrong Vendor
+
+Responsiveness and training/consulting are important factors in choosing
+vendor.
+
+Find other people using the same vendor.
+
+--Unstable software
+
+--Doing Too Much, Too Soon
+
+Introduce only one tool at a time.  Otherwise, it becomes difficult to
+judge the impact of any one tool.
+
+
+Japneet:
+
+Underestimating Time/Resources
+
+Example:  Buy only tool we need, not buy one and put it in cupboard.
+
+Shelfware is software that gets stuck on the shelf from lack of use.
+
+Inadequate or Unique Test Environment
+
+
+Roberta:
+
+Poor Timing
+
+Bringing in a tool at the wrong time can cost a lot of time and money.
+The later the tool is purchased, the less time there will be to learn
+how to use the tool and develop tests using it.
+
+Cost of Tools
+
+Even companies that develop their own tools still have a high cost for
+developing those tools.  
+
+Companies are very reluctant to buy multiple licenses of commercial
+software, creating a "bottleneck" during the testing cycle when many
+testers need to use the tool.
+
+Hema:
+
+Traceability
+
+The process of ensuring that every requirement has at least one test case
+pertaining to it.
+
+Defect Seeding
+
+The process of deliberately putting bugs into a product, seeing how many
+can be found, and then determining how many are undiscovered.
+
+Example:
+
+100 seeded bugs
+ 75 located
+
+seed ratio formula = 75/100 = 0.75
+
+undiscovered bugs (defects still present) = 
+	estimated total number of bugs - number of bugs actually found
+
+
+So, if 450 bugs were found in a product, 450/.75 = 600
+
+undiscovered bugs = 600 - 450 = 150
+
+Defect seeding not so effective because seeded bugs are not as complex
+as accidentally-created bugs.  
+
+Defect seeding is used to measure the effectiveness of testware.
+
+And some organizations use it to train new testers.
+
+
+Ramya:
+
+Mutation Analysis
+
+Insert a mutant (bug) into a piece of code to test the quality of the *unit*
+testing.
+
+Step-1:  Start with program to be tested.
+
+Step-2:  Select a substitution rule to be mutation operator.
+
+Step-3:  Generate a variant program.
+
+Step-4:  Test the mutant program.
+
+Code coverage is more effective than mutation analysis.  It's only
+useful for programs that work well.  If unit testing is comprehensive,
+then mutant will definitely be found.  If a mutant is discovered,
+it doesn't mean that the unit testing is comprehensive.
+
+Testing Automated Procedures
+
+Very similar to testing software.  Same techniques can be used for
+testing automation as for testing other software.

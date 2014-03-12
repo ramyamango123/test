@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>anchors</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">anchors</td></tr>
+</thead><tbody>
+<!--^ = beginning of string, $ = end of string-->
+<!--But all of the page's rendered text is the string!-->
+<!--So, these two tests pass...-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:^2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:\(1948\)$</td>
+	<td></td>
+</tr>
+<!--But these two tests fail...-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:^A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:\(1982\)$</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Winter 2008</h3>
+<h2 align="center">TestRunner</h2>
+<p>
+<font size=+2>
+<ol type=I>
+<li>Creating and executing a <b>test suite</b> via Selenium TestRunner
+<p>
+  <ol type=A>
+  <p>
+  <li>Create an HTML file with a one-column table in the same directory as
+the test cases.
+  <p>
+  <li>Fill in each cell of the table with a link to a <i>testcase</i>.html file.
+  <p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/testrunner/testsuite.html">Sample test suite</a>.  Do a <b>View=>Page Source</b> in order to see the raw HTML needed to create a test suite suitable for
+ TestRunner.
+  <p>
+  <li>Point Firefox browser at the following URL with <b>baseURL</b> and
+  <btest</b> parameters modified as appropriate.
+  <p>
+chrome://selenium-ide/content/selenium/TestRunner.html?baseURL=http://www.deanza.edu&test=file:///Users/mamp/Desktop/Selenium/Night-02/testsuite.html&auto=true
+  <p><b>auto=true</b> causes TestRunner to immediately run the test suite.  Omitting this parameter will eliminate this automatic execution.
+  <p><a href="http://selenium-core.openqa.org/usage.html#continuous-integration">Selenium/chrome documentation</a>
+  </ol>
+  <p><b>LAB EXERCISE TESTRUNNER-1</b>
+  <p>
+  <ol>
+  <li>Using Selenium IDE and any four links from the De Anza directory 
+  you wish, create 
+  four separate tests, one per link (as opposed to one test covering
+  four links as you did for Lab Assignment-1).  Run each test after you've
+  created it to make sure it works.
+  <p>
+  <li>Create a test suite to execute each of your four tests in turn.
+  <p>
+  <li>Use a <b>chrome</b> URL to bring up TestRunner.
+  <p>
+  <li>Execute your test suite via TestRunner, making sure that all your tests
+  pass or fail as expected.
+  </ol>
+</ol>
+</body>
+</html>

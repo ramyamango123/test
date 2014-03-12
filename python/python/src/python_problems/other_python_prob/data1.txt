@@ -1,0 +1,7 @@
+<a href="http://netspiderads2.indiatimes.com/ads.dll/clickthrough?slotid=35246" target="_blank"><img 
+src="http://netspiderads2.indiatimes.com/ads.dll/photoserv?slotid=35246" border="0" width="728" height="500" alt="Advertisement" /></a><div 
+id="ad1885" name="ad1885" align="center"></div><iframe title="Advertisement" align="center" SCROLLING="no" FRAMEBORDER="0" VSPACE="0" HSPACE="0" 
+MARGINHEIGHT="0" MARGINWIDTH="0" height="500" width="728" src="http://ads.indiatimes.com/ads.dll/getad?slotid=1885" id="fr1885" name="fr1885"><a 
+target="_blank" href="http://ads.indiatimes.com/ads.dll/clickthrough?slotid=1885"><img alt="Advertisement" height="500" width="728" border="0" 
+src="http://ads.indiatimes.com/ads.dll/photoserv?slotid=1885"></a></iframe><a href="http://timesofindia.indiatimes.com">Click here to go to 
+timesofindia.com</a>

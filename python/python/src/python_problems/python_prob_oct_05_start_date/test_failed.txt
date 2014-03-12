@@ -1,0 +1,35 @@
+
+Total number of Failed tasks is: 3
+=======================================
+
+[Case guiderest-autoguide-1-cache]
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1 
+
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+
+=======================================
+
+[Case MostPopular-FeatureFlag-cache]
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1 
+
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+
+=======================================
+
+[Case MostPopular-PodcastFlag-cache]
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1 
+
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+

@@ -1,0 +1,17 @@
+<xml>
+<configuration>
+<name>masteraddress</name>
+<value>127.0.0.1</value> 
+<description>IP address of the host</description>
+
+<name>ipaddress</name>
+<!-- Comment here -->
+<value>127.0.0.1</value> # Replace with 10.11.68.56
+<description>IP address of the host</description>
+
+<name>slaveAddress</name>
+<value>127.0.0.1</value>
+<description> </description>
+
+</configuration
+</xml>

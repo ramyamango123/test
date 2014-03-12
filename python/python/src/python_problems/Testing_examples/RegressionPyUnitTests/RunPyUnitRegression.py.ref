@@ -1,0 +1,35 @@
+
+[oval run] =================================================
+[oval run] arguments: 
+[oval run] USER : mgallas
+[oval run] HOST : pcitapi31
+[oval run] eval `oval runtime -csh StandardOval-0`
+[oval run] =================================================
+
+.............FF
+======================================================================
+FAIL: Check that widgets are created with correct default size
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "widgettest.py", line 19, in testDefaultSize
+    assert self.widget.size() == (50,60), 'incorrect default size'
+AssertionError: incorrect default size
+
+======================================================================
+FAIL: Resizing of widgets
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "widgettest.py", line 29, in testResize
+    assert self.widget.size() == (100,150), \
+AssertionError: wrong size after resize because a typo error in the class Widget
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.347s
+
+FAILED (failures=2)
+Run the PyUnit regression tests
+Non-zero error code from  self.value
+[OVAL] PyUnitRegressionTestsCode=0
+
+
+

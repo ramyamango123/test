@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MORE_REGEXP_2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">MORE_REGEXP_2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://viv.ebay.com/ws/eBayISAPI.dll?EbayTime&amp;_trksid=m40</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*[0-9]{2}:[0-9]{2}:[0-9]{2}.*/)[0]</td>
+	<td>day_and_time</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${day_and_time}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

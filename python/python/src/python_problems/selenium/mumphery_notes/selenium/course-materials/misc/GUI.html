@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h2 align="center">Selenium IDE GUI Features</h2>
+<p>
+<font size=+2>
+<ol type="I">
+<li>Executing only a portion of a test
+  <p>
+  <ol type="A">
+  <li>From one command through the end of test...
+    <p>
+    <ol type="1">
+    <li>In <b>Command</b> view, select the command where execution should start.
+    <p>
+    <li>Bring up the Context menu (alt-click for Windows, CTRL-click for Macs).
+    <p>
+    <li>Select the <b>Set / Clear Start Point</b> item.
+    <p>
+    <li>Observe the right-pointing green triangle at the beginning of the selected command.
+    <p>
+    <li>Select the usual glyph ("Play from the beginning or start point") 
+        to start playing the test from that command.
+    <p>
+    <li>To delete the <b>Start Point</b>, either type an "S" OR re-select the <b>Set / Clear Start Point</b> item from the context menu.</ol>
+  <p>
+  <li>From the beginning through a <b>Breakpoint</b>...
+    <p>
+    <ol type="1">
+    <li>In <b>Command</b> view, select the command where execution should end.
+    <b>NOTE</b>: Do not select a comment!  SIDE will allow one to set a
+    breakpoint at a comment, but it will be a non-functioning breakpoint!
+    <p>
+    <li>Bring up the Context menu.
+    <p>
+    <li>Select the <b>Toggle Breakpoint</b> item.
+    <p>
+    <li>Observe the double yellow vertical lines at the beginning of the
+selected command.
+    <p>
+    <li>Select the usual glyph ("Play from the beginning or start point") 
+        to start playing the test from that command.
+    <p>
+    <li>To delete the <b>Breakpoint</b>, either type a "B" OR re-select the
+<b>Toggle Breakpoint</b> item from the context menu.
+    </ol>
+  <p>
+  <li>One command only - Select the <b>Execute this command</b> item from Context menu in <b>Command</b> view.
+  </ol>
+<p><b>LAB EXERCISE GUI-1</b>
+<p>Bring up one of your stored tests that contains several commands.  Set a
+<b>Breakpoint</b> and then execute the test from the beginning
+to that point.  Then try
+executing one command only from the test.  (Warning:  Using a <b>Start Point</b>
+will be more difficult because the <b>open</b> command will not get executed.)
+<li>Stepping through a test's execution
+  <p>
+  <ol type="1">
+  <li>Select the usual green right-pointing triangle ("Play from the beginning or start point").
+  <p>
+  <li>Immediately select the <b>Pause</b> glyph (two vertical yellow bars).
+  <p>
+  <li>Observe that the right-and-down-pointing blue arrow ("Step") has now become
+active.
+  <p>
+  <li>Select this "Step" blue arrow repeatedly in order to step through the execution, one command at a time.
+  </ol>
+<p>
+<p><b>LAB EXERCISE GUI-2</b>
+<p>Bring up one of your stored tests that contains several commands.  
+Execute this test via stepping through it.  
+<li>Test names vs. file names
+  <p>
+  <ol type="1">
+  <li>The <b>thead</b> portion of each test contains the name of that test.
+  <p>
+  <li>The default name of a new test is "New Test."
+  <p>
+  <li>Once a test has been saved, its name becomes the same as the name of that test's
+  filename, minus the .html extension.  However!  That change is not visible
+  unless the test is reopened or SIDE is closed and then reopened.
+  <p>
+  <li>Can a user override that name change with a different name change?  Not as far as I can tell!  The name supplied by the user is always overwritten by the
+filename minus the .html extension.
+  <p>
+  </ol>
+<p><b>LAB EXERCISE GUI-3</b>
+<p>Record a simple test for a single link from the De Anza A-Z directory.
+From <b>Source</b> view, change the test name to whatever you wish.  Then
+save the test to whatever filename you wish, as long as its basename
+ differs from the test name you supplied.  Next, reopen the test.  What
+is the test name now?
+</ol>
+</body>
+</html>

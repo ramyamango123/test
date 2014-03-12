@@ -1,0 +1,123 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>tc1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tc1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter/</td>
+	<td></td>
+</tr>
+<!--Initialize variables-->
+<tr>
+	<td>store</td>
+	<td>pass &quot;no pass&quot;</td>
+	<td>search_string</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>pass.*no[ /-]pass</td>
+	<td>ss_regexp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10</td>
+	<td>hits</td>
+</tr>
+<!--ACTIONS-->
+<tr>
+	<td>type</td>
+	<td>all_s</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.all.btnG</td>
+	<td></td>
+</tr>
+<!--EXPECTED RESULT VERIFICATION-->
+<tr>
+	<td>verifyTitle</td>
+	<td>Search Results: ${search_string}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exact:Searched for ${search_string}.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Results 1 - 10 of about</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[1]</td>
+	<td>${search_string}</td>
+</tr>
+<!---->
+<!--Determine how many hits are indented blockquotes-->
+<tr>
+	<td>storeXpathCount</td>
+	<td>//blockquote</td>
+	<td>blockquotes</td>
+</tr>
+<!--Determine how many hits are non-indented paragraphs-->
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['hits']-storedVars['blockquotes']</td>
+	<td>paragraphs</td>
+</tr>
+<!--Verify contents of all blockquote (indented) hits-->
+<tr>
+	<td>while</td>
+	<td>storedVars['blockquotes'] &gt; 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//blockquote[${blockquotes}]</td>
+	<td>regexpi:${ss_regexp}</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['blockquotes']-1</td>
+	<td>blockquotes</td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<!---->
+<!--Verify contents of all paragraph (non-indented) hits-->
+<tr>
+	<td>while</td>
+	<td>storedVars['paragraphs'] &gt; 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//p[${paragraphs}]</td>
+	<td>regexpi:${ss_regexp}</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['paragraphs']-1</td>
+	<td>paragraphs</td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

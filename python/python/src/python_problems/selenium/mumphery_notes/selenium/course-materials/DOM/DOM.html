@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h3 align="center">Using the JavaScript DOM to Specify Element Locators</h3>
+<font size=+2>
+<ol type=I>
+<li>DOM = Document Object Model
+<p>
+<li>Can be used whenever a Selenium command requires an <b>element locator</b> for one
+of its arguments.
+<p>
+<li>Syntax:  <b>dom=<i>dom expression</i></b><br>
+or:  <b><i>dom expression</i></b>
+<p>
+<li><a href="http://puma.deanza.edu/Distribute/May-Pumphrey/SIDE-S2008/DOM/DOM-searchable-schedule.html">Example</a>
+  <p>
+  <ol type=A>
+  <li><b>select</b> takes two arguments:  <b>selectLocator</b> and <b>optionLocator</b>.
+  <p>The <b>selectLocator</b> could be any type of <b>Selenium element locator</b>.   However, all of the statements in the example use <b>DOM</b> locators.
+  <p>The first group of tests specifies an <b>optionLocator</b> using the 0-based <b>index</b> of the desired <b>option</b>.
+  <p>
+  <li><b>schsearch</b> is the value of the <b>name</b> attribute for the
+second form on the page.  Hence, <b>forms['schsearch']</b> qualifies which
+form we wish to access.
+  <p>
+  <li>Instead of using <b>forms['schsearch']</b>, we can use <b>forms[1]</b> as can be
+seen in the second <b>select</b>.
+  <p>However, using the array index of an element within a group of elements should only be used
+as a last resort!
+  <p>
+  <li>The cleanest syntax is to just use the form's <b>name</b> attribute
+ after <b>document.</b> This can be seen in the third <b>select</b> example.
+  <p>
+  <li>And the very cleanest is to eliminate the optional <b>dom=</b> label, seen in the fourth <b>select</b> example.
+  <p>This works because SIDE assumes that any <b>locator</b> starting with
+<b>document</b> is a <b>DOM</b> locator.
+  <p>
+  <li>The second group of <b>select</b> examples demonstrates the <b>label=</b> and <b>value=</b> methods of specifying an <b>optionLocator</b>.  These refer to the <b>label</b> and <b>value</b> attributes of an <b>option</b> element.
+  <p>There's also an <b>id=</b> method for specifying an <b>optionLocator</b>.
+  <p>No prefix defaults to <b>label=</b> as can be seen in the second example
+of this group.
+  <p>
+  <li>The third (largest) group of Selenese commands all use the <b>id</b>
+attribute of an element within the schsearch form in order to mimic user
+actions.
+  <p>
+  <li>Note the <b>refreshAndWait</b> command at the beginning of the test.
+This ensures that despite whatever may have been going on with the SUT
+before the test is run, that the form is totally blank when the test actions
+begin.
+  </ol>
+</ol>
+<p><b>LAB EXERCISE DOM-1</b>
+<p>Create a test fragment that uses a DOM locator to click on
+the <b>Search</b> button underneath <b>Admissions & Registration</b> on
+the <a href="http://www.deanza.edu/searchcenter/">De Anza Search Center</a>
+page.
+<p>All five of the <b>Search</b> buttons have the same <b>name</b> attribute,
+which causes SIDE's <b>Record</b> feature to be forced to use a 
+DOM locator for the last four.  Because the Admissions & Registration
+button is first, SIDE does not have to use a DOM locator for it.
+However, a test will be more robust if a DOM locator is specified
+even for the Admissions & Registration button.  Why is this?
+</ol>
+</body>
+</html>

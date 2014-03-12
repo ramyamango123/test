@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+	 <appender name="PestoTestResultsAppender" class="org.apache.log4j.DailyRollingFileAppender">       
+	 	<param name="File" value="logs/PestoTestResults.csv"/>
+		<param name="Append" value="true"/>
+		<param name="Threshold" value="INFO"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout"> 
+            
+        </layout> 
+	</appender>
+	
+	<appender name="PestoDebugStatementsAppender" class="org.apache.log4j.DailyRollingFileAppender"> 
+        <param name="File" value="logs/PestoDebugStatements.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d %m%n"/>
+        </layout> 
+    </appender> 
+	<logger name="PestoDebugStatementsLogger">
+        <level class="org.apache.log4j.Level" value="DEBUG"/>
+        <appender-ref ref="PestoDebugStatementsAppender"/>
+	</logger>
+    
+    <logger name="PestoTestResultsLogger">
+        <level class="org.apache.log4j.Level" value="DEBUG"/>
+        <appender-ref ref="PestoTestResultsAppender"/>
+	</logger>
+
+</log4j:configuration>
+
+
+
+

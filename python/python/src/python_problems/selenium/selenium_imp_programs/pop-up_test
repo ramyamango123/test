@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.devry-degrees.com/" />
+<title>pop-up_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">pop-up_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/2x/prequal.jsp;jsessionid=oEtpnENbrstfDU4OPQXrmA**.app8-all2?&amp;CCID=11107203202758&amp;QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&amp;CLK=133090221054119939&amp;&amp;exp=y&amp;redirected=redirect_devry&amp;CLK=133090221054119939&amp;CCID=11107203202758&amp;QTR=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&amp;ZN=ref&amp;ZV=ZZf200606141104170Za11107Zg92Zw0Zm0Zc203202758Zs1492ZZ&amp;KY_T=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Accreditation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>Thandie</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=Thandie</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=Thandie</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>Accreditation - DeVry University</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Degree Programs</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

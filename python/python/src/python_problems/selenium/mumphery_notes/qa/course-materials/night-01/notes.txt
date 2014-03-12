@@ -1,0 +1,35 @@
+
+4-credit lecture/lab means...
+
+3 credits lecture
+3 hours lab
+
+================================================
+
+Benefits of the new Testopia plan:
+
++ Students get real-world experience, i.e., bugs
+you file will get responded to and in some cases,
+fixed.  This will allow you to formally test bug
+fixes and move bug reports to REOPENED or VERIFIED.
+
++ Greg gets free testing assistance!
+
++ Mary Ann doesn't have to deal with De Anza
+staffers installing/maintaining Bugzilla/Testopia.
+We're using a brand new installation of Testopia's
+"tip" for this class.
+
+================================================
+
+Technical skills that a web page tester ideally
+needed at my previous job (in priority order):
+
+--HTML
+--JavaScript
+--PHP
+--Linux/Unix
+--XML
+--CSS
+--source-code control system like CVS or Subversion or Perforce
+--knowledge of Unix utility called "make"

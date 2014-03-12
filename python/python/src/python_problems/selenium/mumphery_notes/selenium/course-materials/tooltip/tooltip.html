@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h3 align="center">Tooltip Testing</h3>
+<font size=+2>
+<ol type=I>
+    <li>If the tooltip is just that provided by the browser via the <b>title</b>
+attribute of an <b>img</b> tag, then there's no way to <i>record</i> this.
+    <p>
+    <li>Instead, follow these steps:
+      <p>
+      <ul type=A>
+      <li>Use <b>verifyAttribute</b> to verify the text in the <b>title</b> attribute.
+      <p>
+      <li>Use an <b>element locator</b>, such as an <b>xpath</b> expression,
+as the first argument.
+      <p>
+One can use <b>record</b> to capture an appropriate locator instead of
+figuring it out by oneself.  For example, click on a clickable image in order
+to capture a suitable locator, then change the command from <b>click</b> to
+<b>verifyAttribute</b>.
+      <p>
+      <li>Add <b>@title</b> at the end of the first argument to further
+qualify the <b>locator</b>.  
+      <p>NOTE:  Do not leave any space
+between the captured <b>locator</b> and the added <b>@title</b>.
+      <p>
+      <li>Use a <b>pattern</b> (<b>glob:</b>, <b>regexp:</b>, <b>exact:</b>) as the third argument.
+      </ul>
+    <p>
+    <li><a href="http://puma.deanza.edu/Distribute/May-Pumphrey/SeleniumIDE/tooltip-testing.html">Example</a>
+    </ol>
+  <p>
+  <p><b>LAB EXERCISE TOOLTIP-1</b>
+  <p>Try to create a tooltip test for the image in the upper left corner of
+the <a href="http://www.foothill.edu/news/newsfmt.php?sr=3">Foothill News Stories</a> page.
+  <p><b>WARNING: </b>The steps above won't work as well for this test.  Why not?
+Can you figure out how to create the test anyway?  
+  <p><b>HINT: </b>Do a View=>Source, and search for the relevant HTML code.
+</ol>
+</body>
+</html>

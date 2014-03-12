@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>expression_vs_eval</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">expression_vs_eval</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu</td>
+	<td></td>
+</tr>
+<!--storeEval's first argument must be a script...-->
+<tr>
+	<td>storeEval</td>
+	<td>this.browserbot.bodyText().match(/(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, 20[0-9][0-9]/)[0]</td>
+	<td>dateShown</td>
+</tr>
+<tr>
+	<td>verifyExpression</td>
+	<td>${dateShown}</td>
+	<td></td>
+</tr>
+<!--Using the "javascript{..}" syntax will cause an error...-->
+<tr>
+	<td>storeEval</td>
+	<td>javascript{this.browserbot.bodyText().match(/(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, 20[0-9][0-9]/)[0]}</td>
+	<td>dateShown2</td>
+</tr>
+<tr>
+	<td>verifyExpression</td>
+	<td>${dateShown2}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

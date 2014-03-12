@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h2 align="center">Real-world regular expression usage within Selenium IDE</h2>
+<font size=+2>
+<ol type="I">
+  <li>Negative test <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp_part2/neg-not_enough_params.html">example</a>: Recording clicking on a form button when not enough selections have been made, then verifying presence of error message on response page via <b>verifyTextPresent</b>.
+  <p>
+    <ol type="A">
+    <li>Both <b>open</b> and <b>verifyTextPresent</b> were selected from context
+  menu.
+    <p>
+    <li><b>assertTextPresent</b> could be used instead, in which case the test
+  would stop executing if the error message text was not found on the response
+  page.
+    <p>
+    <li>Note the argument to <b>clickAndWait</b>.  This is an <b>Xpath</b>
+argument.  Xpath will be covered in an upcoming lecture.
+  </ol>
+  <p>
+  <li>Negative test <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp_part2/neg-no_params.html">example</a>: Record clicking on a form button when no selections have been made, then verify presence of error message on an alert via
+  <b>assertAlert</b>.
+    <p>
+    <ol type="A">
+    <p>
+    <li>The entire test was created with the <b>Record</b> feature.
+    <p>
+    <li>Note that the alert does not appear when the test is played back.
+    <p>
+    <li>To prove this test works, manually modify the argument to <b>assertAlert</b> to contain at least one additional/missing/different character.
+    <p>It's <i>always</i> a good idea
+to test your test to make sure that it works.  Force
+a passing test to fail via minor tweaking of the Selenese code.  And 
+if possible, force a
+failing test to pass via minor tweaking of the Selenese code.
+Disallow coincidental correctness as much as possible!
+    <p>
+    <li><b>verifyAlert</b> could be used instead, in which case the test would
+continue executing even if the alert's text was incorrect 
+(although an error message would still appear in the log file).
+    </ol>
+  <p>
+  <li>Positive test <a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp_part2/pos-course_number.html">example</a>.
+    <p>
+    <ol type="A">
+    <p>
+    <li>Note the <b>select</b> command, used to select a radio button.
+    <p>
+    <li>Note the <b>type</b> command, used to enter input from the keyboard.
+    <p>
+    <li>Note that three separate <b>verify</b> commands were needed to
+thoroughly test that the search results were correct.
+    </ol>
+<p><b>LAB EXERCISE REGEXP_PART2-1</b>
+<p>Use a combination of recording and manually-entered regular expressions to
+create a test to search the schedule for this course.
+</ol>
+</body>
+</html>

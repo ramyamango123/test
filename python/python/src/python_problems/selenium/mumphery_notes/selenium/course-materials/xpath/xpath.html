@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h3 align="center">XPath & Selenium</h3>
+<font size=+2>
+<ol type=I>
+<li><b>xpath</b> is one of the ways to locate an element for use
+by a Selenium command.  An xpathExpression can be specified within a
+Selenium command as either:
+<p>
+  <ol type=A>
+  <li><b>xpath=<i>//xpathExpression</i></b>
+  <p>
+  <li><b>//<i>xpathExpression</i></b>
+  </ol>
+<p>
+<li>Checkbox <a href="http://puma.deanza.edu/Distribute/May-Pumphrey/SIDE-S2008/xpath/xpath_1.html">example</a> containing seven different xpath expressions.
+<p>NOTES:
+<p>
+  <ol type="A">
+  <li>The relevant piece of source code from the page has been copy/pasted
+into the first line as a comment.
+  <p>
+  <li><b>click Monday</b> does not require an xpath because the web-dev
+provided an <b>id</b> attribute with value <b>Monday</b> for the Monday checkbox.
+  <p>The rest of the checkboxes for the days of the week do not require an
+xpath either; however, this test has been written to demonstrate how xpath
+expressions could be used.
+  <p>
+  <li><b>click //input[@value='Tu']</b> demonstrates how to use the value of
+the <b>value</b> attribute instead of the <b>id</b> attribute.  
+  <p>
+  <li><b>click //input[@name='WDay']</b> demonstrates how to use the value of
+the <b>name</b> attribute.
+  <p>
+  <li><b>click //input[contains(@id,'Thu')]</b> demonstrates how to use the
+<b>contains</b> function to locate an input with an <b>id</b> attribute that
+<i>contains</i> the second argument.
+  <p><b>contains</b> can be very useful for locating elements whose attributes
+are dynamically determined.
+  <p>
+  <li><b>click //input[@id='Thursday']/following-sibling::input</b> selects the
+very next sibling of the input element which has an <b>id</b> attribute of <i>Thursday</i>.
+  <p>
+  <li><b>click //input[contains(@id,'day')][last()-1]</b> should be examined in
+two parts.
+    <p>
+    <ol type=1>
+    <li><b>//input[contains(@id,'day')]</b> produces a list of those input
+elements which have an <b>id</b> attribute that <i>contains</i> the word <i>day</i>.
+    <p>
+    <li><b>[last()-1]</b> is an index expression.  <b>last()</b> evaluates to
+the value of the last index in the list produced by <b>//input[contains(@id,'day')]</b>.  Then the <b>-1</b> reduces that value by 1.  The result is the
+index of the <a href="http://www.merriam-webster.com/dictionary/penultimate">penultimate</a> checkbox, i.e., <i>Saturday</i>.
+    </ol>
+  <p>
+  <li><b>click //input[@type='checkbox' and contains(@name,'u') and contains(@id,'u') and contains(@value,'U')]</b> illustrates how to use the <b>and</b> operator
+within the <b>predicate</b> of an xpath expression.
+  <p>
+  <li><b>click //input[starts-with(@id,'Mon')]</b> illustrates another XPath string function <b>starts-with</b>.  Note that this second click on the <i>Monday</i> checkbox de-selects it.
+  <p>
+  <li>To verify that each <b>xpath</b> expression works (or to determine what
+an undocumented <b>xpath</b> expression refers to!), do the following:
+      <p>
+      <ol type="1">
+      <li>From <b>View</b> mode, select a command that utilizes the <b>xpath</b>
+expression of interest.
+      <p>
+      <li>Select the <b>Find</b> button on the SIDE.
+      <p>
+      <li>Look for the blinking green frame on the page being tested.
+      </ol>
+  </ol>
+  <p>
+  <h4>Lab Exercise XPATH-1</h4>
+  <p>Create a test which selects in turn
+each of the first four radio buttons in the <b>Course Type</b> of the Searchable Schedule.  Each of your four <b>click</b> commands should use an <b>xpath</b>
+expression; the four <b>xpath</b> expressions should each use a different
+method as was done with the checkbox examples above.
+  <p><b>HINT: </b>Select the <b>Course Type</b> section of the form, then
+bring up the context menu and select "View Selection Source."  This will
+allow you to see the HTML code for just that small section of the form
+you are working with.
+<p>
+<li>Table <a href="http://puma.deanza.edu/Distribute/May-Pumphrey/SIDE-S2008/xpath/xpath_2.html">example</a>.
+<p>NOTES:
+<p>
+  <ol type="A">
+  <li>Test case specification:
+    <p>
+    <ol type="1">
+    <li>Clear the contents of the "Quotes" module by selecting the "Clear
+all recent quotes" link.
+    <p>
+    <li>Enter a stock symbol (java) and then select the "GET QUOTES" button.
+    <p>
+    <li>Verify that the stock symbol just entered appears in the "Quotes"
+module.
+    <p>
+    <li>Enter a second stock symbol (aapl) and then select the "GET QUOTES" button.
+    <p>
+    <li>Verify that the stock symbol just entered appears as the <i>first</i>
+symbol in the "Quotes" module.
+    <p>
+    <li>Verify that the first stock symbol entered now appears as the <i>second</i> symbol in the "Quotes" module.
+    </ol>
+  <p>
+  <li>To produce the proper <b>xpath</b> expression for the <b>verifyText</b>
+commands, the code was examined via <b>View Selection Source</b> as
+discussed earlier.
+    <p>
+    <li><b>verifyText</b> gets the <i>rendered</i> text of an element that
+contains text.
+  </ol>
+  <p>
+  <h4>Lab Exercise XPATH-2</h4>
+  <p>Re-create the xpath_2.html file yourself (without any copy/pasting!), 
+using symbols of your own
+choosing.  Then extend it to include three more symbols.  How many <b>verifyText</b>
+commands do you think are needed after the addition of each additional symbol?
+</ol>
+</body>
+</html>

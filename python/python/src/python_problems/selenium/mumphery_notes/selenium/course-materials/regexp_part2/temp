@@ -1,0 +1,10 @@
+<li>Write a test that will output to the log file a word that starts with "C" and ends with
+lowercase "e" from the list of <a href="./bette_vanilla.html">Bette Davis movies</a>.
+<p>
+<li>Write a test that will output to the log file an entire movie title
+including the year made, in which the  movie's first word begins with an
+uppercase "T, its second word begins with an uppercase "O," and its
+third word begins with an uppercase "M."
+</ol>
+</body>
+</html>

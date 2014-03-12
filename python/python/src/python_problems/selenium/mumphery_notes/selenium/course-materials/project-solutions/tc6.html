@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>tc4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tc4</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>NonexistentFirstName NonexistentLastName</td>
+	<td>search_string</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Your search - ${search_string} - did not match any documents\.<br />No pages were found containing &quot;${search_string}&quot;\.</td>
+	<td>ss_regexp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>faculty_s</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.fac.btnG</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>Search Results: ${search_string}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[1]</td>
+	<td>${search_string}</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexpi:${ss_regexp}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

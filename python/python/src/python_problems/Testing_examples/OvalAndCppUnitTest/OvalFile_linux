@@ -1,0 +1,79 @@
+=================================================
+================================================= 
+ OvalFile: basic configuration file to run OVAL 
+           validation and regression tool and/or 
+           CppUnit unit-test tool.  
+ 
+ SPI project ->Software Development Infrastructure 
+               LCG project 
+=================================================
+=================================================
+
+
+=================================================
+ Error report concerning these tests will be send
+ to the following e-mail if -w option is used 
+ Write here your e-mail and uncomment the line. 
+=================================================
+<watcher mail=name@cern.ch>
+
+=================================================
+ Standard OVAL environment to run test programs 
+=================================================
+ For the diff command,define single lines to 
+ compare, through a Perl regular expression. Oval
+ will find lines with "OVAL", but can be changed.
+<diffline expr="^\[OVAL">
+
+
+  Here we define a new environment
+<environment name=StandardOval-0>
+  Here we overwrite the default building Oval procedure with SCRAM 
+  and we use simple the g++ compiler 
+<instructions
+ build="g++ %s.cpp -o %s"
+ cshruntime="echo"
+ shruntime="echo">
+  Unix variable needed in this examples and to be set at the running time 
+<runtime name="INPUT" value="ok">
+  Naming and ordering the test programs which will 
+  be run in this environment 
+<bin name="Prog1.cpp"> Program1.cpp </bin>
+<bin name="Prog2.cpp"> Here I put documentation </bin>
+</environment>
+
+<environment name=IntegrationWithCppUnit>
+  OVAL environment to integrate CppUnit test
+  programs. The driver CppUnit test program out-
+  puts [OVAL] Cppunit-result = 1 if one test 
+  failed. To build the CppUnit test program Oval 
+  will call a Makefile. Don't forget to setup
+  correctly the include and lib paths for CppUnit
+  calling the startup_rh73_gcc32.csh script at 
+  the run time.  
+<instructions build="make  %s" 
+ cshruntime="echo 'source ../startup_rh73_gcc32.csh'" 
+ shruntime="echo">
+<bin name="FirstCppUnitTest_TDCppUnit.cpp"> </bin>
+</environment>
+
+  Here we define a new environment because we want to run 
+  the same executable several times with different args and 
+  each time in a different environment.
+<environment name=StandardOval>
+  Here we overwrite the default building Oval procedure with SCRAM 
+  and we use simple the g++ compiler 
+<instructions
+ build="g++ %s.cpp -o %s"
+ cshruntime="echo"
+ shruntime="echo">
+    <environment name=StandardOval-1>
+      <bin name="Prog3.cpp" args="3">
+    </environment>
+    <environment name=StandardOval-2>
+      <bin name="Prog3.cpp" args="4">
+    </environment>
+    <environment name=StandardOval-3>
+      <bin name="Prog3.cpp" args="4">
+    </environment>
+</environment>

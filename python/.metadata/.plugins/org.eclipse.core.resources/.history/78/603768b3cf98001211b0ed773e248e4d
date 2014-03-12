@@ -1,0 +1,9 @@
+createFile =
+        '''dfjd fdlkfjds
+        fdjdsf
+        fdfjdf
+        s'''
+        
+fp = open("text1.txt", 'w')
+res = fp.write(createFile)
+print res

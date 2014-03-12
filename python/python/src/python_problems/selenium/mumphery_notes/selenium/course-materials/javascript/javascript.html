@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<p>
+<h3 align="center">Using JavaScript</h3>
+<font size=+2>
+<ol type=I>
+<li>Accessing a JavaScript variable from the AUT <br>
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript/accessing_AUT_variable.html">Example</a>
+<p>
+  <ol type=A>
+  <li>Note the use of <b>storeExpression</b>.  Its first argument is an
+  <b>expression</b>; its second argument is a <b>variable</b>.
+  <p>
+  <li>Note the use of the enclosing <b>javascript{}</b> syntax to generate
+  the <b>expression</b> for <b>storeExpression</b>.  
+  (Do not jump to the conclusion that all
+  <b>expression</b> arguments need to be generated via JavaScript!)
+  </ol>
+<p>
+<li>Accessing a test case variable's value from within a JavaScript<br>
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript/accessing_variable_within_JS.html">Example</a>
+<p>
+  <ol type=A>
+  <li><b>store</b> is a synonym for <b>storeExpression</b>.
+  <p>
+  <li>A JavaScript <b>associative array</b> named <b>storedVars</b> is used to store all variables set within SIDE.
+  <p>
+  <li><b>toUpperCase</b> is a <b>method</b> of the JavaScript <b>String</b>
+object.
+  <p>
+  <li>Note that <b>echo</b>'s <b>message</b> argument is really an
+  <b>expression</b>, and as such, can also utilize the power of JavaScript.
+  </ol>
+<p>
+
+<p><b>LAB EXERCISE JAVASCRIPT-1</b>
+<ul>
+<li>Try to determine what the two tests in this 
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript/lab-question-1.html">SIDE program</a> will match.
+<p>
+<li>Modify a copy of the program to use <b>storeEval</b> and <b>echo</b> 
+to help you check whether your answer is right.
+<p>
+<li>JavaScript's string concatenation operator is the plus-sign (<b>+</b>).
+Use this info and the info above
+to modify your program's <b>echo</b> to log <b><i>labeled</i></b>
+output similar to this for each of the two tests:
+<p>
+<pre>
+echo: film = Bad Sister (1931)
+</pre>
+<p>
+<li>Hint:  If you're totally stumped, look at this
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript/improved-debugging.html">example</a> of how to produce <b><i>labeled</i></b>
+log output.
+</ul>
+<p>
+<li>Syntactic differences between JavaScript provided for Selenium <b>expression</b> 
+vs. for a <b>script</b> required by a Selenium <i>command</i>.
+  <p>
+  <ol type=A>
+  <li>Both earlier examples used JavaScript to provide a Selenium <b>expression</b> (for
+<b>storeExpression</b> and <b>echo</b>).  
+  <p>In these cases, the <b>javascript{...}</b> syntax must be used.
+  <p>
+  <li>However, when a Selenium command specifies a <b>script</b> argument, the
+<b>javascript{...}</b> syntax should <b>NOT</b> be specified. 
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SIDE-S2008/javascript/expression_vs_eval.html">Example</a>
+  </ol>
+
+<p><b>LAB EXERCISE JAVASCRIPT-2</b>
+<p>
+<ol type=1>
+<li>Make a copy of the <b>expression_vs_eval.html</b> file above.
+<p>
+<li>Review the JavaScript script in the second example from your reading
+assignment.  Copy/paste it into your test 
+and make modifications so that the test will verify that the date in the
+upper right corner of De Anza's home page is actually today's date.  
+<p>HINT:  The syntax for a simple if...else in JavaScript is:
+<p>
+<b>
+<pre>
+if (<i>condition</i>)
+  <i>statement</i>;
+else
+  <i>statement</i>;
+</pre>
+</b>
+<p>
+</ol>
+</body>
+</html>

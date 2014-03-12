@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>sibling_2_ways_xpath</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">sibling_2_ways_xpath</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Chapter2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@ value='Button with ID']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@ value='Sibling Button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Sibling Button'] /preceding-sibling::input[@value='Button with ID']</td>
+	<td></td>
+</tr>
+<!--2 ways of finding sibling elements(same id diff value)-->
+<tr>
+	<td>click</td>
+	<td>//div[@class='leftdiv']/input[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Button with ID']/following-sibling::input[@value='Sibling Button']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

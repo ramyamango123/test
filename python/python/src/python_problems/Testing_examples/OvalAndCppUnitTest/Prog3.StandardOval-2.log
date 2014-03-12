@@ -1,0 +1,21 @@
+
+[oval build] ===============================================
+[oval build] instruction: g++ Prog3.cpp -o Prog3
+[oval build] eval `oval runtime -csh StandardOval-2`
+[oval build] ===============================================
+
+g++ Prog3.cpp -o Prog3
+
+[oval run] =================================================
+[oval run] arguments: 4
+[oval run] USER : mgallas
+[oval run] HOST : lxplus099
+[oval run] eval `oval runtime -csh StandardOval-2`
+[oval run] =================================================
+
+[OVAL] result = 4
+
+[oval diff] ================================================
+[oval diff] diff line: /^(\[OVAL.*)$/
+[oval diff] ================================================
+

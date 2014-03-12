@@ -1,0 +1,12 @@
+<h3 align="center">Miscellaneous Topics</h3>
+<ol>
+<li><a href="http://forums.openqa.org/thread.jspa?threadID=10218">Using GMail as a Quick-and-Dirty Reporting Tool</a>
+<li><a href="http://forums.openqa.org/thread.jspa?threadID=11142">defaultLogLevel=off</a> can be added to URL to turn off logging.
+<li>One can use a regular expression to find a link to click on... 
+<pre>
+click
+link=regexp:&lt;regexp&gt;
+</pre>
+</ol>
+
+</body>

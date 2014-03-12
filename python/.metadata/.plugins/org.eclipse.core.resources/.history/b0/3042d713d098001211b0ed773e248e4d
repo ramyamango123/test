@@ -1,0 +1,10 @@
+f1 ='''
+        dfjd fdlkfjds
+        fdjdsf
+        fdfjdf
+        s'''
+        
+fp = open("text1.txt", 'w')
+res = fp.write(f1)
+self.assertEqual(5, len(res))
+print res

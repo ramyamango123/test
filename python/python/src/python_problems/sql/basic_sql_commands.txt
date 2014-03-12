@@ -1,0 +1,34 @@
+insert into persons
+values (4,'dd', 'rrrr', 'rrr')
+
+insert into persons (p_id, lastname, firstname)
+values (5, 'eee', 'fvff')
+
+update persons
+set Address = 'rr',City ='fff'
+where lastname = 'dfd' and firstname = 'hgg'
+
+delete from persons
+where lastname = 'rff' and firstname = 'ggh'
+
+select * into backup_table
+from table
+
+select table persons
+(
+p_id int,
+lastname varchar(255),
+firstname varchar(255)
+)
+
+select customers.firstname, customers.lastname, sum(sales.saleamount)
+from customers, sales
+where customers.customerid = sales.customerid
+group by customers.firstname, customer.lastname
+
+
+select customers.firstname, customers.lastname, sum(sales.saleamount)
+from customers
+join sales
+on customers.customerid = sales.customerid
+group by customers.firstname, customer.lastname

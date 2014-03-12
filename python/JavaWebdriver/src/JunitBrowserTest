@@ -1,0 +1,84 @@
+
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class JunitBrowserTest {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://www.google.com/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  public void waitForPageToLoad(final String title) {
+	  (new WebDriverWait(driver, 30)).until(new ExpectedCondition<Boolean>() {
+		  public Boolean apply(WebDriver d) {
+			  return d.getTitle().equals(title);
+		  }
+	  });
+  }
+
+  @Test
+  public void test1() throws Exception {
+    driver.get("http://www.google.com/");
+    
+   // driver.getCurrentUrl().toLowerCase().contains("shopping_cart.jsp")
+    driver.findElement(By.id("gbqfq")).clear();
+    driver.findElement(By.id("gbqfq")).sendKeys("selenium");
+    driver.findElement(By.linkText("Selenium - Web Browser Automation")).click();
+    driver.getCurrentUrl().contains(
+    try {
+      waitForPageToLoad("Selenium - Web Browser Automation");
+      assertEquals("Selenium - Web Browser Automation", driver.getTitle());
+             //    "Selenium - Web Browser Automation"
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.close();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alert.getText();
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>tc7</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tc7</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/searchcenter/</td>
+	<td></td>
+</tr>
+<!--ACTIONS-->
+<tr>
+	<td>type</td>
+	<td>financial_s</td>
+	<td>loan</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>document.fin.btnG</td>
+	<td></td>
+</tr>
+<!--VERIFICATION-->
+<tr>
+	<td>storeTextPresent</td>
+	<td>exact:Cached</td>
+	<td>cached</td>
+</tr>
+<!--if there is no Cached link present, issue an error and exit-->
+<tr>
+	<td>gotoIf</td>
+	<td>storedVars['cached']!=true</td>
+	<td>none</td>
+</tr>
+<!--else test the Cached link-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cached</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeTitle</td>
+	<td>title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{'title = ' + storedVars['title']}</td>
+	<td></td>
+</tr>
+<!--The title of the Cached link's target page must be present on the SERP-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>gotolabel</td>
+	<td>End</td>
+	<td></td>
+</tr>
+<!---->
+<tr>
+	<td>label</td>
+	<td>none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyExpression</td>
+	<td>Test error!</td>
+	<td>The SERP does not contain a &quot;Cached&quot; link to test!</td>
+</tr>
+<!---->
+<tr>
+	<td>label</td>
+	<td>End</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

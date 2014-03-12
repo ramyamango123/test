@@ -1,0 +1,112 @@
+-----------------------
+EXAMPLES OF SW-TESTING 
+-----------------------
+Last update 12/05/03 
+Manuel Gallas 
+
+ - The examples that you can find are either from the CppUnit, Oval and PyUnit
+   testing projects or they were slightly modify. For run these examples you
+   don't need SCRAM or CMT.
+
+ + To run the examples under Linux:  
+   --------------------------------
+Before run any example you have to type:
+ $> source startup_rh73_gcc32.csh
+or 
+ $> source startup_rh73_gcc32.sh 
+depending on the shell and the Linux/compiler platform you are using. 
+
+the initial setup scripts are located under the InitialSetupScripts subdirectory
+
+
+ + To run the examples under Solaris:
+   ----------------------------------
+Use the sun-specifc inital shell script startup_sunos.csh or startup_sunos.sh, 
+and be aware to clean manualy the SunWS_cache after compile with CC-Sun 
+
+ + To run the examples under Windows:
+   ---------------------------------- 
+To run CppUnit examples under Windows look for the windows directory and click 
+to times over the workspace.dsw file and after this ask for the build/execution.  
+To run PyUnit examples (in RegressionPyUnitTests) under Windows:
+   - go to Start->Programs->Python2.2->IDLE(Python GUI) and 
+   - open the python module PyUnitRegression.py
+   - in the Edit popup menu select "runscript"
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+FirstCppUnitTest: first CppUnit example to test a complex number class 
+----------------
+(Runs in Linux/Solaris/Windows)
+
+Complex.h                     -> The class we would like to check
+ComplexNumberTest_CppUnit.cpp -> The test class for check Complex.h 
+FirstCppUnitTest_TDCppUnit.cpp-> The main CppUnit test driver program
+Makefile                      -> Simple makefile to compile (just type "make")
+                                 and to clean ("make clean")
+ For run the example just type ./FirstCppUnitTest_TDCppUnit
+
+Windows -> go to the directory WindowsFirstCppUnitTest and with VC++ 6.0 
+           installed click to times in file project.
+----------------------------------------------------------------------------
+AddingCppUnitTest: second example, the classes to be tested are Complex.h 
+-----------------  and Money.h The same main  CppUnit test driver used in the 
+                   previous example will manage tests for both cases. The point 
+                   is that the testdriver is always the same. 
+                   The ComplexNumberTest_CppUnit is now splitted in .h and .cpp.
+
+--> AddingCppUnitTest_v0: uses a standard Makefile
+(Runs in Linux/Solaris/Windows)
+
+Complex.h                       -> The class we would like to check
+ComplexNumberTest_CppUnit.cpp   -> The test class for check Complex.h 
+Money.h                         -> Another class we would like to check
+MoneyTest_Cppnit.h              -> The test class for Money.h
+StdAfx.h StdAfx.cpp             -> Needed by Money.h
+AddingCppUnitTest_TDCppUnit.cpp -> The main CppUnit test driver program
+Makefile              -> Simple makefile to compile (just type "make") and 
+                         to clean ("make clean")
+
+--> AddingCppUnitTest_v1: uses a Makefile created with automake and autoconf.
+                Works in Linux if you have cppunit installed locally 
+
+                Proceed us follows:
+                 $ aclocal -I $ACLOCAL 
+                 $ autoconf 
+                 $ automake -a 
+                 $ ./configure 
+               Now you have the Makefile created with the information stored 
+               in Makefile.am and you can make 
+                 $ make check 
+                 $ make clean 
+----------------------------------------------------------------------------
+CppUnitFeaturesTest: ExampleTestCase_CppUnit.cpp  class to test directly 
+-------------------- some the CppUnit features 
+(Runs in Linux/Solaris/Windows)
+
+----------------------------------------------------------------------------
+OvalAndCppUnitTest: integrates the Cppunit tests in FirstCppUnitTest with  
+------------------   some of the OVAL test which come with the OVAL-release. 
+(Runs in Linux/Solaris)
+
+                     To use them, just type
+                      $oval targets # to know the targets you may have  
+                      $oval prod 
+Hint: To switch from Linux to Solaris copy the OvalFile_sun to OvalFile 
+ 
+----------------------------------------------------------------------------
+InstructingOvalTest: HowTo instruct Oval through the OvalFile to cover 
+------------------- test structures different from the default one. In this 
+                    case the sources are from OvalAndCppUnitTest example but 
+                    now they are in a 'src' directory. The Makefile is in the 
+                    Top directory and the binaries in the 'executables' 
+                    directory.  
+(Runs in Linux/Solaris)
+----------------------------------------------------------------------------
+RegressionPyUnitTests: Examples of regression tests with PyUnit. The code 
+---------------------- "PyUnitRegression.py" will collect and run all 
+                       those tests ended by "test.py".  The script 
+                       "RunPyUnitRegression" will run these tests from 
+                       oval. 
+
+(Runs in Linux/Solaris/Windows)
+----------------------------------------------------------------------------

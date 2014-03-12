@@ -1,0 +1,263 @@
+<html>
+<head>
+<title>Test Case Specification: half.com Textbook Superstore Buy Feature
+</title>
+</head>
+<body>
+<h2 align="center">Test Case Specification</h2>
+<h2 align="center"> half.com Textbook Superstore Buy Feature</h2>
+<h4 align="center">Author: Mary Ann May-Pumphrey</h4>
+<font size=+1>
+<p><b>NOTE to CIS-74 Students:</b>  Only test cases 1, 2, 3, and 15 below
+are "finished."  The rest of them are merely reformatted items from the
+<a href="./tds.html">Test Design Specification</a>.  In order to finish
+this "assignment," I would have to flesh out the actions 
+for all remaining test cases, plus add detailed <b>Expected Results</b>
+for those same test cases.
+<p>
+<b>Test Design Specification Identifier:</b> 26-001-2007-05-21
+<p>
+<table border=2>
+<tr>
+<th>Test Cases</th>
+<th>Actions</th>
+<th>Expected Results</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td>HALF-BUY-TC-1</td>
+<td>Check for misspellings, grammatical and punctuation mistakes, etc.
+<td>No misspellings, grammatical, punctuation, formatting, etc. mistakes should
+appear in the Buy module.
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-2</td>
+<td>Select the <b>Advanced Search</b> link to make sure it's working.
+<td>The browser should display the <b>Books Advanced Search</b> page.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-3</td>
+<td>Negative: Enter a nonexistent ISBN, followed by selecting the Buy button.</td>
+<td>The browser should display a page explaining that no book with that ISBN
+number exists, and offering suggestions for remedying the problem.</td>
+<td>At present, this action leads to a half.com "page not found" page.
+Without specs, it's not clear whether this is a very poor user experience or an actual
+bug in that an error page should be the landing page.</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-4*</td><td> Enter 3 existing ISBNs (with dashes included), separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-5</td><td> Enter 3 existing ISBNs (with dashes excluded), separated with commas</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-6</td><td> Enter 3 existing ISBNs, separated with spaces
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-7</td><td> Enter 3 existing ISBNs, separated with semi-colons
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-8</td><td> Enter 3 existing ISBNs, separated with carriage-returns
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-9</td><td> Enter 3 existing ISBNs, with first separator a space, and second separator a semi-colon
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-10</td><td> Enter 3 existing ISBNs, with first separator a semi-colon, and second separator a carriage-return
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-11</td><td> Enter 3 existing ISBNs, separated with commas, and with an extra semi-colon at end
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-12</td><td> Negative: Enter three nonexistent ISBNs, separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-13</td><td> Enter nonexistent ISBN, then existing ISBN, separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-14</td><td> Enter alphabetical term, then existing ISBN, separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-15*</td>
+<td> Select <b>Title</b> from the drop-down menu, then enter "Systematic
+Software Testing (without quotes) into the search box.  Finally, click the
+<b>Search</b> button.
+<td>The individual product page for <i>Systematic Software Testing</i> 
+should be displayed.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-16</td><td> Negative: Select <b>Title</b>, then enter nonexistent title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-17</td><td> Negative: Select <b>Title</b>, then enter existing ISBN
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-18</td><td> Select <b>Title</b>, then enter portion of legitimate title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-19*</td><td> Select <b>Author</b>, then enter legitimate author (last name, comma, first name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-20</td><td> Select <b>Author</b>, then enter legitimate author (first name, last name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-21</td><td> Negative: Select <b>Author</b>, then enter nonexistent author (last name, comma, first name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-22</td><td> Negative: Select <b>Author</b>, then enter nonexistent author (first name, last name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-23</td><td> Negative: Select <b>Author</b>, then enter existing title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-24</td><td> Select <b>Author</b>, then enter just existing last name of author who has written only one textbook
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-25</td><td> Select <b>Author</b>, then enter just existing last name of author who has written more than one textbook
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-26*</td><td> Select <b>Keyword</b>, then enter legitimate author (last name, comma, first name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-27</td><td> Select <b>Keyword</b>, then enter legitimate author (first name, last name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-28</td><td> Select <b>Keyword</b>, then enter multi-word portion of existing title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-29</td><td> Select <b>Keyword</b>, then enter single-word portion of existing title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-30</td><td> Negative: Select <b>Keyword</b>, then enter nonexistent word
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-31*</td><td> With JavaScript disabled, enter 3 existing ISBNs, separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-32*</td><td> With JavaScript disabled, select <b>Title</b>, then enter legitimate title
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-33*</td><td> With JavaScript disabled, select <b>Author</b>, then enter legitimate author (last name, comma, first name) 
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-34*</td><td> With JavaScript disabled, select <b>Keyword</b>, then enter legitimate author (last name, comma, first name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-35*</td><td> With images disabled, enter 3 existing ISBNs, separated with commas
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-36*</td><td> With images disabled, select <b>Author</b>, then enter legitimate author (last name, comma, first name)
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>HALF-BUY-TC-37</td><td> Use screen-reader to determine accessibility of Buy module.
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</ul>
+</ol>
+</body>
+</html>

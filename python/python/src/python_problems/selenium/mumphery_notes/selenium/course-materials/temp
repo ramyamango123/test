@@ -1,0 +1,4 @@
+<p>A one-word movie title should contain only one blank.  Use this info
+to write a SIDE program that outputs a one-word movie (including the year
+the movie was made) to the log file.  Try to create as short a regular
+expression as possible.

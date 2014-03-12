@@ -1,0 +1,56 @@
+Execution started at 05/25/2011 05:22:03 PM
+
+=======================================
+[Case MostPopular-BlogFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=BlogFlag:true&v=1
+***Passed!***
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***
+
+[Case guiderest-autoguide-1-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=testreleaseflag&fallback=&query=&url=http%3A%2F%2Fnewsroom.cisco.com%2Fdlls%2F2007%2Ffin_080707.html&urlFilter=&appendParams=AAAA%3Dabcd&startingDocNum=1&resultsPerPage=4&maxStars=3&maxTermCount=5&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) ..., detected in Actual results...
+
+=======================================
+[Case Mo##########################stPopular-FeatureFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-PodcastFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=PodcastFlag:true&v=1
+***Failed!***
+>>>Differences:
+Total 1 differences, see below:
+Expected: guides-attribute(cv): 1
+Actual:   guides-attribute(cv): 0
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+
+Execution completed at 05/25/2011 05:34:08 PM
+
+New elements, guides-attribute(of) guides-attribute(token) ..., detected in Actual results...
+
+=======================================
+[Case MostPopular-FeatureFlag-cache] 
+[REQ-URL]: http://qa2:8080/baynote/guiderest?customerId=cisco&code=news&guide=MostPopular&attrFilter=FeatureFlag:true&v=1
+***Passed!***

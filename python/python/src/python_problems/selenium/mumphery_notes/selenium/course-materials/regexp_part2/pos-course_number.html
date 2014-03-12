@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>pos-course_number</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">pos-course_number</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://www.deanza.edu/schedule/classes/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Clear']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Quarter</td>
+	<td>label=Winter 2008</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>CourseID</td>
+	<td>74</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Search']</td>
+	<td></td>
+</tr>
+<!-- At least one course with course number from query must exist -->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:-074[AB.]</td>
+	<td></td>
+</tr>
+<!-- Reject course numbers starting with other than 07 -->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>regexp:-[012][0-68-9][0-9][AB.]-</td>
+	<td></td>
+</tr>
+<!-- Reject course numbers starting with 07 but ending with a digit other than 4 -->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>regexp:-07[0-35-9][AB.]-</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

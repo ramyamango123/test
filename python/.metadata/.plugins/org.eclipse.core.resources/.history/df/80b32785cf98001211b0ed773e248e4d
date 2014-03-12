@@ -1,0 +1,7 @@
+str = "2r"
+
+try:
+    int(str)
+    print True
+except:
+    print False

@@ -1,0 +1,206 @@
+<html><head><title>Automated Web Page Testing with Selenium IDE</title></head><body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Midterm Review</h3>
+<p>
+<font size="+2">
+</font></p><ol>
+<font size="+2"><li>What does SIDE stand for?
+<!-- SOLUTION:  Selenium Integrated Development Environment -->
+<p>
+</p></li><li>What is the difference between an <b>assert</b> and a <b>verify</b> with
+Selenium commands?
+<!-- SOLUTION:  Text execution terminates if an "assert" fails, but keeps
+on going to the end of the test if a "verify" fails. --> 
+<p>
+</p></li>
+<p>
+</p></li><li>What Selenese command can be used to help debug a regexp?
+<!-- SOLUTION:  storeEval -->
+<p>
+</p></li><li>What is one big difference between SilkTest and Selenium, excluding
+the price?
+<!-- SOLUTION:  SilkTest can test Windows applications while Selenium is limited to web
+page testing. --> 
+<p>
+</p></li><li>Which browsers can Selenium IDE be run in?
+<!-- SOLUTION:  Firefox -->
+<p>
+</p></li><li>If a Selenium function requires a <b>script</b> argument, what would
+that argument look like in general terms?
+<!-- SOLUTION:  JavaScript code WITHOUT the "javascript{...}" syntax. -->
+<p>
+</p></li><li>If a Selenium function requires a <b>pattern</b> argument, what five 
+prefixes might that argument have?
+<!-- SOLUTION:  glob:, regexp:, regexpi:, exact: or (nothing - no prefix) -->
+<p>
+</p></li><li>What is the regular expression sequence that loosely translates to
+"anything or nothing?"
+<!-- SOLUTION:  .* -->
+<p>
+</p></li><li>What is the globbing sequence that loosely translates to "anything or
+nothing?
+<!-- SOLUTION:  * -->
+<p>
+</p></li><li>What does a character class for all alphabetic characters and digits
+look like in regular expressions?
+<!-- SOLUTION:  [a-zA-Z0-9] -->
+<p>
+</p></li><li>What does a character class for all alphabetic characters and digits
+look like in globbing?
+<!-- SOLUTION:  [a-zA-Z0-9] -->
+<p>
+</p></li><li>What must one set within SIDE in order to run a test from the beginning
+to a certain point within the test?
+<!-- SOLUTION:  A Breakpoint -->
+<p>
+</p></li><li>What does a right-pointing green triangle at the beginning of a command
+in SIDE indicate?
+<!-- SOLUTION:  A Start Point.  The test executes from this command to the end of the test. -->
+<p>
+</p></li><li>How does one get rid of the right-pointing green triangle?
+<!-- SOLUTION:  Either type in "S" or
+re-select the Set / Clear Start Point item from the context menu.  --> 
+<p>
+</p></li><li>How can one add vertical white space between sections of a single
+test?
+<!-- SOLUTION:  Go into Table view in SIDE and click on a command, right click and
+select "Enter New comment" and vertical white space will appear on top of
+the command.  Or go into Source view and type in the HTML comments syntax
+in the desired location. -->
+<p>
+</p></li><li>What Selenium functionality uses wildcards?
+<!-- SOLUTION:  globbing -->
+<p>
+</p></li><li>Which wildcards does SIDE support?
+<!-- SOLUTION:  ? and * -->
+<p>
+</p></li><li>What are the four types of regular expression quantifiers which we've
+studied?
+<!-- SOLUTION:  numeric quantifier {n}, numeric quantifier {n,m}, asterisk (*), and plus (+)  -->
+<p>
+</p></li><li>What regular expression special character(s) means "any character?"
+<!-- SOLUTION:  . -->
+<p>
+</p></li><li>What distinguishes between an absolute and relative URL in
+SIDE?
+<!-- SOLUTION:  The absolute pathname has a "http" in front while the relative
+pathname does not. -->
+<p>
+</p></li><li>How would one access a Selenium variable named "count"
+from within a JavaScript snippet?
+<!-- SOLUTION:  storedVars['count'] -->
+<p>
+</p></li><li>What Selenese command can be used to display the value of
+a variable in the log file, which can be very valuable for debugging?
+<!-- SOLUTION:  echo -->
+<p>
+</p></li><li>If one wanted to display the value of a variable named <b>answer</b>
+in the log file,
+what would the first argument to the previous command look like?
+<!-- SOLUTION:  ${answer}
+<p>
+</p></li><li>Which Selenium command is used to simulate the entry of
+input from the keyboard?
+<!-- SOLUTION:  type -->
+<p>
+</p></li>
+<li>Where did the name "Selenium" come from?
+<!-- SOLUTION:  Named for the antidote for mercury poisoning, as a "jab" at Mercury Interactive, 
+makers of the well-known WinRunner tool for testing web pages and applications -->
+<p>
+</p></li><li>Which Selenium command(s) simulates selecting a link?
+<!-- SOLUTION:  click, clickAndWait -->
+<p>
+</p></li><li>Which two commands can be used to check that an alert with a particular
+message popped up?
+<!-- SOLUTION:  assertAlert and verifyAlert -->
+<p>
+</p></li><li>What does a <b>comment</b> look like in <b>Column</b> view?
+<!-- SOLUTION:  The comment is in purple text. -->
+<p>
+</p></li><li>What does a <b>comment</b> look like in <b>Source</b> view?
+<!-- SOLUTION:  like this line of code right here -->
+<p>
+</p></li><li>What is the nature of the bug with the <b>Source</b> view of the SIDE?
+<!-- SOLUTION:  If you make modifications in the Source view and do not save the test, then
+execute the test, all your modifications will be lost.  -->
+<p>
+</p></li><li>What are Selenium tests normally named (as displayed at the top
+of each test when viewed from within a browser)?
+<!-- SOLUTION:  The same as the filename without the .html extension 
+Examples, neg-not_enough_params, neg-no_params, pos-course_number --> 
+<p>
+</p></li><li>What command simulates selecting the browser's <b>Back</b> button?
+<!-- SOLUTION:  goBackAndWait -->
+<p>
+</p></li><li>If the <b>Test Case</b> frame contains several test cases, how
+can one execute just the selected one of those test cases?
+<!-- SOLUTION: Select the second of the two glyphs that contains a right-pointing triangle.  -->
+<p>
+</p></li><li>What globbing functionality is NOT supported by SIDE?
+<!-- SOLUTION: character class [] -->
+<p>
+</p></li><li>What is wrong with this character class range?  <b>[A-z]</b>
+<!-- SOLUTION: The ASCII character set contains non-alpha characters between the <b>Z</b> and the <b>a</b> characters. -->
+<p>
+</p></li><li>What are three ways of specifying an uppercase or lowercase <b>M</b> in a Selenese pattern?
+<!-- SOLUTION:  regexp:(m|M)   regexpi:m     regexp:[mM] -->
+<p>
+</p></li><li>What does this regular expression match?  
+<p>
+<b>regexp:[1-9][0-9],[0-9]{3},[0-9]{3}</b>
+<!-- SOLUTION: Numbers ranging from 10,000,000 through 99,999,999 -->
+<p>
+</p></li><li>What are two ways to match an asterisk within a Selenese regexp?
+<!-- SOLUTION: [*]  \* -->
+<p>
+</p></li><li>What is the generic name for an argument (to a Selenese command) which starts with <b>//</b>?
+<!-- SOLUTION: xpath -->
+<p>
+</p></li><li>What Selenese command is used to choose an item from a list?
+<!-- SOLUTION: select -->
+<p>
+</p></li><li>How many matches exist for this pattern?  
+<p><b>regexp:[13579][02468]</b>
+<!-- SOLUTION: 25:  10, 12, 14, 16, 18, 30, 32, 34, 36, 38, 50, 52, 54, 56, 58, 70, 72, 74, 76, 78, 90, 92, 94, 96, 98 -->
+<p>
+</p></li><li>What is the oddity associated with testing an
+alert?
+<!-- SOLUTION: The alert won't actually appear. -->
+<p>
+</p></li><li>How can one get SIDE to always record an absolute URL for the <b>
+open</b> command's argument?
+<!-- SOLUTION: Options=>General=>Record absolute URL -->
+<p>
+</p></li><li>What Selenese command and argument 
+can be used to transfer the value of a JavaScript
+variable into a SIDE variable?
+<!-- SOLUTION: storeExpression javascript{snippet} SIDEvar 
+where the snippet is an expression that evaluates to the value of the JavaScript
+variable of interest -->
+<p>
+</p></li><li>How would one access the value of a SIDE variable named <b>name</b>
+from within a JavaScript snippet used as the argument to a Selenese command?
+<!-- SOLUTION: storedVars['name'] -->
+<p>
+</p></li><li>What is the name of the type of JavaScript entity represented by the last answer?
+<!-- SOLUTION: associative array -->
+<p>
+</p></li><li>What string(s) does this regular expression match?
+<p><b>regexp:August|April 5, 1908</b>
+<!-- SOLUTION: 
+August   
+OR   
+April 5, 1908 -->
+<p>
+</p></li><li>What Selenium regular expression pattern can be used instead of the <b>glob</b> below to produce the same results?
+<p><b>verifyTextPresent | glob:9512?</b>
+<!-- SOLUTION: verifyTextPresent | regexp:9512. -->
+<p>
+</p></li><li>What Selenium globbing pattern can be used instead of the <b>regexp</b>
+below to produce the same results?
+<p><b>verifyTextPresent | regexp:Hush.*Charlotte</b>
+<!-- SOLUTION: verifyTextPresent | glob:Hush*Charlotte</b>
+</font></ol></body></html>

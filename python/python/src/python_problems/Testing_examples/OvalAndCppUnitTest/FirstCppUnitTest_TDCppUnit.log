@@ -1,0 +1,8 @@
+
+[oval build] ===============================================
+[oval build] instruction: make  FirstCppUnitTest_TDCppUnit
+[oval build] eval `oval runtime -csh IntegrationWithCppUnit`
+[oval build] ===============================================
+
+../startup_rh73_gcc32.csh: No such file or directory.
+

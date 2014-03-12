@@ -1,0 +1,267 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h2 align="center">Intro to Selenium IDE</h2>
+<p>
+<font size=+2>
+<ol type=I>
+<li>A few facts about Selenium
+  <p>
+  <ol type=A>
+  <li>A suite of tools used for web page testing
+  <p>
+  <li>Available via <a href="http://www.openqa.org/">OpenQA</a>, home for many open-source QA tools
+  <p>
+  <li>Runs in several browsers:  Internet Explorer, Mozilla, and Firefox on
+      Windows, Macintosh, and Linux platforms
+  <p>
+  <li>Named for the antidote for mercury poisoning, as a "jab" at Mercury
+      Interactive, makers of the well-known WinRunner tool for testing web
+      pages and applications
+  </ol>
+<p>
+<li>Differences between Selenium and WinRunner/SilkTest/QTP/TestComplete
+  <ol type=A>
+  <p>
+  <li>Selenium is free!  The others range from several hundred to several
+      thousand in price.
+  <p>
+  <li>Selenium is limited to web page testing.  The others can also test
+      Windows applications.
+  <p>
+  <li>Selenium can be run on a Mac OS or Linux system.  The others run
+      only on Windows platforms.
+  <p>
+  <li>Selenium can be used for browser compatibility testing.  The others
+      are very limited in this regard.
+  </ol>
+<p>
+<li>Selenium projects
+  <p>
+  <ol type=A>
+  <li>Selenium IDE (Integrated Development Environment)
+    <p>
+    <ol>
+    <li>Implemented as a Firefox extension
+    <p>
+    <li>Provides record/replay capabilities
+    <p>
+    <li>Allows user scripting only in Selenese language
+    <p>
+    <li>The focus of <b>this</b> course
+    </ol>
+  <p>
+  <li>Selenium RC (Remote Control) 
+    <p>
+    <ol>
+    <li>Allows web tests to be written in a variety of high-level programming
+        languages:  Java, Perl, PHP, Python, Ruby, JavaScript, .NET.
+    <p>
+    <li>The focus of the <b>next</b> course in Selenium at De Anza
+    </ol>
+  <p>
+  <li>Selenium Core
+    <p>
+    <ol>
+    <li>Must be installed on same server as SUT
+    <p>
+    <li>Allows user scripting in Selenese language
+    <p>
+    <li>Covered lightly in <b>this</b> course
+    </ol>
+  <p>
+  <li>Selenium on Rails
+    <p>
+    <ol>
+    <li>Used to test Ruby on Rails apps with Selenium Core
+    <p>
+    <li>Provides additional formats besides HTML for scripts
+    <p>
+    <li>Not covered in either this course or the next one
+    </ol>
+</ol>
+<p>
+<li>Selenium IDE - Important Web Pages
+    <p>
+    <ol type=A>
+    <li><a href="http://www.openqa.org/selenium-ide/">Home Page</a>
+    <p>
+    <li>Download and installation
+    <p>Installation on CIS desktops must be done each time you log in (due to a snafu with the image creation for lab computers).  But the good news is
+that the installation is trivial:
+    <p>
+      <ol type="1">
+      <li>Point browser at <a href="http://selenium-ide.openqa.org/download.jsp">Selenium IDE installation page</a> on OpenQA web site.
+      <p>
+      <li>Select the download link for <b>1.0 Beta 1</b>.
+      <p>
+      <li>If nothing happens, then select the <b>Edit Options</b> button just above
+the page.  Then select the <b>Allow</b> button on the <b>Allowed Sites</b>
+pop-up, followed by the <b>Close</b> button.
+      <p>
+      <li>Select the download link for <b>1.0 Beta 1</b> again.
+      <p>
+      <li>Select the <b>Install Now</b> button of the <b>Software Installation</b> window.
+      <p>
+      <li>Select the <b>Restart Firefox</b> button of the <b>Add-ons</b> window.
+      </ul>
+    <p>
+    <li>Installation on your home/work computers should be achievable using the same steps (but won't have to be re-done for each user session!).
+    </ol>
+  <p>
+  <li><a href="http://www.theautomatedtester.co.uk/selenium_training.htm">The Automated Tester Selenium Tutorials</a>
+  <p>Some of these tutorials are assigned reading for this course.
+  <li><a href="../reference.html">Latest (1.0 Beta) Selenium Core Reference documentation</a>
+  <p><b>NOTE: </b>This reference documentation was obtained via
+unzipping the 1.0 Beta installation, then poking around.  If
+you can locate the material via a link on the OpenQA site, please
+let me know.
+  <p>
+    <ol type=1>
+    <li>Commands recorded by Selenium IDE
+    <p>
+    <li>Commands which can be entered via <b>Table</b> tab
+    <p>
+    <li>Commands which can be typed by user into test via <b>Source</b> tab
+    </ol>
+  <p>
+  <li><a href="http://forums.openqa.org/forum.jspa?forumID=2">OpenQA Forum for Selenium IDE Users</a> (where you can post questions, read answers to yours
+and other users' questions, etc.)
+  <p>
+  <li><a href="http://www.oreilly.com/catalog/functionalwt/index.html"><i><b>An Introduction to Testing Web Applications with twill and Selenium</a></b></i> O'Reilly book</a>
+  <p>
+  </ol>
+<p>
+<p><b>LAB EXERCISE INTRO-1</b>
+<p>
+Set up an account for yourself with OpenQA so that you can post questions
+to the Selenium IDE forum.
+<p>
+<li>Selenium IDE Example: Link-Checking
+    <p>
+    <ol type=A>
+    <li>Recording 
+    <p>
+      <ol>
+      <li>Point Firefox browser at SUT, <a href="http://www.deanza.edu/directory/dir-az.html">De Anza A-Z Directory</a>.
+      <p>
+      <li>Select <b>File=>New Test Case</b>.
+      <p>
+      <li>Click on the red <b>Record</b> button to start recording (it is
+      already on by default when Selenium IDE is first brought up).
+      <p>
+      <li>Click on browser window to give it focus.
+      <p>
+      <li>Click on letter <b>T</b> from alphabetical horizontal navigation bar.
+      <p>
+      <li>Select "Technical Writing" link, and wait for new page to load.
+      <p>
+      <li>Bring up context menu.
+      <p>
+        <ol type=a>
+        <li>Right-click for right-handed Windows users.
+        <p>
+        <li>Left-click for left-handed Windows users.
+        <p>
+        <li>CTRL-click for Mac users.
+        </ol>
+      <p>
+      <li>Select <b>Verify Title Technical Writing</b> from context menu.
+      <p>
+      <li>Select browser's <b>Back</b> button.
+      <p>
+      <li>Repeat the last four steps for the "Transcripts" link.
+      <p>
+      <li>Repeat the last four steps for the "Transfer Planning" link.
+      <p>
+      <li>Click the red <b>Record</b> button to stop recording.
+      <p>At this point, all of the user actions except the clicks on the 
+      <b>Back</b> button have recorded.  To take care of these clicks, we
+      will add calls to the <b>goBackAndWait</b> function.
+      </ol>
+    <p>
+    <li>Inserting Selenese function calls via <b>Table</b> view
+    <p>
+      <ol>
+      <li>Select <b>Table</b> tab of Selenium IDE.
+      <p>
+      <li>Select second <b>clickAndWait</b>.
+      <p>
+      <li>Bring up the context menu of IDE and select <b>Insert New Command</b>.
+      <p>
+      <li>Type "g" into <b>Command</b> field.
+      <p>
+      <li>Select <b>goBackAndWait</b> from command menu.
+      <p>
+      <li>Repeat last three steps for third <b>clickAndWait</b> call.
+      </ol>
+    <p>
+    <li>Inserting comments via <b>Table</b> view
+    <p>
+      <ol>
+      <li>From <b>Table</b> mode, select the first <b>clickAndWait</b> call.
+      <p>
+      <li>Bring up the context menu of IDE and select <b>Insert New Comment</b>.
+      <p>
+      <li>Enter "Check Technical Writing link...."
+      <p>
+      <li>Repeat the last three steps for the remaining <b>clickAndWait</b> calls.
+      </ol>
+    <p>
+    <li>Replaying a test
+    <p>
+       <ol>
+       <li>Select <b>File=>Save As</b> to save the test. 
+        <p>
+       <li>Drag the speed slider to <b>Slow</b>.
+        <p>
+       <li>Select the green right-pointing arrow ("Play from the beginning or
+       start point").
+       </ol>
+    <p>
+    <li>Analyzing the results
+    <p>
+       <ol>
+       <li>From <b>Table</b> view, observe the green vs. red shading on
+       assertions.
+       <p>
+       <li>From <b>Table</b> or <b>Source</b> view, select the <b>Log</b> tab and look for
+       errors (bold red font).
+       </ol>
+    <p>
+    <li>Entering/modifying Selenese commands via the <b>Source</b> tab.
+    <p>
+        <ol>
+        <li>Select the <b>Source</b> tab and scroll down to the second
+        <b>verifyTitle</b> call.
+        <p>
+        <li>Eliminate the trailing "s" in "Transcripts."
+        <p>
+        <li>Select <b>File=>Save</b>.
+        <p>This step is critical; otherwise, the changes will
+be thrown away.  This seems to be a bug with changes made
+via the <b>Source</b> tab, as changes made via the <b>Table</b> tab do not have to be saved before replaying a test.
+        <p>
+        <li>Replay the test again.  Analyze the results.  This time, the
+        <b>Table</b> view should display red shading on the second call
+        to <b>verifyTitle</b> and the <b>Source</b> view's <b>Log</b> should
+        contain a bold red font error message.
+       </ol>
+    </ol>
+</ol>
+<p><b>LAB EXERCISE INTRO-2</b>
+<ol>
+<li>Create a test for any four links in the De Anza A-Z Directory 
+<p>
+<li>Modify a copy of your test to use <b>assertTitle</b> instead of <b>verifyTitle</b>.  Also modify your test to force at least one link check to fail.  What
+is the difference between using <b>verifyTitle</b> and <b>assertTitle</b>?
+<p>
+<li>Replay your test at both <b>Fast</b> and <b>Slow</b> speeds.
+</ol>
+</body>
+</html>

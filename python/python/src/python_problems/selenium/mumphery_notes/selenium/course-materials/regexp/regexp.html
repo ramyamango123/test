@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Automated Web Page Testing with Selenium IDE</title>
+</head>
+<body>
+<h2 align="center">CIS-200W - Automated Web Page Testing with Selenium IDE</h2>
+<h3 align="center">De Anza College</h3>
+<h3 align="center">Spring 2008</h3>
+<h3 align="center">Regular Expressions</h3>
+<p>
+<font size=+2>
+<ol type=I>
+<li>Regular Expressions: The Character Class
+<p>The <b>character class []</b>, which matches any one of the characters inside square brackets, works with regular expressions in SIDE (although it
+does not work with globbing in SIDE).  
+<p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/character-class.html">Example</a>.
+<p>
+  <ul>
+  <li>Note the use of <b>VerifyTextPresent</b> and <b>VerifyTextNotPresent</b> functions.
+  <p>
+  <li>Note the inclusion of <b>regexp:</b> in front of the first argument
+to these functions.  Without this, the default would be to interpret the rest of the string with
+globbing.
+  <p>
+  <li>The <b>regexp:</b> is only needed for the first two tests, since
+the last two do not use any regular expression metacharacters.
+  <p>
+  <li>Re: the last test.  Note the misleading error message in the log.  <b>verifyTextNotPresent</b> should return a false, because "heaven" <b>is</b> present.  However, at least the test itself fails, which is as expected.
+  </ul>
+
+<p><b>LAB EXERCISE REGEXP-1</b>
+<p>
+<ol>
+<li>Write a test to determine whether Bette Davis made any movies in 1955.
+<p>
+<li>Write a test to determine whether Bette Davis made any movies in the 1990s.
+</ol>
+<p>
+
+<li>Regular Expressions: The Character Class with a Range
+  <p>A hyphen (dash) can be used between two characters within a character
+class to create a <b>range</b>.  
+  <p>Ranges help make regular expressions
+shorter, and hence, easier to read than they would be otherwise.
+  <p>For example, both of these two ranges match any alphabetical character,
+whether uppercase or lowercase:
+    <p>
+    <ul>
+    <li><b>[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]</b>
+    <li><b>[a-zA-Z]</b> 
+    </ul>
+  <p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/character-class-with-ranges.html">Selenium example</a>.
+What will the two tests in this example match?
+<p>
+
+<li>Debugging Regular Expressions
+<p>
+  <ol type="A">
+  <li>Apparently cannot be done without resorting to JavaScript.
+  <p>
+  <li><b>storeEval</br>
+         this.browserbot.bodyText().match(/<i>regexp</i>/)</br>
+         <i>variableName</i></b>
+  <p>Replace the <b><i>regexp</i></b> above with a SIDE regular expression which
+you wish to debug, i.e., that part of a pattern argument following the <b>regexp:</b> prefix.
+  <p>Replace the <b><i>variableName</i></b> with any variable name you wish.
+It will receive the match from the JavaScript function <b>match</b>.
+  <p>
+  <li>Use <b>echo <i>variableName</i></b> to check the proper functioning of
+your regular expression.
+  </ol>
+<p>
+
+<p>
+<p><b>LAB EXERCISE REGEXP-2</b>
+<ol>
+<li>Modify a copy of the <b>character-class-with-ranges.html</b> test above
+to use the debugging technique shown above in order to prove exactly what
+the second test matches.
+</ol>
+<p>
+
+<li>Regular Expressions:  The Numeric Quantifier 
+  <p>
+  <p>The syntax is <b>{<i>n</i>}</b>, where <b><i>n</i></b> is the number
+of occurrences of the immediately preceding entity (character or range or group) which one wants to match.
+  <p>For example, <b>[a-zA-Z]{10}</b> will match ten consecutive alphabetical
+characters, whether uppercase or lowercase.
+  <p><b>[aeiouAEIOU]{4}</b> will match 4 consecutive vowels, regardless of case.
+  <p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/character-class-with-quantifier.html">Selenium example</a>.
+<p>
+
+<li>Regular Expressions:  Negation
+  <p>A caret (<b>^</b>) at the beginning of a character class <i>negates</i> 
+that character class, meaning that
+any character <b>not</b> inside the square brackets will be matched.
+  <p>For example, <b>[^a-zA-Z]{10}</b> will match any ten consecutive non-alpha
+characters.
+  <p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/excluding-caret.html">Selenium example</a>.  What are these
+two tests matching?
+<p>
+
+<li>Regular Expressions: The "dot" (period)
+  <p>A period (<b>.</b>) can be used to match any single character (including an
+actual period).
+<p>
+
+<li>Regular Expressions: The Asterisk Quantifier
+  <p>An asterisk (*) is another type of <b>quantifier</b>, which matches
+  0 or more of the preceding character or group.  
+  <p>Taken together, <b>.*</b> will match 0 or more of any character, or
+in short "anything or nothing."  <b>.*</b> is used very often within larger
+regular expressions.
+  <p><a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/dot-star.html">Selenium example</a>.
+Which of these three tests will pass, and which will fail?
+</ol>
+<p>
+<p><b>LAB EXERCISE REGEXP-3</b>
+<p>
+<ol>
+<li>Write a test that will determine if a Bette movie exists that contains
+a 20th-century year in the title.  Do NOT just look at the list of movies,
+find the movie I'm thinking of, and then write a test to look for that movie
+title!  Use a regular expression that would match such a movie from any
+list of movies resembling the Bette list.
+<p>
+<li>Answer the two comment-questions in this 
+<a href="http://puma.deanza.edu/distribute/May-Pumphrey/SeleniumIDE/regexp/complex.html">example</a>.  It uses regular expression syntax which we
+haven't covered yet, but you can probably figure out what it does anyway,
+especially if you use the debugging technique above.
+</ol>
+</body>
+</html>

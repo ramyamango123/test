@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>character-class</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">character-class</td></tr>
+</thead><tbody>
+<!--This test should fail as Bette did not make any movies in the 1920s-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:192[0-9]</td>
+	<td></td>
+</tr>
+<!--This test should pass as Bette made several movies in the 1930s-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>regexp:193[0-9]</td>
+	<td></td>
+</tr>
+<!-- This test should pass as "Purgatory" is NOT present in any movie title-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>regexp:Purgatory</td>
+	<td></td>
+</tr>
+<!--This test should fail because "Heaven" is NOT "Not Present"-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>regexp:Heaven</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
